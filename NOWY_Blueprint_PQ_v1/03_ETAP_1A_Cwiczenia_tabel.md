@@ -19,7 +19,7 @@ Po Enter opisz, co zaobserwowałeś.
 - Wyświetlana inna ikona dla Tabel niż dla Formuł
 
 ### TEXT — Co zaraz zrobimy
-Teraz przechodzimy do elementów tabeli: kolumn i elementów specjalnych z `#`.
+Teraz przechodzimy do elementów tabeli.
 Wpisz ręcznie:
 `=[nazwa_tabeli][`
 Po wpisaniu sprawdź, co pokazuje lista elementów.
@@ -32,6 +32,7 @@ Wpisz po kolei, każdą formułę w osobnej komórce:
 `=[nazwa_tabeli][#Data]`
 `=[nazwa_tabeli][#Headers]`
 `=[nazwa_tabeli][#Totals]`
+Jeśli po wpisaniu formuły widzisz error SPILL, oznacza to że formuła nie ma gdzie się wyświetlić, coś już jest w komórce w której próbuje wyświetlić dane.
 Po wpisaniu wszystkich opisz, co zaobserwowałeś.
 
 ### OBSERVATION (oczekiwane)
@@ -63,7 +64,7 @@ Opisz, co zaobserwowałeś.
 
 ### OBSERVATION (oczekiwane)
 - W obszarze tabeli zwracana jest pojedyncza wartość z bieżącego wiersza.
-- Poza tabelą pojawia się błąd, bo nie ma wiersza kontekstu tabeli.
+- Poza tabelą pojawia się błąd, bo ta formuła działa poprawnie tylko dla wierszy należących do tabeli.
 
 ### TASK — Auto-expand 1/3 (nagłówek kolumny)
 Wpisz nowy nagłówek kolumny: `Wartość`.
