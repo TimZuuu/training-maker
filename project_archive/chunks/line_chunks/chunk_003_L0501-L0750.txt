@@ -1,0 +1,250 @@
+﻿MoĹĽe wyglÄ…daÄ‡ tak:
+JeĹ›li uĹĽytkownik wpisze: TRYB DORADCA
+
+Agent:
+- wyĹ‚Ä…cza strukturÄ™ szkoleniowÄ…
+- wyĹ‚Ä…cza checkpointy
+- wyĹ‚Ä…cza plan etapowy
+- przechodzi w tryb konsultacyjny
+- nadal loguje problemy i rozwiÄ…zania
+- wymusza politykÄ™ ochrony danych:
+  â€žNie wklejaj danych. Podawaj tylko nazwy tabel, kolumn, kod M.â€ť
+To wystarczy.
+________________________________________
+11ď¸ŹâŁ Jedna waĹĽna rzecz, ktĂłrej jeszcze nie poruszyĹ‚eĹ›
+Musisz zdecydowaÄ‡:
+Czy agent szkoleniowy ma:
+â€˘	pilnowaÄ‡ czasu (np. â€śminÄ™Ĺ‚o 40 min, przyspieszamyâ€ť)
+czy
+â€˘	ignorowaÄ‡ realny czas i dziaĹ‚aÄ‡ sekwencyjnie?
+To wpĹ‚ywa na projekt blueprintu.
+________________________________________
+Teraz pytanie do Ciebie (jedno, kluczowe)
+Czy blueprint ma byÄ‡:
+â€˘	czytelny dla czĹ‚owieka (opisowy)
+czy
+â€˘	sformalizowany jak mini-DSL (Etap â†’ Cel â†’ Krok â†’ Checkpoint â†’ Kryterium â†’ Remediation)?
+JeĹ›li chcesz skalowaÄ‡ to na wiele szkoleĹ„,
+druga opcja bÄ™dzie znacznie stabilniejsza.
+Od tego zaleĹĽy konstrukcja master prompta.
+2. projektowe - no i to wĹ‚aĹ›nie bym widziaĹ‚ jako opcjÄ™ doradczÄ…. caĹ‚kowicie inna struktura bo wyĹ‚amujemy siÄ™ z ustalonego planu szkoleniowego. 4. tak jest, screeny tylko w wyjÄ…tkowych przypadkach 5 ok to spoko opcja w masterze, ewentualnie doda siÄ™ bardziej szczegĂłĹ‚owe 7. ok niech bÄ™dzie ĹĽe ja wchodzÄ™ w dyskusjÄ™ po tym jak uĹĽytkownik wyjdzie, piszÄ™ admin, rozmawiam z chatem o tym jak poszĹ‚o szkolenie i dostajÄ™ raport 8. tak jest 10. ok ale wymyĹ›l trochÄ™ profesjonalniejszy disclaimer 11. co sÄ…dzisz o tym ĹĽeby kaĹĽdy pytaĹ‚ uĹĽytkownika czy ma Ĺ›ledziÄ‡ czas i przewidywaÄ‡ ile do koĹ„ca, czy lecieÄ‡ na freestyle i siÄ™ nie przejmowaÄ‡, jak zorbimy to zroibmy w sumie moĹĽemy w zaleĹĽnoĹ›ci od bluprintu np. (trochÄ™ zeszĹ‚o nam na tÄ… tabelÄ™, druga dla treningu ale nie kluczowa dla caĹ‚ego Ä‡wiczenia) ĹĽadko uĹĽywaÄ‡ bÄ™dziemy , raczej bÄ™dziemy cisnÄ…Ä‡ do Ä‡wiczeĹ„, ale moĹĽe czasem zamontujemy jakieĹ› skrĂłty, dobrze mieÄ‡ opcjÄ™ sformalizowany, on ma dziaĹ‚aÄ‡ jako dobra instrukcja dla chata ktĂłry jÄ…przetĹ‚umaczy czĹ‚owiekowi 
+Dobrze. Teraz mamy klarownÄ… strukturÄ™.
+________________________________________
+1ď¸ŹâŁ Projektowe = tryb doradczy
+Zgoda.
+To powinno byÄ‡ zupeĹ‚nie inne drzewo logiki, nie wariant szkoleniowca.
+Szkolenie:
+â€˘	ma blueprint
+â€˘	ma checkpointy
+â€˘	ma sekwencjÄ™
+â€˘	ma zamkniÄ™cie
+Doradca projektowy:
+â€˘	zaczyna od definicji problemu
+â€˘	wymusza doprecyzowanie celu
+â€˘	rozbija problem na hipotezy
+â€˘	proponuje warianty architektury
+â€˘	analizuje trade-offy
+â€˘	pomaga podjÄ…Ä‡ decyzjÄ™
+To sÄ… dwa rĂłĹĽne automaty stanĂłw.
+Dobrze, ĹĽe to rozdzielasz.
+________________________________________
+2ď¸ŹâŁ ADMIN â€“ model operacyjny
+Ustalamy:
+â€˘	UĹĽytkownik koĹ„czy szkolenie.
+â€˘	Ty wchodzisz.
+â€˘	Piszesz ADMIN.
+â€˘	Agent:
+o	przestaje rozmawiaÄ‡ jak trener,
+o	przechodzi w tryb raportowy,
+o	generuje raport,
+o	odpowiada na Twoje pytania o przebieg.
+To dziaĹ‚a, bo kontekst rozmowy jest w tej samej sesji.
+Nie ma trwaĹ‚ej pamiÄ™ci miÄ™dzy sesjami â€” to ograniczenie techniczne, nie koncepcyjne.
+________________________________________
+3ď¸ŹâŁ Profesjonalny disclaimer (szkolenie)
+MoĹĽesz uĹĽywaÄ‡ takiej wersji:
+Pracujemy wyĹ‚Ä…cznie na danych treningowych.
+Nie wklejaj ĹĽadnych danych poufnych, firmowych ani zawierajÄ…cych informacje wraĹĽliwe.
+JeĹ›li Ä‡wiczenie wymaga pokazania fragmentu kodu lub struktury danych, wklej wyĹ‚Ä…cznie kod transformacji (np. M), bez surowych danych.
+KrĂłtko. Technicznie. Bez straszenia.
+________________________________________
+4ď¸ŹâŁ Profesjonalny disclaimer (tryb doradczy â€“ mocniejszy)
+W trybie doradczym powinien byÄ‡ ostrzejszy, ale nadal elegancki:
+Tryb doradczy nie wymaga wklejania danych ĹşrĂłdĹ‚owych.
+Podawaj wyĹ‚Ä…cznie nazwy tabel, kolumn oraz fragmenty kodu transformacji.
+Nie udostÄ™pniaj danych operacyjnych, finansowych ani osobowych.
+To wystarczy.
+________________________________________
+5ď¸ŹâŁ Ĺšledzenie czasu â€“ czy warto?
+Tak.
+Ale jako opcja, nie default.
+MoĹĽesz mieÄ‡ ustawienie:
+ZARZÄ„DZANIE CZASEM:
+[OFF] â€“ pracujemy bez kontroli czasu
+[SOFT] â€“ informuj orientacyjnie ile zostaĹ‚o
+[STRICT] â€“ pilnuj czasu i skracaj mniej istotne elementy
+To daje Ci:
+â€˘	moĹĽliwoĹ›Ä‡ skracania niekluczowych Ä‡wiczeĹ„,
+â€˘	moĹĽliwoĹ›Ä‡ przeskakiwania drugorzÄ™dnych tematĂłw,
+â€˘	wiÄ™kszÄ… realizm szkoleniowy.
+To jest bardzo profesjonalny element.
+________________________________________
+6ď¸ŹâŁ Blueprint â€“ skoro ma byÄ‡ sformalizowany
+To kluczowa decyzja.
+Powinien wyglÄ…daÄ‡ mniej wiÄ™cej tak (szkielet logiczny, nie finalna forma):
+ETAP: Przygotowanie danych
+CEL: UĹĽytkownik rozumie rĂłĹĽnicÄ™ zakres vs tabela i tworzy 4 tabele.
+CZAS_PLANOWANY: 15 min
+PRIORYTET: WYSOKI
+
+KROKI:
+1. OtwĂłrz plik.
+2. ZamieĹ„ zakresy na tabele.
+3. Nadaj nazwy zgodnie ze standardem.
+
+CHECKPOINT:
+TYP: CONFIRMATION
+KRYTERIUM: IstniejÄ… 4 tabele o nazwach X,Y,Z,W
+
+REMediation:
+- JeĹ›li brak tabeli â†’ instrukcja resetu
+- JeĹ›li nazwy bĹ‚Ä™dne â†’ poprawa
+- JeĹ›li uĹĽytkownik nie wie jak â†’ przeĹ‚Ä…cz w tryb KOMENDY-1-KROK
+To jest jÄ™zyk operacyjny.
+To jest to, co master powinien generowaÄ‡.
+Chat potem tĹ‚umaczy to na dialog.
+________________________________________
+7ď¸ŹâŁ Co master musi wymuszaÄ‡ przy projektowaniu blueprintu
+Przy kaĹĽdym etapie powinien CiÄ™ zapytaÄ‡:
+1.	Czy ten etap jest krytyczny dla celu szkolenia?
+2.	Czy moĹĽna go skrĂłciÄ‡ przy braku czasu?
+3.	Jaki jest minimalny dowĂłd wykonania?
+4.	Jaki jest typowy bĹ‚Ä…d?
+5.	Co robimy przy fail?
+To sÄ… pytania strukturalne, nie merytoryczne.
+________________________________________
+8ď¸ŹâŁ Jedna rzecz, ktĂłra zaczyna siÄ™ wyĹ‚aniaÄ‡
+TwĂłj master prompt nie bÄ™dzie generowaĹ‚ â€žpromptĂłwâ€ť.
+On bÄ™dzie generowaĹ‚:
+â€˘	specyfikacjÄ™ szkoleniowca
+â€˘	automat stanĂłw
+â€˘	politykÄ™ weryfikacji
+â€˘	politykÄ™ logowania
+â€˘	politykÄ™ trybĂłw
+To jest bliĹĽej projektowania systemu niĹĽ promptowania.
+To bardzo dobry kierunek.
+________________________________________
+9ď¸ŹâŁ Jedno ryzyko, ktĂłre muszÄ™ wskazaÄ‡
+Im wiÄ™cej opcji:
+â€˘	tryby narracji
+â€˘	tryby czasu
+â€˘	tryby krytycyzmu
+â€˘	tryby weryfikacji
+â€˘	tryb doradczy
+â€˘	tryb admin
+tym wiÄ™ksze ryzyko:
+â€˘	chaosu stanĂłw
+â€˘	sprzecznych instrukcji
+â€˘	trudnoĹ›ci utrzymania
+Dlatego potrzebujesz:
+â€˘	jednego nadrzÄ™dnego przeĹ‚Ä…cznika TRYB
+â€˘	oraz jednego obiektu USTAWIENIA
+Nie rozrzucaj tego po caĹ‚ym prompcie.
+________________________________________
+10ď¸ŹâŁ NajwaĹĽniejsze pytanie teraz
+Chcesz, ĹĽeby master:
+A) generowaĹ‚ gotowy prompt szkoleniowy (duĹĽy, kompletny blok)
+czy
+B) generowaĹ‚ najpierw formalny blueprint, a dopiero po zatwierdzeniu przez Ciebie produkowaĹ‚ prompt?
+JeĹ›li zaleĹĽy Ci na jakoĹ›ci i skalowalnoĹ›ci â€” B jest znacznie bezpieczniejsze.
+To jest moment decyzyjny dla architektury.
+3 bez JeĹ›li Ä‡wiczenie wymaga pokazania fragmentu kodu lub struktury danych, wklej wyĹ‚Ä…cznie kod transformacji (np. M), bez surowych danych. - bo czasem bÄ™dzie wklejaÄ‡ dane treningowe, pamiÄ™taj ĹĽe ma byÄ‡ zawarta wskazĂłwka wklej tylko tekst (pokazywana uĹĽytkownikowi) 4 ok 7 tak jest. moĹĽe teĹĽ byÄ‡ opcja wyĹ›wietlenie uĹĽytkownikowi opcji jak chce fail pokonaÄ‡ 8 . nie obchodzi mnie semantyka. ma mi produkowaÄ‡ kod, ktĂłry bÄ™dÄ™ braĹ‚ , tworzyĹ‚ tu u ciebie projekt Szkolenie XCV, tam wklejaĹ‚ ten kod, potem udostÄ™pniaĹ‚ ludziom. 9 to rozpisz to w hierarchi tryb admin i user, user dzieli siÄ™ na doradca i szkoleniowiec, 2 ustawienia stylu mowy (narracja i krytycyzm), 2 ustawienia funkcjonowania szkolenia (czas, weryfikacjia) ojjj tam ryzyko, panikujesz zanim na spokojnie to zorganizowaÄ‡ tak jak ja teraz rozpisaĹ‚em, bÄ™dzie dobrze, mnie siÄ™ trzymaj to daleko zajdziesz ;) ja mam nie rozrzucaÄ‡ po prompcie? przecieĹĽ to ty go bÄ™dziesz pisaĹ‚, ja tylko tobÄ… kierujÄ™ xD haha 10 na pewno B. daj tak jak wszÄ™dzie ĹĽe drukowanie ostatecznego prompta po konsultacjach na hasĹ‚o "jazda drukuj". naturalnie ĹĽe musi byÄ‡ najpierw bluprint na igĹ‚Ä™ dopiÄ™ty
+Dobrze. Teraz to juĹĽ jest architektura, nie luĹşna koncepcja.
+Jedziemy konkretnie.
+________________________________________
+1ď¸ŹâŁ Poprawiony disclaimer (szkoleniowy)
+Ma byÄ‡:
+â€˘	krĂłtki
+â€˘	profesjonalny
+â€˘	bez zakazu wklejania danych treningowych
+â€˘	z instrukcjÄ… â€žwklej jako zwykĹ‚y tekstâ€ť
+Propozycja:
+Pracujemy na danych treningowych.
+Nie wklejaj danych poufnych ani operacyjnych.
+JeĹ›li masz wkleiÄ‡ tabelÄ™, uĹĽyj â€žWklej jako zwykĹ‚y tekstâ€ť, aby przesĹ‚aÄ‡ dane w formie tekstowej.
+Gotowe.
+________________________________________
+2ď¸ŹâŁ Hierarchia trybĂłw â€” rozpisana formalnie
+To jest waĹĽne. Robimy to czysto.
+SYSTEM
+â”‚
+â”śâ”€â”€ TRYB: USER
+â”‚   â”‚
+â”‚   â”śâ”€â”€ PODTRYB: SZKOLENIOWIEC
+â”‚   â”‚   â”‚
+â”‚   â”‚   â”śâ”€â”€ Styl mowy
+â”‚   â”‚   â”‚   â”śâ”€â”€ Narracja (POZIOM 1â€“3)
+â”‚   â”‚   â”‚   â””â”€â”€ Krytycyzm (NISKI / NORMALNY / WYSOKI / SZALONY)
+â”‚   â”‚   â”‚
+â”‚   â”‚   â”śâ”€â”€ Funkcjonowanie
+â”‚   â”‚   â”‚   â”śâ”€â”€ ZarzÄ…dzanie czasem (OFF / SOFT / STRICT)
+â”‚   â”‚   â”‚   â””â”€â”€ Weryfikacja (MIN / BALANS / DOKĹADNA)
+â”‚   â”‚   â”‚
+â”‚   â”‚   â””â”€â”€ Automat szkoleniowy (oparty o Blueprint)
+â”‚   â”‚
+â”‚   â””â”€â”€ PODTRYB: DORADCA
+â”‚       â”‚
+â”‚       â”śâ”€â”€ Styl mowy (ten sam system)
+â”‚       â”śâ”€â”€ Brak blueprintu
+â”‚       â”śâ”€â”€ Brak checkpointĂłw
+â”‚       â”śâ”€â”€ Logowanie problemĂłw i decyzji
+â”‚       â””â”€â”€ Wzmocniony disclaimer
+â”‚
+â””â”€â”€ TRYB: ADMIN
+    â”‚
+    â”śâ”€â”€ Tryb raportowy
+    â”śâ”€â”€ DostÄ™p do logu sesji
+    â”śâ”€â”€ Analiza trudnoĹ›ci
+    â”śâ”€â”€ Ocena gotowoĹ›ci
+    â””â”€â”€ Rekomendacje dalszych moduĹ‚Ăłw
+To jest czyste.
+Bez chaosu.
+Bez konfliktĂłw.
+Nie panikujÄ™.
+PorzÄ…dkujÄ™.
+________________________________________
+3ď¸ŹâŁ Opcja wyboru sposobu pokonania FAIL
+Bardzo dobry pomysĹ‚.
+KaĹĽdy checkpoint moĹĽe mieÄ‡:
+FAIL OPTIONS:
+1) PodpowiedĹş minimalna
+2) Rozbicie na mniejsze kroki
+3) Pokazanie przykĹ‚adu
+4) Reset etapu
+I agent moĹĽe zapytaÄ‡:
+Wybierz jak chcesz to pokonaÄ‡: 1 / 2 / 3 / 4
+To jest eleganckie.
+ZwiÄ™ksza poczucie kontroli.
+Nie rozwala struktury.
+________________________________________
+4ď¸ŹâŁ Co master MA robiÄ‡ (konkret, bez filozofii)
+Sekwencja pracy z masterem:
+ETAP 1 â€” Definicja celu
+â€˘	Co uĹĽytkownik ma umieÄ‡ po szkoleniu?
+â€˘	Co jest absolutnie krytyczne?
+ETAP 2 â€” Tryb
+â€˘	Szkoleniowiec czy Doradca?
+â€˘	JeĹ›li szkoleniowiec: jaki typ (quick, case, surowy funkcjonalny)?
+ETAP 3 â€” Blueprint (formalny DSL)
+â€˘	Etap
+â€˘	Cel
+â€˘	Czas planowany
+â€˘	Priorytet
+â€˘	Kroki
+â€˘	Checkpoint
+â€˘	Kryterium
+â€˘	Remediation
+ETAP 4 â€” Polityki globalne
+â€˘	Styl mowy
+â€˘	Krytycyzm
+â€˘	ZarzÄ…dzanie czasem

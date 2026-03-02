@@ -1,0 +1,250 @@
+﻿TYPE: CONFIRMATION
+CRITERIA: sÄ… 3 query i wszystkie sÄ… Only Connection.
+FAIL_OPTIONS:
+1) 1 query naraz
+2) JeĹ›li user nie widzi panelu: pokaĹĽ jak wĹ‚Ä…czyÄ‡ Queries & Connections
+REMediation:
+- popraw nazewnictwo query (spĂłjnie).
+LOG:
+- lista query + problemy
+
+[ETAP PQ4]
+NAZWA: Ä†wiczenie â€” zmiana nazwy kolumny i konsekwencje w Applied Steps
+CEL: User rozumie, ĹĽe kroki sÄ… zaleĹĽne; zmiana nazwy moĹĽe zepsuÄ‡ Changed Type; potrafi naprawiÄ‡.
+PRIORYTET: WYSOKI
+CZAS_PLANOWANY: 10â€“18 min
+STEPS:
+1) W SalesPL: zmieĹ„ nazwÄ™ kolumny (dodaj â€ś1â€ť).
+2) Gdy pojawi siÄ™ prompt â†’ wybierz Insert.
+3) OBSERVATION: Changed Type moĹĽe siÄ™ wysypaÄ‡, bo odwoĹ‚uje siÄ™ do starej nazwy.
+4) Naprawa: edytuj krok Changed Type (pasek formuĹ‚y / edycja kroku) i podmieĹ„ nazwÄ™.
+CHECKPOINT:
+TYPE: OBSERVATION_SUMMARY (realizowane jako CONFIRMATION lub PASTE_M przy DOKĹADNA)
+CRITERIA: user potrafi opisaÄ‡:
+- co siÄ™ zepsuĹ‚o (Changed Type)
+- dlaczego (zaleĹĽnoĹ›Ä‡ od nazw)
+- jak naprawiĹ‚
+FAIL_OPTIONS:
+1) Agent prowadzi naprawÄ™ w 1-krok
+2) Reset do stanu sprzed zmiany (usuĹ„ Rename Column step)
+REMediation:
+- jeĹ›li user boi siÄ™ edycji: reset i powtĂłrka z prowadzeniem.
+LOG:
+- czy zrozumiaĹ‚ zaleĹĽnoĹ›ci krokĂłw
+
+[ETAP PQ5]
+NAZWA: Typy danych â€” Replace current vs Add new step + bĹ‚Ä™dy konwersji
+CEL: User umie Ĺ›wiadomie ustawiaÄ‡ typy i rozumie bĹ‚Ä™dy wynikajÄ…ce z konwersji.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 12â€“20 min
+STEPS:
+1) ZmieĹ„ typ Cena â†’ Currency: pokaĹĽ Add new step vs Replace current.
+2) Cofnij bĹ‚Ä™dny dodatkowy krok (usuĹ„).
+3) Kolumna IloĹ›Ä‡: zmieĹ„ na Int i wywoĹ‚aj bĹ‚Ä…d (bo tekst).
+4) OBSERVATION: error i panel szczegĂłĹ‚Ăłw; NIE tworzymy â€śdrill to errorâ€ť przypadkiem.
+5) ZamieĹ„ bĹ‚Ä™dy na 0.
+6) Odfiltruj 0 i null (jeĹ›li w danych).
+CHECKPOINT:
+TYPE: CONFIRMATION (DOKĹADNA: PASTE_M fragment)
+CRITERIA: user potwierdza wykonanie: Replace current, obsĹ‚uĹĽone bĹ‚Ä™dy, filtr 0/null.
+FAIL_OPTIONS:
+1) Rozbij na pod-zadania (typ â†’ bĹ‚Ä…d â†’ replace â†’ filter)
+2) Agent daje gotowe mini-instrukcje click-by-click zaleĹĽnie od UI language
+REMediation:
+- jeĹ›li â€śdrill to errorâ€ť dodaĹ‚o krok: usuĹ„ ten krok i wrĂłÄ‡.
+LOG:
+- gdzie byĹ‚y bĹ‚Ä™dy, czy user je rozumiaĹ‚
+
+[ETAP PQ6]
+NAZWA: Column From Examples â€” kolumna WARTOĹšÄ†
+CEL: User generuje kolumnÄ™ z przykĹ‚adu (Cena*IloĹ›Ä‡) i rozumie, ĹĽe PQ tworzy krok.
+PRIORYTET: WYSOKI
+CZAS_PLANOWANY: 8â€“12 min
+STEPS:
+1) Add Column â†’ Column From Examples (from selection) dla Cena i IloĹ›Ä‡.
+2) Podaj 2â€“3 przykĹ‚ady â†’ zatwierdĹş.
+3) ZmieĹ„ nazwÄ™ kolumny na WARTOĹšÄ†.
+CHECKPOINT:
+TYPE: PASTE_M (BALANS/DOKĹADNA) lub CONFIRMATION (MIN)
+CRITERIA: w M jest krok dodajÄ…cy kolumnÄ™ wartoĹ›ci / user potwierdza efekt.
+FAIL_OPTIONS:
+1) Agent przeĹ‚Ä…cza na instrukcjÄ™ â€śManual Custom Columnâ€ť jako obejĹ›cie
+2) Rozbij: najpierw 1 przykĹ‚ad, potem doprecyzowanie
+REMediation:
+- jeĹ›li PQ Ĺşle zgaduje: dodaj kolejny przykĹ‚ad lub przejdĹş na Custom Column.
+LOG:
+- czy Column From Examples zadziaĹ‚aĹ‚o
+
+[ETAP PQ7]
+NAZWA: Merge â€” SalesPL + Products po ProductID
+CEL: User wykona Merge i Expand z dimProducts.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 12â€“18 min
+STEPS:
+1) Merge SalesPL z Products po ProductID.
+2) Expand: wybierz pola (np. Nazwa, Kategoria).
+3) OBSERVATION: null-e jeĹ›li typy/klucze nie grajÄ….
+CHECKPOINT:
+TYPE: PASTE_M lub SCREEN_DESCRIBE
+CRITERIA: merge dziaĹ‚a + rozszerzone kolumny sÄ… widoczne.
+FAIL_OPTIONS:
+1) Rozbij: merge bez expand â†’ potem expand
+2) SprawdĹş typy i trim/clean na kluczach
+3) Reset merge step
+REMediation:
+- jeĹ›li duĹĽo null: typy + oczyszczenie kluczy.
+LOG:
+- join i problemy
+
+[ETAP PQ8]
+NAZWA: Reuse transformacji â€” kopiowanie M z SalesPL do SalesCZ
+CEL: User przenosi te same kroki czyszczenia na SalesCZ przez podmianÄ™ ĹşrĂłdĹ‚a.
+PRIORYTET: WYSOKI
+CZAS_PLANOWANY: 10â€“16 min
+STEPS:
+1) WejdĹş w AE w SalesPL â†’ skopiuj caĹ‚y kod M.
+2) WejdĹş w AE w SalesCZ â†’ wklej kod.
+3) ZmieĹ„ nazwÄ™ ĹşrĂłdĹ‚owej tabeli w kroku Source (PL â†’ CZ).
+CHECKPOINT:
+TYPE: PASTE_M (krĂłtki fragment ĹşrĂłdĹ‚a) lub CONFIRMATION
+CRITERIA: SalesCZ przechodzi te same kroki i dziaĹ‚a.
+FAIL_OPTIONS:
+1) Agent wskazuje dokĹ‚adnie, gdzie w M jest nazwa ĹşrĂłdĹ‚a
+2) Reset do oryginalnego Source i ponĂłw
+REMediation:
+- jeĹ›li user pomyliĹ‚ nazwy: cofnij i popraw Source.
+LOG:
+- czy reuse siÄ™ udaĹ‚, gdzie utknÄ…Ĺ‚
+
+[ETAP PQ9]
+NAZWA: Append + refactor: najpierw Ĺ‚Ä…czymy, potem czyĹ›cimy
+CEL: User rozumie rĂłĹĽnicÄ™: dwa osobne czyszczenia vs jedno po append.
+PRIORYTET: WYSOKI
+CZAS_PLANOWANY: 12â€“20 min
+STEPS:
+1) Append as New Query: SalesPL + SalesCZ â†’ SalesTOTAL (na chwilÄ™).
+2) Narracja: to dziaĹ‚a, ale dubluje czyszczenie.
+3) UsuĹ„ SalesTOTAL.
+4) W SalesPL: po Source dodaj Append (PL+CZ) PRZED czyszczeniem â†’ jeden pipeline.
+CHECKPOINT:
+TYPE: CONFIRMATION (DOKĹADNA: PASTE_M fragment z Append)
+CRITERIA: user ma 1 pipeline czyszczenia dziaĹ‚ajÄ…cy dla obu krajĂłw.
+FAIL_OPTIONS:
+1) Agent prowadzi â€śgdzie wstawiÄ‡ krokâ€ť 1-krok
+2) JeĹ›li user nie ogarnia kolejnoĹ›ci krokĂłw: odtwĂłrz pipeline od Source
+REMediation:
+- przy bĹ‚Ä™dach: cofaj do kroku przed append i wstaw ponownie.
+LOG:
+- czy zrozumiaĹ‚ â€śrefactorâ€ť
+
+[ETAP END]
+NAZWA: Load do Pivot + dowĂłd + domkniÄ™cie
+CEL: User Ĺ‚aduje wynik do Pivot i pokazuje rezultat; zbieramy feedback + pytania.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 8â€“12 min
+STEPS:
+1) Load To â†’ Pivot Table (albo tabela jeĹ›li pivot problematyczny).
+2) Ustaw dowolny pivot pokazujÄ…cy sprzedaĹĽ (np. Produkt vs WartoĹ›Ä‡).
+3) DowĂłd: (preferowane) wklej opis pĂłl pivot; (opcjonalnie) wklej screenshot.
+4) Pytania domykajÄ…ce:
+   - Co byĹ‚o najtrudniejsze?
+   - Co byĹ‚o nowe/zaskakujÄ…ce?
+   - Co wdroĹĽysz w pracy?
+5) Zapytaj: czy przeĹ‚Ä…czyÄ‡ na TRYB DORADCA na pytania â€śz ĹĽyciaâ€ť?
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: jest wynik + user odpowiedziaĹ‚ na 3 pytania.
+FAIL_OPTIONS:
+1) JeĹ›li pivot trudny: przejdĹş na zwykĹ‚Ä… tabelÄ™ + filtr/sort
+2) JeĹ›li brak czasu: skrĂłÄ‡ do 1 pytania feedback
+REMediation:
+- jeĹ›li user utknÄ…Ĺ‚ na pivot: obejĹ›cie â€śLoad as tableâ€ť.
+LOG:
+- wnioski usera + propozycja next steps
+
+ADMIN (wejĹ›cie: sĹ‚owo ADMIN)
+- Generuj raport:
+  * Ustawienia startowe i zmiany
+  * Etapy PASS/FAIL + prĂłby
+  * OBSERVATIONS: % zauwaĹĽonych kluczowych efektĂłw
+  * Top 5 problemĂłw i jak rozwiÄ…zane
+  * Pytania usera (do QA)
+  * Rekomendacja: co dalej (PQ2 / Model / DAX etc.)
+________________________________________
+5) Co od Ciebie jest teraz potrzebne, ĹĽeby zrobiÄ‡ v0.2 (bez rozwlekania)
+Odpowiedz w punktach:
+1.	Nazwy tabel/query â€“ wybieramy konwencjÄ™: fctSalesPL vs fctSprzedaĹĽPL? (PL/EN)
+2.	W ETAPIE E1: czy facts/dim ma byÄ‡ obowiÄ…zkowe, czy tylko â€žmiĹ‚y bonusâ€ť?
+3.	Czy ETAP E2 (auto-expand) ma zostaÄ‡ zawsze, czy tylko gdy ZNAJOMOĹšÄ† TABEL=Nie?
+4.	ETAP PQ5: potwierdĹş, czy w danych treningowych na pewno ma byÄ‡ â€śIloĹ›Ä‡â€ť z tekstem, ĹĽeby wymusiÄ‡ error (to Ĺ›wietny punkt dydaktyczny, ale musi byÄ‡ pewne).
+5.	Jak chcesz liczyÄ‡ â€ž% OBSERVATIONSâ€ť?
+o	prosto: liczba zauwaĹĽonych / liczba oczekiwanych na etap
+o	czy waĹĽone (niektĂłre obserwacje waĹĽniejsze)?
+Jak to dopniemy, robiÄ™ v0.2 i dopiero potem myĹ›limy o â€žStandardach Blueprintâ€ť.
+2) ok tylko trzeba bÄ™dzie napisaÄ‡ fajnego prompta na ten tryb, chcÄ™ ĹĽeby komicznie siÄ™ irytowaĹ‚ i Ĺ›rednio mocno jechaĹ‚ po uĹĽytkowniku. taki o humorystyczny trollerski tryb 3) tabele sÄ… doĹ›Ä‡ waĹĽnym elementem caĹ‚oĹ›ci ale masz racjÄ™. Ustawmy minimum potrzebne do pq, caĹ‚Ä… resztÄ™ opcjonalnie. Jak uĹĽytkownik rozpoczyna szkolenie, niech bÄ™dzie mĂłj wstÄ™p o tabelach ktĂłry rozpisaĹ‚em do momentu nazwania tabel. Po nazwaniu, zapytaj czy uĹĽytkownik chce kilka dodatkowych Ä‡wiczeĹ„ z tabel, powiedz ile mniej wiÄ™cej zajmÄ… i poleÄ‡ zrobienie bo bardzo wartoĹ›ciowe. JeĹ›li jednak uĹĽytkownik nie chce, przechdozimy do zadaĹ„ PQ. B - pole na dole (nie pamiÄ™tam nazwy) - no wiem ĹĽe tak nie moĹĽna, napisaĹ‚em ĹĽe nie pamiÄ™tam ĹĽebyĹ› ty wypeĹ‚niĹ‚ lukÄ™. nie wiesz o jakim polu mowa? jak kliknÄ™ w tabeli listÄ™ to tam siewyĹ›wietla zawartoĹ›Ä‡ listy ok sformuĹ‚uj to "kliknij link Error (Ĺ‚apka, nie strzaĹ‚ka)" wklej screen - to ma byÄ‡ takie o luĹşne zakoĹ„czenie, caĹ‚kowicie opcjonalne, moĹĽe czasem ktoĹ› coĹ› wklei, maĹ‚o funkcjonalne ewentualnie do zbierania wnioskĂłw szkoleniowych, ale moĹĽe daÄ‡ uĹĽytkownikowi wraĹĽenie fajniejszej interakcji C - ok tak to zrĂłb ok musimy zgrupowaÄ‡ pytanie o ustawienia, nie wszystkie na raz( jÄ™zyk, styl [narracja, krytycyzm], techniczne[czas, weryfikacja, poziom nawigacji]). czyli bÄ™dÄ… 2 pytania, 2 i 3. Zawsze pytaj tak ĹĽeby uĹĽytkownik mĂłgĹ‚ odpowiedzieÄ‡ Ĺ‚atwo wpisujÄ…c liczbÄ™. WyĹ›wietlajÄ…c opcje ustawieĹ„, drukuj defaultowÄ… opcjÄ™ pogrubionÄ…, jeĹ›li uĹĽytkownik zamiast cyfr powie ok albo inaczej potwierdzi, znaczy ĹĽe zostajemy przy obecnych defaultowych. default to PL PL UI2 N2 NORMALNY OFF BALANS NIE. przy wyĹ›wietlaniu opcji dobrze wytĹ‚umacz co ustawienia znaczÄ…. pamiÄ™taj ĹĽe pytanie o znajomoĹ›Ä‡ tabel nie bÄ™dzie na poczÄ…tku tylko pĂłĹşniej. dialog bÄ™dzie szedĹ‚ tak : po podaniu imienia, informuje ĹĽe zanim przejdziemy do szkolenia, ustawimy kilka rzeczy, pokaĹĽÄ™ Ci opcje, pogrubione sÄ… ustawione teraz, jeĹ›li chcesz zmieniÄ‡ to wpisz co - taka mini instrukcja przed pokazywaniem ustawieĹ„ a nie czekaj, po imieniu pytanie czy szkolenie czy doradca, potem ustawienia. JeĹ›li wybierze doradce, pyta tylko o ustawienie krytycyzmu etap 0 - ojjj nie, zupeĹ‚nie nie to miaĹ‚em na myĹ›li. RozbiĹ‚eĹ› mojÄ… narracjÄ™ na podpunkty, ja chcÄ™ ĹĽeby w prompcie byĹ‚y wpisane caĹ‚e kwestie. CzÄ™sto semantyka jest kluczem, specjalnie jÄ… rozpisywaĹ‚em, ty jÄ… gubisz i nie wiadomo co potem wyjdzie z tego skrĂłtu. Musisz przerobiÄ‡ mĂłj scenariusz ktĂłry rozpisaĹ‚em, tam gdzie pisaĹ‚em jakbym "mĂłwiĹ‚" [tak naprawdÄ™ symulowaĹ‚em szkolenie ktĂłre bym wykonaĹ‚]. Te wypowiadane przeze mnie kwestie masz teraz odpowiednio "wygĹ‚adziÄ‡" (z jak najlepszym zachowaniem kluczowych sĹ‚Ăłw ktĂłrych uĹĽyĹ‚em, tylko czasem jak napisaĹ‚em coĹ› niedbale to z zaufaniem ĹĽe to wyĹ‚apiesz i zamienisz na poprawne, lepsze np. jak piszÄ™ PQ). Dlatego piszÄ™ narracja bo dosĹ‚ownie mi chodzi o narracjÄ™ poczÄ…tkĂłw pewnych kwestii, tylko te pierwsze wyĹ‚oĹĽenie tematu a potem w razie dodatkowych pytaĹ„ juĹĽ moĹĽesz dziaĹ‚aÄ‡ luĹşno. wtedy kaĹĽde STEPS teĹĽ mogÄ… mieÄ‡ typ STEPS : 1) INTRO - "some text..." 2) TASK - what to do 3) OBSERVATION - what to observe ... ect trzeba przerobiÄ‡ caĹ‚y bluprint w nastÄ™pnej odpowiedzi najpierw poruszmy tÄ… kwestiÄ™ : bluprint juĹĽma okoĹ‚o 13k znakĂłw, ale w sumie wyglÄ…da jak kompletny prompt. i tak materiaĹ‚y szkoleniowe bÄ™dÄ… musiaĹ‚y byÄ‡ w osobnym pliku, to moĹĽe poczÄ…tek dotyczÄ…cu ustawieĹ„ itp, powinno byÄ‡ w prompcie projektu, a szczegĂłĹ‚y szkolenia w pliku? czÄ™Ĺ›Ä‡ adminowa teĹĽ pasuje do master promta. PrzemyĹ›l porzÄ…dnie tÄ… kwestie architektury bo zaczniemy siÄ™ w tym gubiÄ‡, wiem ĹĽe pracujemy nad BP ale trzeba siÄ™ trzymaÄ‡ trzonu co gdzie naleĹĽy, 
+MyĹ›laĹ‚ przez 19s
+Masz racjÄ™: zaczynamy mieszaÄ‡ 3 rĂłĹĽne warstwy (blueprint, scenariusz-narracja, implementacja prompta). Jak tego teraz nie rozdzielimy, za 2â€“3 szkolenia bÄ™dziesz miaĹ‚ spaghetti.
+PoniĹĽej: (1) architektura â€žco gdzie ma ĹĽyÄ‡â€ť, (2) jak zmieniÄ‡ DSL/blueprint ĹĽeby utrzymaĹ‚ TwojÄ… narracjÄ™ literalnie, (3) doprecyzowania do Twoich punktĂłw (SZALONY!, ustawienia, â€žpole na doleâ€ť w PQ).
+________________________________________
+1) Architektura: co powinno byÄ‡ w prompcie, a co w plikach
+Cel: ĹĽeby â€žblueprintâ€ť nie puchĹ‚ do roli kompletnego prompta
+Warstwa A â€” PROMPT (to co wklejasz do projektu â€žSzkolenie PQâ€ť)
+To ma byÄ‡ silnik wykonawczy + meta-kontrakt, a nie caĹ‚a treĹ›Ä‡ szkolenia.
+W prompcie powinno zostaÄ‡:
+1.	Tryby i przeĹ‚Ä…czniki
+â€˘	USER â†’ (SZKOLENIE / DORADCA)
+â€˘	ADMIN
+â€˘	przeĹ‚Ä…czanie w trakcie
+2.	Ustawienia + UX
+â€˘	jak zadawaÄ‡ pytania o ustawienia (numery, bold default, â€žOK = zostajeâ€ť)
+â€˘	defaulty
+â€˘	zasady zmiany ustawieĹ„ w trakcie
+3.	Polityki globalne
+â€˘	disclaimery (training vs doradca)
+â€˘	polityka wklejania: â€žwklej jako zwykĹ‚y tekstâ€ť + opcja screenshot tylko na proĹ›bÄ™
+â€˘	polityka weryfikacji (MIN/BALANS/DOKĹADNA) jako mechanizm, nie konkretne checklisty
+4.	Mechanika logowania
+â€˘	co logujemy
+â€˘	jak liczymy OBSERVATIONS%
+â€˘	jak wyglÄ…da raport ADMIN
+â€˘	gdzie agent ma zbieraÄ‡ â€žpytania uĹĽytkownikĂłw do QAâ€ť
+5.	Loader materiaĹ‚Ăłw
+â€˘	odniesienie: â€žScenariusz szkolenia = plik SCRIPT.mdâ€ť
+â€˘	odniesienie: â€žStandardy blueprint = STANDARDY_BLUEPRINT.mdâ€ť
+â€˘	odniesienie: â€žFAQ/QA = QA.mdâ€ť
+â€˘	odniesienie: â€žAsset registry screenĂłw = ASSETS.mdâ€ť
+Czyli prompt zawiera mechanikÄ™ i routing.
+________________________________________
+Warstwa B â€” SCRIPT (osobny plik scenariusza szkolenia)
+Tu jest caĹ‚a Twoja â€žmĂłwiona narracjaâ€ť + zadania + obserwacje, literalnie.
+Ten plik ma strukturÄ™ zgodnÄ… z blueprintem, ale bez polityk meta.
+To jest â€žkursâ€ť.
+To tu powinny ĹĽyÄ‡ te dĹ‚ugie akapity, ktĂłre kazaĹ‚eĹ› zachowaÄ‡ semantycznie.
+________________________________________
+Warstwa C â€” BLUEPRINT (DSL)
+Blueprint nie musi mieÄ‡ peĹ‚nej narracji, ale moĹĽe zawieraÄ‡ ID krokĂłw i referencje do blokĂłw w SCRIPT.
+PrzykĹ‚ad: blueprint mĂłwi:
+â€˘	ETAP E1 â†’ STEPS: E1.INTRO_01, E1.TASK_01, E1.OBS_01, â€¦
+A same teksty tych INTRO/TASK/OBS siedzÄ… w SCRIPT.
+________________________________________
+Warstwa D â€” STANDARDY_BLUEPRINT (osobny plik, dopiero po 1 szkoleniu)
+Tak jak ustaliĹ‚eĹ›: po pierwszym â€žglinianymâ€ť scenariuszu.
+________________________________________
+Wniosek praktyczny
+To, co teraz nazwaĹ‚em â€žv0.1 blueprintâ€ť jest w poĹ‚owie blueprintem, w poĹ‚owie promptem.
+Decyzja architektoniczna, ktĂłrÄ… rekomendujÄ™:
+â€˘	Blueprint = krĂłtki, strukturalny, z referencjami do SCRIPT
+â€˘	SCRIPT = peĹ‚na narracja (Twoje bloki), duĹĽa objÄ™toĹ›Ä‡
+â€˘	PROMPT = silnik + ustawienia + admin + logowanie + Ĺ‚adowanie
+To daje Ci kontrolÄ™ i skaluje siÄ™.
+________________________________________
+2) DSL/Blueprint: jak zachowaÄ‡ TwojÄ… narracjÄ™ literalnie
+Zmieniamy definicjÄ™ STEPS. Nie â€ś1) zrĂłbâ€ť tylko typowane kroki z tekstem lub referencjÄ….
+Minimalny format (przykĹ‚ad):
+[ETAP E1]
+CEL:
+PRIORYTET:
+CZAS_PLANOWANY:
+
+STEPS:
+- INTRO: E1.INTRO_01

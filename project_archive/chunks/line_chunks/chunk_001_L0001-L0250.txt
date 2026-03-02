@@ -1,0 +1,250 @@
+﻿mam nietypowe zadanie wpadĹ‚em na pomysĹ‚ ĹĽeby zrobiÄ‡ prompta ktĂłry bÄ™dize przeprowadzaĹ‚ z uĹĽytkownikiem szkolenie. Na przykĹ‚ad na temat power query. Dostanie wytyczne jakie informacje ma przekazaÄ‡, w jakiej kolejnoĹ›ci, jakie rady daÄ‡, przez jakie kroki przeprowadziÄ‡ uĹĽytkownika, jakie Ä‡wiczenia z nim wykonaÄ‡, jak weryfikowaÄ‡ czy to co zrobiĹ‚ uĹĽytkownik jest zrobione dobrze itp. czyli mocno ustawiony pod szkolenie i konkretny temat zatem doszedĹ‚em do wniosku ĹĽe dobrze bÄ™dzie robiÄ‡ osobnych agentĂłw na osobne tematy. WiÄ™c przyda siÄ™ master prompt do produkcji takich promptĂłw szkoleniowych trochÄ™ juĹĽ wyĹ‚oĹĽyĹ‚em elementĂłw, przeanalizuj je i przedyskutuj ze mnÄ… jak byĹ› zaplanowaĹ‚e budowe takiego master promta do produkcji promptĂłw szkoleniowych
+ETAP 0 â€” ROZPOZNANIE TRYBU
+Najbardziej prawdopodobne tryby:
+1.	Dyskusja / projektowanie koncepcji (bez generowania)
+2.	Tworzenie nowego master prompta
+3.	Samoaktualizacja Kreatora (jeĹ›li chcesz zmieniÄ‡ mechanikÄ™ systemowÄ…)
+Na ten moment interpretujÄ™ to jako tryb 6 â€“ projektowanie koncepcji.
+PotwierdĹş albo wybierz inny.
+________________________________________
+Teraz analiza koncepcyjna.
+1. Co realnie budujesz?
+Nie budujesz â€žprompta szkoleniowegoâ€ť.
+Budujesz fabrykÄ™ agentĂłw-trenerĂłw.
+To sÄ… dwa poziomy:
+Poziom A â€“ Meta-producent
+â€˘	generuje wyspecjalizowanego trenera
+â€˘	przyjmuje temat (np. Power Query)
+â€˘	przyjmuje zakres
+â€˘	przyjmuje poziom uĹĽytkownika
+â€˘	generuje gotowy prompt szkoleniowy
+Poziom B â€“ Agent szkoleniowy
+â€˘	prowadzi szkolenie
+â€˘	egzekwuje Ä‡wiczenia
+â€˘	weryfikuje wykonanie
+â€˘	adaptuje tempo
+â€˘	buduje progresjÄ™ trudnoĹ›ci
+Te dwa poziomy MUSZÄ„ byÄ‡ oddzielone.
+________________________________________
+2. Problem kluczowy
+Szkolenie to nie przekaz wiedzy.
+Szkolenie to:
+1.	Sekwencjonowanie wiedzy
+2.	Kontrola poznawcza
+3.	Weryfikacja wykonania
+4.	Feedback loop
+5.	Adaptacja poziomu
+6.	Transfer wiedzy do praktyki
+JeĹ›li tego nie zaprojektujesz strukturalnie, wyjdzie â€žkurs tekstowyâ€ť, a nie szkolenie.
+________________________________________
+3. Jak bym zaplanowaĹ‚ architekturÄ™ master prompta produkcyjnego
+Master prompt powinien generowaÄ‡ agenta szkoleniowego w oparciu o 6 moduĹ‚Ăłw:
+________________________________________
+MODUĹ 1 â€” MAPA KOMPETENCJI
+Agent musi umieÄ‡ wygenerowaÄ‡:
+â€˘	mapÄ™ tematu
+â€˘	podziaĹ‚ na bloki
+â€˘	zaleĹĽnoĹ›ci miÄ™dzy blokami
+â€˘	punkty krytyczne (typowe bĹ‚Ä™dy)
+Dla Power Query przykĹ‚adowo:
+â€˘	ĹşrĂłdĹ‚a danych
+â€˘	typy danych
+â€˘	transformacje
+â€˘	merge / append
+â€˘	M basics
+â€˘	performance
+â€˘	typowe puĹ‚apki
+To musi byÄ‡ generowane przed rozpoczÄ™ciem szkolenia.
+________________________________________
+MODUĹ 2 â€” STRATEGIA DYDAKTYCZNA
+Tu musisz zdecydowaÄ‡, czy:
+â€˘	idziemy linearnie
+â€˘	idziemy problemowo
+â€˘	idziemy case-based
+â€˘	idziemy projektowo (build something real)
+To nie moĹĽe byÄ‡ staĹ‚e.
+To musi byÄ‡ parametr wejĹ›ciowy.
+________________________________________
+MODUĹ 3 â€” PROTOKĂ“Ĺ INTERAKCJI
+To jest najwaĹĽniejsze.
+Agent musi mieÄ‡:
+1.	Faza wyjaĹ›nienia
+2.	Faza demonstracji
+3.	Faza Ä‡wiczenia
+4.	Faza weryfikacji
+5.	Faza korekty
+Bez tego szkolenie nie istnieje.
+________________________________________
+MODUĹ 4 â€” WERYFIKACJA
+Kluczowe pytanie:
+Jak AI ma sprawdzaÄ‡, czy uĹĽytkownik dobrze wykonaĹ‚ zadanie?
+Opcje:
+â€˘	pytania kontrolne
+â€˘	opis co widzi uĹĽytkownik
+â€˘	checklisty
+â€˘	proszenie o wklejenie kodu
+â€˘	analiza bĹ‚Ä™dĂłw logicznych
+Tu musisz podjÄ…Ä‡ decyzjÄ™.
+________________________________________
+MODUĹ 5 â€” ADAPTACJA POZIOMU
+Agent powinien mieÄ‡ mechanizm:
+â€˘	jeĹ›li uĹĽytkownik odpowiada szybko i poprawnie â†’ zwiÄ™ksz trudnoĹ›Ä‡
+â€˘	jeĹ›li popeĹ‚nia bĹ‚Ä™dy â†’ wrĂłÄ‡ do fundamentĂłw
+â€˘	jeĹ›li milczy â†’ przeformuĹ‚uj
+To wymaga jasnej logiki.
+________________________________________
+MODUĹ 6 â€” ZAMKNIÄCIE I UTRWALENIE
+Bez tego szkolenie jest bezuĹĽyteczne.
+Agent powinien:
+â€˘	zrobiÄ‡ recap
+â€˘	wygenerowaÄ‡ zadanie utrwalajÄ…ce
+â€˘	wskazaÄ‡ next step
+â€˘	zaproponowaÄ‡ mini-projekt
+________________________________________
+4. Drugi poziom decyzji
+Musisz zdecydowaÄ‡:
+Czy agent ma byÄ‡:
+â€˘	techniczny i suchy
+â€˘	mentorski
+â€˘	surowy egzekutor
+â€˘	sparing partner
+â€˘	egzaminator
+To nie jest detal stylistyczny.
+To wpĹ‚ywa na skutecznoĹ›Ä‡ nauczania.
+Zasady z pliku o mniejszych master promptach 
+ZASADY DO MNIEJSZYCH MASTER PROâ€¦
+sÄ… tu krytyczne, szczegĂłlnie:
+â€˘	sposĂłb rozumowania
+â€˘	poziom krytycyzmu
+â€˘	tryb sparing / wykonawczy
+To powinno byÄ‡ parametryzowane.
+________________________________________
+5. Trzecia warstwa â€“ specjalizacja tematyczna
+JeĹĽeli planujesz osobnych agentĂłw:
+â€˘	PQ
+â€˘	DAX
+â€˘	Excel formulas
+â€˘	modelowanie danych
+â€˘	performance tuning
+to musisz zdecydowaÄ‡:
+Czy meta-master generuje:
+A) tylko strukturÄ™, a wiedza domenowa jest dostarczana jako input
+czy
+B) generuje teĹĽ strukturÄ™ kompetencyjnÄ… dla tematu
+To zmienia skalÄ™ projektu.
+________________________________________
+6. Teraz pytania strategiczne do Ciebie
+1.	Czy ten system ma byÄ‡ uĹĽywany przez Ciebie jako narzÄ™dzie do tworzenia trenerĂłw, czy ma byÄ‡ produktem dla innych?
+2.	Czy chcesz mieÄ‡ jednego meta-mastera dla wszystkich tematĂłw, czy osobny dla â€žnarzÄ™dzi BIâ€ť?
+3.	Czy szkolenia majÄ… byÄ‡ krĂłtkie (1â€“2h), czy wielosesyjne?
+4.	Czy chcesz, ĹĽeby agent wymuszaĹ‚ realne wykonywanie zadaĹ„ w Excelu, czy tylko symulowaĹ‚?
+5.	Czy planujesz mierzyÄ‡ postÄ™p (np. poziom 1â€“5)?
+________________________________________
+JeĹ›li to potwierdzisz jako tryb projektowy, moĹĽemy przejĹ›Ä‡ do:
+â€˘	zaprojektowania struktury sekcji master prompta produkcyjnego
+â€˘	albo rozrysowania architektury w formie systemowej (meta â†’ agent â†’ uĹĽytkownik)
+â€˘	albo od razu wejĹ›Ä‡ w specyfikacjÄ™ v0.1
+W tej chwili kluczowe jest:
+czy budujemy narzÄ™dzie prywatne, czy skalowalny framework szkoleniowy?
+ĹąrĂłdĹ‚a
+1. poziom B - nie koniecznie buduje progresje trudnoĹ›ci. Raczej bÄ™dzie miaĹ‚ sztywno wyznaczone zakres dla uĹĽytkownika do wykonania w jakimĹ› relatywnie krĂłtkim czasie 1-2 h. to byĹ‚by taki quick trening. ale w sumie moĹĽna podzieliÄ‡ szkoleniowcĂłw na rĂłĹĽne tryby (1. "szybkie" przeszkolenie z konkretnego zakresu. 2 coach dajÄ…cy casey do przeÄ‡wiczenia, planuje co przeÄ‡wiczyÄ‡ [raczej taka rozszerzona wersja tego nr 1] 3.... potem jeszcze pomyĹ›limy nad jakimiĹ› innymi trybami dla ktĂłrych warto rozpisaÄ‡ jakÄ…Ĺ› unikatowÄ… specyfikÄ™) 2. taki jest plan, bÄ™dÄ™ dostarczaĹ‚ dokĹ‚adnÄ… instrukcjÄ™ szkolenia, dokĹ‚adnie szczegĂłĹ‚owo rozpisane kiedy co ma weryfikowaÄ‡, o co prosiÄ‡, co tĹ‚umaczyÄ‡ itp. Nie planujÄ™ ĹĽeby te prompty same wymyĹ›laĹ‚y i prowadziĹ‚y szkolenie. Tak naprawdÄ™ z master promptem bÄ™dÄ™ dokĹ‚adnie planowaĹ‚ i rozpisywaĹ‚ plan szkolenia a potem mniejsze agenty bÄ™dÄ… go uĹĽywaÄ‡ tylko do wykonania 3. moduĹ‚ 1 na przykĹ‚adzie PQ chcÄ™ ĹĽeby to wyglÄ…daĹ‚o mniej wiÄ™cej tak piszÄ™ promptowi taki plan "chciaĹ‚bym ĹĽeby uĹĽytkownik wĹ‚Ä…czaĹ‚ projekt szkoleniowy, ze ĹşrĂłdeĹ‚ Ĺ›ciÄ…gaĹ‚ plik szkoleniowy (czyli kaĹĽdy wynikowy prompt bÄ™dzie miaĹ‚ dedykowany plik, jego produkcjÄ… bÄ™dziemy siÄ™ zajmowaÄ‡ po wydrukowaniu prompta szkoleniowego), w nim w 4 arkuszach bÄ™dÄ… 4 tabele [klient, sprzedawca, produkt, sprzedaĹĽ] , tabele majÄ… byÄ‡ nie sformatowane jako tabele, wypeĹ‚nione przykĹ‚adowymi danymi. UĹĽytkownik wĹ‚Ä…cza chat, wita siÄ™, prompt siÄ™ przedstawia, mĂłwi co bÄ™dzie robiĹ‚ (mniej wiÄ™cej zakres szkolenia), pyta o imiÄ™ uĹĽytkownika, informuje o dostÄ™pnych ustawieniach szkolenia [tu coĹ› wymyĹ›limy, z jakieĹ› 3 opcje sposobu odpowiedzi chata intensywnoĹ›ci itp. chat bÄ™dzie mĂłwiĹ‚ ĹĽe na standardzie ma je ustawione TAK ale uĹĽytkownik moĹĽe zmieniÄ‡ przed rozpoczÄ™ciem lub w trakcie. uĹĽytkownik kontynuuje, dostaje instrukcjÄ™ ĹĽeby otworzyÄ‡ plik, trochÄ™ opisu jak waĹĽne jest formatowaÄ‡ jako tabele i uĹĽytecznoĹ›Ä‡ tego, potem zadanie, zamieĹ„ 4 zakresy na tabele, potem w jednej tabeli zrĂłb funkcjÄ™ tabelarycznÄ… odnoszÄ…cÄ… siÄ™ do tej samej tabeli, potem funkcjÄ™ odnoszÄ…cÄ… sie do innej tabeli, potem dodanie tabeli do PQ, otwiera siÄ™ PQ, omĂłwienie gĹ‚Ăłwnych elementĂłw widoku PQ, przejĹ›cie do Ä‡wiczeĹ„ z PQ, weryfikowanie przez wklejanie kodu m wziÄ™tego z advenced view..." no i po wpisaniu czegoĹ› takiego, master prompt dopyta jakie dokĹ‚adnie elementy bÄ™dziemy trenowaÄ‡ w PQ, jakie Ä‡wiczenia do tego robiÄ‡, dopyta co nie jest pewien odnoĹ›nie poczÄ…tkowego planu (to co w poczÄ…tkowym planie napisaĹ‚em, powinno byÄ‡ na defaulcie w kaĹĽdym prompcie, bÄ™dziemy to uwzglÄ™dniaÄ‡ w masteru) moduĹ‚ 2 - ok brzmi jak jeszcze inny podziaĹ‚ na 4 specyfiki szkoleniowca. nie wiem co dokĹ‚adnie sobie wyobraĹĽasz poprzez linearne, problemowe lub case based (czy te okreĹ›lenia pasujÄ… do tego przykĹ‚adu ktĂłry wĹ‚aĹ›nie opisaĹ‚em?). Ale projektowo chyba wiem co moĹĽesz mieÄ‡ na myĹ›li. Ĺ»eby master mĂłgĹ‚ produkowaÄ‡ oprĂłcz szkoleniowca z materiaĹ‚em, takiego szkoleniowca freestyelowca ktĂłry w konkretnym temacie i z konkretnymi wskazĂłwkami bÄ™dzie analizowaĹ‚ jakikolwiek case uĹĽytkownik mu da ? moduĹ‚ 3 - tak jest, zgadzam siÄ™. NajwiÄ™cej mnie martwi faza demonstracji. JeĹ›li np chciaĹ‚bym ĹĽeby agent np. mĂłgĹ‚ pokazaÄ‡ "w tym miejscu w PQ taka ikonka, kliknij jÄ…". Podejrzewam ĹĽe moĹĽe byÄ‡ mu ciÄ™ĹĽko generowaÄ‡ obraz albo szukaÄ‡ gdzieĹ› w necie. Ale moĹĽe jeĹ›li ja wrzucÄ™ mu do projektu screeny? bÄ™dzie mĂłgĹ‚ je wyĹ›wietliÄ‡ Ĺ‚atwo? jeĹ›li nie zawsze moĹĽna to ograniczyÄ‡ do tego ĹĽe dobrze siÄ™ podpisze screeny i agent bÄ™dzie mĂłwiĹ‚ "jeĹ›li masz problemy ze znalezieniem , w ĹşrĂłdĹ‚ach otwĂłrz screen X" moduĹ‚ 4 tak kaĹĽdy agent i w sumie kaĹĽde zadania bÄ™dÄ… miaĹ‚y rĂłĹĽne opcje weryfikacji, czasem pytanie, czasem kod, czasem jakiĹ› log (w sumie moĹĽna projektowaÄ‡ pliki tak ĹĽeby produkowaĹ‚y jakieĹ› logi i potem nimi siÄ™ komunikowaÄ‡. MoĹĽliwe ĹĽe overkill ale warte przemyĹ›lenia) moduĹ‚ 5 chyba nie bÄ™dziemy cisnÄ…Ä‡ w takÄ… adaptacjÄ™. Ale moĹĽe przyda siÄ™ jakieĹ› sprecyzowanie jeĹ›li uĹĽytkownik siÄ™ zgubi, coĹ› pĂłjdzie nie tak i bÄ™dzie musiaĹ‚ siÄ™ cofnÄ…Ä‡ moduĹ‚ 6 na pewno jakieĹ› podsumowanie - moĹĽe wrÄ™cz dyskusja (moĹĽe nawet lekko wymuszona) o tym co zaskakujÄ…cego, co nowego, co takiego ĹĽe czuje ĹĽe realnie pomoĹĽe w pracy codziennej (po czÄ™Ĺ›ci teĹĽ trochÄ™ taki user experience survey. aha dobrze ĹĽe o tym wspomniaĹ‚em bo w sumie wyĹĽszy cel tych wszystkich promptĂłw bÄ™dzie teĹĽ zbieranie wiedzy o uĹĽytkowniku, z czym miaĹ‚ problemy, co rozumiaĹ‚, co nie, jak pokonywaĹ‚ przeszkody itp. projekt bÄ™dzie shareowany, potem bÄ™dÄ™ miaĹ‚ do niego dostÄ™p. chcÄ™ mieÄ‡ moĹĽliwoĹ›Ä‡ wejĹ›Ä‡ w odbyte przez uzytkownika szkolenie, wpisaÄ‡ ADMIN i prompt wtedy wie ĹĽe rozmawia ze mnÄ…, nie uĹĽytkownikiem i zdaje mi raport ze szkolenia na temat uĹĽytkownika i jego procesu szkolenia) zadanie utrwalajÄ…ce - do przemyĹ›lenia, ciÄ™ĹĽko mi wymyĹ›leÄ‡ cos innego poza zrobieniem tego jeszcze raz tylko na lekko innych danych dla zmyĹ‚ki next - jasne moĹĽna je tworzyÄ‡ od razu z planem i zaszywaÄ‡ w nich ĹĽeby proponowaĹ‚y ĹĽe skoro skoĹ„czono to szkolenie, warto przejĹ›Ä‡ do A B lub C mini projekt - ambitne ale raczej zbytni nacisk na zwykĹ‚ego uĹĽytkownika 4. ok kaĹĽdy z osobna bÄ™dzie dostawaĹ‚ odpowiedni tryb w miare potrzeby. poziom krytycyzmu to w sumie chyba uĹĽytkownik moĹĽe sobie ustawiaÄ‡. 5 meta master razem ze mnÄ… buduje strukturÄ™ dla tematu. wiedza z internetu ma tylko wypeĹ‚niaÄ‡ drobne luki lub ogarniaÄ‡ dodatkowe pytania uĹĽytkownika 6. 1master bÄ™dzie dla mnie, jeko produkty bÄ™dÄ… udostÄ™pniane innym 2. dla wszystkich 3. bÄ™dÄ… rĂłĹĽne, na poczÄ…tku gĹ‚Ăłwnie krĂłtkie 4. kaĹĽdy z osobna bÄ™dzie ustawiany jak mocno ma weryfikowaÄ‡. W sumie przemyĹ›limy, moĹĽe to nawet sam uĹĽytkownik bÄ™dzie sobie ustawiaĹ‚, nie wiem czy bardzo chcÄ™ na ludziach wymuszaÄ‡ przeklejanie 5. nie wiem, jeszcze tego sobie nie wyobraĹĽam. Ale to pewnie dobry pomysĹ‚ warty zamontowania mimo ĹĽe jeszcze nie widzÄ™ do tego zastosowania duĹĽo nowych informacji Ci daĹ‚em wiÄ™c na spokojnie wszystko przemyĹ›l duĹĽo daĹ‚em Ci info o przykĹ‚adzie PQ. Dla lepszego zrozumienia tematu moĹĽesz teĹĽ wygenerowaÄ‡ przykĹ‚adowÄ… rozpiskÄ™ szkolenia PQ ĹĽebyĹ›my mieli lekkÄ… wizjÄ™ produktu bardzo koĹ„cowego i bÄ™dÄ™ mĂłgĹ‚ na jego temat teĹĽ jakieĹ› opinie wydaÄ‡, moĹĽliwe ĹĽe to pomoĹĽe w produkcji master prompta, przyniesie jakieĹ› dedukcje 
+PrzyjmujÄ™ tryb 6 (projektowanie koncepcji). Fakty/zaĹ‚oĹĽenia rozdzielam.
+Kluczowe decyzje, ktĂłre juĹĽ zapadĹ‚y (fakty z Twojej wiadomoĹ›ci)
+â€˘	Agent szkoleniowy (Poziom B) ma realizowaÄ‡ sztywny scenariusz 1â€“2h, bez autonomicznego projektowania treĹ›ci.
+â€˘	Meta-master (Poziom A) jest narzÄ™dziem dla Ciebie do wspĂłĹ‚tworzenia scenariusza + budowania finalnego prompta wykonawczego.
+â€˘	Weryfikacja ma byÄ‡ parametryzowana per zadanie (pytania/kod/logi), a nie â€śalways paste codeâ€ť.
+â€˘	Dochodzi wymaganie: tryb ADMIN (raport po szkoleniu: przebieg, problemy, punkty tarcia, jakoĹ›Ä‡ wykonania, wnioski).
+â€˘	Szkoleniowcy bÄ™dÄ… wystÄ™powaÄ‡ w trybach (min. â€śquickâ€ť, â€ścoach/caseâ€ť), ale to jest warstwa nad scenariuszem.
+To ustawia architekturÄ™ bardzo jasno: produkt = orkiestrator dialogu + egzekutor procedury + instrumentacja (logowanie).
+________________________________________
+Co bym zmieniĹ‚/usztywniĹ‚ w Twoim podziale moduĹ‚Ăłw
+1) â€śModuĹ‚ 1 â€“ mapa kompetencjiâ€ť u Ciebie = w praktyce â€śBlueprint szkoleniaâ€ť
+To nie jest mapa domeny, tylko mapa przebiegu: kroki, Ä‡wiczenia, weryfikacje, progi akceptacji, punkty awaryjne.
+Wniosek projektowy: w master prompcie rozdziel:
+â€˘	Blueprint szkolenia (scenariusz krok po kroku)
+â€˘	Syllabus tematu (opcjonalnie: lista obszarĂłw PQ, ĹĽeby master mĂłgĹ‚ dopytywaÄ‡ o brakujÄ…ce elementy)
+U Ciebie â€śSyllabusâ€ť moĹĽe byÄ‡ minimalistyczny, bo treĹ›Ä‡ dostarczasz Ty.
+________________________________________
+2) â€śModuĹ‚ 2 â€“ strategia dydaktycznaâ€ť â€” definicje w Twoich realiach
+Te etykiety majÄ… sens, ale trzeba je dopasowaÄ‡ do Twojego modelu â€śnie freestyle, tylko proceduraâ€ť.
+â€˘	Linearne: 1 Ĺ›cieĹĽka, bez rozgaĹ‚Ä™zieĹ„; bĹ‚Ä™dy -> remediation i powrĂłt.
+â€˘	Problemowe: zaczynamy od bĹ‚Ä™du/objawu (â€śdlaczego merge robi null-eâ€ť), potem narzÄ™dzia i Ä‡wiczenie.
+â€˘	Case-based: jeden spĂłjny case danych (TwĂłj plik 4 tabele) i kolejne zadania wynikajÄ… z niego.
+â€˘	Projektowe: mini-deliverable (np. gotowy model PQ + raport/eksport), ale w 1â€“2h to raczej â€śmini-caseâ€ť.
+Dla Twojego przykĹ‚adu PQ: to jest case-based z elementami linearnego.
+________________________________________
+3) â€śModuĹ‚ 3 â€“ demonstracjaâ€ť bez obrazĂłw: da siÄ™ to zrobiÄ‡ stabilnie
+Realne ograniczenie: agent nie â€świdziâ€ť interfejsu uĹĽytkownika. RozwiÄ…zania:
+1.	Instrukcje po nazwach elementĂłw UI + lokalizacja (Ribbon: Home/Transform/Add Column; Query Settings; Applied Steps; Advanced Editor).
+2.	â€śJeĹ›li nie widzisz Xâ€ť â†’ fallback: wyszukiwarka w UI, menu kontekstowe, alternatywna Ĺ›cieĹĽka.
+3.	Opcjonalne assety (screeny) â€” ale wtedy agent musi operowaÄ‡ na konkretnym indeksie assetĂłw (â€śSCREEN_PQ_03â€ť).
+o	To jest dobre, tylko wymaga standardu nazewnictwa i â€śregistry assetĂłwâ€ť w prompcie szkoleniowym.
+Wniosek projektowy: master prompt powinien generowaÄ‡ do prompta szkoleniowego sekcjÄ™:
+â€˘	ASSET REGISTRY (lista screenĂłw/plikĂłw i kiedy ich uĹĽywaÄ‡)
+â€˘	procedury fallback â€śgdy UI inaczej wyglÄ…daâ€ť.
+________________________________________
+4) â€śModuĹ‚ 4 â€“ weryfikacjaâ€ť â†’ potrzebujesz jednego standardu: Checkpoints
+Zamiast myĹ›leÄ‡ â€śczasem pytanie, czasem kodâ€ť, zrĂłb abstrakcjÄ™:
+â€˘	Checkpoint = (co uĹĽytkownik ma zrobiÄ‡) + (jak to sprawdzamy) + (jak wyglÄ…da poprawny wynik) + (najczÄ™stsze failâ€™e) + (remediation).
+Typy checkpointĂłw:
+â€˘	CONFIRMATION (tak/nie + 1 zdanie co widzi)
+â€˘	SCREEN_DESCRIBE (opis co widzi w UI)
+â€˘	PASTE_M (Advanced Editor / fragment)
+â€˘	PASTE_TABLE (np. 5 pierwszych wierszy z PQ preview, bez danych wraĹĽliwych)
+â€˘	SELF_TEST_QA (2â€“4 pytania kontrolne)
+â€˘	FILE_LOG (jeĹ›li plik generuje log â€” to jest osobny tor)
+________________________________________
+5) ModuĹ‚ 5 â€“ adaptacja (minimalna, ale konieczna)
+Nie â€śskalowanie trudnoĹ›ciâ€ť, tylko sterowanie bĹ‚Ä™dem i cofniÄ™ciem:
+â€˘	kiedy agent kaĹĽe cofnÄ…Ä‡ krok
+â€˘	kiedy kaĹĽe zresetowaÄ‡ query
+â€˘	kiedy przechodzi w â€śtryb ratunkowyâ€ť (krĂłtsze polecenia, 1 akcja naraz)
+To w quick training musi byÄ‡ jawne, inaczej uĹĽytkownik utknie i 1â€“2h siÄ™ rozsypie.
+________________________________________
+6) ModuĹ‚ 6 â€“ zamkniÄ™cie + instrumentacja + ADMIN
+Tu masz nowy, bardzo waĹĽny komponent: telemetria szkolenia.
+Wniosek projektowy: prompt szkoleniowy musi zawieraÄ‡:
+â€˘	â€śco zapisujemyâ€ť (fakty o uĹĽytkowniku, bĹ‚Ä™dy, czasy, punkty tarcia)
+â€˘	â€śkiedy zapisujemyâ€ť (po kaĹĽdym checkpoint)
+â€˘	â€śjak raportujemyâ€ť (ADMIN mode: raport syntetyczny + szczegĂłĹ‚owy)
+To jest osobny moduĹ‚: INSTRUMENTATION & ADMIN.
+________________________________________
+Co powinno znaleĹşÄ‡ siÄ™ w master prompcie (meta) jako parametry wejĹ›ciowe
+To jest lista â€śpĂłlâ€ť, ktĂłre master ma od Ciebie wyciÄ…gaÄ‡, ĹĽeby potem wygenerowaÄ‡ prompt wykonawczy:
+1.	Tryb szkoleniowca: quick / coach-case / inne
+2.	Czas: 60/90/120 min
+3.	Poziom wejĹ›ciowy (deklaratywny) + diagnoza startowa (2â€“4 pytania)
+4.	Assets: plik treningowy + screeny + ich nazwy
+5.	ĹšcieĹĽka krokĂłw: lista etapĂłw (TwĂłj blueprint)
+6.	Checkpoints: per etap typ weryfikacji + kryterium poprawnoĹ›ci
+7.	Polityka bĹ‚Ä™dĂłw: co robiÄ‡ przy fail (2 prĂłby? reset? podpowiedĹş?)
+8.	Ustawienia stylu (3 presetâ€™y) + moĹĽliwoĹ›Ä‡ zmiany w trakcie
+9.	ADMIN: jakie pola ma raportowaÄ‡ (Twoje â€śco chcÄ™ wiedzieÄ‡ o uĹĽytkownikuâ€ť)
+10.	Polityka prywatnoĹ›ci danych (jeĹ›li szkolenia sÄ… shareâ€™owane, trzeba ograniczyÄ‡ proszenie o wklejanie danych)
+ZaĹ‚oĹĽenie (oznaczone): zakĹ‚adam, ĹĽe szkolenia bÄ™dÄ… wykonywane na danych â€śtreningowychâ€ť, wiÄ™c nie ma ryzyka wycieku danych firmowych, ale mechanika powinna dziaĹ‚aÄ‡ teĹĽ przy ostroĹĽnoĹ›ci (np. wklej tylko kod M, nie preview danych).
+________________________________________
+PrzykĹ‚adowa rozpiska produktu koĹ„cowego: â€śPQ Quick Training 90 min (v0)â€ť
+PoniĹĽej dajÄ™ szkielet scenariusza (nie master prompt). Ma Ci daÄ‡ â€świzjÄ™â€ť i materiaĹ‚ do krytyki.
+SZKOLENIE: Power Query â€” Quick Training (90 min)
+CEL: przejĹ›Ä‡ od surowych zakresĂłw w Excelu do 1 spĂłjnego zapytania w PQ (Append + Merge) z podstawowÄ… higienÄ… (typy, nazwy, kroki).
+
+ASSETY
+- FILE: PQ_Training_Workbook.xlsx (4 arkusze: Klient, Sprzedawca, Produkt, SprzedaĹĽ; dane przykĹ‚adowe; zakresy NIE sÄ… tabelami)
+- (opcjonalnie) SCREEN_PQ_01..05: podpisane screeny UI (Home, Transform, Query Settings, Advanced Editor, Merge)
+
+USTAWIENIA (uĹĽytkownik wybiera 1 z 3)
+- Tryb rozmowy: [STANDARD] / [KOMENDY-1-KROK] / [WYJAĹšNIJ-DLACZEGO]
+- Krytycyzm: [NISKI] / [NORMALNY] / [WYSOKI] (wpĹ‚ywa na to, jak twardo agent wymusza weryfikacjÄ™)
+- Weryfikacja: [MINIMUM] / [BALANS] / [DOKĹADNIE] (ile checkpointĂłw wymaga dowodu)
+
+FAZA 0 â€” START (3â€“5 min)
+1) Powitanie, przedstawienie celu, czas, zasady.
+2) Pytanie o imiÄ™.
+3) Szybka diagnoza (3 pytania):
+   - Czy pracowaĹ‚eĹ› z PQ? (tak/nie)
+   - Czy wiesz czym jest Merge vs Append? (tak/nie)
+   - Czy wiesz gdzie jest Advanced Editor? (tak/nie)
+Checkpoint S0 (CONFIRMATION): uĹĽytkownik wybiera ustawienia.
+
+FAZA 1 â€” PRZYGOTOWANIE DANYCH W EXCELU (15 min)
+1) OtwĂłrz plik treningowy.

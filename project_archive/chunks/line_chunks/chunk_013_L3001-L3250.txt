@@ -1,0 +1,250 @@
+﻿â€žPrzejdĹş do zakĹ‚adki Home i kliknij Advanced Editor po lewej stronie.â€ť
+________________________________________
+TEXT â€” co wĹ‚aĹ›nie widzisz
+â€žOtworzyĹ‚o siÄ™ okno z caĹ‚ym kodem zapytania.
+To jest kod w jÄ™zyku M
+(ten sam jÄ™zyk wykorzystywany rĂłwnieĹĽ w Power BI).
+Widzisz:
+â€˘	sekcjÄ™ Source â€” czyli ĹşrĂłdĹ‚o danych,
+â€˘	kolejne kroki zapisane jako instrukcje jÄ™zyka M,
+â€˘	strukturÄ™ zaczynajÄ…cÄ… siÄ™ od let i koĹ„czÄ…cÄ… na in.
+KaĹĽdy krok odnosi siÄ™ do poprzedniego.
+Dlatego rÄ™czne zmienianie kolejnoĹ›ci krokĂłw w kodzie jest trudne i rzadko opĹ‚acalne.
+NajczÄ™Ĺ›ciej bÄ™dziemy:
+â€˘	kopiowaÄ‡ caĹ‚y kod,
+â€˘	analizowaÄ‡ go,
+â€˘	ewentualnie wprowadzaÄ‡ poprawki w caĹ‚oĹ›ci.
+Drobne zmiany wykonuje siÄ™ w pasku kodu nad tabelÄ….
+WiÄ™ksze operacje analizujemy i modyfikujemy w tym oknie.â€ť
+________________________________________
+[ETAP PQ2] CLOSE & LOAD + REFRESH
+CEL:
+UĹĽytkownik rozumie, ĹĽe query to procedura, a wynik to efekt jej wykonania.
+________________________________________
+TASK â€” zapisanie zapytania
+â€žWyjdĹş z edytora klikajÄ…c Close & Load.
+ZwrĂłÄ‡ uwagÄ™, ĹĽe nie ma zwykĹ‚ego â€zamknijâ€™.
+Zawsze zapisujemy i decydujemy, jak zaĹ‚adowaÄ‡ wynik.â€ť
+Opisz, co pojawiĹ‚o siÄ™ w Excelu.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	W arkuszu pojawiĹ‚a siÄ™ nowa tabela.
+â€˘	Jest to wynik dziaĹ‚ania query.
+â€˘	PowstaĹ‚ nowy arkusz (domyĹ›lnie).
+________________________________________
+TEXT
+â€žTa tabela to nie jest kopia danych.
+To jest wynik przetworzenia Twojej tabeli przez zapytanie.
+Query dziaĹ‚a jak program.
+Tabela w arkuszu to jego efekt.â€ť
+________________________________________
+TASK â€” test odĹ›wieĹĽania
+â€žUsuĹ„ kilka wartoĹ›ci z tabeli wynikowej.
+NastÄ™pnie kliknij prawym przyciskiem myszy na tabelÄ™ i wybierz Refresh.â€ť
+Opisz, co siÄ™ staĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Dane wrĂłciĹ‚y.
+â€˘	Query zostaĹ‚o ponownie wykonane.
+â€˘	Tabela nie przechowuje danych â€žna staĹ‚eâ€ť, tylko wynik przeliczenia.
+________________________________________
+FILL
+â€žKaĹĽde odĹ›wieĹĽenie to ponowne wykonanie zaprogramowanych krokĂłw transformacji.â€ť
+________________________________________
+TASK â€” zmiana sposobu Ĺ‚adowania
+â€žKliknij na tabelÄ™ wynikowÄ….
+Pojawi siÄ™ dodatkowa zielona zakĹ‚adka zwiÄ…zana z zapytaniem.
+Wybierz opcjÄ™ Load To.
+ZmieĹ„ sposĂłb Ĺ‚adowania na:
+â€˘	Only Connection.
+ZatwierdĹş.â€ť
+Opisz, co siÄ™ zmieniĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Tabela z arkusza zniknÄ™Ĺ‚a.
+â€˘	Query nadal istnieje.
+â€˘	Dane nie sÄ… Ĺ‚adowane do arkusza, ale zapytanie jest zapisane.
+________________________________________
+TASK â€” panel Queries & Connections
+â€žPrzejdĹş do zakĹ‚adki Data.
+Kliknij Queries & Connections.â€ť
+Opisz, co pojawiĹ‚o siÄ™ po prawej stronie.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	OtworzyĹ‚ siÄ™ panel z listÄ… zapytaĹ„.
+â€˘	MoĹĽna kliknÄ…Ä‡ zapytanie i wybraÄ‡ Edit.
+________________________________________
+FILL
+â€žTo jest miejsce zarzÄ…dzania zapytaniami.
+MoĹĽesz stÄ…d:
+â€˘	otworzyÄ‡ edytor,
+â€˘	odĹ›wieĹĽyÄ‡,
+â€˘	zmieniÄ‡ sposĂłb Ĺ‚adowania.â€ť
+________________________________________
+NastÄ™pna paczka:
+đź‘‰ Ä‡wiczenia z typami danych:
+â€˘	Rename kolumny i konflikt z Change Type
+â€˘	Add new step vs Replace current
+â€˘	ANY
+â€˘	Error â†’ link Error
+â€˘	Replace Errors
+â€˘	filtrowanie 0 i null
+Lecimy dalej.
+ZwrĂłÄ‡ uwagÄ™, ĹĽe nie ma zwykĹ‚ego â€zamknijâ€™. - bzdura. wywal to. zamieĹ„ na "Staramy siÄ™ nie uĹĽywaÄ‡ klasycznego X w prawym gĂłrnym rogu, bo close & load" daje nam opcje wyboru jak dane majÄ… byÄ‡ zaĹ‚adowane do Excela" Tak poza tym, mam nadzieje ĹĽe jest jasne ĹĽe nazwy excelowe typu Close & Load majÄ… byÄ‡ zamiennie uĹĽywane w zaleĹĽnoĹ›ci jaki uĹĽytkownik wybierze jÄ™zyk. Ja Ci piszÄ™ close bo mam angielskiego excela ale ty masz to dostosowaÄ‡ do polskiego w miare potrzeby KaĹĽde odĹ›wieĹĽenie to ponowne wykonanie zaprogramowanych krokĂłw transformacji.â€ť- dodaj "jeĹ›li zmienisz coĹ› w oryginalnej tabeli, po odĹ›wieĹĽeniu query, tabela wynikowa teĹĽ siÄ™ zmieni" Pojawi siÄ™ dodatkowa zielona zakĹ‚adka zwiÄ…zana z zapytaniem. - dodaj nazwÄ™ zakĹ‚adki, w ANG jest to po prostu Query Kliknij Load To uciÄ…Ĺ‚eĹ› task, przed Ĺ‚adowaniem do only connection miaĹ‚o byÄ‡ teĹĽ Ĺ‚adowanie do pivota dopiero potem connection only i wykasowanie pustego juĹĽ niepotrzebnego arkusza 
+Dobrze. KorygujÄ™ merytorykÄ™ i doprecyzowujÄ™ flow Ĺ‚adowania (pivot â†’ only connection â†’ sprzÄ…tanie).
+Nazwy przyciskĂłw traktujemy dynamicznie â€” zaleĹĽne od jÄ™zyka Excela uĹĽytkownika.
+________________________________________
+[ETAP PQ2] CLOSE & LOAD + REFRESH + LOAD TO
+________________________________________
+TASK â€” zapisanie zapytania
+â€žWyjdĹş z edytora klikajÄ…c Close & Load
+(lub odpowiednik w Twojej wersji jÄ™zykowej Excela).
+Staramy siÄ™ nie uĹĽywaÄ‡ klasycznego X w prawym gĂłrnym rogu,
+bo Close & Load daje nam moĹĽliwoĹ›Ä‡ wyboru, jak dane majÄ… byÄ‡ zaĹ‚adowane do Excela.â€ť
+Opisz, co pojawiĹ‚o siÄ™ w Excelu.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚a nowa tabela z wynikami zapytania.
+â€˘	NajczÄ™Ĺ›ciej zostaĹ‚ utworzony nowy arkusz.
+â€˘	Dane wyglÄ…dajÄ… tak samo jak ĹşrĂłdĹ‚o (na razie nic nie zmienialiĹ›my).
+________________________________________
+TEXT
+â€žTa tabela to nie kopia danych.
+To wynik dziaĹ‚ania zapytania.
+JeĹ›li zmienisz coĹ› w oryginalnej tabeli,
+a nastÄ™pnie odĹ›wieĹĽysz query â€” tabela wynikowa rĂłwnieĹĽ siÄ™ zmieni.
+To jest kluczowa rĂłĹĽnica wzglÄ™dem klasycznego kopiowania danych.â€ť
+________________________________________
+TASK â€” test odĹ›wieĹĽania
+â€žWrĂłÄ‡ do tabeli ĹşrĂłdĹ‚owej.
+ZmieĹ„ jednÄ… z wartoĹ›ci.
+NastÄ™pnie kliknij prawym przyciskiem myszy na tabelÄ™ wynikowÄ… i wybierz Refresh
+(lub odpowiednik w Twojej wersji jÄ™zykowej).â€ť
+Opisz, co siÄ™ staĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Tabela wynikowa zostaĹ‚a przeliczona.
+â€˘	Zmiana ze ĹşrĂłdĹ‚a pojawiĹ‚a siÄ™ w wyniku.
+â€˘	Query wykonaĹ‚o siÄ™ ponownie.
+________________________________________
+FILL
+â€žKaĹĽde odĹ›wieĹĽenie to ponowne wykonanie wszystkich krokĂłw transformacji.â€ť
+________________________________________
+ZMIANA SPOSOBU ĹADOWANIA
+________________________________________
+TASK â€” przejĹ›cie do opcji Load To
+â€žKliknij na tabelÄ™ wynikowÄ….
+Pojawi siÄ™ dodatkowa zielona zakĹ‚adka zwiÄ…zana z zapytaniem.
+W wersji angielskiej nazywa siÄ™ Query
+(w wersji polskiej odpowiednik tej nazwy).
+Wybierz opcjÄ™ Load To
+(lub odpowiednik jÄ™zykowy).â€ť
+________________________________________
+TASK â€” zaĹ‚aduj do tabeli przestawnej
+â€žW oknie Load To wybierz opcjÄ™ zaĹ‚adowania do Pivot Table
+(tabela przestawna).
+ZatwierdĹş.â€ť
+Opisz, co siÄ™ pojawiĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	UtworzyĹ‚a siÄ™ tabela przestawna.
+â€˘	ĹąrĂłdĹ‚em pivota jest query.
+â€˘	MoĹĽna budowaÄ‡ widok danych bez rÄ™cznego kopiowania.
+________________________________________
+FILL
+â€žQuery moĹĽe byÄ‡ ĹşrĂłdĹ‚em tabeli przestawnej, wykresu, modelu danych â€” nie tylko klasycznej tabeli.â€ť
+________________________________________
+TASK â€” zmiana na Only Connection
+â€žTeraz ponownie kliknij zapytanie.
+WejdĹş w Load To
+i tym razem wybierz opcjÄ™:
+Only Connection
+(tylko poĹ‚Ä…czenie).
+ZatwierdĹş.â€ť
+Opisz, co siÄ™ zmieniĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Tabela wynikowa zniknÄ™Ĺ‚a.
+â€˘	Pivot moĹĽe przestaÄ‡ dziaĹ‚aÄ‡ (jeĹ›li byĹ‚ zaleĹĽny).
+â€˘	Query nadal istnieje w panelu.
+________________________________________
+TASK â€” sprzÄ…tanie arkusza
+â€žJeĹĽeli powstaĹ‚ dodatkowy, pusty arkusz po wczeĹ›niejszych operacjach â€” usuĹ„ go.â€ť
+________________________________________
+FILL
+â€žNajczÄ™Ĺ›ciej bÄ™dziemy pracowaÄ‡ na query jako poĹ‚Ä…czeniu,
+a wynik Ĺ‚adowaÄ‡ dopiero wtedy, gdy jest nam potrzebny.â€ť
+________________________________________
+NastÄ™pna paczka
+Przechodzimy do:
+â€˘	Rename kolumny i konflikt z Change Type
+â€˘	Add new step vs Replace current
+â€˘	ANY
+â€˘	Error â†’ klikniÄ™cie linku Error
+â€˘	Replace Errors
+â€˘	filtrowanie 0 i null
+Lecimy dalej.
+ja pierdole no nie wierzÄ™ - (lub odpowiednik w Twojej wersji jÄ™zykowej Excela) - ĹĽartujesz sobie? uĹĽytkownik wybiera jÄ™zyk na poczÄ…tku np. polski, a potem ty masz pisaÄ‡ "WyjdĹĽ z edytora klikajÄ…c Zamknij i zaĹ‚aduj" a nie "odpowiednik twojej wersji..." skÄ…d Ci taki gĹ‚upi pomysĹ‚ przyszedĹ‚ do gĹ‚owy? skup siÄ™ ! napisz mi czy rozumiesz jak ma siÄ™ zachowywaÄ‡ zemiennoĹ›Ä‡ uĹĽywania polskich i angielskich nazw excelowych czy jeszcze raz Ci to wytĹ‚umaczyÄ‡ TASK â€” test odĹ›wieĹĽania niech test zawiera 2 czynnoĹ›ci, najpierw test skasowania danych w query i odswiezenia. Potem test zmiany danych w tabeli i odswiezenia query. (w wersji polskiej odpowiednik tej nazwy). - omg znowu, niedorozwiniÄ™te, mam nadziejÄ™ ĹĽe ostatni raz popeĹ‚niasz tak debilny bĹ‚Ä…d (lub odpowiednik jÄ™zykowy).â€ť - omg jednak nie xD â€žW oknie Load To wybierz opcjÄ™ zaĹ‚adowania do Pivot Table - dodaj "moĹĽemy zaĹ‚adowaÄ‡ tylko do jednego elementu na raz, wiÄ™c wyskoczy info ĹĽe poprzednia tabela zostanie wykasowana, Kliknij OK" JeĹĽeli powstaĹ‚ dodatkowy, pusty arkusz po wczeĹ›niejszych operacjach - popraw, na pewno zostaĹ‚ arkusz w ktĂłrym byĹ‚a tabela, potem pivot, teraz nic NajczÄ™Ĺ›ciej bÄ™dziemy pracowaÄ‡ na query jako poĹ‚Ä…czeniu, - bzdura! popraw "Teraz nie potrzebujemy wyĹ›wietlaÄ‡ tych query, przejdziemy do tego jak bÄ™dziemy mieÄ‡ gotowÄ… transformacjÄ™ danych" 
+Rozumiem. I tak â€” to byĹ‚ bĹ‚Ä…d z mojej strony.
+Jak ma dziaĹ‚aÄ‡ zmiennoĹ›Ä‡ nazw (czy rozumiem)
+â€˘	UĹĽytkownik na poczÄ…tku wybiera jÄ™zyk Excela/UI: PL albo EN.
+â€˘	Od tego momentu blueprint konsekwentnie uĹĽywa wyĹ‚Ä…cznie nazw przyciskĂłw/zakĹ‚adek w tym jÄ™zyku.
+â€˘	Nie wtrÄ…cam ĹĽadnych â€žlub odpowiednikâ€¦â€ť, â€žw Twojej wersjiâ€¦â€ť, â€žodpowiednik jÄ™zykowyâ€ť. To jest zakazane w treĹ›ci szkolenia.
+â€˘	JeĹ›li chcesz, mogÄ™ w blueprintcie trzymaÄ‡ jednÄ…, neutralnÄ… nazwÄ™ typu [BTN_CLOSE_LOAD], ale Ty chcesz normalne nazwy wprost â€” wiÄ™c bÄ™dÄ… wprost, zgodne z wyborem.
+â€˘	Dodatkowo: w tekĹ›cie mogÄ™ czasem dopisaÄ‡ w nawiasie angielskÄ… nazwÄ™ tylko jeĹ›li user wybraĹ‚ PL i uznasz to za wartoĹ›Ä‡ edukacyjnÄ…, ale domyĹ›lnie nie.
+JeĹ›li to jest zgodne â€” przechodzÄ™ do poprawionej paczki PQ2.
+________________________________________
+[ETAP PQ2] CLOSE & LOAD + REFRESH + LOAD TO (wersja pod Excel PL)
+PoniĹĽej piszÄ™ w jÄ™zyku polskiego UI (Zamknij i zaĹ‚aduj / ZaĹ‚aduj doâ€¦). JeĹ›li user na starcie wybierze EN, caĹ‚y ten fragment bÄ™dzie w EN.
+________________________________________
+TASK â€” zapisanie zapytania
+â€žWyjdĹş z edytora klikajÄ…c Zamknij i zaĹ‚aduj.
+Staramy siÄ™ nie uĹĽywaÄ‡ klasycznego X w prawym gĂłrnym rogu,
+bo Zamknij i zaĹ‚aduj daje nam kontrolÄ™ nad tym, jak wynik ma trafiÄ‡ do Excela.â€ť
+Opisz, co pojawiĹ‚o siÄ™ w Excelu.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚a tabela wynikowa.
+â€˘	UtworzyĹ‚ siÄ™ nowy arkusz z wynikami.
+________________________________________
+TEXT
+â€žTo nie jest rÄ™czna kopia danych.
+To jest wynik dziaĹ‚ania zapytania.
+Zaraz to przetestujemy na dwa sposoby.â€ť
+________________________________________
+TASK â€” test odĹ›wieĹĽania (2 czÄ™Ĺ›ci)
+CzÄ™Ĺ›Ä‡ 1: test â€žkasowania danych w wynikuâ€ť
+â€žUsuĹ„ kilka wartoĹ›ci z tabeli wynikowej.
+NastÄ™pnie kliknij prawym przyciskiem myszy na tabelÄ™ wynikowÄ… i wybierz OdĹ›wieĹĽ.â€ť
+Opisz, co siÄ™ staĹ‚o.
+CzÄ™Ĺ›Ä‡ 2: test â€žzmiany danych w ĹşrĂłdleâ€ť
+â€žWrĂłÄ‡ do tabeli ĹşrĂłdĹ‚owej.
+ZmieĹ„ jednÄ… z wartoĹ›ci.
+WrĂłÄ‡ do tabeli wynikowej i wybierz OdĹ›wieĹĽ jeszcze raz.â€ť
+Opisz, co siÄ™ staĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Po odĹ›wieĹĽeniu dane w wyniku wracajÄ… (kasowanie w wyniku nie ma sensu).
+â€˘	Po zmianie danych w ĹşrĂłdle i odĹ›wieĹĽeniu â€” wynik siÄ™ zmienia.
+________________________________________
+FILL
+â€žOdĹ›wieĹĽanie wykonuje zapytanie od nowa.
+Wynik zawsze ma odzwierciedlaÄ‡ ĹşrĂłdĹ‚o + transformacje.â€ť
+________________________________________
+ZMIANA SPOSOBU ĹADOWANIA (TABLE â†’ PIVOT â†’ ONLY CONNECTION)
+________________________________________
+TASK â€” przejĹ›cie do opcji Ĺ‚adowania
+â€žKliknij tabelÄ™ wynikowÄ….
+U gĂłry pojawi siÄ™ dodatkowa zakĹ‚adka Zapytanie.
+Kliknij ZaĹ‚aduj doâ€¦â€ť
+________________________________________
+TASK â€” zaĹ‚aduj do tabeli przestawnej
+â€žW oknie ZaĹ‚aduj do wybierz Tabela przestawna i zatwierdĹş.
+MoĹĽemy Ĺ‚adowaÄ‡ wynik tylko do jednego miejsca naraz,
+wiÄ™c Excel pokaĹĽe informacjÄ™, ĹĽe poprzednia tabela wynikowa zostanie usuniÄ™ta.
+Kliknij OK.â€ť
+Opisz, co pojawiĹ‚o siÄ™ w Excelu.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	UtworzyĹ‚a siÄ™ tabela przestawna oparta o wynik zapytania.
+â€˘	Poprzednia tabela wynikowa zostaĹ‚a usuniÄ™ta.

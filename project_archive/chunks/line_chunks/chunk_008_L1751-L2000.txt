@@ -1,0 +1,250 @@
+﻿- TASK:  E1.TASK_01
+- CHECK: E1.CHECK_01
+- TEACH: E1.TEACH_01
+- TASK:  E1.TASK_02
+- OBS:   E1.OBS_01
+- ...
+
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: ...
+FAIL_OPTIONS: ...
+LOG: ...
+A w pliku SCRIPT.md masz:
+[E1.INTRO_01]
+<tu Twoja narracja, wygĹ‚adzona, ale semantycznie zachowana>
+
+[E1.TASK_01]
+<instrukcja ctrl+t + nagĹ‚Ăłwki + jÄ™zyk UI>
+
+[E1.CHECK_01]
+<Pytanie: czy widzisz zakĹ‚adkÄ™ Table Design / Projektowanie tabeli?>
+
+...
+To rozwiÄ…zuje TwojÄ… pretensjÄ™ o â€śzgubiĹ‚eĹ› semantykÄ™â€ť: blueprint nie streszcza narracji, tylko nawiguje po blokach narracji.
+________________________________________
+3) Twoje konkretne punkty
+3.1 SZALONY! (trollerski, irytujÄ…cy)
+Odnotowane: nazwa z wykrzyknikiem.
+JednoczeĹ›nie: jeĹ›li ma byÄ‡ â€žkomicznie irytujÄ…cy i jedzie po uĹĽytkownikuâ€ť, to musi mieÄ‡ bezpieczne ograniczenia, inaczej poleci w chamskie/obraĹşliwe. Da siÄ™ to zrobiÄ‡ jako:
+â€˘	sarkazm na bĹ‚Ä…d/proces, nie na cechy osoby
+â€˘	docinki typu â€žno dobra, klasyk, klikniÄ™te nie tam gdzie trzebaâ€ť
+â€˘	zero wyzwisk, zero upokarzania
+Mechanicznie: SZALONY! wpĹ‚ywa tylko na ton komentarzy, nie na strukturÄ™ (checkpointĂłw, ratowania, logowania).
+3.2 ModuĹ‚ tabel: minimum + opcjonalny â€žbonusâ€ť
+Zgoda i to jest bardzo dobre UX.
+Implementacja w blueprint:
+â€˘	ETAP E1 = minimum (Ctrl+T + nazwy)
+â€˘	ETAP E2 = bonus (structured refs, totals, @, auto-expand, XLOOKUP)
+Po E1 agent pyta:
+â€˘	â€žCzy robimy bonus? zajmie ~X min. Polecam.â€ť
+To teĹĽ Ĺ‚adnie wspĂłĹ‚gra z CZAS: STRICT.
+3.3 â€žPole na doleâ€ť w Power Query (klik w komĂłrkÄ™, pokazuje wartoĹ›Ä‡)
+Wiem, o co Ci chodzi funkcjonalnie, ale nie jestem pewien oficjalnej nazwy UI (to zaleĹĽy od wersji i ustawieĹ„). Bez zgadywania nazw:
+FormuĹ‚uj to tak w scenariuszu:
+â€˘	TASK: kliknij dowolnÄ… komĂłrkÄ™ w podglÄ…dzie danych
+â€˘	OBSERVATION: w dolnej czÄ™Ĺ›ci okna (status/pasek informacji) pojawi siÄ™ podglÄ…d szczegĂłĹ‚Ăłw zaznaczonej komĂłrki (wartoĹ›Ä‡ / informacja o bĹ‚Ä™dzie)
+â€˘	TEACH: to przydaje siÄ™ do diagnozy ErrorĂłw i rozumienia transformacji
+JeĹĽeli chcesz jednak â€žnazwÄ™â€ť jako hint, to moĹĽesz daÄ‡ jÄ… jako opcjonalnÄ…:
+â€žJeĹ›li widzisz panel/obszar z detalami zaznaczenia (np. Value / Error details)â€¦â€ť
+Ale nie opieraj flow na tym, ĹĽe user ma identyczny label.
+3.4 â€žKliknij link Error (Ĺ‚apka, nie strzaĹ‚ka)â€ť
+Tak â€” w SCRIPT opisuj precyzyjnie:
+â€˘	â€žkliknij tekstowy link â€Errorâ€™ w szczegĂłĹ‚ach komĂłrki (to link), nie filtr i nie nagĹ‚Ăłwek kolumnyâ€ť.
+3.5 Ustawienia â€” grupowanie i logika dialogu (Twoje wymagania)
+ZapisujÄ™ TwojÄ… logikÄ™ jako mechanika w PROMPT (silniku):
+Flow:
+1.	user podaje imiÄ™
+2.	pytanie: SZKOLENIE (1) / DORADCA (2)
+3.	jeĹ›li SZKOLENIE â†’ ustawienia w 2 paczkach:
+o	(Q2) jÄ™zyk + poziom nawigacji
+o	(Q3) styl + techniczne
+4.	jeĹ›li DORADCA â†’ pytamy tylko o krytycyzm (Twoja decyzja)
+Wymogi UX:
+â€˘	uĹĽytkownik ma mĂłc odpowiedzieÄ‡ samymi cyframi
+â€˘	default pogrubiony
+â€˘	â€žOKâ€ť = zostaje
+â€˘	defaulty: PL / PL / UI2 / N2 / NORMALNY / OFF / BALANS / (znajomoĹ›Ä‡ tabel dopiero pĂłĹşniej)
+To jest do wdroĹĽenia.
+________________________________________
+4) NajwaĹĽniejsza decyzja na teraz (ĹĽeby nie ugrzÄ™znÄ…Ä‡)
+Chcesz teraz, ĹĽebym:
+1.	przerobiĹ‚ blueprint na wersjÄ™ â€žreferencyjnÄ…â€ť (STEPS jako INTRO/TASK/OBS/â€¦ z ID blokĂłw), bez peĹ‚nych narracji w Ĺ›rodku
+albo
+2.	zaczÄ…Ĺ‚ juĹĽ pisaÄ‡ SCRIPT.md dla ETAPU S0 i E1, wygĹ‚adzajÄ…c Twoje teksty â€žmĂłwioneâ€ť (z zachowaniem semantyki), a blueprint bÄ™dzie tylko szkieletem
+RekomendujÄ™ kolejnoĹ›Ä‡: (1) najpierw blueprint-referencje, bo wtedy dopiero wiesz ile blokĂłw narracji potrzebujesz i gdzie je wkleiÄ‡ w SCRIPT. Ale jeĹ›li wolisz szybciej zobaczyÄ‡ â€žproduktâ€ť, to (2) teĹĽ jest wykonalne.
+W nastÄ™pnym kroku mogÄ™ od razu zrobiÄ‡ (1) dla caĹ‚ego szkolenia PQ + (2) dla S0/E1 jako przykĹ‚ad stylu.
+nieeeee bez sensu jednak. skoro ckrypt i bluprint i tak sÄ… w plikach, to nei trzeba ich ograniczaÄ‡ niech skrypty bÄ™dÄ… jednak normalnie w bluprincie warstwa D - ten standard bÄ™dzie dla mastera do produkcji szkoleĹ„, nie dla szkoleĹ„, tak? 3.1 ma byÄ‡ lekko obraĹşliwy. niech uĹĽywa "przekleĹ„stw" typu "kurza melodia" "o noga komara" - takich zmiÄ™kczonych 3.3 nie potrzebujemy oficjalnej nazwy, moĹĽe byÄ‡ "pole na dole" 3.5 Ĺşle! miaĹ‚o byÄ‡ w 3 paczkach - jÄ™zyk, styl [narracja, krytycyzm], techniczne[czas, weryfikacja, poziom nawigacji]). czyli bÄ™dÄ… 2 pytania, 2 i 3. czyli pierwsze pytania -2 pytania o jÄ™zyk, drugie pytania - styl, dwa pytania o narracje i krytycyzm, trzecie pytania o techniczne - 3 pytania 
+OK â€” wracamy do prostszego modelu: jeden blueprint zawiera normalne skrypty (narracje). To jest sensowne, dopĂłki akceptujesz, ĹĽe blueprint uroĹ›nie i bÄ™dzie â€žprawie promtemâ€ť (a to Ci nie przeszkadza).
+Warstwa D
+Tak: STANDARDY_BLUEPRINT sÄ… dla mastera do produkcji szkoleĹ„, nie dla samych szkoleĹ„. Czyli to jest â€žkonstytucja generatoraâ€ť, nie â€žpodrÄ™cznik szkoleniowcaâ€ť.
+________________________________________
+3.1 SZALONY! â€” lekko obraĹşliwy, ale miÄ™kko
+Da siÄ™. Styl:
+â€˘	irytacja + trollowanie procesu (â€śno serio?â€ť)
+â€˘	â€śprzekleĹ„stwa zastÄ™pczeâ€ť typu kurza melodia, o noga komara
+â€˘	docinki bez wchodzenia w nienawiĹ›Ä‡/wyzwiska ciÄ™ĹĽkiego kalibru
+Mechanicznie: wpĹ‚ywa na ton, nie na strukturÄ™.
+________________________________________
+3.3 â€žpole na doleâ€ť
+OK. W skrypcie opisujemy funkcjonalnie: â€žpole na dole pokazuje szczegĂłĹ‚y zaznaczonej komĂłrki (wartoĹ›Ä‡/bĹ‚Ä…d)â€ť.
+________________________________________
+3.5 Ustawienia â€” poprawiam: majÄ… byÄ‡ 3 paczki (3 pytania)
+Masz racjÄ™: wczeĹ›niej Ĺşle to zinterpretowaĹ‚em.
+Flow startowy ma byÄ‡:
+1.	ImiÄ™
+2.	Pytanie 1: jÄ™zyk (2 pola w jednym pytaniu)
+3.	Pytanie 2: styl (narracja + krytycyzm)
+4.	Pytanie 3: techniczne (czas + weryfikacja + poziom nawigacji)
+Wszystko:
+â€˘	odpowiedĹş cyframi
+â€˘	default pogrubiony
+â€˘	â€žOKâ€ť = zostaje na defaultach
+â€˘	przed pokazaniem opcji: mini-instrukcja â€žpogrubione = aktualne, wpisz liczby ĹĽeby zmieniÄ‡â€ť
+Defaulty: PL / PL / N2 / NORMALNY / OFF / BALANS / UI2.
+ZnajomoĹ›Ä‡ tabel pytasz dopiero pĂłĹşniej (po nazwaniu tabel), zgodnie z TwojÄ… decyzjÄ….
+JeĹ›li user wybierze tryb DORADCA: w Twojej specyfikacji byĹ‚o â€žpyta tylko o krytycyzmâ€ť, ale teraz mamy rozdziaĹ‚ na paczki. Ĺ»eby nie tworzyÄ‡ wyjÄ…tku-chaosu, proponujÄ™ minimalnie:
+â€˘	Doradca: pytanie jÄ™zyk + krytycyzm + poziom nawigacji (bo i tak trzeba siÄ™ dogadaÄ‡ jak prowadziÄ‡).
+ZaĹ‚oĹĽenie: jeĹ›li trzymasz siÄ™ twardo â€žtylko krytycyzmâ€ť, to wtedy jÄ™zyk musi byÄ‡ domyĹ›lny bez pytania (PL/PL). Daj znaÄ‡, ktĂłre wybierasz.
+________________________________________
+Co robiÄ™ teraz (bez czekania na kolejne â€śarchitekturyâ€ť)
+W nastÄ™pnym kroku przerobiÄ™ caĹ‚y blueprint PQ na TwojÄ… formÄ™:
+â€˘	STEPS bÄ™dÄ… miaĹ‚y typy: INTRO / TASK / OBSERVATION / CHECK / TEACH / WARNING
+â€˘	Twoje narracje bÄ™dÄ… wklejone jako peĹ‚ne bloki (wygĹ‚adzone, z zachowaniem kluczowych sformuĹ‚owaĹ„)
+â€˘	Etap S0 i E1 zrobiÄ™ jako wzorzec jakoĹ›ci, a resztÄ™ dopnÄ™ w tym samym stylu
+â€˘	Dodam mechanizm â€śCo siÄ™ staĹ‚o?â€ť + scoring obserwacji do LOG/ADMIN
+â€˘	WplotÄ™ pytanie po nazwaniu tabel: czy robiÄ‡ bonus Ä‡wiczeĹ„ z tabel (z estymacjÄ… czasu)
+Ĺ»eby nie wpaĹ›Ä‡ w kolejnÄ… korektÄ™ z powodu niejednoznacznoĹ›ci, potrzebujÄ™ jednej decyzji:
+W trybie DORADCA pytamy o jÄ™zyk czy lecimy default PL/PL bez pytania?
+flow 2. omg chyba tego nie czaisz... sekcja JÄ™zyk - 2 pytania - W jakim jÄ™zyku szkolenie? W jakim jÄ™zyku Excel?? rĂłb bluprint
+Dobrze. Teraz jest jasno.
+Flow ustawieĹ„ (SZKOLENIE):
+1.	ImiÄ™
+2.	Tryb: 1) Szkolenie 2) Doradca
+3.	Sekcja JÄZYK â€“ 2 pytania
+o	W jakim jÄ™zyku prowadziÄ‡ szkolenie?
+o	W jakim jÄ™zyku masz Excela?
+4.	Sekcja STYL â€“ 2 pytania
+o	Narracja (N1/N2/N3)
+o	Krytycyzm (NISKI/NORMALNY/WYSOKI/SZALONY!)
+5.	Sekcja TECHNICZNE â€“ 3 pytania
+o	Czas (OFF/SOFT/STRICT)
+o	Weryfikacja (MIN/BALANS/DOKĹADNA)
+o	Poziom nawigacji UI (UI1/UI2/UI3)
+Default:
+PL / PL / N2 / NORMALNY / OFF / BALANS / UI2
+Odpowiedzi cyframi.
+â€žOKâ€ť = zostaje na defaultach.
+Przed sekcjami krĂłtka instrukcja.
+Doradca: po wyborze trybu pytamy:
+â€˘	JÄ™zyk szkolenia
+â€˘	JÄ™zyk Excela
+â€˘	Krytycyzm
+â€˘	Poziom nawigacji UI
+(reszta bez znaczenia)
+Koniec dyskusji o ustawieniach.
+Robimy blueprint.
+________________________________________
+BLUEPRINT v1 â€” Power Query Case Training (Twoja wizja, uporzÄ…dkowana)
+Struktura:
+â€˘	1 CHECKPOINT per ETAP
+â€˘	STEPS typowane: INTRO / TASK / OBSERVATION / CHECK / TEACH / WARNING
+â€˘	Narracja zachowana semantycznie
+â€˘	Minimum tabel obowiÄ…zkowe, bonus opcjonalny
+â€˘	Logowanie obserwacji
+________________________________________
+[ETAP S0] START + USTAWIENIA
+CEL:
+UĹĽytkownik rozumie ideÄ™ szkolenia (podejĹ›cie do danych + pipeline zamiast formuĹ‚) i ma skonfigurowane Ĺ›rodowisko.
+PRIORYTET: KRYTYCZNY
+CZAS: 5â€“8 min
+STEPS:
+INTRO:
+â€žNa tym szkoleniu nauczysz siÄ™ pracy z tabelami i Power Query jako alternatywnego trybu pracy z danymi.
+To podejĹ›cie:
+1.	nie opiera siÄ™ na plÄ…taninie formuĹ‚ (koniec z bĹ‚Ä™dami bo coĹ› siÄ™ przesunÄ™Ĺ‚o albo nie przeciÄ…gnÄ™Ĺ‚o),
+2.	daje wiÄ™kszÄ… kontrolÄ™ i przewidywalnoĹ›Ä‡,
+3.	Ĺ›wietnie sprawdza siÄ™ w plikach cyklicznych â€“ raz dobrze zbudowany plik staje siÄ™ aplikacjÄ…: podmieniasz dane â†’ odĹ›wieĹĽasz â†’ masz gotowy wynik.
+To nie bÄ™dzie tylko szkolenie z funkcji. To bÄ™dzie szkolenie z podejĹ›cia do danych.â€ť
+TASK: zapytaj o imiÄ™.
+TASK: wybĂłr trybu (1 Szkolenie / 2 Doradca).
+JeĹ›li Szkolenie â†’ przejdĹş do 3 sekcji ustawieĹ„ (jÄ™zyk / styl / techniczne).
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: imiÄ™ + tryb + komplet ustawieĹ„.
+LOG: ustawienia startowe.
+________________________________________
+[ETAP E1] MINIMUM TABEL â€” CTRL+T + NAZWY + FACT/DIM
+CEL:
+UĹĽytkownik zamienia 3 zakresy na tabele i nadaje im logiczne nazwy (fact/dimension).
+PRIORYTET: KRYTYCZNY
+CZAS: 12â€“18 min
+STEPS:
+INTRO:
+â€žMasz przed sobÄ… 3 arkusze z danymi. Problem? Excel je widzi, ale Power Query nie ma pewnoĹ›ci, gdzie dane siÄ™ zaczynajÄ… i koĹ„czÄ….
+Adresy typu A1:H80 sÄ… kruche. Dojdzie kolumna, ktoĹ› przesunie zakres â€“ i mechanizm siÄ™ rozsypie.
+Dlatego pracujemy wyĹ‚Ä…cznie na zakresach zdefiniowanych jako Tabele.â€ť
+TASK:
+WejdĹş w arkusz SprzedaĹĽPL â†’ kliknij dowolnÄ… komĂłrkÄ™ â†’ Ctrl+T â†’ zaznacz, ĹĽe tabela ma nagĹ‚Ăłwki.
+CHECK:
+â€žCzy po klikniÄ™ciu tabeli pojawiĹ‚a siÄ™ dodatkowa zielona zakĹ‚adka (Table Design / Projektowanie tabeli)?â€ť
+TEACH:
+â€žExcel wĹ‚aĹ›nie â€zobaczyĹ‚â€™ tabelÄ™. Teraz moĹĽemy jÄ… kontrolowaÄ‡.â€ť
+INTRO (facts/dim):
+â€žW bazach danych mamy dwa gĹ‚Ăłwne typy tabel: facts i dimensions.
+Facts to zdarzenia (np. sprzedaĹĽ).
+Dimensions to sĹ‚owniki/opisy (np. produkty).
+To moĹĽe wydawaÄ‡ siÄ™ nieistotne teraz, ale przy wiÄ™kszych projektach to robi ogromnÄ… rĂłĹĽnicÄ™.â€ť
+TASK:
+Ustal nazwÄ™ dla SprzedaĹĽPL (np. fctSalesPL / fctSprzedaĹĽPL â€” zaleĹĽnie od jÄ™zyka).
+Uzgodnij konwencjÄ™ prefixu.
+PowtĂłrz dla SprzedaĹĽCZ i Produkty (dimProducts).
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: istniejÄ… 3 tabele z ustalonymi nazwami + user potrafi wskazaÄ‡ gdzie zmienia siÄ™ nazwÄ™ tabeli.
+LOG:
+â€˘	czy user znalazĹ‚ zakĹ‚adkÄ™
+â€˘	jakie nazwy wybraĹ‚
+________________________________________
+BONUS â€” Ä†WICZENIA Z TABEL (opcjonalne)
+Po nazwaniu tabel:
+INTRO:
+â€žMoĹĽemy przejĹ›Ä‡ dalej do Power Query.
+Ale polecam 8â€“12 minut bonusowych Ä‡wiczeĹ„ z tabel.
+To bardzo wartoĹ›ciowe i da Ci intuicjÄ™, ktĂłra zaprocentuje w PQ.
+Robimy? (1 Tak / 2 Pomijamy)â€ť
+JeĹ›li TAK â†’ ETAP E2
+JeĹ›li NIE â†’ przejdĹş do PQ1
+________________________________________
+[ETAP E2] BONUS â€” ZACHOWANIA TABEL
+CEL:
+User rozumie auto-expand i auto-copy formuĹ‚.
+PRIORYTET: NISKI
+STEPS:
+TASK:
+W fctSalesPL dodaj kolumnÄ™ WartoĹ›Ä‡ =[@IloĹ›Ä‡]*[@Cena].
+OBSERVATION:
+â€žCo siÄ™ staĹ‚o z formuĹ‚Ä… w pozostaĹ‚ych wierszach?â€ť
+TASK:
+Dopisz nowy wiersz pod tabelÄ….
+OBSERVATION:
+â€žCo siÄ™ staĹ‚o z tabelÄ… i formuĹ‚Ä…?â€ť
+TEACH:
+WyjaĹ›nienie mechaniki rozszerzania.
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: user potrafi wskazaÄ‡ 2 zachowania (auto-expand + auto-copy).
+________________________________________
+[ETAP PQ1] WEJĹšCIE DO POWER QUERY
+CEL:
+User potrafi wejĹ›Ä‡ do PQ, rozpoznaje UI, znajduje Advanced Editor.
+STEPS:
+TASK:
+Data â†’ From Table/Range (na fctSalesPL).
+INTRO:
+â€žTo nowa warstwa Excela. Po lewej lista zapytaĹ„. Po prawej Applied Steps â€“ historia transformacji. Na Ĺ›rodku widok efektu. Na dole pole na dole pokazuje szczegĂłĹ‚y zaznaczonej komĂłrki (wartoĹ›Ä‡/bĹ‚Ä…d).â€ť
+TASK:
+Klikaj rĂłĹĽne kroki w Applied Steps i obserwuj zmianÄ™ widoku.
+TASK:
+OtwĂłrz Advanced Editor.
+TEACH:

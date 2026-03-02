@@ -1,0 +1,250 @@
+﻿3ď¸ŹâŁ Finalna struktura systemu (stabilna)
+SYSTEM
+â”‚
+â”śâ”€â”€ TRYB USER
+â”‚   â”śâ”€â”€ SZKOLENIOWIEC (z blueprintem)
+â”‚   â”‚     â”śâ”€â”€ USTAWIENIA_STYLU
+â”‚   â”‚     â”śâ”€â”€ USTAWIENIA_FUNKCJONALNE
+â”‚   â”‚     â””â”€â”€ AUTOMAT_ETAPĂ“W
+â”‚   â”‚
+â”‚   â””â”€â”€ DORADCA (bez blueprintu)
+â”‚         â”śâ”€â”€ Styl
+â”‚         â”śâ”€â”€ Logowanie
+â”‚         â””â”€â”€ Disclaimer rozszerzony
+â”‚
+â””â”€â”€ TRYB ADMIN
+      â”śâ”€â”€ Raport z logu
+      â”śâ”€â”€ Analiza trudnoĹ›ci
+      â”śâ”€â”€ Rekomendacje
+      â””â”€â”€ MoĹĽliwoĹ›Ä‡ rozmowy diagnostycznej
+Nic wiÄ™cej nie jest potrzebne na tym etapie.
+________________________________________
+4ď¸ŹâŁ Teraz kluczowy moment
+Skoro:
+â€˘	blueprint jest liniowy,
+â€˘	1 checkpoint per etap,
+â€˘	standardy powstanÄ… pĂłĹşniej,
+to kolejnym logicznym krokiem jest:
+đź”Ą Zrobienie pierwszego prawdziwego blueprintu (PQ)
+Nie szkolenia.
+Nie prompta.
+Nie mastera.
+Tylko:
+Formalnego blueprintu DSL dla Power Query Quick Training.
+Na nim:
+â€˘	zobaczymy, gdzie system pÄ™ka,
+â€˘	zobaczymy, czy 1 checkpoint wystarcza,
+â€˘	zobaczymy, czy PRIORYTET ma sens,
+â€˘	zobaczymy, czy FAIL_OPTIONS sÄ… wystarczajÄ…ce,
+â€˘	zobaczymy, czy LOG jest wystarczajÄ…cy.
+Dopiero potem piszemy master prompt.
+________________________________________
+5ď¸ŹâŁ KolejnoĹ›Ä‡ dalszych dziaĹ‚aĹ„
+ProponujÄ™:
+1.	Tworzymy blueprint PQ (wersja 0.1).
+2.	Przechodzimy przez niego krytycznie.
+3.	Na jego podstawie tworzymy:
+o	STANDARDY_BLUEPRINT v0.1
+4.	Dopiero wtedy projektujemy master prompt, ktĂłry bÄ™dzie to generowaĹ‚.
+JeĹ›li zaczniemy od mastera,
+zaczniemy projektowaÄ‡ abstrakcjÄ™ bez materiaĹ‚u testowego.
+________________________________________
+6ď¸ŹâŁ Pytanie operacyjne
+Czy chcesz teraz:
+A) ZaczÄ…Ä‡ pisaÄ‡ pierwszy formalny blueprint PQ (wersja 0.1, surowa)?
+czy
+B) Najpierw doprecyzowaÄ‡ DSL blueprintu (np. czy dodaÄ‡ sekcjÄ™ â€śMATERIAĹYâ€ť / â€śASSETYâ€ť / â€śUWAGI DLA AGENTAâ€ť)?
+W tej chwili jesteĹ›my w idealnym momencie, ĹĽeby wejĹ›Ä‡ w konkret.
+co znaczy DSL w tym kontekĹ›cie? dobra zrĂłbmy bluprint dla PQ. pokaĹĽ jeszcze raz co juĹĽ masz w tym temacie, skomentuje, doprecyzuje i bÄ™dziemy myĹ›leÄ‡ dalej
+DSL w tym kontekĹ›cie = sformalizowany format zapisu scenariusza (mini-jÄ™zyk), ktĂłry jest:
+â€˘	jednoznaczny,
+â€˘	konsekwentny miÄ™dzy szkoleniami,
+â€˘	Ĺ‚atwy do â€žprzetĹ‚umaczeniaâ€ť przez agenta na dialog z uĹĽytkownikiem.
+Czyli nie proza â€žnajpierw to, potem tamtoâ€ť, tylko staĹ‚e pola typu: ETAP / CEL / STEPS / CHECKPOINT / CRITERIA / FAIL_OPTIONS / LOG.
+________________________________________
+PoniĹĽej wrzucam to, co juĹĽ mamy jako baza do blueprintu PQ (z tego wÄ…tku), w formacie z 1 checkpointem na etap. To jest v0 (surowe) â€” skomentujesz i doprecyzujemy.
+BLUEPRINT: Power Query â€” Quick Training (90 min) â€” v0 (SUROWE)
+
+ZAĹOĹ»ENIA
+- Pracujemy na pliku treningowym: 4 arkusze / 4 zakresy danych (Klient, Sprzedawca, Produkt, SprzedaĹĽ).
+- Zakresy NIE sÄ… sformatowane jako tabele Excela na starcie.
+- Szkolenie = tryb SZKOLENIOWIEC (blueprint obowiÄ…zuje).
+- Opcjonalnie dostÄ™pny TRYB DORADCA (osobny automat, bez blueprintu).
+- 1 CHECKPOINT na etap.
+- Brak rozgaĹ‚Ä™zieĹ„ warunkowych; tylko FAIL_OPTIONS.
+
+USTAWIENIA (USER wybiera na starcie i moĹĽe zmieniÄ‡ w trakcie)
+STYL:
+- Narracja: 1 / 2 / 3
+- Krytycyzm: NISKI / NORMALNY / WYSOKI / SZALONY
+FUNKCJONOWANIE:
+- Czas: OFF / SOFT / STRICT (domyĹ›lnie OFF)
+- Weryfikacja: MIN / BALANS / DOKĹADNA
+
+DISCLAIMERY
+- Szkolenie: Pracujemy na danych treningowych. Nie wklejaj danych poufnych ani operacyjnych. JeĹ›li masz wkleiÄ‡ tabelÄ™, uĹĽyj â€žWklej jako zwykĹ‚y tekstâ€ť, aby przesĹ‚aÄ‡ dane w formie tekstowej.
+- Doradca: (mocniejszy; uruchamiany tylko w trybie DORADCA) Podawaj wyĹ‚Ä…cznie nazwy tabel, kolumn oraz fragmenty kodu transformacji. Nie udostÄ™pniaj danych operacyjnych, finansowych ani osobowych.
+
+INSTRUMENTACJA (LOG ogĂłlny)
+- zapisz: ustawienia startowe, ktĂłre etapy zaliczone, liczba prĂłb per etap, uĹĽyte FAIL_OPTIONS, miejsca utkniÄ™cia, pytania uĹĽytkownika (jeĹ›li padĹ‚y), tematy niejasne.
+- ADMIN: po wpisaniu ADMIN agent generuje raport + odpowiada na pytania admina.
+
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+[ETAP S0]
+NAZWA: Start i ustawienia
+CEL: UĹĽytkownik rozumie cel szkolenia, ma ustawione tryby, jest gotĂłw do pracy na pliku.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 3â€“5 min
+STEPS:
+1. Powitanie, przedstawienie celu i przebiegu (wysokopoziomowo).
+2. Zapytaj o imiÄ™.
+3. PokaĹĽ dostÄ™pne ustawienia (Narracja, Krytycyzm, Czas, Weryfikacja) i poproĹ› o wybĂłr.
+4. Poinformuj o moĹĽliwoĹ›ci zmiany ustawieĹ„ w trakcie.
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: UĹĽytkownik podaĹ‚ imiÄ™ i wybraĹ‚ ustawienia albo potwierdziĹ‚ domyĹ›lne.
+FAIL_OPTIONS:
+1) WyjaĹ›nij rĂłĹĽnice miÄ™dzy opcjami krĂłtkimi przykĹ‚adami
+2) Zaproponuj ustawienia domyĹ›lne
+3) PrzejdĹş w tryb KOMENDY-1-KROK na start
+REMediation:
+- jeĹ›li brak decyzji: agent proponuje default i prosi o â€śOKâ€ť.
+LOG:
+- imiÄ™ (jeĹ›li poda), ustawienia startowe.
+
+[ETAP E1]
+NAZWA: Przygotowanie danych w Excelu â€” tabele
+CEL: UĹĽytkownik zamienia 4 zakresy na tabele Excela i nadaje im nazwy.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 10â€“15 min
+STEPS:
+1. OtwĂłrz plik treningowy.
+2. KrĂłtko: po co formatowanie jako tabela (auto-expand, nazwy kolumn, structured references).
+3. Zadanie: zamieĹ„ 4 zakresy na tabele i nadaj nazwy: tblKlient, tblSprzedawca, tblProdukt, tblSprzedaz.
+CHECKPOINT:
+TYPE: CONFIRMATION (lub SCREEN_DESCRIBE jeĹ›li Weryfikacja=DOKĹADNA)
+CRITERIA: UĹĽytkownik potwierdza istnienie 4 tabel o nazwach jw.
+FAIL_OPTIONS:
+1) PodpowiedĹş minimalna: gdzie wstÄ…ĹĽka/skrĂłt do â€śFormatuj jako tabelÄ™â€ť
+2) Rozbij na 4 mikro-kroki (po jednej tabeli)
+3) Reset etapu: cofnij ostatnie zmiany i zacznij od arkusza 1
+REMediation:
+- jeĹ›li nazwy niezgodne: agent kaĹĽe poprawiÄ‡ nazwy (konkretnie).
+LOG:
+- czy etap zaliczony, ile prĂłb, gdzie utknÄ…Ĺ‚.
+
+[ETAP E2]
+NAZWA: Structured references â€” szybkie â€śczucieâ€ť tabel
+CEL: UĹĽytkownik rozumie, ĹĽe tabele dajÄ… ergonomiÄ™ odwoĹ‚aĹ„; wykonuje 1 mini-Ä‡wiczenie.
+PRIORYTET: NISKI (do skrĂłcenia przy STRICT)
+CZAS_PLANOWANY: 5â€“8 min
+STEPS:
+1. W jednej tabeli dodaj kolumnÄ™ z prostym odwoĹ‚aniem tabelarycznym (self-reference).
+2. Dodaj kolumnÄ™ z odwoĹ‚aniem do innej tabeli (tylko demonstracja trudnoĹ›ci / rĂłĹĽnic).
+CHECKPOINT:
+TYPE: SELF_TEST_QA
+CRITERIA: UĹĽytkownik odpowie na 2 pytania:
+- Po co tabele?
+- Co jest (nie)wygodne w odwoĹ‚aniach do innej tabeli?
+FAIL_OPTIONS:
+1) Podaj 2 przykĹ‚ady odpowiedzi i poproĹ› o wybĂłr bliĹĽszej
+2) Daj krĂłtsze pytania (tak/nie + 1 zdanie)
+3) PomiĹ„ etap (jeĹ›li STRICT i brakuje czasu)
+REMediation:
+- jeĹ›li uĹĽytkownik bĹ‚Ä…dzi: agent doprecyzowuje rĂłĹĽnicÄ™ â€śstruktura danychâ€ť vs â€śrelacje/modelâ€ť.
+LOG:
+- odpowiedzi uĹĽytkownika (skrĂłt), czy pominiÄ™to.
+
+[ETAP PQ1]
+NAZWA: WejĹ›cie do Power Query i orientacja w UI
+CEL: UĹĽytkownik importuje tblSprzedaz do PQ i rozpoznaje kluczowe elementy UI.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 8â€“12 min
+STEPS:
+1. ZaĹ‚aduj tblSprzedaz do PQ (From Table/Range).
+2. OmĂłw: lista queries, preview, Query Settings, Applied Steps, Advanced Editor (gdzie jest).
+3. Ustal nazwÄ™ zapytania: qSprzedaz.
+CHECKPOINT:
+TYPE: CONFIRMATION (lub SCREEN_DESCRIBE przy DOKĹADNA)
+CRITERIA: UĹĽytkownik potwierdza, ĹĽe widzi Applied Steps i wie, gdzie jest Advanced Editor; query ma nazwÄ™ qSprzedaz.
+FAIL_OPTIONS:
+1) Podaj alternatywne Ĺ›cieĹĽki do Advanced Editor (Home/View/PPM)
+2) Tryb 1-krok: â€śzrĂłb X, napisz OKâ€ť
+3) Skorzystaj z SCREEN_PQ_01 (jeĹ›li assety dostÄ™pne)
+REMediation:
+- jeĹ›li UI nie pasuje: agent prosi o wersjÄ™ Excela/Power BI i dostosowuje nazwy menu.
+LOG:
+- czy znalazĹ‚ AE, czy zmieniĹ‚ nazwÄ™.
+
+[ETAP PQ2]
+NAZWA: Higiena â€” typy danych i stabilnoĹ›Ä‡ krokĂłw
+CEL: UĹĽytkownik ustawia typy danych i rozumie, ĹĽe Applied Steps to â€śhistoria transformacjiâ€ť.
+PRIORYTET: WYSOKI
+CZAS_PLANOWANY: 10â€“15 min
+STEPS:
+1. Ustaw wĹ‚aĹ›ciwe typy danych dla kluczowych kolumn (data/liczby/tekst).
+2. PokaĹĽ jak edytowaÄ‡/usuwaÄ‡ kroki w Applied Steps.
+3. KrĂłtko: kolejnoĹ›Ä‡ krokĂłw i wpĹ‚yw na wynik.
+CHECKPOINT:
+TYPE: PASTE_M (opcjonalny wg Weryfikacja) albo SCREEN_DESCRIBE
+CRITERIA: W M widaÄ‡ krok Changed Type (lub Ĺ›wiadomÄ… decyzjÄ™) i uĹĽytkownik potrafi wskazaÄ‡ Applied Steps.
+FAIL_OPTIONS:
+1) Minimalna podpowiedĹş: gdzie zmieniÄ‡ typy
+2) Rozbicie: tylko 1 kolumna naraz
+3) Reset: usuĹ„ kroki do momentu wejĹ›cia i ustaw typy od nowa
+REMediation:
+- jeĹ›li bĹ‚Ä™dne typy: agent kaĹĽe poprawiÄ‡ na 2â€“3 kolumnach krytycznych, reszta pĂłĹşniej.
+LOG:
+- typy trudne, czy wklejaĹ‚ M.
+
+[ETAP PQ3]
+NAZWA: ZaĹ‚aduj dimension tables do PQ
+CEL: UĹĽytkownik Ĺ‚aduje 3 dodatkowe tabele jako osobne query.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 8â€“12 min
+STEPS:
+1. ZaĹ‚aduj tblProdukt â†’ qProdukt
+2. ZaĹ‚aduj tblKlient â†’ qKlient
+3. ZaĹ‚aduj tblSprzedawca â†’ qSprzedawca
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: UĹĽytkownik ma Ĺ‚Ä…cznie 4 query: qSprzedaz, qProdukt, qKlient, qSprzedawca.
+FAIL_OPTIONS:
+1) 1-krok: po jednej tabeli
+2) JeĹ›li gubi siÄ™ w oknach: opisz, jak wrĂłciÄ‡ do listy queries
+3) PomiĹ„ qSprzedawca (jeĹ›li STRICT i brak czasu)
+REMediation:
+- jeĹ›li nazwy niezgodne: popraw nazwy.
+LOG:
+- ktĂłre query pominiÄ™to / problemy.
+
+[ETAP PQ4]
+NAZWA: Merge 1 â€” SprzedaĹĽ + Produkt
+CEL: UĹĽytkownik wykonuje Merge i Expand, rozumie wynik.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 12â€“18 min
+STEPS:
+1. Merge qSprzedaz z qProdukt po ProductID.
+2. Expand: doĹ‚Ä…cz 1â€“3 kolumny z produktu (np. Nazwa, Kategoria).
+3. ZmieĹ„ nazwy doĹ‚Ä…czonych kolumn (jeĹ›li trzeba).
+CHECKPOINT:
+TYPE: SCREEN_DESCRIBE lub PASTE_M
+CRITERIA: UĹĽytkownik opisze wynik (nowe kolumny + brak masowych null-i) lub wklei fragment M od merge/expand.
+FAIL_OPTIONS:
+1) PodpowiedĹş minimalna: ustawienia Merge (join kind, matching)
+2) Rozbicie: najpierw Merge bez expand, potem expand
+3) Reset: usuĹ„ krok merge i wykonaj ponownie
+REMediation:
+- jeĹ›li duĹĽo null-i: agent kaĹĽe sprawdziÄ‡ typy kluczy i trim/clean.
+LOG:
+- join kind, problemy z null.
+
+[ETAP PQ5]
+NAZWA: Merge 2 â€” wynik + Klient
+CEL: UĹĽytkownik Ĺ‚Ä…czy dane klienta i rozumie, ĹĽe buduje tabelÄ™ faktĂłw z wymiarami.
+PRIORYTET: WYSOKI
+CZAS_PLANOWANY: 10â€“15 min
+STEPS:
+1. Merge wynik z qKlient po ClientID.
+2. Expand: 1â€“2 kolumny (np. Segment, Miasto).

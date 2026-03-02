@@ -1,0 +1,250 @@
+﻿â€žStÄ…d bÄ™dziesz kopiowaĹ‚ kod M do weryfikacji.â€ť
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: user potwierdza, ĹĽe widzi Applied Steps i otworzyĹ‚ AE.
+________________________________________
+[ETAP PQ2] CLOSE & LOAD + ODĹšWIEĹ»ANIE
+CEL:
+Zrozumienie: query = procedura, wynik = efekt.
+STEPS:
+TASK:
+Close & Load (jako tabela).
+TASK:
+UsuĹ„ dane â†’ Refresh.
+OBSERVATION:
+â€žCo siÄ™ staĹ‚o?â€ť
+TEACH:
+â€žKaĹĽde odĹ›wieĹĽenie to ponowne wykonanie zaprogramowanych krokĂłw.â€ť
+TASK:
+Load To â†’ Only Connection.
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: query ustawione jako Only Connection.
+________________________________________
+[ETAP PQ3] TYPY DANYCH I BĹÄDY
+CEL:
+User Ĺ›wiadomie zarzÄ…dza typami i rozumie Replace Current.
+STEPS:
+TASK:
+ZmieĹ„ typ Cena â†’ Currency (Add new step â†’ usuĹ„ â†’ Replace current).
+TASK:
+ZmieĹ„ typ IloĹ›Ä‡ â†’ Int (wywoĹ‚aj bĹ‚Ä…d).
+OBSERVATION:
+â€žCo siÄ™ staĹ‚o?â€ť
+TASK:
+Kliknij link Error (Ĺ‚apka, nie filtr) â†’ zobacz szczegĂłĹ‚y.
+TASK:
+ZamieĹ„ bĹ‚Ä™dy na 0.
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: Replace current zastosowany + bĹ‚Ä™dy obsĹ‚uĹĽone.
+________________________________________
+[ETAP PQ4] REUSE M â€” PL â†’ CZ
+CEL:
+User rozumie, ĹĽe kod M moĹĽna kopiowaÄ‡ i parametryzowaÄ‡.
+STEPS:
+TASK:
+Skopiuj caĹ‚y kod z SalesPL.
+TASK:
+Wklej do SalesCZ â†’ popraw nazwÄ™ ĹşrĂłdĹ‚a.
+OBSERVATION:
+â€žCzy SalesCZ przeszĹ‚o te same kroki?â€ť
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: SalesCZ dziaĹ‚a.
+________________________________________
+[ETAP PQ5] APPEND + REFACTOR
+CEL:
+User rozumie rĂłĹĽnicÄ™ miÄ™dzy dublowaniem logiki a pipeline po append.
+STEPS:
+TASK:
+Append as New Query â†’ SalesTOTAL.
+TEACH:
+â€žDziaĹ‚a, ale czyszczenie jest zrobione dwa razy.â€ť
+TASK:
+UsuĹ„ TOTAL.
+TASK:
+W SalesPL po Source dodaj Append PL+CZ przed czyszczeniem.
+OBSERVATION:
+â€žTeraz oba kraje przechodzÄ… jeden wspĂłlny pipeline.â€ť
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: 1 pipeline dla obu krajĂłw.
+________________________________________
+[ETAP END] PIVOT + DOMKNIÄCIE
+TASK:
+Load To â†’ Pivot Table.
+TASK:
+Ustaw dowolny widok sprzedaĹĽy.
+OPTIONAL:
+â€žMoĹĽesz wkleiÄ‡ screenshot, jeĹ›li chcesz siÄ™ pochwaliÄ‡.â€ť
+Pytania koĹ„cowe:
+â€˘	Co byĹ‚o najtrudniejsze?
+â€˘	Co byĹ‚o nowe?
+â€˘	Co wdroĹĽysz?
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: user ma wynik + odpowiedziaĹ‚ na pytania.
+LOG:
+â€˘	obserwacje
+â€˘	% zauwaĹĽonych efektĂłw
+â€˘	pytania do QA
+________________________________________
+To jest wersja strukturalnie czysta, zgodna z TwojÄ… wizjÄ…, ale uporzÄ…dkowana.
+________________________________________
+Teraz waĹĽne:
+1.	Czy zostawiamy reuse M + refactor w tym szkoleniu, czy to juĹĽ PQ czÄ™Ĺ›Ä‡ 2?
+2.	Czy bonus tabel ma byÄ‡ domyĹ›lnie rekomendowany czy neutralny?
+3.	Czy chcesz, ĹĽebym teraz:
+o	rozbudowaĹ‚ ten blueprint do peĹ‚nej wersji narracyjnej (z wygĹ‚adzonymi Twoimi tekstami),
+czy
+o	dopracowaĹ‚ mechanikÄ™ ADMIN (raport + scoring obserwacji), zanim wejdziemy w ciÄ™ĹĽkie pisanie tekstu?
+to INTRO nie pasuje skoro je powtarzamy. INTRO jest jedno. To w etapie 0 to byĹ‚o INTRO. dajmy inne oznaczenie symbolizujÄ…ce mĂłwienie/narracjÄ™/wykĹ‚ad... nie wiem. ale nie moĹĽemy mieÄ‡ 3 razy intro.... SPEACH? trochÄ™ nie pasuje ale coĹ› w tÄ… stronÄ™. moĹĽe po prostu TEXT Adresy typu A1:H80 sÄ… kruche - zamieĹ„ na "Musisz mu to "powiedzieÄ‡" piszÄ…c adres typu a1:h80, ale jest to bardzo wadliwa metoda. Dojdzie kolumna...." W bazach danych mamy dwa gĹ‚Ăłwne typy tabel: facts i dimensions. Facts to zdarzenia (np. sprzedaĹĽ). Dimensions to sĹ‚owniki/opisy (np. produkty). To moĹĽe wydawaÄ‡ siÄ™ nieistotne teraz, ale przy wiÄ™kszych projektach to robi ogromnÄ… rĂłĹĽnicÄ™.â€ť - za bardzo okroiĹ‚eĹ› moje sĹ‚owa. wiÄ™cej pisaĹ‚em o faktach i dimensionach, chcÄ™ ĹĽeby poczuli to ĹĽe tak jakby jedne sÄ… zmienne drugie staĹ‚e pominÄ…Ĺ‚eĹ› wyjaĹ›nienie prefixĂłw w TEXT zanim przejdziesz do TASK. jako przykĹ‚ad pokaĹĽ dimSklepy. bardzo staĹ‚e obiekty wiÄ™c powinno daÄ‡ odczucie staĹ‚oĹ›ci bonus TEXT - moĹĽe nie wpisujmy na sztywno 8-12 minut. na podstawie poczÄ…tkowego czasu niech prompt ocenia ile moĹĽe zajÄ…Ä‡ tabele TASK: W fctSalesPL dodaj kolumnÄ™ WartoĹ›Ä‡ =[@IloĹ›Ä‡]*[@Cena]. - omg tu juĹĽ mega poleciaĹ‚eĹ› i zbiĹ‚eĹ› dwa waĹĽne kroki w jedno zdanie. kurwa maÄ‡ SKUP SIÄ!!! nie po to ja za szczegĂłĹ‚ami rozpisujÄ™ wszystko ĹĽebyĹ› ty to zredukowaĹ‚ do "dodaj kolumnÄ™". Olbrzymie znaczenie miaĹ‚o rozdzielenie tego na osobne taski : najpierw wpisanie WartoĹ›Ä‡, zauwazenie ĹĽe siÄ™ tabela rozszerza. Potem instrukcja wpisania formuĹ‚y, teĹĽ bardzo dokĹ‚adnie rozpisaĹ‚em ĹĽe uĹĽytkownik ma przewinÄ…Ä‡ strzaĹ‚kami albo klikaÄ‡... no ja pierrrr grrrrrr!!! skup siÄ™, szczegĂłĹ‚y ktĂłre wypisywaĹ‚em wszystkie majÄ… mega wielkie znaczenie. prĂłbowaĹ‚em odpowiednio oznaczaÄ‡ nawiasami itp gdzie ja "mĂłwiÄ™" prawdopodobnie masz zachowaÄ‡ okoĹ‚o 90% tego co napisaĹ‚em, tylko lekko wygĹ‚adziÄ‡ ale TEXT w poprzednich punktach wyszedĹ‚ w miarÄ™ dobrze, zmierzamy w dobrym kierunku przeanalizuj jeszcze raz mojÄ… "mowÄ™" szkoleniowÄ…. dobrze zdefragmentuj wszystko co powiedziaĹ‚em i zachowaj jak najwiÄ™cej szczegĂłĹ‚Ăłw z tego co napisaĹ‚em, wiÄ™kszoĹ›Ä‡ z nich jest mega istotna. ciÄ™ĹĽko mi weryfikowaÄ‡ takÄ… okrojonÄ… wersjÄ™, w observation powinno byÄ‡ wypisane jakiej obserwacji siÄ™ spodziewamy potem w prompcie gĹ‚Ăłwnym chyba musi byÄ‡ opisane jak reagowaÄ‡ na observation (pytasz uĹĽytkownika i po odpowiedzi uzupeĹ‚niasz mu czego nie zauwaĹĽyĹ‚) poniĹĽsze nie powinno byÄ‡ aĹĽ tak suche, powinno byÄ‡ trochÄ™ Ĺ‚godnego przejĹ›cia i wyjaĹ›nienia do czego przechodzimy â€žExcel wĹ‚aĹ›nie â€zobaczyĹ‚â€™ tabelÄ™. Teraz moĹĽemy jÄ… kontrolowaÄ‡.â€ť INTRO (facts/dim): â€žTeraz przejdziemy do kwesti nazywania tabel. W bazach danych mamy dwa gĹ‚Ăłwne typy tabel: facts i dimensions. TASK: Ustal nazwÄ™ dla SprzedaĹĽPL tu rozpisaĹ‚em scenariusz najpierw spytaÄ‡ uĹĽytkownika jakimi typami bÄ™dÄ… tabele, potem wymyĹ›liÄ‡ nazwy dobra to jest bez sensu, za duĹĽo bÄ™dÄ™ poprawiaĹ‚, daj bardziej dosĹ‚ownÄ… mniej okrojonÄ… wersjÄ™
+Dobrze. Masz racjÄ™ â€” za bardzo syntetyzowaĹ‚em.
+Wracamy do wierniejszej, niemal dosĹ‚ownej rekonstrukcji Twojej narracji, tylko wygĹ‚adzonej jÄ™zykowo, bez utraty sensu i mikro-mechanik.
+Zmiany konstrukcyjne:
+â€˘	Nie uĹĽywamy INTRO wielokrotnie.
+â€˘	Typy krokĂłw:
+o	TEXT â€” narracja / wykĹ‚ad / mĂłwienie
+o	TASK â€” konkretna akcja uĹĽytkownika
+o	OBSERVATION â€” czego siÄ™ spodziewamy
+o	CHECK â€” pytanie kontrolne
+o	TEACH â€” dopowiedzenie / wyjaĹ›nienie
+o	WARNING â€” ostrzeĹĽenie / waĹĽna uwaga
+â€˘	W OBSERVATION wpisujÄ™ czego dokĹ‚adnie siÄ™ spodziewamy, ĹĽeby pĂłĹşniej moĹĽna byĹ‚o mierzyÄ‡ % zauwaĹĽonych elementĂłw.
+Nie okrajam.
+ZachowujÄ™ detale.
+Rozbijam dokĹ‚adnie tak, jak to opisaĹ‚eĹ›.
+________________________________________
+BLUEPRINT â€” ETAP E1 (wersja wierna Twojej mowie)
+[ETAP E1] MINIMUM TABEL â€” CTRL+T + NAZEWNICTWO + FACT/DIM
+CEL:
+UĹĽytkownik rozumie, dlaczego pracujemy na tabelach, potrafi je tworzyÄ‡ i nadaÄ‡ im Ĺ›wiadome nazwy.
+PRIORYTET: KRYTYCZNY
+CZAS: dynamiczny (w zaleĹĽnoĹ›ci od ustawieĹ„ czasu)
+________________________________________
+TEXT
+â€žOtwĂłrz plik.
+Znajdziesz w nim 4 arkusze z danymi.
+Problem z tym, ĹĽe Power Query nie bardzo â€wieâ€™, gdzie te dane sÄ….
+MoĹĽesz mu to oczywiĹ›cie â€powiedzieÄ‡â€™, piszÄ…c adres typu A1:H80.
+Ale to jest bardzo wadliwa metoda.
+Dojdzie nowa kolumna.
+DojdÄ… nowe wiersze.
+KtoĹ› przesunie tabelÄ™.
+I mechanizm siÄ™ rozsypie.
+To jest masa okazji do bĹ‚Ä™dĂłw.
+Dlatego, ĹĽeby zachowaÄ‡ poprawnoĹ›Ä‡ i kontrolÄ™, niezbÄ™dne jest pracowanie na zakresach zdefiniowanych jako Tabele.
+Teraz Ty â€widziszâ€™ tabelÄ™.
+Ale Excel jeszcze jej nie widzi.
+Naprawmy to.â€ť
+________________________________________
+TASK 1
+WejdĹş w arkusz SprzedaĹĽPL.
+Kliknij gdziekolwiek na danych.
+WciĹ›nij Ctrl + T.
+Upewnij siÄ™, ĹĽe zaznaczony jest checkbox â€žMoja tabela ma nagĹ‚Ăłwkiâ€ť.
+________________________________________
+CHECK
+â€žCzy po klikniÄ™ciu tabeli pojawiĹ‚a siÄ™ dodatkowa zielona zakĹ‚adka (Table Design / Projektowanie tabeli)?â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PojawiĹ‚a siÄ™ dodatkowa zakĹ‚adka kontekstowa.
+â€˘	Dane majÄ… naprzemienny styl.
+â€˘	Excel traktuje zakres jako obiekt tabeli.
+________________________________________
+TEXT (pĹ‚ynne przejĹ›cie)
+â€žĹšwietnie.
+Excel wĹ‚aĹ›nie zaczÄ…Ĺ‚ jÄ… widzieÄ‡ jako TabelÄ™.
+To oznacza, ĹĽe moĹĽemy jÄ… teraz kontrolowaÄ‡ i odnosiÄ‡ siÄ™ do niej po nazwie, a nie po adresie komĂłrek.â€ť
+________________________________________
+TEXT â€” FACTS / DIMENSIONS (rozszerzona, nie okrojona)
+â€žTeraz przejdziemy do kwestii nazywania tabel.
+W bazach danych mamy dwa gĹ‚Ăłwne typy tabel: facts i dimensions.
+Tabele faktĂłw (facts) to zdarzenia.
+CoĹ› siÄ™ wydarzyĹ‚o. SprzedaĹĽ. Transakcja. Log.
+One rosnÄ… w czasie.
+SÄ… zmienne.
+Dochodzi ich coraz wiÄ™cej.
+Tabele wymiarĂłw (dimensions) to opisy.
+Produkty. Klienci. Sklepy.
+One sÄ… w pewnym sensie bardziej â€staĹ‚eâ€™.
+OczywiĹ›cie mogÄ… siÄ™ zmieniaÄ‡, ale nie rosnÄ… tak dynamicznie jak fakty.
+One opisujÄ… fakty.
+Patrzenie na dane w ten sposĂłb bardzo pomaga przy wiÄ™kszych projektach.
+Zaczynasz widzieÄ‡ strukturÄ™, a nie tylko arkusz.â€ť
+________________________________________
+TEXT â€” PREFIKSY
+â€žDlatego przy nazywaniu tabel dobrze jest stosowaÄ‡ prefiksy, ktĂłre jasno mĂłwiÄ…, z czym mamy do czynienia.
+Na przykĹ‚ad:
+â€˘	fctSales
+â€˘	dimProducts
+â€˘	dimStores
+ZauwaĹĽ, ĹĽe np. sklepy to doĹ›Ä‡ staĹ‚e obiekty.
+BrzmiÄ… stabilnie.
+To jest wĹ‚aĹ›nie wymiar.â€ť
+________________________________________
+TASK 2 â€” INTERAKCJA
+â€žJak sÄ…dzisz â€” tabela SprzedaĹĽPL to fact czy dimension?â€ť
+(oczekujemy: fact)
+________________________________________
+CHECK
+JeĹ›li uĹĽytkownik odpowie poprawnie â†’ przejdĹş dalej.
+JeĹ›li nie â†’ krĂłtko wyjaĹ›nij rĂłĹĽnicÄ™ i naprowadĹş.
+________________________________________
+TASK 3 â€” NAZWA
+â€žJak byĹ› jÄ… nazwaĹ‚?â€ť
+(Oczekujemy czegoĹ› w stylu fctSprzedaĹĽPL / fctSalesPL)
+JeĹ›li user poda nazwÄ™:
+â€˘	dopasuj siÄ™ do jÄ™zyka
+â€˘	skoryguj subtelnie konwencjÄ™ (np. maĹ‚a litera w prefiksie, wielka w nazwie)
+________________________________________
+TASK 4
+Wpisz ustalonÄ… nazwÄ™ w polu nazwy tabeli (po lewej w zakĹ‚adce Table Design).
+________________________________________
+CHECKPOINT
+TYPE: CONFIRMATION
+CRITERIA:
+â€˘	tabela ma ustalonÄ… nazwÄ™
+â€˘	user potwierdza zmianÄ™ nazwy
+LOG:
+â€˘	czy poprawnie zidentyfikowaĹ‚ fact
+â€˘	jakÄ… konwencjÄ™ przyjÄ…Ĺ‚
+________________________________________
+TASK 5 â€” POZOSTAĹE TABELE
+â€žTeraz zastanĂłwmy siÄ™ nad pozostaĹ‚ymi tabelami.
+Czy sÄ… to tabele faktĂłw czy wymiarĂłw?
+Zaproponuj nazwy.â€ť
+User proponuje â†’ korygujemy jeĹ›li trzeba.
+________________________________________
+TASK 6
+ZamieĹ„ pozostaĹ‚e zakresy na tabele i nazwij je zgodnie z ustalonÄ… konwencjÄ….
+________________________________________
+CHECKPOINT ETAPU
+TYPE: CONFIRMATION
+CRITERIA:
+â€˘	3 tabele istniejÄ…
+â€˘	majÄ… spĂłjne prefiksy
+â€˘	user rozumie rĂłĹĽnicÄ™ fact/dim
+LOG:
+â€˘	liczba prĂłb
+â€˘	czy trzeba byĹ‚o korygowaÄ‡ rozumienie fact/dim
+________________________________________
+BONUS â€” ROZSZERZONE Ä†WICZENIA Z TABEL (Twoje dokĹ‚adne rozpisanie)
+Tu teraz wchodzimy w Twoje bardzo szczegĂłĹ‚owe kroki.
+Nie skracam.
+Rozbijam dokĹ‚adnie.
+________________________________________
+[ETAP E2] BONUS â€” STRUKTURA ODNIESIEĹ + ROZSZERZANIE
+________________________________________
+TEXT
+â€žSkoro tabele juĹĽ nazwane, wrĂłÄ‡my do tabeli sprzedaĹĽy.
+Excel jÄ… teraz widzi.
+PierwszÄ… zabĂłjczÄ… funkcjonalnoĹ›ciÄ… jest to, ĹĽe moĹĽemy siÄ™ do niej odnosiÄ‡ bez adresĂłw typu A1:H100.
+Zrobimy teraz seriÄ™ Ä‡wiczeĹ„ treningowych.
+To tylko trening â€” wpisuj formuĹ‚y gdzieĹ› z prawej strony, jedno pod drugim.â€ť
+________________________________________
+TASK 1 â€” WYĹšWIETLENIE CAĹEJ TABELI
+Wpisz:
+=[nazwa_tabeli]
+________________________________________

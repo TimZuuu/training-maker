@@ -1,0 +1,250 @@
+﻿OBSERVATION (oczekiwane)
+â€˘	Excel podpowiada nazwÄ™ tabeli.
+â€˘	Obok nazwy jest inna ikonka niĹĽ przy funkcjach.
+â€˘	Po Enter wyĹ›wietla siÄ™ caĹ‚a tabela.
+â€˘	FormuĹ‚Ä™ moĹĽna zmieniÄ‡ tylko w pierwszej komĂłrce (lewy gĂłrny rĂłg).
+________________________________________
+TEACH
+â€žTo ma maĹ‚Ä… wartoĹ›Ä‡ praktycznÄ… â€” robimy to, ĹĽeby poczuÄ‡, jak dziaĹ‚ajÄ… nazwy.â€ť
+________________________________________
+TASK 2 â€” NAWIASY KWADRATOWE
+Wpisz:
+=[nazwa_tabeli][
+________________________________________
+OBSERVATION
+â€˘	Pojawia siÄ™ lista elementĂłw.
+â€˘	Najpierw elementy z # (All, Data, Headers, Totals).
+________________________________________
+TASK 3
+Napisz odniesienia do:
+â€˘	#All
+â€˘	#Data
+â€˘	#Headers
+â€˘	#Totals
+________________________________________
+OBSERVATION
+â€˘	#Totals zwraca #REF jeĹ›li tabela nie ma wĹ‚Ä…czonego wiersza sum.
+________________________________________
+TEXT
+â€žSpokojnie. SpodziewaliĹ›my siÄ™ tego.â€ť
+________________________________________
+TASK
+Kliknij tabelÄ™ â†’ Table Design â†’ zaznacz Total Row.
+________________________________________
+OBSERVATION
+â€˘	#REF znika.
+â€˘	#Totals zaczyna dziaĹ‚aÄ‡.
+â€˘	Inne odniesienia aktualizujÄ… siÄ™ automatycznie.
+________________________________________
+TEACH
+â€žTe odniesienia zawsze pokazujÄ… aktualny stan tabeli.â€ť
+________________________________________
+TASK â€” KONKRETNE KOLUMNY
+WyĹ›wietl 2â€“3 odniesienia do konkretnych kolumn.
+________________________________________
+TASK â€” @
+Wpisz w komĂłrce obok tabeli:
+=[nazwa_tabeli][@nazwa_kolumny]
+PrzeciÄ…gnij w dĂłĹ‚ poza tabelÄ™.
+________________________________________
+OBSERVATION
+â€˘	W tabeli dziaĹ‚a.
+â€˘	Poza tabelÄ… zwraca bĹ‚Ä…d.
+â€˘	KaĹĽda komĂłrka zwraca pojedynczÄ… wartoĹ›Ä‡.
+________________________________________
+TEACH
+â€ž@ oznacza â€w tym samym wierszuâ€™.â€ť
+________________________________________
+TASK â€” AUTO-EXPAND (ROZBITA WERSJA, NIE ZBIJAM)
+1.	Wpisz w nagĹ‚Ăłwku obok tabeli sĹ‚owo â€žWartoĹ›Ä‡â€ť.
+2.	Zobacz co siÄ™ staĹ‚o.
+OBSERVATION:
+â€˘	tabela siÄ™ rozszerzyĹ‚a o kolumnÄ™.
+3.	Teraz wpisz formuĹ‚Ä™:
+=[@IloĹ›Ä‡]*[@Cena]
+ZrĂłb to klikajÄ…c kolumny lub uĹĽywajÄ…c strzaĹ‚ek.
+OBSERVATION:
+â€˘	formuĹ‚a automatycznie wypeĹ‚niĹ‚a caĹ‚Ä… kolumnÄ™.
+4.	Dopisz nowy wiersz pod tabelÄ….
+OBSERVATION:
+â€˘	tabela siÄ™ wydĹ‚uĹĽyĹ‚a
+â€˘	formuĹ‚a siÄ™ skopiowaĹ‚a
+________________________________________
+Dalsze kroki (XLOOKUP, rÄ™czne rozszerzanie, SPILL, itd.) â€” analogicznie zachowamy w kolejnej czÄ™Ĺ›ci, bez redukowania.
+________________________________________
+Teraz zatrzymajmy siÄ™.
+To jest dopiero E1 + E2 i juĹĽ widaÄ‡ rĂłĹĽnicÄ™ jakoĹ›ci.
+Pytanie do Ciebie:
+1.	Czy ten poziom wiernoĹ›ci i rozbicia jest tym, czego oczekujesz?
+2.	Czy chcesz, ĹĽebym teraz:
+o	dokoĹ„czyĹ‚ caĹ‚oĹ›Ä‡ blueprintu (PQ1 â†’ END) w takim samym stylu,
+czy
+o	najpierw dopracowali mechanikÄ™ OBSERVATION + scoring + reakcjÄ™ agenta?
+Tym razem nie bÄ™dÄ™ redukowaĹ‚ szczegĂłĹ‚Ăłw.
+Power Query nie bardzo â€wieâ€™ - Excel nie bardzo â€wieâ€™ odpowiedĹş po obserwatcji, ewentualne dopeĹ‚nienie obserwacji ma w tej samej wiadomoĹ›ci przechodziÄ‡ w kolejny task w stylu "teraz przejdĹşmy do Ä‡wiczenia" lob cokolwiek aktualnie pasuje Dochodzi ich coraz wiÄ™cej. - dodaj ĹĽe dochodzÄ… wiersze nie dawaj przykĹ‚adĂłw fctSales dimProducts ĹĽeby uĹĽytkownik miaĹ‚ okazjÄ™ wywnioskowaÄ‡ jak nazwaÄ‡ Ä‡wiczeniowe tabele po nazwaniu tabel moĹĽesz daÄ‡ wiÄ™cej przykĹ‚adow tabel dim i fct skoryguj subtelnie konwencjÄ™ (np. maĹ‚a litera w prefiksie, wielka w nazwie) - zaznacz wartoĹ›Ä‡ wizualno rozpoznawczÄ… w takim sposobie wpisuj formuĹ‚y w kolumnie J, jedno pod drugim Wpisz w komĂłrce (przy dawaniu polecenia, zaznacz ĹĽeby uĹĽytkownik zwrĂłciĹ‚ uwagÄ™ na zaproponowanie peĹ‚nej nazwy przez excela i ikonkÄ™ tabeli). co siÄ™ staĹ‚o? (na to hasĹ‚o w tym miejscu bÄ™dziemy prosiÄ‡ o opisanie jaki byĹ‚ skutek zaleconej akcji. Prawie przed kaĹĽdÄ… obserwacjÄ… ktĂłrÄ… spodziewamy siÄ™ ze uĹĽytkownik zobaczy, pytamy co siÄ™ staĹ‚o. Raczej nie spodziewalibyĹ›my siÄ™ ĹĽe zauwaĹĽy innÄ… ikonkÄ™ przy nazwie, wiÄ™c o tym mĂłwimy. o ma maĹ‚Ä… wartoĹ›Ä‡ praktycznÄ… - musimy dokĹ‚adniej, co to jest TO. Chodzi o takie WYĹšWIETLANIE tabeli. Odniesienia do tabeli raczej bÄ™dÄ… uĹĽywane w funkcjach. odniesienia to teĹĽ sĹ‚owo klucz Wpisz: =[nazwa_tabeli][ - mam nadziejÄ™ ĹĽe tu bot bÄ™dzie szkolonemy wyĹ›wietlaĹ‚ faktycznÄ… nazwÄ™ tabeli jakÄ… mu uĹĽytkownik podaĹ‚, domyĹ›lnie =fctSprzedaĹĽPL[ funkcji nie pokazuj jako boxĂłw, uĹĽytkownik koniecznie ma pisaÄ‡ sam a nie wklejaÄ‡ OBSERVATION Pojawia siÄ™ lista elementĂłw. - to ma byÄ‡ wyĹĽej narracja przed TASK 2 - o tym ĹĽe elementy to WARTOSCI jako poszczegĂłlne kolumny, oraz pozostaĹ‚e elementy z prefixami # potem Ä‡wiczenie z wpisywaniem # TASK 3 co siÄ™ staĹ‚o? â€žSpokojnie. SpodziewaliĹ›my siÄ™ tego.â€ť - okroiĹ‚eĹ›, wytĹ‚umaczyĹ‚em czemu siÄ™ spodziewaliĹ›my, bo ĹşrĂłdĹ‚o nie ma totala. potem Ä‡wiczenie TASK @ wpisz w komĂłrce w kolumnie H, koniecznie obok tabeli, w tym samym wierszu, pojedynczÄ… wartoĹ›Ä‡ - a nie jak wczeĹ›niej, zakres Teraz wpisz formuĹ‚Ä™: =[@IloĹ›Ä‡]*[@Cena] ZrĂłb to klikajÄ…c kolumny lub uĹĽywajÄ…c strzaĹ‚ek. - no to nie dawaj "teraz wpisz formuĹ‚Ä™" tylko "teraz wpisz =, kliknij kolumne lub przesun strzalka, wpisz * i znĂłw wybĂłr kolumny". Tak ĹĽeby wyszĹ‚o [i wtedy formuĹ‚a, nie w boxie] co siÄ™ staĹ‚o? 4. dopisz nowy numer ID tak jest ta wersja jest juĹĽduĹĽo lepsza. moje poprawki sÄ… duĹĽo mniejsze mechanika observation widzÄ™ sama siÄ™ produkuje przy planowaniu caĹ‚oĹ›ci wiÄ™c leÄ‡my z bluprintem 
+Dobrze.
+Lecimy dalej w tej samej jakoĹ›ci â€” bez redukowania szczegĂłĹ‚Ăłw, z mechanikÄ… â€žco siÄ™ staĹ‚o?â€ť przed kaĹĽdÄ… istotnÄ… obserwacjÄ…, z pĹ‚ynnym przejĹ›ciem do kolejnych krokĂłw.
+Poprawki, ktĂłre wskazaĹ‚eĹ›, wprowadzam od razu.
+________________________________________
+[ETAP E2 â€” kontynuacja] STRUKTURA ODNIESIEĹ I ZACHOWANIA TABEL
+(ciÄ…g dalszy po sekcji z =nazwa_tabeli)
+________________________________________
+TEXT â€” doprecyzowanie
+â€žTo wyĹ›wietlanie caĹ‚ej tabeli w komĂłrce ma niewielkÄ… wartoĹ›Ä‡ praktycznÄ… samo w sobie.
+Nie bÄ™dziesz raczej w ten sposĂłb pracowaÄ‡ na co dzieĹ„.
+Robimy to, ĹĽeby zrozumieÄ‡, czym sÄ… odniesienia do tabeli i jak Excel traktuje tabelÄ™ jako obiekt.
+W praktyce odniesienia do tabeli najczÄ™Ĺ›ciej wykorzystuje siÄ™ wewnÄ…trz funkcji.â€ť
+Teraz przejdĹşmy krok dalej.
+________________________________________
+TEXT â€” zapowiedĹş elementĂłw tabeli
+â€žGdy odwoĹ‚ujesz siÄ™ do tabeli, moĹĽesz odwoĹ‚ywaÄ‡ siÄ™:
+â€˘	do caĹ‚ej tabeli,
+â€˘	do poszczegĂłlnych kolumn,
+â€˘	do specjalnych elementĂłw oznaczonych prefiksem #,
+â€˘	oraz do pojedynczego wiersza poprzez symbol @.â€ť
+Zaraz to przeÄ‡wiczymy.
+________________________________________
+TASK 2 â€” NAWIAS KWADRATOWY
+W kolumnie J, w kolejnej komĂłrce pod poprzedniÄ… formuĹ‚Ä…, wpisz znak =
+Zacznij wpisywaÄ‡ nazwÄ™ tabeli i zwrĂłÄ‡ uwagÄ™:
+â€˘	czy Excel podpowiada peĹ‚nÄ… nazwÄ™,
+â€˘	jaka ikonka pojawia siÄ™ obok tej nazwy.
+Nie wklejaj, wpisuj rÄ™cznie.
+Gdy pojawi siÄ™ peĹ‚na nazwa, zaakceptuj jÄ… i dopisz na koĹ„cu znak [
+Co siÄ™ staĹ‚o?
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Excel wyĹ›wietliĹ‚ listÄ™ moĹĽliwych elementĂłw.
+â€˘	Najpierw pojawiajÄ… siÄ™ elementy zaczynajÄ…ce siÄ™ od # (#All, #Data, #Headers, #Totals).
+â€˘	PoniĹĽej znajdujÄ… siÄ™ nazwy poszczegĂłlnych kolumn tabeli.
+JeĹ›li uĹĽytkownik nie zauwaĹĽy ktĂłregoĹ› elementu â€” dopowiedz i przejdĹş dalej.
+________________________________________
+TASK 3 â€” ELEMENTY Z
+Wpisz po kolei odniesienia do:
+â€˘	#All
+â€˘	#Data
+â€˘	#Headers
+â€˘	#Totals
+KaĹĽde w osobnej komĂłrce, jedno pod drugim.
+PamiÄ™taj:
+Excel automatycznie zamyka nawiasy okrÄ…gĹ‚e (),
+ale nie zawsze domyka nawiasy kwadratowe [] â€” dopilnuj zamkniÄ™cia.
+Po wpisaniu czterech formuĹ‚ napisz:
+Co siÄ™ staĹ‚o?
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	#All pokazuje caĹ‚Ä… tabelÄ™.
+â€˘	#Data pokazuje tylko dane bez nagĹ‚ĂłwkĂłw.
+â€˘	#Headers pokazuje tylko wiersz nagĹ‚ĂłwkĂłw.
+â€˘	#Totals zwraca bĹ‚Ä…d #REF (jeĹ›li tabela nie ma wĹ‚Ä…czonego wiersza sum).
+________________________________________
+TEXT â€” wyjaĹ›nienie, nie skrĂłcone
+â€žSpodziewaliĹ›my siÄ™ tego bĹ‚Ä™du.
+Dlaczego?
+Bo odwoĹ‚ujesz siÄ™ do elementu #Totals, czyli wiersza sum.
+A Twoja tabela w ĹşrĂłdle go nie ma.
+Excel nie moĹĽe wyĹ›wietliÄ‡ czegoĹ›, co nie istnieje â€” dlatego pojawia siÄ™ #REF.â€ť
+Zostaw formuĹ‚Ä™ tak jak jest.
+________________________________________
+TASK â€” WĹÄ„CZENIE TOTAL ROW
+Kliknij tabelÄ™.
+PrzejdĹş do zakĹ‚adki Table Design / Projektowanie tabeli.
+Zaznacz opcjÄ™ Total Row.
+Co siÄ™ staĹ‚o?
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	W tabeli pojawiĹ‚ siÄ™ dodatkowy wiersz sum.
+â€˘	BĹ‚Ä…d #REF w komĂłrce z #Totals zniknÄ…Ĺ‚.
+â€˘	PozostaĹ‚e odniesienia rĂłwnieĹĽ zmieniĹ‚y siÄ™, bo teraz tabela ma dodatkowy element.
+________________________________________
+TEACH
+â€žTe odniesienia zawsze pokazujÄ… aktualny stan tabeli.
+Cokolwiek zmienisz w tabeli â€” odniesienia dostosujÄ… siÄ™ automatycznie.â€ť
+PrzejdĹşmy dalej.
+________________________________________
+ODNIESIENIA DO KONKRETNYCH KOLUMN
+________________________________________
+TASK
+W kolumnie J wpisz 2â€“3 odniesienia do konkretnych kolumn tabeli.
+Nie kopiuj â€” wpisuj rÄ™cznie i korzystaj z podpowiedzi Excela.
+Po wykonaniu napisz:
+Co siÄ™ staĹ‚o?
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	WyĹ›wietla siÄ™ caĹ‚a kolumna.
+â€˘	Dane â€žrozlewajÄ… siÄ™â€ť w dĂłĹ‚.
+â€˘	JeĹ›li coĹ› blokuje miejsce â€” moĹĽe pojawiÄ‡ siÄ™ #SPILL.
+JeĹ›li uĹĽytkownik nie wspomni o rozlewaniu â€” dopowiedz.
+________________________________________
+SYMBOL @ â€” ODNIESIENIE DO WIERSZA
+________________________________________
+TEXT
+â€žTeraz przejdziemy do bardzo waĹĽnego elementu â€” symbolu @.
+@ oznacza: w tym samym wierszu.
+To zupeĹ‚nie inne zachowanie niĹĽ wyĹ›wietlanie caĹ‚ej kolumny czy tabeli.â€ť
+________________________________________
+TASK
+W kolumnie H (koniecznie obok tabeli, w tym samym wierszu co dane),
+wpisz znak =
+nastÄ™pnie nazwÄ™ tabeli
+i po nawiasie kwadratowym wpisz @
+oraz wybierz nazwÄ™ jednej z kolumn.
+ZatwierdĹş.
+Co siÄ™ staĹ‚o?
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	ZwrĂłcona zostaĹ‚a pojedyncza wartoĹ›Ä‡.
+â€˘	Nie wyĹ›wietliĹ‚ siÄ™ zakres ani tabela.
+â€˘	Wynik dotyczy konkretnego wiersza.
+________________________________________
+TASK
+PrzeciÄ…gnij formuĹ‚Ä™ w dĂłĹ‚, takĹĽe poniĹĽej zakresu tabeli.
+Co siÄ™ staĹ‚o?
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	W wierszach naleĹĽÄ…cych do tabeli formuĹ‚a dziaĹ‚a.
+â€˘	Poza tabelÄ… pojawia siÄ™ bĹ‚Ä…d.
+â€˘	Wynika to z tego, ĹĽe tabela nie ma tam danych.
+________________________________________
+TEACH
+â€žKaĹĽda formuĹ‚a z @ zwraca pojedynczy element.
+Gdy jesteĹ› poza tabelÄ… â€” Excel nie znajduje odpowiedniego wiersza.â€ť
+Przechodzimy dalej.
+________________________________________
+AUTO-EXPAND â€” ROZBITA WERSJA (BEZ ĹÄ„CZENIA KROKĂ“W)
+________________________________________
+TASK 1
+W nagĹ‚Ăłwku obok tabeli wpisz sĹ‚owo:
+WartoĹ›Ä‡
+Nie wpisuj formuĹ‚y.
+Tylko nagĹ‚Ăłwek.
+Co siÄ™ staĹ‚o?
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Tabela rozszerzyĹ‚a siÄ™ o nowÄ… kolumnÄ™.
+â€˘	Nowa kolumna staĹ‚a siÄ™ czÄ™Ĺ›ciÄ… tabeli.
+â€˘	ZmieniĹ‚ siÄ™ zakres tabeli.
+________________________________________
+TASK 2
+Teraz kliknij pierwszÄ… komĂłrkÄ™ w nowej kolumnie.
+Wpisz znak =
+kliknij kolumnÄ™ IloĹ›Ä‡ (strzaĹ‚kÄ… lub myszkÄ…)
+wpisz znak *
+kliknij kolumnÄ™ Cena
+zatwierdĹş.
+Co siÄ™ staĹ‚o?
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	FormuĹ‚a automatycznie skopiowaĹ‚a siÄ™ do wszystkich wierszy tabeli.
+â€˘	Nie trzeba byĹ‚o przeciÄ…gaÄ‡.
+â€˘	Excel uĹĽyĹ‚ strukturalnych odniesieĹ„.
+JeĹ›li user tego nie zauwaĹĽy â€” dopowiedz.
+________________________________________
+TASK 3
+Dopisz pod tabelÄ… nowy numer ID (w pierwszej kolumnie tabeli).
+Co siÄ™ staĹ‚o?
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Tabela automatycznie siÄ™ wydĹ‚uĹĽyĹ‚a.
+â€˘	FormuĹ‚a w kolumnie WartoĹ›Ä‡ zostaĹ‚a automatycznie zastosowana do nowego wiersza.
+________________________________________

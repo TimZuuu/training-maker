@@ -1,0 +1,648 @@
+﻿1: mam nietypowe zadanie wpadĹ‚em na pomysĹ‚ ĹĽeby zrobiÄ‡ prompta ktĂłry bÄ™dize przeprowadzaĹ‚ z uĹĽytkownikiem szkolenie. Na przykĹ‚ad na temat power query. Dostanie wytyczne jakie informacje ma przekazaÄ‡, w jakiej kolejnoĹ›ci, jakie rady daÄ‡, przez jakie kroki przeprowadziÄ‡ uĹĽytkownika, jakie Ä‡wiczenia z nim wykonaÄ‡, jak weryfikowaÄ‡ czy to co zrobiĹ‚ uĹĽytkownik jest zrobione dobrze itp. czyli mocno ustawiony pod szkolenie i konkretny temat zatem doszedĹ‚em do wniosku ĹĽe dobrze bÄ™dzie robiÄ‡ osobnych agentĂłw na osobne tematy. WiÄ™c przyda siÄ™ master prompt do produkcji takich promptĂłw szkoleniowych trochÄ™ juĹĽ wyĹ‚oĹĽyĹ‚em elementĂłw, przeanalizuj je i przedyskutuj ze mnÄ… jak byĹ› zaplanowaĹ‚e budowe takiego master promta do produkcji promptĂłw szkoleniowych
+2: ETAP 0 â€” ROZPOZNANIE TRYBU
+17: â€˘	przyjmuje temat (np. Power Query)
+49: Dla Power Query przykĹ‚adowo:
+53: â€˘	merge / append
+161: 1) â€śModuĹ‚ 1 â€“ mapa kompetencjiâ€ť u Ciebie = w praktyce â€śBlueprint szkoleniaâ€ť
+164: â€˘	Blueprint szkolenia (scenariusz krok po kroku)
+171: â€˘	Problemowe: zaczynamy od bĹ‚Ä™du/objawu (â€śdlaczego merge robi null-eâ€ť), potem narzÄ™dzia i Ä‡wiczenie.
+218: 5.	ĹšcieĹĽka krokĂłw: lista etapĂłw (TwĂłj blueprint)
+219: 6.	Checkpoints: per etap typ weryfikacji + kryterium poprawnoĹ›ci
+228: SZKOLENIE: Power Query â€” Quick Training (90 min)
+229: CEL: przejĹ›Ä‡ od surowych zakresĂłw w Excelu do 1 spĂłjnego zapytania w PQ (Append + Merge) z podstawowÄ… higienÄ… (typy, nazwy, kroki).
+233: - (opcjonalnie) SCREEN_PQ_01..05: podpisane screeny UI (Home, Transform, Query Settings, Advanced Editor, Merge)
+245:    - Czy wiesz czym jest Merge vs Append? (tak/nie)
+262: FAZA 2 â€” WEJĹšCIE DO POWER QUERY (10 min)
+278: FAZA 4 â€” APPEND / MERGE NA KONKRETNYM CASE (25 min)
+283: 2) Merge: qSprzedaz + qProdukt (po ProductID) -> expand: nazwa produktu / kategoria.
+285: - uĹĽytkownik opisuje wynik (kolumny po expand) albo wkleja M od merge.
+287: 3) Merge: wynik + qKlient (po ClientID) -> expand: segment klienta / miasto.
+290: 4) (opcjonalnie, jeĹ›li czas) Merge: wynik + qSprzedawca.
+319: Najlepiej: â€śBlueprint DSLâ€ť (prosty format: etap â†’ kroki â†’ checkpoint â†’ kryterium â†’ remediation). Bez tego bÄ™dziesz tonÄ…Ĺ‚ w prozie.
+400: Kliknij ikonÄ™ Merge
+402: WejdĹş w zakĹ‚adkÄ™ Home â†’ Combine â†’ Merge Queries.
+404: â€˘	kliknij prawym przyciskiem na nazwie zapytania â†’ Merge
+405: â€˘	albo uĹĽyj pola wyszukiwania w gĂłrnej czÄ™Ĺ›ci okna i wpisz â€žMergeâ€ť.
+437: bÄ™dzie definiowane przez Ciebie przy blueprintowaniu.
+439: â€žOpisz procedurÄ™ ratunkowÄ… dla tego etapuâ€ť.
+491: 3.	Blueprint ogĂłlny
+507: - wyĹ‚Ä…cza plan etapowy
+520: To wpĹ‚ywa na projekt blueprintu.
+523: Czy blueprint ma byÄ‡:
+526: â€˘	sformalizowany jak mini-DSL (Etap â†’ Cel â†’ Krok â†’ Checkpoint â†’ Kryterium â†’ Remediation)?
+537: â€˘	ma blueprint
+592: 6ď¸ŹâŁ Blueprint â€“ skoro ma byÄ‡ sformalizowany
+595: ETAP: Przygotowanie danych
+617: 7ď¸ŹâŁ Co master musi wymuszaÄ‡ przy projektowaniu blueprintu
+618: Przy kaĹĽdym etapie powinien CiÄ™ zapytaÄ‡:
+619: 1.	Czy ten etap jest krytyczny dla celu szkolenia?
+658: B) generowaĹ‚ najpierw formalny blueprint, a dopiero po zatwierdzeniu przez Ciebie produkowaĹ‚ prompt?
+693: â”‚   â”‚   â””â”€â”€ Automat szkoleniowy (oparty o Blueprint)
+698: â”‚       â”śâ”€â”€ Brak blueprintu
+723: 4) Reset etapu
+732: ETAP 1 â€” Definicja celu
+735: ETAP 2 â€” Tryb
+738: ETAP 3 â€” Blueprint (formalny DSL)
+739: â€˘	Etap
+747: ETAP 4 â€” Polityki globalne
+752: ETAP 5 â€” Instrumentacja
+756: ETAP 6 â€” Symulacja pytaĹ„ uĹĽytkownika
+760: ETAP 7 â€” Finalizacja
+766: 5ď¸ŹâŁ Blueprint jako DSL â€” musi byÄ‡ twardy
+769: WiÄ™c blueprint nie moĹĽe byÄ‡ opisowy.
+772: [ETAP_ID]
+804: â€˘	brak blueprintu
+813: Skoro blueprint ma byÄ‡ sercem,
+816: Czy blueprint ma dopuszczaÄ‡:
+826: 4 etap 2 - zawsze bÄ™dzie szkoleniowiec, dodatkowo zapytanie czy ma mieÄ‡ opcjÄ™ doradca etap 4 krytycyzm bÄ™dzie ustawiany zawsze tylko przez uĹĽytkownika 5. to bÄ™dzie krytyczny punkt procesu ktĂłry mocno bÄ™dzie ewoluowaĹ‚, bÄ™dÄ… tworzyÄ‡ siÄ™ ogĂłlne zasady i sposoby postÄ™powania. moĹĽe teĹĽ zaĹ‚ĂłĹĽmy ĹĽe projektowi master bÄ™dÄ™ dodawaĹ‚ do projektu plik "standardy Blueprint" a tam bÄ™dÄ™ zbieraĹ‚ wszelkie standardy i dodawaĹ‚ nowe ktĂłre przyjdÄ… do gĹ‚owy z nowymi szkoleniowcami plik ten stworzymy po stworzeniu pierwszego bluprinta, bÄ™dzie Ĺ‚atwiej (np na przykĹ‚adzie PQ, najpierw blueprint a z tej ulepionej gliny ywpalimy stabilny standard) 6. potwierdzam, default off, niech tylko bÄ™dzie opcja prostego trackowania czasu i przewidywania ile jeszcze, oraz opcja pospieszajÄ…ca (bÄ™dziemy jÄ… zawsze odradzaÄ‡) 8. pĂłki co skupimy siÄ™ na prostych liniowych bez szalonych rozgaĹ‚Ä™zieĹ„ 
+830: ETAP 1 â€” Cel i rezultat
+835: Bez tego blueprint bÄ™dzie pustÄ… strukturÄ….
+837: ETAP 2 â€” Tryb operacyjny
+845: ETAP 3 â€” Blueprint (serce systemu)
+850: [ETAP_ID]
+879: 2ď¸ŹâŁ Instrumentacja (ETAP 5 â€” krytyczny, jak zaznaczyĹ‚eĹ›)
+888: PER ETAP:
+901: 3ď¸ŹâŁ â€śStandardy Blueprintâ€ť â€“ bardzo dobry kierunek
+903: Po pierwszym solidnym blueprintcie (np. PQ) wyciÄ…gamy:
+904: â€˘	powtarzalne struktury etapĂłw
+909: STANDARDY_BLUEPRINT.md
+931: STRICT â€” skracanie etapĂłw NISKIEGO priorytetu
+932: To dziaĹ‚a tylko dlatego, ĹĽe blueprint ma PRIORYTET.
+953: â€˘	blueprint przestaje obowiÄ…zywaÄ‡
+962: Zanim zaczniemy pisaÄ‡ master prompt, musimy doprecyzowaÄ‡ blueprint DSL.
+965: A) zawsze jeden na etap
+967: B) dopuszczamy wiele checkpointĂłw w jednym etapie?
+973: 1 etap 3 - tak z zaznaczeniem ĹĽe zasady bluprintu bÄ™dÄ… w osobnym pliku, master prompt bÄ™dize na niego wskazywaĹ‚. Ten plik stworzymy dopiero po stworzeniu pierwszego bluprintu (teraz bÄ™dziemy teoretyzowaÄ‡ za duĹĽo) 3 aaa ok tu jest to opisane 8. zostawmy jeden na etap 
+977: 1ď¸ŹâŁ Blueprint â€“ decyzja finalna
+979: â€˘	1 CHECKPOINT na etap.
+984: ETAP â†’ CHECKPOINT â†’ (FAIL? pÄ™tla korekty) â†’ nastÄ™pny ETAP.
+989: 2ď¸ŹâŁ Standardy Blueprint â€“ osobny plik
+993:       STANDARDY_BLUEPRINT.md
+996: â€˘	powstanie po pierwszym peĹ‚nym blueprintcie (np. PQ),
+1005: â”‚   â”śâ”€â”€ SZKOLENIOWIEC (z blueprintem)
+1008: â”‚   â”‚     â””â”€â”€ AUTOMAT_ETAPĂ“W
+1010: â”‚   â””â”€â”€ DORADCA (bez blueprintu)
+1020: Nic wiÄ™cej nie jest potrzebne na tym etapie.
+1024: â€˘	blueprint jest liniowy,
+1025: â€˘	1 checkpoint per etap,
+1028: đź”Ą Zrobienie pierwszego prawdziwego blueprintu (PQ)
+1033: Formalnego blueprintu DSL dla Power Query Quick Training.
+1044: 1.	Tworzymy blueprint PQ (wersja 0.1).
+1047: o	STANDARDY_BLUEPRINT v0.1
+1054: A) ZaczÄ…Ä‡ pisaÄ‡ pierwszy formalny blueprint PQ (wersja 0.1, surowa)?
+1056: B) Najpierw doprecyzowaÄ‡ DSL blueprintu (np. czy dodaÄ‡ sekcjÄ™ â€śMATERIAĹYâ€ť / â€śASSETYâ€ť / â€śUWAGI DLA AGENTAâ€ť)?
+1063: Czyli nie proza â€žnajpierw to, potem tamtoâ€ť, tylko staĹ‚e pola typu: ETAP / CEL / STEPS / CHECKPOINT / CRITERIA / FAIL_OPTIONS / LOG.
+1065: PoniĹĽej wrzucam to, co juĹĽ mamy jako baza do blueprintu PQ (z tego wÄ…tku), w formacie z 1 checkpointem na etap. To jest v0 (surowe) â€” skomentujesz i doprecyzujemy.
+1066: BLUEPRINT: Power Query â€” Quick Training (90 min) â€” v0 (SUROWE)
+1071: - Szkolenie = tryb SZKOLENIOWIEC (blueprint obowiÄ…zuje).
+1072: - Opcjonalnie dostÄ™pny TRYB DORADCA (osobny automat, bez blueprintu).
+1073: - 1 CHECKPOINT na etap.
+1089: - zapisz: ustawienia startowe, ktĂłre etapy zaliczone, liczba prĂłb per etap, uĹĽyte FAIL_OPTIONS, miejsca utkniÄ™cia, pytania uĹĽytkownika (jeĹ›li padĹ‚y), tematy niejasne.
+1094: [ETAP S0]
+1116: [ETAP E1]
+1131: 3) Reset etapu: cofnij ostatnie zmiany i zacznij od arkusza 1
+1135: - czy etap zaliczony, ile prĂłb, gdzie utknÄ…Ĺ‚.
+1137: [ETAP E2]
+1153: 3) PomiĹ„ etap (jeĹ›li STRICT i brakuje czasu)
+1159: [ETAP PQ1]
+1160: NAZWA: WejĹ›cie do Power Query i orientacja w UI
+1180: [ETAP PQ2]
+1201: [ETAP PQ3]
+1222: [ETAP PQ4]
+1223: NAZWA: Merge 1 â€” SprzedaĹĽ + Produkt
+1224: CEL: UĹĽytkownik wykonuje Merge i Expand, rozumie wynik.
+1228: 1. Merge qSprzedaz z qProdukt po ProductID.
+1233: CRITERIA: UĹĽytkownik opisze wynik (nowe kolumny + brak masowych null-i) lub wklei fragment M od merge/expand.
+1235: 1) PodpowiedĹş minimalna: ustawienia Merge (join kind, matching)
+1236: 2) Rozbicie: najpierw Merge bez expand, potem expand
+1237: 3) Reset: usuĹ„ krok merge i wykonaj ponownie
+1243: [ETAP PQ5]
+1244: NAZWA: Merge 2 â€” wynik + Klient
+1249: 1. Merge wynik z qKlient po ClientID.
+1257: 3) PomiĹ„ etap (tylko przy STRICT)
+1263: [ETAP END]
+1288: Skrytykuj ten blueprint v0 w 10â€“20 punktach, ale tylko w kategoriach:
+1290: 2.	co brakuje (kroki/etapy),
+1295: chodzi mi co dokĹ‚adnie DSL znaczy? DuĹĽaSuchaLista? xD haha trzeba sprecyzowaÄ‡ co to znaczy ta narracja 1 2 3 - to tu uĹĽytkownik ma wybieraÄ‡ poziom znajomoĹ›ci excela? (1. sĹ‚abo zna excel, 2. zna excel ale nie zna PQ 3. ma jakieĹ› pojÄ™cie o PQ) jeĹ›li nie to ten element gdzieĹ› siÄ™ zagubiĹ‚ SZALONY! ten ! jest waĹĽny w nazwie w doradcy teĹĽ wskazĂłwka o wklejaniu jako tekst etap 0 1. chcÄ™ ĹĽeby o celu byĹ‚o mniej wiecej coĹ› takiego "Na tym szkoleniu nauczysz siÄ™ o tabelach i Poqer Query oraz alternatywnego trybu pracy ktĂłry 1. nie polega na formuĹ‚ach (koniec z bĹ‚Ä™dami bo coĹ› siÄ™ w formule przesunÄ™Ĺ‚o, albo bo formuĹ‚a byĹ‚a nieprzeciÄ…gniÄ™ta itp.) 2. uĹ‚atwia kontrolÄ™ i poprawnoĹ›Ä‡ wykonywanych zadaĹ„ 3. SzczegĂłlnie korzystne do stosowania w plikach cyklicznych (raz dobrze zbudowany plik, zamienia siÄ™ w aplikacjÄ™ gdzie a. odĹ›wieĹĽasz dane wejĹ›ciowe, b. odĹ›wieĹĽasz PQ c. masz twĂłr gotowy do druku/wysĹ‚ania/analizowania). Nie bÄ™dzie to szkolenie tylko z funkcjonalnoĹ›ci narzÄ™dzia, ale takĹĽe z podejĹ›cia do danych i baz" - proponujesz coĹ› dodaÄ‡? etap E1 wyobraĹĽam sobie takÄ… narracje mniej wiÄ™cej "otwĂłrz plik, w nim znajdziesz 4 arkusze z danymi. Problem z tym, ĹĽe PQ nie bardzo "wie" gdzie te dane sÄ…. Operowanie adresami typu A1:H80 jest problematyczne. MogÄ… dojĹ›Ä‡ nowe kolumny, nowe wiersze. KtoĹ› moĹĽe przesunÄ…Ä‡ tabelÄ™. Masa okazji do rozwalenia mechanizmu i bĹ‚Ä™dĂłw. Dlatego wĹ‚aĹ›nie aby zachowaÄ‡ poprawnoĹ›Ä‡ danych, NIEZBÄDNE jest pracowanie na zakresach zdefiniowanych jako tabele. Co to oznacza? Teraz w pliku excelowym ty "widzisz" tabelÄ™, ale excel nie. Naprawmy to. WejdĹş w arkusz SprzedaĹĽ Kliknij gdziekolwiek na dane, ctrl +t.... (instrukcja zamiany zakresu na tabelÄ™ z wytĹ‚umaczeniem checkboxa nagĹ‚ĂłwkĂłw tabeli). [tu miejsce gdzie pyta czy siÄ™ udaĹ‚o? pyta czy jak uĹĽytkownik na niÄ… klika pojawia siÄ™ dodatkowa zielona zakĹ‚adka Table Design (ooo trzeba dodaÄ‡ do ustawieĹ„ uĹĽytkownika na poczÄ…tku zapytanie w jakim jÄ™zyku prowadziÄ‡ szkolenie oraz w jakim jÄ™zyku uĹĽytkownik ma excela)]. Jak uĹĽytkownik potwierdzi mĂłwimy : Ĺšwietnie! Zatem teraz excel teĹĽ to widzi i pozwala Ci na operacje na tabeli. OtwĂłrz zakĹ‚adkÄ™ Table Design. Znajdziesz tam sporo opcji, gĹ‚ownie zmieniajÄ…cych styl i format Tabeli. Po lewej masz najwaĹĽniejsze pole, nazwÄ™ tabeli. Widzisz jÄ…? jaka jest nazwa tabeli? [czekanie na odpowiedĹş, upewnia nas to ĹĽe uĹĽytkownik znalazĹ‚ zakĹ‚adkÄ™ i nazwÄ™] Ĺšwietnie! To automatyczna nazwa nadawana przez excela na poczÄ…tku. Zmienimy jÄ… ĹĽeby lepiej rozumieÄ‡ nasze dane. Zanim do tego przejdziemy, muszÄ™ Ci wspomnieÄ‡ o istotnej mechanice baz danych ktĂłra moĹĽe Ci siÄ™ wydaÄ‡ teraz nie istotna, ale jest bardzo waĹĽna przy wiÄ™kszych caseach. Patrzenie tak na tabele bardzo Ci pomoĹĽe. Mamy dwa gĹ‚Ăłwne typy tabel. Tabele faktĂłw i wymiarĂłw (facts i dimensions) [jeĹ›li po polsku szkolenie to pokaĹĽemy i tak angielskie nazwy dodatkowo]. (tu krĂłtkie wyjaĹ›nienie rĂłĹĽnicy miÄ™dzy fact i dim oraz w jakich sytuacjach sÄ… wykorzystywane. gĹ‚Ăłwnie zaznaczyÄ‡ ĹĽe dim sÄ… tak jakby "staĹ‚e" a fakty to "zdarzenia". Od tego wyjaĹ›nienia przechodzimy do) : dlatego przy nazywaniu tabel, dobrze zrobiÄ‡ prefix np. fct lub dim lub jak Tobie wygodniej, ĹĽeby zawsze jasno widzieÄ‡ jakiego typu jest to tabela. Jak sÄ…dzisz, jakiego typu tabelÄ… jest tabela SprzedaĹĽy? jak byĹ› jÄ… nazwaĹ‚? (oczekujemy ĹĽe uĹĽytkownik zasugeruje coĹ› w stylu fctSprzedaĹĽ, dopasujemy siÄ™ do jego wyboru, ewentualnie jeĹ›li da fctsprzedaĹĽ to sugerujemy ĹĽeby prefix byĹ‚ z maĹ‚ej a pierwsza litera nazwy z duĹĽej. Jak nazwa zostanie ustalona, przechodzimy do) : Ĺ›wietnie! Zatem teraz wpisz tÄ… nazwÄ™ do pola TableName co zmieni nazwÄ™ tabeli. [potwierdzenie, przechodzimy do] : Ĺšweitnie! teraz zasugeruj nazwy pozostaĹ‚ych tabel, sÄ…dzisz ĹĽe to tabele wymiarĂłw czy faktĂłw? [uĹĽytkownik potwierdz wybrane nazwy, ewentualnie korygujemy, przechodzimy do] : to teraz zamieĹ„ pozostaĹ‚e 3 zakresy na tabele i nazwij je ustalonymi nazwami. [ czekamy na potwierdzenie ĹĽe nazwane, przechodzimy do] : skoro tabele juĹĽ nazwane, wrĂłÄ‡my do tabeli sprzedaĹĽy, excel jÄ… widzi i pierwszÄ… zabĂłjczÄ… funkcjonalnoĹ›ciÄ… tego jest to ĹĽe Ĺ‚atwo moĹĽemy siÄ™ odwoĹ‚aÄ‡ do kaĹĽdego elementu tabeli, bez koniecznoĹ›ci dawania adrtesu typu A1:H100. PrzeÄ‡wiczymy to teraz, przejdziemy przez seriÄ™ odniesieĹ„, to tylko treningowe akcje wiÄ™c wpisuj gdziekolwiek z prawej gdzie masz miejsce, najlepiej jedno odwoĹ‚anie pod drugim. 1. wpisz =[nazwa tabeli]. wyĹ›wietliĹ‚a Ci siÄ™ tabela? [check i potwierdzenie] ZauwaĹĽysz ĹĽe w trakcie wpisywania excel juĹĽ Ci sugeruje tÄ… nazwÄ™, dodatkowo ikona obok nazwy pokazuje Ci ĹĽe ta nazwa dotyczy tabeli, funkcje majÄ… inne ikonki. po wpisaniu enter. funkcja wyĹ›wietli Ci wszystkie dane w tabeli. zauwaĹĽ ĹĽe funkcjÄ™ moĹĽesz zmieniÄ‡ tylko pierwszej komĂłrce [gĂłrny lewy rĂłg]. Takie wyĹ›wietlanie tabeli nie ma wielkiej funkcjonalnoĹ›ci, robimy tu to dla treningu i wyczucia co siÄ™ dzieje z nazwami. Teraz przejdĹşmy do odwoĹ‚ywania siÄ™ do elementĂłw tabeli. Wpisz ponownie =[nazwa tabeli] ale na koĹ„cu dodaj "[". Zobaczysz ĹĽe wyĹ›wietli Ci siÄ™ lista elementĂłw do ktĂłrych moĹĽesz siÄ™ odnieĹ›Ä‡. Najpierw elementy z #. Napisz odniesienia do wszystkich 4 elementĂłw # [all, data, headers, totals]. PamiÄ™taj ĹĽe funkcje z [] dziaĹ‚ajÄ… trochÄ™ inaczej niĹĽ (). Excel czÄ™sto sam automatycznie zamyka nawiasy (), z [] juĹĽ tego nie robi wiÄ™c zawsze pamiÄ™taj o koĹ„cowym nawiasie ]. Jak zrobisz 4 daj znaÄ‡ jak poszĹ‚o i czy byĹ‚y jakieĹ› problemy. [uĹĽytkownik powinien odpisaÄ‡ ĹĽe dla totals zwrĂłciĹ‚o bĹ‚Ä…d REF, jeĹ›li nie to szkoleniowiec sam o to dopytuje i upewnia siÄ™ czy szkolony sam rozwiÄ…zaĹ‚ ten ref i jak to zrobiĹ‚. Jak uĹĽytkownik zgĹ‚osi REF, przechodzimy do]: Spokojnie, spodziewaliĹ›my siÄ™ tego. Funkcja nie moĹĽe wyĹ›wietliÄ‡ totali bo tabela ich nie ma. Zostaw funkcjÄ™ jak jest, niech siÄ™ wyĹ›wietla REF. Kliknij na tabelÄ™, potem na Design Table, zaznacz total row. Co siÄ™ staĹ‚o [czekamy na opis uĹĽytkownika, przechodzimy do] : Ĺšwietnie. REF siÄ™ zamieniĹ‚ na dane, pewnie zauwaĹĽyĹ‚eĹ› ĹĽe inne odniesienia teĹĽ zaczÄ™Ĺ‚y siÄ™ wyĹ›wietlaÄ‡ z totalem. To dlatego ĹĽe te odniesienia zawsze pokazujÄ… aktualny stan tabeli, cokolwiek siÄ™ w niej zmieni. Dobra robota! Teraz przejdĹşmy do kolejnych elementĂłw, czyli konkretnych kolumn. Dla przeÄ‡wiczenia wyĹ›wietl 2-3 odniesienia do konkretnych kolumn i daj znaÄ‡ kiedy zrobisz. [czekamy na potwierdzenie] Ĺšwietnie! Teraz przechodzimy do ostatniego, bardzo waĹĽnego elementu "@". "@" oznacza dokĹ‚adnie "w tym samym wierszu" zatem formuĹ‚a bÄ™dzie siÄ™ odnosiÄ‡ do wiersza w ktĂłrym aktualnie jest formuĹ‚a. Wpisz obok tabeli w kolumnie X [tu podamy kolumnÄ™ co najmniej 2 kolumny od tabeli, ĹĽeby tabela siÄ™ nei rozszerzyĹ‚a o to pole] formuĹ‚Ä™ =[nazwa tabeli][@nazwa kolumn] a potem przeciÄ…gnij formuĹ‚Ä™ w dĂłĹ‚ do wierszy w ktĂłrych tabeli nie ma. Co siÄ™ staĹ‚o ? [uĹĽytkownik opisuje ĹĽe poza tabelÄ… funkcja zwraca bĹ‚Ä…d] DokĹ‚adnie! KaĹĽda formuĹ‚a teraz zwraca pojedynczy element, nie tabelÄ™. a bĹ‚Ä…d zwraca bo tabela nie ma takiego wiersza. Gratulacje! przeszliĹ›my przez odniesienia do tabel i elementĂłw! Kolejna funkcjonalnoĹ›Ä‡ tabeli to jak siÄ™ automatycznie rozszerza. W tabeli sprzedaĹĽy mamy cenÄ™ jednostkowÄ… i iloĹ›Ä‡ produktĂłw, nie mamy caĹ‚kowitej wartoĹ›ci sprzedaĹĽy. DorĂłbmy takÄ… kolumnÄ™. Najpierw wpisz "WartoĹ›Ä‡" w nagĹ‚Ăłwku obok tabeli. Co siÄ™ staĹ‚o [uĹĽytkownik powinien opisaÄ‡ jak tabela siÄ™ rozszerza, przechodzimy do] Swietnie, tabela siÄ™ dostosowaĹ‚a, teraz moĹĽemy wpisaÄ‡ funkcjÄ™. zacznij od =, potem przesuwajÄ…c strzaĹ‚kami wybĂłr kolumn, albo klikajÄ…c, zrĂłb =[@iloĹ›Ä‡]*[@cena]. Co siÄ™ staĹ‚o? [uĹĽytkownik opisuje ĹĽe funkcja wszÄ™dzie sama siÄ™ skopiowaĹ‚a, jeĹ›li nie mĂłwi to my wspominamy oraz wzmianka ĹĽe w razie potrzeby moĹĽna to wyĹ‚Ä…czyÄ‡, przechodzimy do]: Tabela teĹĽ dostosowuje siÄ™ w wierszach. Dopisz pod tabelÄ… jakikolwiek numer sprzedaĹĽy, co siÄ™staĹ‚o [uĹĽytkownik opisuje ĹĽe tabela siÄ™ wydĹ‚uĹĽyĹ‚a i ĹĽe formuĹ‚y siÄ™ przeciÄ…gnÄ™Ĺ‚y, jeĹ›li nie to my to zaznaczamy ĹĽe tak dziaĹ‚a, potem przechodzimy do]: Ale poza automatycznym rozszerzaniem tabeli, moĹĽemy to zrobiÄ‡ rÄ™cznie. W prawym dolnym rogu tabeli zobaczysz trĂłjkÄ…t ktĂłry moĹĽesz "zĹ‚apaÄ‡" i przeciÄ…gaÄ‡, dodajÄ…c lub odejmujÄ…c jaki zakres obejmuje tabela. SprĂłbuj to zrobiÄ‡ teraz, potem wrĂłÄ‡ do stanu oryginalnego ctrl + z. JeĹ›li podczas tego wydĹ‚uĹĽania, ktĂłraĹ› formuĹ‚a odniesieĹ„ zamieniĹ‚a siÄ™ na SPIL, oznacza to ĹĽe formuĹ‚a nie ma miejsca na wyĹ›wietlenia danych, coĹ› jej zawadza. W tabeli mamy tylko numer produktu, a chcielibyĹ›my takĹĽe nazwÄ™. Obok wartoĹ›ci dodaj kolumnÄ™ Nazwa Produktu. Potem przypiszemy nazwÄ™ po numerze, tylko nie funkcjÄ… vlookup, funkcja xlookup jest duĹĽo lepsza, szczegĂłlnie gdy korzystamy z funkcji tabelarycznych. SprĂłbuj to zrobiÄ‡ sam i daj znaÄ‡ jak poszĹ‚o. JeĹ›li nie wiesz jak to powiedz, przeprowadzÄ™ CiÄ™ przez to krok po kroku. [czekamy na potwierdzenie ĹĽe zrobione lub przeprowadzamy przez napisanie funkcji tabelarycznej z xlookupem, potem przechodzimy do] : zauwaĹĽ ĹĽe gdy odnosimy siÄ™ do tabeli w ktĂłrej jesteĹ›my, nie piszemy jej nazwy, tylko kolumnÄ™. Jak siÄ™ odnosimy do innej tabeli, musimy pisaÄ‡ jej nazwÄ™] Oto najistotniejsze podstawowe informacje o Tabelach. teraz moĹĽemy przejĹ›Ä‡ do PQ. UsuĹ„ z tabeli sprzedaĹĽy 2 stworzone kolumny i przechodzimy do dziaĹ‚ania. (zamontujmy teĹĽ na poczÄ…tku pytanie o znajomoĹ›Ä‡ tabel i dajmy uĹĽytkownikowi moĹĽliwoĹ›Ä‡ skrĂłcenia tego do tylko stworzenia tabel i nazwania, to co potrzebne do PQ) IdĹş do arkusza sprzedaĹĽ. Kliknij tabelÄ™. potem zakĹ‚adka Data i klikamy "z tabeli/zakresu" LUB PPM na tabelÄ™ i "get data from table". Co siÄ™ staĹ‚o? [uĹĽytkownik opisuje ĹĽe otworzyĹ‚ siÄ™ panel, przechodzimy do] : otworzyĹ‚a Ci siÄ™ nowa "warstwa" excela. [opisujemy uĹĽytkownikowi podstawowe elementy i po co sÄ… czyli : lista query po lewej, widzimy query ktĂłre wĹ‚aĹ›nie dodaliĹ›my, jest wybrane. Po prawej mamy kroki transformacji danych, pĂłki co mamy 2 kroki, pobranie danych i zmiana formatu. na Ĺ›rodku z kolei mamy WIDOK efektu danego kroku, oraz pasek kodu danego kroku. Kliknij teraz na rĂłĹĽne kroki i zobacz jak zmienia siÄ™ widok i kod, czekamy na potwierdzenie, przechodzimy do] : teraz kliknij w tabeli jakÄ…kolwiek komĂłrkÄ™, zauwaĹĽ ĹĽe pojawi siÄ™ jeszcze pole na dole [nei pamiÄ™tam nazwy] ktĂłre pokazuje szczegĂłĹ‚y danej komĂłrki, jej wartoĹ›Ä‡, powĂłd bĹ‚Ä™du itp.) A na samej gĂłrze mamy pasek z opcjami. Na teraz dwie najwaĹĽniejsze to : znajdĹş w Home / Advanced Editorc. Kliknij. WyĹ›wietli Ci siÄ™ kod caĹ‚ego zapytania. I wĹ‚aĹ›nie z tego miejsca bÄ™dziesz kopiowaĹ‚ i wklejaĹ‚ kod mi do weryfikacji Twoich krokĂłw. Tam teĹĽ bÄ™dziesz wklejaĹ‚ kod z poprawkami ktĂłre zasugerujÄ™. Teraz Close and Load. Ĺ»eby wyjĹ›Ä‡ z PQ zawsze musimy ZAPISAÄ† i zdecydowaÄ‡ co zrobiÄ‡ z Query, jak je zaĹ‚adowaÄ‡. ZwykĹ‚e klikniÄ™cie zapisze i zaĹ‚aduje query jako tabelÄ™, sprĂłbuj to teraz i powiedz co siÄ™ staĹ‚o [po potwierdzeniu przechodzimy do]: wyĹ›wietlana tabela to wynik ĹĽrĂłdĹ‚owej tabeli przetworzonej przez query. SprĂłbuj skasowaÄ‡ dane, PPM na tabelÄ™ i odĹ›wieĹĽ. Co siÄ™staĹ‚o? [uĹĽytkownik opisuje, przechodzimy do]: tabela znĂłw siÄ™ wypeĹ‚nia danymi. KaĹĽde odĹ›wieĹĽenie tokolejne przeliczenie zaprogramowane w query i wyĹ›wietlenie go. Teraz kliknij na tÄ… wynikowÄ… tabelÄ™, pokaĹĽe Ci siÄ™ dodatkowa zielona zkaĹ‚adka Query, kliknij na niÄ…. Edit otwiera panel PQ, Load to pozwala Ci zmieniÄ‡ w jaki sposĂłb Ĺ‚adowane jest query, moĹĽe byÄ‡ tylko jeden sposĂłb na raz, kliknij load to i przeĹ‚Ä…cz na pivota. [czekamy na potweirdzenie] Ĺ›wietnie! teraz moĹĽesz dowolnie ustawiÄ‡ jak wyĹ›wietliÄ‡ dane, zamiast caĹ‚ej tabeli. My pĂłki co nie potrzebujemy wyĹ›wietlaÄ‡ tych query. Daj load to i only connection. wykasuj niepotrzebny arkusz. Teraz wykonaj takie samo dodanie pozostaĹ‚ych 3 tabel do PQ, tylko zamiast klikaÄ‡ duĹĽe zamknij i zaĹ‚aduj, kliknij na strzaĹ‚kÄ™ poniĹĽej, wybierz load to a tam wybierz tylko poĹ‚Ä…czenia dla wszystkich tabel. Daj znaÄ‡ jak dodasz wszystkie tabele [czekamy na potwierdzenie] przechodzimy do : wejdĹş w zakĹ‚adkÄ™ Data, tam znajdziesz Queries & Connections. To wĹ‚Ä…cza/wyĹ‚Ä…cza panel po prawej z listÄ… Twoich query, klikajÄ…c na nie PPM i edutuj, tak rĂłwnieĹĽ moĹĽesz wejĹ›Ä‡ do edytora Query. ZrĂłb to. W PQ moĹĽesz zauwaĹĽyÄ‡ ĹĽe kaĹĽde tak dodawane query automatycznie ma 2 kroki 1. pobieranie danych ze ĹşrĂłdĹ‚a 2. automatyczne wykrywanie i zmiana typu danych. Jest to idealny poczÄ…tek do pracy z AI. JeĹ›li wkleisz mi kod z advanced editor, bÄ™dÄ™ widziaĹ‚ jak siÄ™ nazywa tabela i jak siÄ™ nazywajÄ… nazwy kolumn. To pozwala mi dobrze pisaÄ‡ kod do jakichkolwiek czynnoĹ›ci na tabeli jakie mi opiszesz. Ale najpierw ty przeÄ‡wiczysz robienie tych czynnoĹ›ci, ĹĽeby zobaczyÄ‡ jak one dziaĹ‚ajÄ…. 1 Ä‡wiczenie PQ : wejdĹş na query sprzedaĹĽ, kliknij krok Source, potem w tabeli kliknij ktĂłrÄ…kolwiek nazwÄ™ kolumny, zmieĹ„ nazwÄ™ (np. dodaj 1), wyskoczy box z zapytaniem, kliknij insert. Co siÄ™ staĹ‚o? sprawdĹş krok Changed Type [uĹĽytkownik opisuje, jak pominie coĹ› to dopowiadamy] : moĹĽesz swobodnie dodawaÄ‡ kroki w Ĺ›rodku, pod warunkiem ĹĽe nie wpĹ‚ywajÄ… one na kolejne kroki. Change type ma teraz error. Kod oczekiwaĹ‚ kolumny o pewnej nazwie, nie moĹĽe jej znaleĹşÄ‡ bo teraz jest inna nazwa. Kliknij na krok Change type, w pasku kodu na Ĺ›rodku jest strzaĹ‚ka, kliknij rozwinie siÄ™ pasek kodu. Zobaczysz ĹĽe w kodzie jest stara nazwa. ZmieĹ„ jÄ… na nowÄ…. Teraz dziaĹ‚a. Staramy siÄ™ tak nie robiÄ‡ i dobrze planowaÄ‡ zmiany w PQ ĹĽeby nie robiÄ‡ takich manualnych zmian jak teraz, ale dobrze ĹĽebyĹ› wiedziaĹ‚ ĹĽe masz takÄ… awaryjnÄ… opcjÄ™. 2 cw PQ : kliknij na change type, w tabeli po lewej od nazwy kolumn masz ikony pokazujÄ…ce jaki format danych jest w tych kolumnach. Format danych to szalenie waĹĽne ustawienie ktĂłre czÄ™sto jest pomijane w pracy w Excelu co potem generuje bardzo duĹĽo bĹ‚Ä™dĂłw. Program ĹĽeby wykonywaÄ‡ obliczenia, musi wiedzieÄ‡ ĹĽe ma do czynienia z liczbÄ…. JeĹ›li ma ukĹ‚adaÄ‡ hronologie, musi wiedzieÄ‡ ĹĽe ma do czynienia z datÄ…. PorĂłwnywanie dwĂłch tabel moĹĽe nie zadziaĹ‚aÄ‡ jeĹ›li mamy w nich te same wartoĹ›ci ale jedna ma format liczbowy a druga tekstowy. KaĹĽda nasza praca powinna siÄ™ opieraÄ‡ na Ĺ›wiadomoĹ›ci tego jakie typy danych system widzi. Jak widzisz ikonkÄ™ ABC123, oznacza to ĹĽe PQ automatycznie nie wykryĹ‚ jednego typu danych i przypisaĹ‚ typ ANY czyli jakikolwiek. Kliknij na ikonkÄ™ formatu w kolumnie Cena. Zmien format na Currency. Wyskoczy komunikat ĹĽe to pole juĹĽ zostaĹ‚o na coĹ› zmienione. Kliknij Add new step. Co siÄ™ staĹ‚o? [czekamy na odpowiedĹş, przechodzimy do ] : zostaĹ‚ dodany osobny krok, zatem to pole jest zmieniane 2 razy, nie tego chcemy, kliknik X koĹ‚o wĹ‚aĹ›nie powstaĹ‚ego kroku, to skasuje krok. PowtĂłrz zmianÄ™ formatu, tylko tym razem kliknij opcjÄ™ replace current. co siÄ™ staĹ‚o? [czekamy na odpowiedĹş, krok zostaĹ‚ zastÄ…piony zamianÄ… na walutÄ™, zamiana nastÄ™puje tylko raz, nie mamy dodatkowego kroku, tego chcemy. przechodzimy do]: 3 cw pq : bÄ™dÄ…c na Change Type, przechodzimy do kolumny iloĹ›Ä‡. ma w wartoĹ›ci liczby i tekst wiÄ™c przypisaĹ‚o mu ANY. Kliknij i zmien na liczbÄ™ caĹ‚kowitÄ™. co siÄ™ staĹ‚o? [zmieniĹ‚ siÄ™ typ, ale takĹĽe nie wyskoczyĹ‚ monit. ANY traktowane jest trochÄ™ jak NIC wiÄ™c nie ma konfliktu przy zamianie jego. dodatkowo, wyskoczyĹ‚ ERROR. To poniewaĹĽ system nie potrafi rozpoznaÄ‡ tekstu ktĂłry tam jest, jako liczbÄ™, przechodzimy do] : kliknij na komĂłrkÄ™ z ERRORem, na dole pokaĹĽe Ci siÄ™ panel z raportem bĹ‚Ä™du. JeĹ›li klikniemy ĹAPKÄ„ dokĹ‚adnie na napis Error, doda nam siÄ™ krok prowadzÄ…cy tylko do tego errora. JeĹ›li przypadkiem to zrobiĹ‚eĹ›, po prostu usuĹ„ ten krok. 4 cw pq : [na kolumnie IloĹ›Ä‡, zamiana ErrorĂłw na 0. Nie mam tu szczegĂłlnych wskazĂłwek narracji, zweryfikuj tylko potwierdzeniem] 5 cw pq : [na kolumnie IloĹ›Ä‡, odfiltrowanie 0 i null, zweryfikuj potwierdzeniem] 6 cw pq : [klikamy zakĹ‚adkÄ™ add column, w tabeli zaznaczamy z CTRL kolumnÄ™ CENA i ILOSC, klikamy strzaĹ‚kÄ™ pod Column From Example, opisujemy uĹĽytkownikowi ĹĽe otwiera siÄ™ panel gdzie wpisujemy przykĹ‚ady i PQ sam wykryje jaka funkcjÄ™ chcemy. niech uĹĽytkownik wpisze przykĹ‚ady, PQ wykryje, potem niech zmieni nazwÄ™ pola na WARTOĹšÄ† i kliknie OK kontrolna proĹ›ba o wklejenie caĹ‚ego kody z widoku ADVENCED i sprawdzenie czy Ä‡wiczenia wykonano poprawnie 7 cw pq : [merge tabeli SprzedaĹĽ z tabelÄ… Produkty, po ID produktu. PrzeprowadĹş uĹĽytkownika przez merge, potem krok rozwijanie, opcje w rozwijaniu (prefix nazwy, wybĂłr pĂłl)] cofam poczÄ…tkowe zaĹ‚oĹĽenia. JEdnak bÄ™dziemy mieÄ‡ 3 tabele SprzedaĹĽPL SprzedaĹĽCZ Produkty. CaĹ‚e dotychczasowe Ä‡wiczenie na SprzedaĹĽPL 8 cw pq : narracja trochÄ™ jak opowieĹ›Ä‡, ĹĽe po tych zadaniach OKAZUJE siÄ™ ĹĽe mamy jeszcze dane sprzedaĹĽowe z Czech ktĂłre wymagajÄ… takiej samej obrĂłbki. Wchodzimy w Query SprzedaĹĽPL, klikamy advanced, kopiujemy kod, wchodzimy na query SprzedaĹĽCZ, wklejamy kod, poprawiamy w kodzie nazwÄ™ tabeli wejĹ›ciowej (PL na CZ). TADA! mamy zrobione to samo czyszczenie dla CZ 9 cw pq : [appendowanie query PL i CZ poprzez klikanie APPEND AS NEW QUERY, kaĹĽ uĹĽytkownikowi zmieniÄ‡ nazwe na SprzedaĹĽTOTAL. opowiedz - ale jest to trochÄ™ nieefektywne. Dwa razy, w 2 query robimy to samo. Jednak lepiej najpierw zĹ‚Ä…czyÄ‡, a potem wykonywaÄ‡ czyszczenie 10 cw PQ : [ kasujemy query TOTAL, wchodzimy w SprzedaĹĽPL, klikamy krok source, po tym kroku dodajemy append przed juĹĽ zrobionym czyszczeniem] teraz daj load to pivot table, ustaw jakkolwiek chcesz pivota tak ĹĽeby pokazywaĹ‚ dane sprzedaĹĽowe. potem zrĂłb screena i pochwal mi siÄ™ wynikiem. to koniec szkolenia. tu miejsce na upewnienie siÄ™ czy uĹĽytkownik ma jakieĹ› pytania odnoĹ›nie przedstawionego materiaĹ‚u. Potem pytania kontrolne czego siÄ™ nauczyĹ‚, co sÄ…dzi ĹĽe bÄ™dzie uĹĽywaĹ‚ itp. Jak widzisz rozpisaĹ‚em Ci bardzo szeroko wizjÄ™ szkolenia jak ja bym je przeprowadziĹ‚. W wielu miejscach dokĹ‚adnie Ci rozpisaĹ‚em co ma byÄ‡ mĂłwione (no nie sĹ‚owo w sĹ‚owo, oczekujÄ™ ĹĽe to wygĹ‚adzisz, ale wszelkie wnioski, waĹĽne punkty, uwagi itp. muszÄ… byÄ‡ zachowane. TworzÄ… siÄ™ z tego takie bloki wskazĂłwek narracji na wybrane momenty dodatkowo w trakcie doszedĹ‚em do wniosku ĹĽe spoko moĹĽe byÄ‡ mechanizm pytania uĹĽytkownika co siÄ™ staĹ‚o? rozpisywaĹ‚em Ci co powinno zostaÄ‡ zauwaĹĽone. JeĹ›li uĹĽytkownik to zauwaĹĽy co rozpisaĹ‚em, ewentualnie dopowiadasz wytĹ‚umaczenei dodatkowe jeĹ›li takie rozpisaĹ‚em (np. czemu siÄ™ zadziaĹ‚o coĹ› co uĹĽytkownik zaobserwowaĹ‚). niektĂłre bÄ™dÄ… tylko sprawdzeniem czy zostaĹ‚o zauwaĹĽone, bez dodatkowego tĹ‚umaczenia przyczyny. JeĹ›li coĹ› nie zostaĹ‚o zauwaĹĽone a powinno, to ty o tym mĂłwisz/uczysz. BÄ™dzie to teĹĽ dobre dla admina i logĂłw, trackowanie ile % tego co byÄ‡ powinno zauwaĹĽone, zostaĹ‚o zauwaĹĽone. przeczytaĹ‚em tylko poczÄ…tek etapu 0 twojej propozycji, potem siÄ™ rozpisaĹ‚em i uznaĹ‚em ĹĽe duĹĽo nowoĹ›ci weszĹ‚o, sporo masz do poprawy wiÄ™c nie czytaĹ‚em reszty bluprintu. teraz masz szczegĂłĹ‚owy opis wiÄ™c moĹĽesz wykonaÄ‡ bluprint duĹĽo lepiej. odnoĹ›nie zakresu, moĹĽesz zaproponowaÄ‡ jeszcze jakieĹ› Ä‡wiczenia. ale moĹĽliwe ĹĽe odĹ‚oĹĽymy je na pĂłĹşniej i dodamy do innego szkolenia bo to wydaje siÄ™ juĹĽ i tak duĹĽe. moĹĽe do szkolenia PQ czÄ™Ĺ›Ä‡ druga albo coĹ›. zobaczymy. moĹĽliwe ĹĽe te szczegĂłĹ‚owe wskazĂłwki narracji trzeba bÄ™dzie rozdzieliÄ‡ na osobny plik, nie w gĹ‚Ăłwnym prompcie bo braknie miejsca, no ale zobaczymy. pomyĹ›l nad tym solidnie, daj sobie czas, rozwaĹĽ rĂłĹĽne opcje, rĂłĹĽne za przeciw, nie spiesz siÄ™, sprĂłbuj wymyĹ›leÄ‡ z czym uĹĽytkownik moĹĽe tu mieÄ‡ problem. BÄ…dĹş krytyczny odnoĹ›nie zrozumiaĹ‚oĹ›ci tego co piszÄ™. Wytknij jeĹ›li zbyt ogĂłlnie, chaotycznie lub niejasno. 
+1299: W naszym kontekĹ›cie to mini-format zapisu blueprintu, ktĂłry ma staĹ‚e pola i reguĹ‚y (ETAP/CEL/STEPS/CHECKPOINT/CRITERIA/FAIL_OPTIONS/LOG), ĹĽeby agent mĂłgĹ‚ to deterministycznie â€žprzetĹ‚umaczyÄ‡â€ť na dialog szkoleniowy.
+1321: Twoja czÄ™Ĺ›Ä‡ o tabelach w Excelu to w praktyce mini-szkolenie z tabel + structured references + XLOOKUP + auto-expand + totals + spill.
+1325: â€˘	wariant â€žFULLâ€ť: caĹ‚y trening odniesieĹ„, totals, @, auto-expand, XLOOKUP
+1332: To powinno byÄ‡ jako OBSERVATION PROMPTS w STEPS, a do logu trafia:
+1338: 4) Blueprint PQ â€” wersja v0.1 (juĹĽ na Twojej wizji)
+1339: PoniĹĽej masz blueprint w DSL z 1 checkpointem na etap. Jest dĹ‚ugi, ale jest â€žszkieletowo-kompletnyâ€ť. Zrobimy z niego v0.2 po Twoich korektach.
+1340: BLUEPRINT: Power Query (Excel) â€” Case: SprzedaĹĽPL/SprzedaĹĽCZ + Produkty â€” v0.1
+1362: - per etap: PASS/FAIL, liczba prĂłb, uĹĽyte FAIL_OPTIONS
+1363: - OBSERVATIONS: co user zauwaĹĽyĹ‚ vs co trzeba byĹ‚o dopowiedzieÄ‡
+1369: [ETAP S0]
+1377:    - uczymy siÄ™ tabel + Power Query + podejĹ›cia â€śpipelineâ€ť zamiast formuĹ‚,
+1394: [ETAP E1]
+1423: [ETAP E2]
+1430: 2) OBSERVATION: formuĹ‚a sama siÄ™ skopiuje w dĂłĹ‚.
+1432: 4) OBSERVATION: tabela i formuĹ‚y siÄ™ rozszerzÄ….
+1434: TYPE: OBSERVATION_SUMMARY (realizowane jako CONFIRMATION)
+1438: 2) PomiĹ„ etap
+1444: [ETAP PQ1]
+1468: [ETAP PQ2]
+1475: 2) OBSERVATION: wynik to efekt query, nie â€śrÄ™czna tabelaâ€ť.
+1491: [ETAP PQ3]
+1511: [ETAP PQ4]
+1519: 3) OBSERVATION: Changed Type moĹĽe siÄ™ wysypaÄ‡, bo odwoĹ‚uje siÄ™ do starej nazwy.
+1522: TYPE: OBSERVATION_SUMMARY (realizowane jako CONFIRMATION lub PASTE_M przy DOKĹADNA)
+1535: [ETAP PQ5]
+1544: 4) OBSERVATION: error i panel szczegĂłĹ‚Ăłw; NIE tworzymy â€śdrill to errorâ€ť przypadkiem.
+1558: [ETAP PQ6]
+1578: [ETAP PQ7]
+1579: NAZWA: Merge â€” SalesPL + Products po ProductID
+1580: CEL: User wykona Merge i Expand z dimProducts.
+1584: 1) Merge SalesPL z Products po ProductID.
+1586: 3) OBSERVATION: null-e jeĹ›li typy/klucze nie grajÄ….
+1589: CRITERIA: merge dziaĹ‚a + rozszerzone kolumny sÄ… widoczne.
+1591: 1) Rozbij: merge bez expand â†’ potem expand
+1593: 3) Reset merge step
+1599: [ETAP PQ8]
+1619: [ETAP PQ9]
+1620: NAZWA: Append + refactor: najpierw Ĺ‚Ä…czymy, potem czyĹ›cimy
+1621: CEL: User rozumie rĂłĹĽnicÄ™: dwa osobne czyszczenia vs jedno po append.
+1625: 1) Append as New Query: SalesPL + SalesCZ â†’ SalesTOTAL (na chwilÄ™).
+1628: 4) W SalesPL: po Source dodaj Append (PL+CZ) PRZED czyszczeniem â†’ jeden pipeline.
+1630: TYPE: CONFIRMATION (DOKĹADNA: PASTE_M fragment z Append)
+1636: - przy bĹ‚Ä™dach: cofaj do kroku przed append i wstaw ponownie.
+1640: [ETAP END]
+1668:   * Etapy PASS/FAIL + prĂłby
+1669:   * OBSERVATIONS: % zauwaĹĽonych kluczowych efektĂłw
+1677: 2.	W ETAPIE E1: czy facts/dim ma byÄ‡ obowiÄ…zkowe, czy tylko â€žmiĹ‚y bonusâ€ť?
+1678: 3.	Czy ETAP E2 (auto-expand) ma zostaÄ‡ zawsze, czy tylko gdy ZNAJOMOĹšÄ† TABEL=Nie?
+1679: 4.	ETAP PQ5: potwierdĹş, czy w danych treningowych na pewno ma byÄ‡ â€śIloĹ›Ä‡â€ť z tekstem, ĹĽeby wymusiÄ‡ error (to Ĺ›wietny punkt dydaktyczny, ale musi byÄ‡ pewne).
+1680: 5.	Jak chcesz liczyÄ‡ â€ž% OBSERVATIONSâ€ť?
+1681: o	prosto: liczba zauwaĹĽonych / liczba oczekiwanych na etap
+1683: Jak to dopniemy, robiÄ™ v0.2 i dopiero potem myĹ›limy o â€žStandardach Blueprintâ€ť.
+1684: 2) ok tylko trzeba bÄ™dzie napisaÄ‡ fajnego prompta na ten tryb, chcÄ™ ĹĽeby komicznie siÄ™ irytowaĹ‚ i Ĺ›rednio mocno jechaĹ‚ po uĹĽytkowniku. taki o humorystyczny trollerski tryb 3) tabele sÄ… doĹ›Ä‡ waĹĽnym elementem caĹ‚oĹ›ci ale masz racjÄ™. Ustawmy minimum potrzebne do pq, caĹ‚Ä… resztÄ™ opcjonalnie. Jak uĹĽytkownik rozpoczyna szkolenie, niech bÄ™dzie mĂłj wstÄ™p o tabelach ktĂłry rozpisaĹ‚em do momentu nazwania tabel. Po nazwaniu, zapytaj czy uĹĽytkownik chce kilka dodatkowych Ä‡wiczeĹ„ z tabel, powiedz ile mniej wiÄ™cej zajmÄ… i poleÄ‡ zrobienie bo bardzo wartoĹ›ciowe. JeĹ›li jednak uĹĽytkownik nie chce, przechdozimy do zadaĹ„ PQ. B - pole na dole (nie pamiÄ™tam nazwy) - no wiem ĹĽe tak nie moĹĽna, napisaĹ‚em ĹĽe nie pamiÄ™tam ĹĽebyĹ› ty wypeĹ‚niĹ‚ lukÄ™. nie wiesz o jakim polu mowa? jak kliknÄ™ w tabeli listÄ™ to tam siewyĹ›wietla zawartoĹ›Ä‡ listy ok sformuĹ‚uj to "kliknij link Error (Ĺ‚apka, nie strzaĹ‚ka)" wklej screen - to ma byÄ‡ takie o luĹşne zakoĹ„czenie, caĹ‚kowicie opcjonalne, moĹĽe czasem ktoĹ› coĹ› wklei, maĹ‚o funkcjonalne ewentualnie do zbierania wnioskĂłw szkoleniowych, ale moĹĽe daÄ‡ uĹĽytkownikowi wraĹĽenie fajniejszej interakcji C - ok tak to zrĂłb ok musimy zgrupowaÄ‡ pytanie o ustawienia, nie wszystkie na raz( jÄ™zyk, styl [narracja, krytycyzm], techniczne[czas, weryfikacja, poziom nawigacji]). czyli bÄ™dÄ… 2 pytania, 2 i 3. Zawsze pytaj tak ĹĽeby uĹĽytkownik mĂłgĹ‚ odpowiedzieÄ‡ Ĺ‚atwo wpisujÄ…c liczbÄ™. WyĹ›wietlajÄ…c opcje ustawieĹ„, drukuj defaultowÄ… opcjÄ™ pogrubionÄ…, jeĹ›li uĹĽytkownik zamiast cyfr powie ok albo inaczej potwierdzi, znaczy ĹĽe zostajemy przy obecnych defaultowych. default to PL PL UI2 N2 NORMALNY OFF BALANS NIE. przy wyĹ›wietlaniu opcji dobrze wytĹ‚umacz co ustawienia znaczÄ…. pamiÄ™taj ĹĽe pytanie o znajomoĹ›Ä‡ tabel nie bÄ™dzie na poczÄ…tku tylko pĂłĹşniej. dialog bÄ™dzie szedĹ‚ tak : po podaniu imienia, informuje ĹĽe zanim przejdziemy do szkolenia, ustawimy kilka rzeczy, pokaĹĽÄ™ Ci opcje, pogrubione sÄ… ustawione teraz, jeĹ›li chcesz zmieniÄ‡ to wpisz co - taka mini instrukcja przed pokazywaniem ustawieĹ„ a nie czekaj, po imieniu pytanie czy szkolenie czy doradca, potem ustawienia. JeĹ›li wybierze doradce, pyta tylko o ustawienie krytycyzmu etap 0 - ojjj nie, zupeĹ‚nie nie to miaĹ‚em na myĹ›li. RozbiĹ‚eĹ› mojÄ… narracjÄ™ na podpunkty, ja chcÄ™ ĹĽeby w prompcie byĹ‚y wpisane caĹ‚e kwestie. CzÄ™sto semantyka jest kluczem, specjalnie jÄ… rozpisywaĹ‚em, ty jÄ… gubisz i nie wiadomo co potem wyjdzie z tego skrĂłtu. Musisz przerobiÄ‡ mĂłj scenariusz ktĂłry rozpisaĹ‚em, tam gdzie pisaĹ‚em jakbym "mĂłwiĹ‚" [tak naprawdÄ™ symulowaĹ‚em szkolenie ktĂłre bym wykonaĹ‚]. Te wypowiadane przeze mnie kwestie masz teraz odpowiednio "wygĹ‚adziÄ‡" (z jak najlepszym zachowaniem kluczowych sĹ‚Ăłw ktĂłrych uĹĽyĹ‚em, tylko czasem jak napisaĹ‚em coĹ› niedbale to z zaufaniem ĹĽe to wyĹ‚apiesz i zamienisz na poprawne, lepsze np. jak piszÄ™ PQ). Dlatego piszÄ™ narracja bo dosĹ‚ownie mi chodzi o narracjÄ™ poczÄ…tkĂłw pewnych kwestii, tylko te pierwsze wyĹ‚oĹĽenie tematu a potem w razie dodatkowych pytaĹ„ juĹĽ moĹĽesz dziaĹ‚aÄ‡ luĹşno. wtedy kaĹĽde STEPS teĹĽ mogÄ… mieÄ‡ typ STEPS : 1) INTRO - "some text..." 2) TASK - what to do 3) OBSERVATION - what to observe ... ect trzeba przerobiÄ‡ caĹ‚y bluprint w nastÄ™pnej odpowiedzi najpierw poruszmy tÄ… kwestiÄ™ : bluprint juĹĽma okoĹ‚o 13k znakĂłw, ale w sumie wyglÄ…da jak kompletny prompt. i tak materiaĹ‚y szkoleniowe bÄ™dÄ… musiaĹ‚y byÄ‡ w osobnym pliku, to moĹĽe poczÄ…tek dotyczÄ…cu ustawieĹ„ itp, powinno byÄ‡ w prompcie projektu, a szczegĂłĹ‚y szkolenia w pliku? czÄ™Ĺ›Ä‡ adminowa teĹĽ pasuje do master promta. PrzemyĹ›l porzÄ…dnie tÄ… kwestie architektury bo zaczniemy siÄ™ w tym gubiÄ‡, wiem ĹĽe pracujemy nad BP ale trzeba siÄ™ trzymaÄ‡ trzonu co gdzie naleĹĽy, 
+1686: Masz racjÄ™: zaczynamy mieszaÄ‡ 3 rĂłĹĽne warstwy (blueprint, scenariusz-narracja, implementacja prompta). Jak tego teraz nie rozdzielimy, za 2â€“3 szkolenia bÄ™dziesz miaĹ‚ spaghetti.
+1687: PoniĹĽej: (1) architektura â€žco gdzie ma ĹĽyÄ‡â€ť, (2) jak zmieniÄ‡ DSL/blueprint ĹĽeby utrzymaĹ‚ TwojÄ… narracjÄ™ literalnie, (3) doprecyzowania do Twoich punktĂłw (SZALONY!, ustawienia, â€žpole na doleâ€ť w PQ).
+1690: Cel: ĹĽeby â€žblueprintâ€ť nie puchĹ‚ do roli kompletnego prompta
+1708: â€˘	jak liczymy OBSERVATIONS%
+1713: â€˘	odniesienie: â€žStandardy blueprint = STANDARDY_BLUEPRINT.mdâ€ť
+1720: Ten plik ma strukturÄ™ zgodnÄ… z blueprintem, ale bez polityk meta.
+1724: Warstwa C â€” BLUEPRINT (DSL)
+1725: Blueprint nie musi mieÄ‡ peĹ‚nej narracji, ale moĹĽe zawieraÄ‡ ID krokĂłw i referencje do blokĂłw w SCRIPT.
+1726: PrzykĹ‚ad: blueprint mĂłwi:
+1727: â€˘	ETAP E1 â†’ STEPS: E1.INTRO_01, E1.TASK_01, E1.OBS_01, â€¦
+1728: A same teksty tych INTRO/TASK/OBS siedzÄ… w SCRIPT.
+1730: Warstwa D â€” STANDARDY_BLUEPRINT (osobny plik, dopiero po 1 szkoleniu)
+1734: To, co teraz nazwaĹ‚em â€žv0.1 blueprintâ€ť jest w poĹ‚owie blueprintem, w poĹ‚owie promptem.
+1736: â€˘	Blueprint = krĂłtki, strukturalny, z referencjami do SCRIPT
+1741: 2) DSL/Blueprint: jak zachowaÄ‡ TwojÄ… narracjÄ™ literalnie
+1744: [ETAP E1]
+1751: - TASK:  E1.TASK_01
+1754: - TASK:  E1.TASK_02
+1767: [E1.TASK_01]
+1774: To rozwiÄ…zuje TwojÄ… pretensjÄ™ o â€śzgubiĹ‚eĹ› semantykÄ™â€ť: blueprint nie streszcza narracji, tylko nawiguje po blokach narracji.
+1786: Implementacja w blueprint:
+1787: â€˘	ETAP E1 = minimum (Ctrl+T + nazwy)
+1788: â€˘	ETAP E2 = bonus (structured refs, totals, @, auto-expand, XLOOKUP)
+1792: 3.3 â€žPole na doleâ€ť w Power Query (klik w komĂłrkÄ™, pokazuje wartoĹ›Ä‡)
+1795: â€˘	TASK: kliknij dowolnÄ… komĂłrkÄ™ w podglÄ…dzie danych
+1796: â€˘	OBSERVATION: w dolnej czÄ™Ĺ›ci okna (status/pasek informacji) pojawi siÄ™ podglÄ…d szczegĂłĹ‚Ăłw zaznaczonej komĂłrki (wartoĹ›Ä‡ / informacja o bĹ‚Ä™dzie)
+1822: 1.	przerobiĹ‚ blueprint na wersjÄ™ â€žreferencyjnÄ…â€ť (STEPS jako INTRO/TASK/OBS/â€¦ z ID blokĂłw), bez peĹ‚nych narracji w Ĺ›rodku
+1824: 2.	zaczÄ…Ĺ‚ juĹĽ pisaÄ‡ SCRIPT.md dla ETAPU S0 i E1, wygĹ‚adzajÄ…c Twoje teksty â€žmĂłwioneâ€ť (z zachowaniem semantyki), a blueprint bÄ™dzie tylko szkieletem
+1825: RekomendujÄ™ kolejnoĹ›Ä‡: (1) najpierw blueprint-referencje, bo wtedy dopiero wiesz ile blokĂłw narracji potrzebujesz i gdzie je wkleiÄ‡ w SCRIPT. Ale jeĹ›li wolisz szybciej zobaczyÄ‡ â€žproduktâ€ť, to (2) teĹĽ jest wykonalne.
+1828: OK â€” wracamy do prostszego modelu: jeden blueprint zawiera normalne skrypty (narracje). To jest sensowne, dopĂłki akceptujesz, ĹĽe blueprint uroĹ›nie i bÄ™dzie â€žprawie promtemâ€ť (a to Ci nie przeszkadza).
+1830: Tak: STANDARDY_BLUEPRINT sÄ… dla mastera do produkcji szkoleĹ„, nie dla samych szkoleĹ„. Czyli to jest â€žkonstytucja generatoraâ€ť, nie â€žpodrÄ™cznik szkoleniowcaâ€ť.
+1861: W nastÄ™pnym kroku przerobiÄ™ caĹ‚y blueprint PQ na TwojÄ… formÄ™:
+1862: â€˘	STEPS bÄ™dÄ… miaĹ‚y typy: INTRO / TASK / OBSERVATION / CHECK / TEACH / WARNING
+1864: â€˘	Etap S0 i E1 zrobiÄ™ jako wzorzec jakoĹ›ci, a resztÄ™ dopnÄ™ w tym samym stylu
+1896: Robimy blueprint.
+1898: BLUEPRINT v1 â€” Power Query Case Training (Twoja wizja, uporzÄ…dkowana)
+1900: â€˘	1 CHECKPOINT per ETAP
+1901: â€˘	STEPS typowane: INTRO / TASK / OBSERVATION / CHECK / TEACH / WARNING
+1906: [ETAP S0] START + USTAWIENIA
+1913: â€žNa tym szkoleniu nauczysz siÄ™ pracy z tabelami i Power Query jako alternatywnego trybu pracy z danymi.
+1919: TASK: zapytaj o imiÄ™.
+1920: TASK: wybĂłr trybu (1 Szkolenie / 2 Doradca).
+1927: [ETAP E1] MINIMUM TABEL â€” CTRL+T + NAZWY + FACT/DIM
+1934: â€žMasz przed sobÄ… 3 arkusze z danymi. Problem? Excel je widzi, ale Power Query nie ma pewnoĹ›ci, gdzie dane siÄ™ zaczynajÄ… i koĹ„czÄ….
+1937: TASK:
+1948: TASK:
+1962: â€žMoĹĽemy przejĹ›Ä‡ dalej do Power Query.
+1966: JeĹ›li TAK â†’ ETAP E2
+1969: [ETAP E2] BONUS â€” ZACHOWANIA TABEL
+1974: TASK:
+1976: OBSERVATION:
+1978: TASK:
+1980: OBSERVATION:
+1988: [ETAP PQ1] WEJĹšCIE DO POWER QUERY
+1992: TASK:
+1996: TASK:
+1998: TASK:
+2006: [ETAP PQ2] CLOSE & LOAD + ODĹšWIEĹ»ANIE
+2010: TASK:
+2012: TASK:
+2014: OBSERVATION:
+2018: TASK:
+2024: [ETAP PQ3] TYPY DANYCH I BĹÄDY
+2028: TASK:
+2030: TASK:
+2032: OBSERVATION:
+2034: TASK:
+2036: TASK:
+2042: [ETAP PQ4] REUSE M â€” PL â†’ CZ
+2046: TASK:
+2048: TASK:
+2050: OBSERVATION:
+2056: [ETAP PQ5] APPEND + REFACTOR
+2058: User rozumie rĂłĹĽnicÄ™ miÄ™dzy dublowaniem logiki a pipeline po append.
+2060: TASK:
+2061: Append as New Query â†’ SalesTOTAL.
+2064: TASK:
+2066: TASK:
+2067: W SalesPL po Source dodaj Append PL+CZ przed czyszczeniem.
+2068: OBSERVATION:
+2074: [ETAP END] PIVOT + DOMKNIÄCIE
+2075: TASK:
+2077: TASK:
+2099: o	rozbudowaĹ‚ ten blueprint do peĹ‚nej wersji narracyjnej (z wygĹ‚adzonymi Twoimi tekstami),
+2102: to INTRO nie pasuje skoro je powtarzamy. INTRO jest jedno. To w etapie 0 to byĹ‚o INTRO. dajmy inne oznaczenie symbolizujÄ…ce mĂłwienie/narracjÄ™/wykĹ‚ad... nie wiem. ale nie moĹĽemy mieÄ‡ 3 razy intro.... SPEACH? trochÄ™ nie pasuje ale coĹ› w tÄ… stronÄ™. moĹĽe po prostu TEXT Adresy typu A1:H80 sÄ… kruche - zamieĹ„ na "Musisz mu to "powiedzieÄ‡" piszÄ…c adres typu a1:h80, ale jest to bardzo wadliwa metoda. Dojdzie kolumna...." W bazach danych mamy dwa gĹ‚Ăłwne typy tabel: facts i dimensions. Facts to zdarzenia (np. sprzedaĹĽ). Dimensions to sĹ‚owniki/opisy (np. produkty). To moĹĽe wydawaÄ‡ siÄ™ nieistotne teraz, ale przy wiÄ™kszych projektach to robi ogromnÄ… rĂłĹĽnicÄ™.â€ť - za bardzo okroiĹ‚eĹ› moje sĹ‚owa. wiÄ™cej pisaĹ‚em o faktach i dimensionach, chcÄ™ ĹĽeby poczuli to ĹĽe tak jakby jedne sÄ… zmienne drugie staĹ‚e pominÄ…Ĺ‚eĹ› wyjaĹ›nienie prefixĂłw w TEXT zanim przejdziesz do TASK. jako przykĹ‚ad pokaĹĽ dimSklepy. bardzo staĹ‚e obiekty wiÄ™c powinno daÄ‡ odczucie staĹ‚oĹ›ci bonus TEXT - moĹĽe nie wpisujmy na sztywno 8-12 minut. na podstawie poczÄ…tkowego czasu niech prompt ocenia ile moĹĽe zajÄ…Ä‡ tabele TASK: W fctSalesPL dodaj kolumnÄ™ WartoĹ›Ä‡ =[@IloĹ›Ä‡]*[@Cena]. - omg tu juĹĽ mega poleciaĹ‚eĹ› i zbiĹ‚eĹ› dwa waĹĽne kroki w jedno zdanie. kurwa maÄ‡ SKUP SIÄ!!! nie po to ja za szczegĂłĹ‚ami rozpisujÄ™ wszystko ĹĽebyĹ› ty to zredukowaĹ‚ do "dodaj kolumnÄ™". Olbrzymie znaczenie miaĹ‚o rozdzielenie tego na osobne taski : najpierw wpisanie WartoĹ›Ä‡, zauwazenie ĹĽe siÄ™ tabela rozszerza. Potem instrukcja wpisania formuĹ‚y, teĹĽ bardzo dokĹ‚adnie rozpisaĹ‚em ĹĽe uĹĽytkownik ma przewinÄ…Ä‡ strzaĹ‚kami albo klikaÄ‡... no ja pierrrr grrrrrr!!! skup siÄ™, szczegĂłĹ‚y ktĂłre wypisywaĹ‚em wszystkie majÄ… mega wielkie znaczenie. prĂłbowaĹ‚em odpowiednio oznaczaÄ‡ nawiasami itp gdzie ja "mĂłwiÄ™" prawdopodobnie masz zachowaÄ‡ okoĹ‚o 90% tego co napisaĹ‚em, tylko lekko wygĹ‚adziÄ‡ ale TEXT w poprzednich punktach wyszedĹ‚ w miarÄ™ dobrze, zmierzamy w dobrym kierunku przeanalizuj jeszcze raz mojÄ… "mowÄ™" szkoleniowÄ…. dobrze zdefragmentuj wszystko co powiedziaĹ‚em i zachowaj jak najwiÄ™cej szczegĂłĹ‚Ăłw z tego co napisaĹ‚em, wiÄ™kszoĹ›Ä‡ z nich jest mega istotna. ciÄ™ĹĽko mi weryfikowaÄ‡ takÄ… okrojonÄ… wersjÄ™, w observation powinno byÄ‡ wypisane jakiej obserwacji siÄ™ spodziewamy potem w prompcie gĹ‚Ăłwnym chyba musi byÄ‡ opisane jak reagowaÄ‡ na observation (pytasz uĹĽytkownika i po odpowiedzi uzupeĹ‚niasz mu czego nie zauwaĹĽyĹ‚) poniĹĽsze nie powinno byÄ‡ aĹĽ tak suche, powinno byÄ‡ trochÄ™ Ĺ‚godnego przejĹ›cia i wyjaĹ›nienia do czego przechodzimy â€žExcel wĹ‚aĹ›nie â€zobaczyĹ‚â€™ tabelÄ™. Teraz moĹĽemy jÄ… kontrolowaÄ‡.â€ť INTRO (facts/dim): â€žTeraz przejdziemy do kwesti nazywania tabel. W bazach danych mamy dwa gĹ‚Ăłwne typy tabel: facts i dimensions. TASK: Ustal nazwÄ™ dla SprzedaĹĽPL tu rozpisaĹ‚em scenariusz najpierw spytaÄ‡ uĹĽytkownika jakimi typami bÄ™dÄ… tabele, potem wymyĹ›liÄ‡ nazwy dobra to jest bez sensu, za duĹĽo bÄ™dÄ™ poprawiaĹ‚, daj bardziej dosĹ‚ownÄ… mniej okrojonÄ… wersjÄ™
+2109: o	TASK â€” konkretna akcja uĹĽytkownika
+2110: o	OBSERVATION â€” czego siÄ™ spodziewamy
+2114: â€˘	W OBSERVATION wpisujÄ™ czego dokĹ‚adnie siÄ™ spodziewamy, ĹĽeby pĂłĹşniej moĹĽna byĹ‚o mierzyÄ‡ % zauwaĹĽonych elementĂłw.
+2119: BLUEPRINT â€” ETAP E1 (wersja wierna Twojej mowie)
+2120: [ETAP E1] MINIMUM TABEL â€” CTRL+T + NAZEWNICTWO + FACT/DIM
+2129: Problem z tym, ĹĽe Power Query nie bardzo â€wieâ€™, gdzie te dane sÄ….
+2142: TASK 1
+2151: OBSERVATION (oczekiwane)
+2187: TASK 2 â€” INTERAKCJA
+2195: TASK 3 â€” NAZWA
+2202: TASK 4
+2214: TASK 5 â€” POZOSTAĹE TABELE
+2220: TASK 6
+2223: CHECKPOINT ETAPU
+2238: [ETAP E2] BONUS â€” STRUKTURA ODNIESIEĹ + ROZSZERZANIE
+2247: TASK 1 â€” WYĹšWIETLENIE CAĹEJ TABELI
+2251: OBSERVATION (oczekiwane)
+2260: TASK 2 â€” NAWIASY KWADRATOWE
+2264: OBSERVATION
+2268: TASK 3
+2275: OBSERVATION
+2281: TASK
+2284: OBSERVATION
+2292: TASK â€” KONKRETNE KOLUMNY
+2295: TASK â€” @
+2300: OBSERVATION
+2308: TASK â€” AUTO-EXPAND (ROZBITA WERSJA, NIE ZBIJAM)
+2311: OBSERVATION:
+2316: OBSERVATION:
+2319: OBSERVATION:
+2323: Dalsze kroki (XLOOKUP, rÄ™czne rozszerzanie, SPILL, itd.) â€” analogicznie zachowamy w kolejnej czÄ™Ĺ›ci, bez redukowania.
+2330: o	dokoĹ„czyĹ‚ caĹ‚oĹ›Ä‡ blueprintu (PQ1 â†’ END) w takim samym stylu,
+2332: o	najpierw dopracowali mechanikÄ™ OBSERVATION + scoring + reakcjÄ™ agenta?
+2334: Power Query nie bardzo â€wieâ€™ - Excel nie bardzo â€wieâ€™ odpowiedĹş po obserwatcji, ewentualne dopeĹ‚nienie obserwacji ma w tej samej wiadomoĹ›ci przechodziÄ‡ w kolejny task w stylu "teraz przejdĹşmy do Ä‡wiczenia" lob cokolwiek aktualnie pasuje Dochodzi ich coraz wiÄ™cej. - dodaj ĹĽe dochodzÄ… wiersze nie dawaj przykĹ‚adĂłw fctSales dimProducts ĹĽeby uĹĽytkownik miaĹ‚ okazjÄ™ wywnioskowaÄ‡ jak nazwaÄ‡ Ä‡wiczeniowe tabele po nazwaniu tabel moĹĽesz daÄ‡ wiÄ™cej przykĹ‚adow tabel dim i fct skoryguj subtelnie konwencjÄ™ (np. maĹ‚a litera w prefiksie, wielka w nazwie) - zaznacz wartoĹ›Ä‡ wizualno rozpoznawczÄ… w takim sposobie wpisuj formuĹ‚y w kolumnie J, jedno pod drugim Wpisz w komĂłrce (przy dawaniu polecenia, zaznacz ĹĽeby uĹĽytkownik zwrĂłciĹ‚ uwagÄ™ na zaproponowanie peĹ‚nej nazwy przez excela i ikonkÄ™ tabeli). co siÄ™ staĹ‚o? (na to hasĹ‚o w tym miejscu bÄ™dziemy prosiÄ‡ o opisanie jaki byĹ‚ skutek zaleconej akcji. Prawie przed kaĹĽdÄ… obserwacjÄ… ktĂłrÄ… spodziewamy siÄ™ ze uĹĽytkownik zobaczy, pytamy co siÄ™ staĹ‚o. Raczej nie spodziewalibyĹ›my siÄ™ ĹĽe zauwaĹĽy innÄ… ikonkÄ™ przy nazwie, wiÄ™c o tym mĂłwimy. o ma maĹ‚Ä… wartoĹ›Ä‡ praktycznÄ… - musimy dokĹ‚adniej, co to jest TO. Chodzi o takie WYĹšWIETLANIE tabeli. Odniesienia do tabeli raczej bÄ™dÄ… uĹĽywane w funkcjach. odniesienia to teĹĽ sĹ‚owo klucz Wpisz: =[nazwa_tabeli][ - mam nadziejÄ™ ĹĽe tu bot bÄ™dzie szkolonemy wyĹ›wietlaĹ‚ faktycznÄ… nazwÄ™ tabeli jakÄ… mu uĹĽytkownik podaĹ‚, domyĹ›lnie =fctSprzedaĹĽPL[ funkcji nie pokazuj jako boxĂłw, uĹĽytkownik koniecznie ma pisaÄ‡ sam a nie wklejaÄ‡ OBSERVATION Pojawia siÄ™ lista elementĂłw. - to ma byÄ‡ wyĹĽej narracja przed TASK 2 - o tym ĹĽe elementy to WARTOSCI jako poszczegĂłlne kolumny, oraz pozostaĹ‚e elementy z prefixami # potem Ä‡wiczenie z wpisywaniem # TASK 3 co siÄ™ staĹ‚o? â€žSpokojnie. SpodziewaliĹ›my siÄ™ tego.â€ť - okroiĹ‚eĹ›, wytĹ‚umaczyĹ‚em czemu siÄ™ spodziewaliĹ›my, bo ĹşrĂłdĹ‚o nie ma totala. potem Ä‡wiczenie TASK @ wpisz w komĂłrce w kolumnie H, koniecznie obok tabeli, w tym samym wierszu, pojedynczÄ… wartoĹ›Ä‡ - a nie jak wczeĹ›niej, zakres Teraz wpisz formuĹ‚Ä™: =[@IloĹ›Ä‡]*[@Cena] ZrĂłb to klikajÄ…c kolumny lub uĹĽywajÄ…c strzaĹ‚ek. - no to nie dawaj "teraz wpisz formuĹ‚Ä™" tylko "teraz wpisz =, kliknij kolumne lub przesun strzalka, wpisz * i znĂłw wybĂłr kolumny". Tak ĹĽeby wyszĹ‚o [i wtedy formuĹ‚a, nie w boxie] co siÄ™ staĹ‚o? 4. dopisz nowy numer ID tak jest ta wersja jest juĹĽduĹĽo lepsza. moje poprawki sÄ… duĹĽo mniejsze mechanika observation widzÄ™ sama siÄ™ produkuje przy planowaniu caĹ‚oĹ›ci wiÄ™c leÄ‡my z bluprintem 
+2339: [ETAP E2 â€” kontynuacja] STRUKTURA ODNIESIEĹ I ZACHOWANIA TABEL
+2357: TASK 2 â€” NAWIAS KWADRATOWY
+2366: OBSERVATION (oczekiwane)
+2372: TASK 3 â€” ELEMENTY Z
+2385: OBSERVATION (oczekiwane)
+2399: TASK â€” WĹÄ„CZENIE TOTAL ROW
+2405: OBSERVATION (oczekiwane)
+2417: TASK
+2423: OBSERVATION (oczekiwane)
+2436: TASK
+2445: OBSERVATION (oczekiwane)
+2450: TASK
+2454: OBSERVATION (oczekiwane)
+2466: TASK 1
+2473: OBSERVATION (oczekiwane)
+2478: TASK 2
+2487: OBSERVATION (oczekiwane)
+2493: TASK 3
+2497: OBSERVATION (oczekiwane)
+2501: TASK 4
+2510: NastÄ™pny krok: ETAP PQ1
+2512: â€˘	wejĹ›cia do Power Query,
+2522: TASK 2 â€” NAWIAS KWADRATOWY - to nie bÄ™dize task, to dalej bÄ™dzie tekst odnoĹ›nie task3 elementy # bez sensu bÄ™dzie zadanie ĹĽeby tylko wpisaĹ‚ i spojrzaĹ‚ na elementy. zatem musimy o tym opowiedzieÄ‡, o nazwie i ikonach, ma to zauwaĹĽyÄ‡ podczas task3 Po wpisaniu czterech formuĹ‚ napisz: Co siÄ™ staĹ‚o? - na pewno nie tak po prostu Po wpisaniu ... napisz co siÄ™ staĹ‚o (albo jaki efekt, tu zamiennie zaleĹĽy jak pasuje w danym kontekĹ›cie) co siÄ™ staĹ‚o to tylko moja metoda oznaczania ĹĽebyĹ› wiedziaĹ‚ gdzie ma byÄ‡ zadane pĹ‚ynne pytanie odniesienia dostosujÄ… siÄ™ automatycznie. - dodaj "MoĹĽesz to teĹĽ przetestowaÄ‡ zmieniajÄ…c wartoĹ›ci w tabeli" Wynika to z tego, ĹĽe tabela tam nie istnieje. W nagĹ‚Ăłwku w kolumnie X[jak stworzymy plik Ä‡wiczeniowy to podamy sztywno kolumnÄ™ i zmienimy ten X] wpisz sĹ‚owo wybierz kolumnÄ™ IloĹ›Ä‡ OBSERVATION (oczekiwane) FormuĹ‚a automatycznie skopiowaĹ‚a siÄ™ do wszystkich wierszy tabeli. Nie trzeba byĹ‚o przeciÄ…gaÄ‡. Excel uĹĽyĹ‚ strukturalnych odniesieĹ„. JeĹ›li user tego nie zauwaĹĽy â€” dopowiedz. - widzÄ™ ĹĽe tu to sprecyzowaĹ‚eĹ›. Raczej powinien byÄ‡ gdzieĹ› ogĂłlny opis ĹĽe ma opowiadaÄ‡ o obserwacjach jak nie bÄ™dÄ… zauwaĹĽone co "obserwacje" ktĂłre raczej nie bÄ™dÄ… zaĹ‚oĹĽone, uznajemy za TEACH i bÄ™dziemy o nich mĂłwiÄ‡ TASK 4 W prawym dolnym rogu tabeli zĹ‚ap znacznik rozszerzania i przeciÄ…gnij zakres rÄ™cznie. - nie byĹ‚o czasem przed tym jakiejĹ› narracji o tym ĹĽe to istotny punkt kontroli danych? szczegĂłlnie jak dochodzÄ… rekordy w dĂłĹ‚, trzeba byÄ‡ pewnym ĹĽe dane na pewno sa w tabeli, autorozszerzanie nie jest idealne. raczej maĹ‚o bĹ‚Ä™dĂłw z zbytnim skracaniem, ewentualnie jakieĹ› drobne semantyczne poprawki. dobrze Ci teraz idzie. lecimy dalej
+2525: â€˘	OBSERVATION â†’ pytamy uĹĽytkownika
+2529: [ETAP E2 â€” poprawiona czÄ™Ĺ›Ä‡ + zakoĹ„czenie tabel]
+2530: ELEMENTY Z # (bez sztucznego tasku z samym nawiasem)
+2540: TASK â€” ELEMENTY Z
+2549: OBSERVATION (oczekiwane)
+2561: TASK â€” WĹÄ„CZENIE TOTAL ROW
+2565: OBSERVATION (oczekiwane)
+2582: TASK
+2592: OBSERVATION (oczekiwane)
+2597: TASK
+2601: OBSERVATION (oczekiwane)
+2608: TASK 1
+2611: (Na etapie produkcji pliku Ä‡wiczeniowego kolumna zostanie ustalona sztywno.)
+2614: OBSERVATION (oczekiwane)
+2618: TASK 2
+2627: OBSERVATION (oczekiwane)
+2634: TASK 3
+2638: OBSERVATION (oczekiwane)
+2648: TASK 4
+2655: Teraz przechodzimy do Power Query
+2658: [ETAP PQ1] WEJĹšCIE DO POWER QUERY
+2662: TASK
+2670: OBSERVATION (oczekiwane)
+2683: TASK
+2688: OBSERVATION (oczekiwane)
+2693: TASK
+2697: OBSERVATION (oczekiwane)
+2715: â€˘	Merge
+2717: â€˘	Append + refactor pipeline
+2720: TEACH (uzupeĹ‚nienie) - w takim ukĹ‚adzie oznaczajmy to FILL, nie TEACH chcÄ™ ĹĽeby TASKI ktĂłre nie majÄ… narracji przed sobÄ…, miaĹ‚y automatyczne Ĺ‚adne wejĹ›cie, krĂłtko opisujÄ…ce co bÄ™dziemy robiÄ‡ np "PrzejdĹşmy do dodawania kolumny. W nagĹ‚Ăłwku w kolumnie X..." ogĂłĹ‚em ĹĽeby byĹ‚o to ludzko a nie mechaniczne wyznaczanie taskĂłw. CzÄ™Ĺ›Ä‡ roboty robi moja narracja ale ty musisz wypeĹ‚niÄ‡ luki niby ustalone ĹĽe bÄ™dzie ogĂłlna zasada observation a jednak znĂłw w jedno wstawiĹ‚eĹ› : "JeĹĽeli uĹĽytkownik nie zauwaĹĽy ktĂłregoĹ› z tych elementĂłw â€” dopowiedz. Elementy, ktĂłrych raczej nie zauwaĹĽy (np. strukturalne odniesienia jako mechanizm), traktujemy jako TEACH i dopowiadamy." to siÄ™ nie powinno pojawiaÄ‡ w BP - bluprint - tka bÄ™dÄ™ teraz skracaĹ‚ â€žPrzechodzimy do bardzo waĹĽny mechanizm kontroli danych.... " musimy uwaĹĽaÄ‡, narracja musi tworzyÄ‡ wyraĹşne breakpointy ĹĽeby uĹĽytkownik nie myliĹ‚ co mĂłwi o czym. Nie chciaĹ‚bym ĹĽeby tu jak zacznie czytaÄ‡, po pierwszych zdaniach pomyĹ›laĹ‚ ĹĽe waĹĽnym mechanizmem kontroli jest automatyczne rozszerzanie omawiane wczeĹ›niej PQ przydaĹ‚o by siÄ™ jakiĹ› tekst intro do PQ. nie pisaĹ‚em coĹ› o tym? wĹ‚aĹ›nie ĹĽe to inna "warstwa", ĹĽe moĹĽemy tam zrobiÄ‡ prawie wszystko co w excelu tylko bezpieczniej. DziaĹ‚a szybciej i moĹĽe obrabiaÄ‡ wiÄ™cej danych TASK - nie dawajmy goĹ‚ych taskĂłw, niech zawsze majÄ… dopisek co to za zadanie - dodanie tabeli do PQ OBSERVATION (oczekiwane) OtworzyĹ‚ siÄ™ nowy panel / nowe okno. PojawiĹ‚ siÄ™ interfejs z listÄ… zapytaĹ„ po lewej. Widoczny jest podglÄ…d danych. Po prawej stronie widoczne sÄ… kroki (Applied Steps). tu obserwacja to tylko ĹĽe otworzyĹ‚ siÄ™ nowy panel, nowe okno. resztÄ™ opisujemy w tekĹ›cie poniĹĽej Po prawej historiÄ™ transformacji â€” Applied Steps. - Po prawej pojedyncze kroki transformacji danych Na Ĺ›rodku... A nad nim pasek kodu gdzie widzimy kod wybranego kroku jej wartoĹ›Ä‡ albo informacje o bĹ‚Ä™dzie. dodaj "pojawia siÄ™ dopiero po klikniÄ™ciu na dowolnÄ… komĂłrkÄ™ w tabeli. ZrĂłb to teraz " i pĹ‚ynne przejĹ›cie do nastÄ™pnego taska. ten task to bÄ™dzie klikniÄ™cie na tabelÄ™, zobaczenie dolnego pola, potem klikniÄ™cie na kroki po prawej â€žTo wĹ‚aĹ›nie stÄ…d bÄ™dziesz kopiowaÄ‡ kod do weryfikacji. To tutaj bÄ™dziemy wprowadzaÄ‡ poprawki, jeĹ›li zajdzie taka potrzeba.â€ť - dodaj ĹĽe kod moĹĽe zmieniaÄ‡ zarĂłwno tu jak i w pasku kodu. W pasku drobne poprawki, tutaj duĹĽe machinacje i przeklejania"
+2723: â€˘	TEACH zmieniamy na FILL
+2724: â€˘	TASK zawsze ma krĂłtkie, ludzkie wejĹ›cie
+2725: â€˘	nie wkĹ‚adamy do blueprintu meta-instrukcji typu â€žjeĹ›li user nie zauwaĹĽyâ€¦â€ť
+2733: [ETAP E2 â€” domkniÄ™cie bloku tabel z wyraĹşnym breakpointem]
+2740: TASK â€” rÄ™czna kontrola zakresu tabeli
+2748: OBSERVATION (oczekiwane)
+2753: FILL
+2758: WYRAĹąNE PRZEJĹšCIE DO POWER QUERY
+2760: [ETAP PQ1] WEJĹšCIE DO POWER QUERY
+2764: Power Query to osobna warstwa pracy z danymi.
+2773: TASK â€” Dodanie tabeli do Power Query
+2774: â€žDodajmy pierwszÄ… tabelÄ™ do Power Query.
+2782: OBSERVATION (oczekiwane)
+2786: â€žTo jest edytor Power Query.
+2793: TASK â€” Aktywacja dolnego pola
+2798: OBSERVATION (oczekiwane)
+2802: TASK â€” Zrozumienie krokĂłw
+2807: OBSERVATION (oczekiwane)
+2812: TASK â€” Advanced Editor
+2816: OBSERVATION (oczekiwane)
+2821: FILL
+2835: ZĹ‚ap w prawym dolnym rogu tabeli maĹ‚y znacznik rozszerzania - dodaj ĹĽe to trĂłjkÄ…t Po lewej widzisz listÄ™ zapytaĹ„. - zapytaĹ„/query, niech uĹĽytkownik wie ĹĽe query to zapytanie Na Ĺ›rodku widzisz tabele/efekt aktualnie TASKI aktywacja dolnego pola i zrozumienie krokĂłw to jeden task, nie rozdzielaj PrzejdĹş do zakĹ‚adki Home i kliknij Advanced Editor po lewej stronie. lecimy dajesz mi materiaĹ‚ dobrymi paczkami, tak trzymaÄ‡, nie przeciÄ…ĹĽa mnie to
+2839: [ETAP E2 â€” doprecyzowanie kontroli zakresu]
+2840: TASK â€” rÄ™czna kontrola zakresu tabeli
+2848: OBSERVATION (oczekiwane)
+2853: FILL
+2858: [ETAP PQ1] WEJĹšCIE DO POWER QUERY
+2862: Teraz przejdziemy do innej warstwy â€” Power Query.
+2863: Power Query to silnik przetwarzania danych.
+2872: TASK â€” Dodanie tabeli do Power Query
+2873: â€žDodajmy pierwszÄ… tabelÄ™ do Power Query.
+2881: OBSERVATION (oczekiwane)
+2885: â€žTo jest edytor Power Query.
+2892: TASK â€” aktywacja dolnego pola + zrozumienie krokĂłw
+2901: OBSERVATION (oczekiwane)
+2906: TASK â€” Advanced Editor
+2910: OBSERVATION (oczekiwane)
+2915: FILL
+2923: ZĹ‚ap go myszkÄ… i przeciÄ…gnij w dĂłĹ‚, a potem w gĂłrÄ™. - teĹĽ na boki Po prawej widzisz pojedyncze kroki transformacji danych danego query (np. usuĹ„ duplikaty, odfiltruj 0 itp.). TASK â€” Advanced Editor â€žPrzejdĹş do zakĹ‚adki Home i kliknij Advanced Editor po lewej stronie.â€ť Opisz, co widzisz. - tu nie pytamy o obserwacje, maĹ‚o kto to zauwaĹĽy, tu mamy opowiedzieÄ‡ te obserwacje 
+2927: [ETAP E2 â€” korekta rÄ™cznej kontroli zakresu]
+2928: TASK â€” rÄ™czna kontrola zakresu tabeli
+2939: OBSERVATION (oczekiwane)
+2944: FILL
+2949: [ETAP PQ1 â€” korekty interfejsu]
+2952: â€žTo jest edytor Power Query.
+2960: TASK â€” aktywacja dolnego pola + zrozumienie krokĂłw
+2969: OBSERVATION (oczekiwane)
+2974: TASK â€” Advanced Editor
+3000: TASK â€” Advanced Editor
+3020: [ETAP PQ2] CLOSE & LOAD + REFRESH
+3024: TASK â€” zapisanie zapytania
+3030: OBSERVATION (oczekiwane)
+3041: TASK â€” test odĹ›wieĹĽania
+3046: OBSERVATION (oczekiwane)
+3051: FILL
+3054: TASK â€” zmiana sposobu Ĺ‚adowania
+3063: OBSERVATION (oczekiwane)
+3068: TASK â€” panel Queries & Connections
+3073: OBSERVATION (oczekiwane)
+3077: FILL
+3093: ZwrĂłÄ‡ uwagÄ™, ĹĽe nie ma zwykĹ‚ego â€zamknijâ€™. - bzdura. wywal to. zamieĹ„ na "Staramy siÄ™ nie uĹĽywaÄ‡ klasycznego X w prawym gĂłrnym rogu, bo close & load" daje nam opcje wyboru jak dane majÄ… byÄ‡ zaĹ‚adowane do Excela" Tak poza tym, mam nadzieje ĹĽe jest jasne ĹĽe nazwy excelowe typu Close & Load majÄ… byÄ‡ zamiennie uĹĽywane w zaleĹĽnoĹ›ci jaki uĹĽytkownik wybierze jÄ™zyk. Ja Ci piszÄ™ close bo mam angielskiego excela ale ty masz to dostosowaÄ‡ do polskiego w miare potrzeby KaĹĽde odĹ›wieĹĽenie to ponowne wykonanie zaprogramowanych krokĂłw transformacji.â€ť- dodaj "jeĹ›li zmienisz coĹ› w oryginalnej tabeli, po odĹ›wieĹĽeniu query, tabela wynikowa teĹĽ siÄ™ zmieni" Pojawi siÄ™ dodatkowa zielona zakĹ‚adka zwiÄ…zana z zapytaniem. - dodaj nazwÄ™ zakĹ‚adki, w ANG jest to po prostu Query Kliknij Load To uciÄ…Ĺ‚eĹ› task, przed Ĺ‚adowaniem do only connection miaĹ‚o byÄ‡ teĹĽ Ĺ‚adowanie do pivota dopiero potem connection only i wykasowanie pustego juĹĽ niepotrzebnego arkusza 
+3097: [ETAP PQ2] CLOSE & LOAD + REFRESH + LOAD TO
+3099: TASK â€” zapisanie zapytania
+3106: OBSERVATION (oczekiwane)
+3118: TASK â€” test odĹ›wieĹĽania
+3125: OBSERVATION (oczekiwane)
+3130: FILL
+3135: TASK â€” przejĹ›cie do opcji Load To
+3143: TASK â€” zaĹ‚aduj do tabeli przestawnej
+3149: OBSERVATION (oczekiwane)
+3154: FILL
+3157: TASK â€” zmiana na Only Connection
+3166: OBSERVATION (oczekiwane)
+3171: TASK â€” sprzÄ…tanie arkusza
+3174: FILL
+3187: ja pierdole no nie wierzÄ™ - (lub odpowiednik w Twojej wersji jÄ™zykowej Excela) - ĹĽartujesz sobie? uĹĽytkownik wybiera jÄ™zyk na poczÄ…tku np. polski, a potem ty masz pisaÄ‡ "WyjdĹĽ z edytora klikajÄ…c Zamknij i zaĹ‚aduj" a nie "odpowiednik twojej wersji..." skÄ…d Ci taki gĹ‚upi pomysĹ‚ przyszedĹ‚ do gĹ‚owy? skup siÄ™ ! napisz mi czy rozumiesz jak ma siÄ™ zachowywaÄ‡ zemiennoĹ›Ä‡ uĹĽywania polskich i angielskich nazw excelowych czy jeszcze raz Ci to wytĹ‚umaczyÄ‡ TASK â€” test odĹ›wieĹĽania niech test zawiera 2 czynnoĹ›ci, najpierw test skasowania danych w query i odswiezenia. Potem test zmiany danych w tabeli i odswiezenia query. (w wersji polskiej odpowiednik tej nazwy). - omg znowu, niedorozwiniÄ™te, mam nadziejÄ™ ĹĽe ostatni raz popeĹ‚niasz tak debilny bĹ‚Ä…d (lub odpowiednik jÄ™zykowy).â€ť - omg jednak nie xD â€žW oknie Load To wybierz opcjÄ™ zaĹ‚adowania do Pivot Table - dodaj "moĹĽemy zaĹ‚adowaÄ‡ tylko do jednego elementu na raz, wiÄ™c wyskoczy info ĹĽe poprzednia tabela zostanie wykasowana, Kliknij OK" JeĹĽeli powstaĹ‚ dodatkowy, pusty arkusz po wczeĹ›niejszych operacjach - popraw, na pewno zostaĹ‚ arkusz w ktĂłrym byĹ‚a tabela, potem pivot, teraz nic NajczÄ™Ĺ›ciej bÄ™dziemy pracowaÄ‡ na query jako poĹ‚Ä…czeniu, - bzdura! popraw "Teraz nie potrzebujemy wyĹ›wietlaÄ‡ tych query, przejdziemy do tego jak bÄ™dziemy mieÄ‡ gotowÄ… transformacjÄ™ danych" 
+3191: â€˘	Od tego momentu blueprint konsekwentnie uĹĽywa wyĹ‚Ä…cznie nazw przyciskĂłw/zakĹ‚adek w tym jÄ™zyku.
+3193: â€˘	JeĹ›li chcesz, mogÄ™ w blueprintcie trzymaÄ‡ jednÄ…, neutralnÄ… nazwÄ™ typu [BTN_CLOSE_LOAD], ale Ty chcesz normalne nazwy wprost â€” wiÄ™c bÄ™dÄ… wprost, zgodne z wyborem.
+3197: [ETAP PQ2] CLOSE & LOAD + REFRESH + LOAD TO (wersja pod Excel PL)
+3200: TASK â€” zapisanie zapytania
+3206: OBSERVATION (oczekiwane)
+3215: TASK â€” test odĹ›wieĹĽania (2 czÄ™Ĺ›ci)
+3226: OBSERVATION (oczekiwane)
+3230: FILL
+3236: TASK â€” przejĹ›cie do opcji Ĺ‚adowania
+3241: TASK â€” zaĹ‚aduj do tabeli przestawnej
+3248: OBSERVATION (oczekiwane)
+3252: TASK â€” zmiana na â€žTylko poĹ‚Ä…czenieâ€ť
+3257: OBSERVATION (oczekiwane)
+3262: TASK â€” sprzÄ…tanie arkusza
+3265: FILL
+3272: nazwy - ok skoro to mamy jasne to jestem spokojny. zatem tu w przygotowaniu BP moĹĽesz pisaÄ‡ jak chcesz, ale w sumie dla testu pisz jakby to byĹ‚o PL test odĹ›wieĹĽania - daj oba taski jeden pod drugim i potem na koĹ„cu jedno opisz co siÄ™ staĹ‚o Poprzednia tabela wynikowa zostaĹ‚a usuniÄ™ta. - wywal z obserwacji, mĂłwimy o tym wczeĹ›niej
+3276: [ETAP PQ2] CLOSE & LOAD + REFRESH + LOAD TO (PL)
+3278: TASK â€” zapisanie zapytania
+3284: OBSERVATION (oczekiwane)
+3293: TASK â€” test odĹ›wieĹĽania (2 dziaĹ‚ania, 1 podsumowanie)
+3301: OBSERVATION (oczekiwane)
+3305: FILL
+3311: TASK â€” przejĹ›cie do opcji â€žZaĹ‚aduj doâ€¦â€ť
+3316: TASK â€” zaĹ‚aduj do tabeli przestawnej
+3323: OBSERVATION (oczekiwane)
+3326: TASK â€” zmiana na â€žTylko poĹ‚Ä…czenieâ€ť
+3331: OBSERVATION (oczekiwane)
+3335: TASK â€” sprzÄ…tanie
+3338: FILL
+3354: [ETAP PQ3] TYPY DANYCH, BĹÄDY I KONTROLA KROKĂ“W
+3365: TASK â€” zmiana nazwy kolumny
+3373: OBSERVATION (oczekiwane)
+3383: TASK â€” rÄ™czna poprawka w pasku kodu
+3390: OBSERVATION (oczekiwane)
+3395: FILL
+3403: â€žTyp danych to jedna z najwaĹĽniejszych rzeczy w Power Query.
+3411: TASK â€” zmiana typu z uĹĽyciem â€žDodaj nowy krokâ€ť
+3421: OBSERVATION (oczekiwane)
+3426: TASK â€” usuniÄ™cie zbÄ™dnego kroku
+3432: OBSERVATION (oczekiwane)
+3437: FILL
+3446: JeĹ›li zawiera liczby i tekst, Power Query moĹĽe przypisaÄ‡ jej typ Dowolny (Any).
+3449: TASK â€” wymuszenie typu liczbowego
+3454: OBSERVATION (oczekiwane)
+3458: TASK â€” analiza bĹ‚Ä™du
+3464: OBSERVATION (oczekiwane)
+3468: TASK â€” powrĂłt do poprzedniego stanu
+3474: TASK
+3479: OBSERVATION (oczekiwane)
+3486: TASK
+3492: OBSERVATION (oczekiwane)
+3501: đź‘‰ Merge z tabelÄ… Produkty
+3503: đź‘‰ Append + refaktoryzacja pipeline
+3505: Opisz, co staĹ‚o siÄ™ z krokami po prawej stronie. - moĹĽe ogĂłĹ‚em, wszÄ™dzie formuĹ‚ujmy to raczej w sposĂłb "Opisz co zaobserwowaĹ‚eĹ› w panelu krokĂłw" czyli nie co siÄ™ staĹ‚o ale co zaobserwowaĹ‚eĹ›. waĹĽna rĂłĹĽnica semantyczna aaa nie czekaj, tu jeszcze innaczej. ma byÄ‡ "Kliknij wszystkie kroki i opisz..." uĹĽytkownik musi w nie kliknÄ…Ä‡ ĹĽeby zauwaĹĽyÄ‡ bĹ‚Ä…d typ danych TEXT - bardzo krĂłtko opisaĹ‚eĹ›, ja na poczÄ…tku chyba duĹĽo wiÄ™cej napisaĹ‚em. Tu musi byÄ‡ troszkÄ™ mocniejszy wykĹ‚ad o tym jak bardzo jest to istotne i jak wiele problemĂłw sprawia jeĹ›li jest pomijane/zaniedbane. Powinno byÄ‡ traktowane jak wymĂłg a nie opcja TASK â€” usuniÄ™cie zbÄ™dnego kroku - nie opisujesz czemu go usuwamy. ale w sumie to raczej wina powyĹĽszej obserwacji. dodaj w obserwacji ĹĽe kolumna jest NIEPOTRZEBNIE przeksztaĹ‚cona drugi raz potem w task "ĹĽeby przeksztaĹ‚ciÄ‡ tylko raz, zrobimy to inaczej" Dlatego najczÄ™Ĺ›ciej wybieramy ZamieĹ„ bieĹĽÄ…cy.â€ť - wywal ANY oznacza: system nie jest pewien typu, moĹĽe tu byÄ‡ wszystko. wywalmy Ä‡wiczenie z klikaniem w error tak ĹĽeby powstaĹ‚ nowy krok. to bÄ™dzie mieszanie szkolonemu. Niech tylko kliknie na pole erroru i zobaczy tekst erroru w polu poniĹĽej BÄ™dÄ…c na kolumnie IloĹ›Ä‡, zamieĹ„ bĹ‚Ä™dy na wartoĹ›Ä‡ 0 - zamieĹ„ na "Kliknij PPM na etykietÄ™ kolumny IloĹ›Ä‡". PamiÄ™taj ĹĽe szkolimy, jeĹ›li ja wczeĹ›niej pisaĹ‚em szczegĂłĹ‚owo typu "kliknij tu, przeciÄ…gnij tu" to byĹ‚o bardzo waĹĽne. nie zamieniaj tego na "zamieĹ„" bo szkolony nie wie co to znaczy. teoretycznie przeprowadzamy go przez to po raz pierwszy. czÄ™Ĺ›Ä‡ 5 W kolumnie IloĹ›Ä‡, kliknij strzaĹ‚kÄ™ po prawej stronie... po tym FILL Uwaga! Twoje klikanie jest interpretowane przez PQ i zamieniane na kod. Teraz powinien powstaÄ‡ kod filtrujÄ…cy wartoĹ›ci rĂłĹĽne od (czyli <>) 0 albo null. JeĹ›li w kolumnie mielibyĹ›my tylko 1, 0 i null, ta sama akcja wygenerowaĹ‚a by kod filtruj wartoĹ›ci = 1. Trzeba na to zwracaÄ‡ uwagÄ™ 
+3507: PoniĹĽej podajÄ™ poprawionÄ… wersjÄ™ ETAPU PQ3.
+3509: [ETAP PQ3] TYPY DANYCH, BĹÄDY I KONTROLA KROKĂ“W (poprawione)
+3520: TASK â€” zmiana nazwy kolumny
+3527: TASK â€” sprawdzenie skutku w krokach
+3532: OBSERVATION (oczekiwane)
+3542: TASK â€” rÄ™czna poprawka w pasku kodu
+3549: OBSERVATION (oczekiwane)
+3556: â€žTeraz najwaĹĽniejszy temat w Power Query: typy danych.
+3566: â€˘	Ĺ‚Ä…czenie tabel (merge) potrafi nie zadziaĹ‚aÄ‡ mimo â€tych samych wartoĹ›ciâ€™,
+3569: W praktyce: kontrola typĂłw danych to jeden z fundamentĂłw poprawnej pracy z Power Query.â€ť
+3571: TASK â€” pierwsza prĂłba (Dodaj nowy krok)
+3581: OBSERVATION (oczekiwane)
+3586: TASK â€” ĹĽeby przeksztaĹ‚ciÄ‡ tylko raz
+3592: OBSERVATION (oczekiwane)
+3600: JeĹ›li w kolumnie sÄ… liczby i tekst, Power Query czÄ™sto nadaje typ Dowolny (Any).
+3603: TASK â€” wymuszenie typu liczbowego
+3608: OBSERVATION (oczekiwane)
+3610: â€˘	Power Query nie potrafi zamieniÄ‡ tekstu na liczbÄ™.
+3612: TASK â€” diagnoza bĹ‚Ä™du bez dodawania krokĂłw
+3617: OBSERVATION (oczekiwane)
+3621: TASK
+3627: OBSERVATION (oczekiwane)
+3633: TASK â€” filtr 0 i null
+3641: OBSERVATION (oczekiwane)
+3645: FILL â€” bardzo waĹĽna uwaga
+3646: â€žUwaga: Twoje klikanie jest interpretowane przez Power Query i zamieniane na kod.
+3650: â€˘	ale jeĹ›li w kolumnie byĹ‚yby tylko 1, 0 i null â€” ta sama operacja moĹĽe wygenerowaÄ‡ kod â€zostaw tylko 1â€™, bo tak Power Query zinterpretuje Twoje klikniÄ™cia.
+3658: 2.	Scalanie (Merge) SprzedaĹĽPL z Produkty po ID produktu
+3660: 4.	Append + refaktoryzacja pipeline
+3662: ZatwierdĹş zmianÄ™. (Enter) czy na ktĂłrymĹ› kroku pojawia siÄ™ bĹ‚Ä…d w podglÄ…dzie danych - nie dawaj tej podpowiedzi, tylko ĹĽeby uĹĽytkownik klikaĹ‚ i sprzawdziĹ‚ kroki, niech sam zauwaĹĽy ĹĽe jest bĹ‚Ä…d a jeĹ›li tego nie zrobi to mu powiemy Teraz najwaĹĽniejszy temat w Power Query: typy danych. To nie jest opcja â€dla porzÄ…dkuâ€™. To jest wymĂłg, jeĹ›li chcesz mieÄ‡ poprawne wyniki. - trzeba caĹ‚e poprawiÄ‡ "Teraz bardzo istotny temat w pracy na danych: typ danych. Warto nie traktowaÄ‡ tego jako opcjÄ™, tylko wymĂłg. Nawyk zwracania uwagi na typ danych pozwala pĂłĹşniej uniknÄ…Ä‡ wielu bĹ‚Ä™dĂłw. Program musi..." ZnajdĹş w tabeli kolumnÄ™ Cena Zbadaj kroki w panelu po prawej, co siÄ™ zadziaĹ‚o? JeĹ›li w kolumnie sÄ… rĂłĹĽne typy danych, PQ nadaje typ Dowolny (Any) jeĹ›li jakieĹ› zadanie polega na dodaniu nowego kroku, nie dawajmy w instrukcji "Kliknij krok" bo dodanie kroku automatycznie ustawia na niego, nie trzeba klikaÄ‡ Kliknij komĂłrkÄ™ z bĹ‚Ä™dem... Na dole w â€polu na doleâ€™ przeczytaj opis bĹ‚Ä™du. - bez sensu masĹ‚o maĹ›lane nie uĹĽywaj "pola na dole" jak oficjalnej nazwy. zwyczajnie opisuj "W polu na dole moĹĽesz sprawdziÄ‡ raport bĹ‚Ä™du" aaa wĹ‚aĹ›nie. Trzeba dodaÄ‡ do instrukcji, przed przejĹ›ciem do PQ, po tabelach, trzeba usunÄ…Ä‡ dodanÄ… kolumnÄ™ WartoĹ›Ä‡ 
+3667: đź” DODATEK PRZED WEJĹšCIEM DO POWER QUERY
+3670: â€žZanim przejdziemy do Power Query, uporzÄ…dkujmy tabelÄ™.
+3674: TASK
+3678: OBSERVATION (oczekiwane)
+3684: [ETAP PQ3 â€” poprawiona wersja]
+3687: TASK
+3694: TASK
+3699: OBSERVATION (oczekiwane)
+3705: â€žKroki w Power Query zaleĹĽÄ… od siebie.
+3708: TASK
+3715: OBSERVATION (oczekiwane)
+3736: TASK
+3745: TASK
+3749: OBSERVATION (oczekiwane)
+3754: TASK
+3759: TASK
+3763: OBSERVATION (oczekiwane)
+3772: JeĹ›li w kolumnie sÄ… rĂłĹĽne typy danych, Power Query nadaje jej typ
+3776: TASK
+3780: TASK
+3784: OBSERVATION (oczekiwane)
+3788: TASK
+3793: OBSERVATION (oczekiwane)
+3798: TASK
+3803: TASK
+3807: OBSERVATION (oczekiwane)
+3814: TASK
+3821: TASK
+3825: OBSERVATION (oczekiwane)
+3829: FILL â€” bardzo waĹĽne
+3830: â€žTwoje klikanie jest interpretowane przez Power Query i zamieniane na kod.
+3844: â€˘	Append + refaktoryzacja
+3846: no nie, czyszczenie to nie ĹĽaden task gdzie potrzebne obserwacje. to ma byÄ‡ szybka akcja liczbÄ…, tekstem, - nieee... miaĹ‚eĹ› tu dobrze rozwiniÄ™te liczbÄ… (czy liczyÄ‡), datÄ… (dala chronologi), wrĂłÄ‡ do poprzedniego. Czemu zmieniĹ‚eĹ›? czemu przestaĹ‚eĹ› nazywaÄ‡ taski ? wtf? UsuĹ„ nowo powstaĹ‚y krok - przed tym dodaj wytĹ‚umaczenie czemu nie chcemy 2 krokĂłw wtf? nie rozpisuj tego na dwa taski : TASK â€žW kolumnie IloĹ›Ä‡ kliknij strzaĹ‚kÄ™ filtra po prawej stronie nagĹ‚Ăłwka. Odznacz: 0 (null) ZatwierdĹş filtr.â€ť TASK â€žSpĂłjrz na panel krokĂłw i podglÄ…d danych. Opisz, co zaobserwowaĹ‚eĹ›.â€ť
+3847: Masz racjÄ™. Wracamy do precyzji, spĂłjnego oznaczania TASK-Ăłw i bez sztucznego mnoĹĽenia krokĂłw.
+3852: â€žZanim przejdziemy do Power Query, usuĹ„ z tabeli SprzedaĹĽPL kolumnÄ™ WartoĹ›Ä‡.
+3870: Kontrola typu danych to fundament poprawnej pracy w Power Query.â€ť
+3873: TASK â€” zmiana typu (pierwsza prĂłba)
+3881: TASK â€” analiza krokĂłw
+3885: OBSERVATION (oczekiwane)
+3894: TASK â€” poprawna zmiana
+3899: TASK â€” ponowna analiza
+3903: OBSERVATION (oczekiwane)
+3908: đź” POPRAWKA â€” FILTROWANIE (JEDEN TASK, JEDNA OBSERVATION)
+3909: TASK â€” filtrowanie 0 i null
+3918: OBSERVATION (oczekiwane)
+3924: â€˘	ma nazwane TASK-i,
+3930: â€˘	Merge
+3932: â€˘	Append i refaktoryzacja.
+3933: TASK â€” zmiana typu (pierwsza prĂłba) â€žZnajdĹş w tabeli kolumnÄ™ Cena. Kliknij ikonÄ™ typu danych przy jej nazwie i ustaw typ Waluta. JeĹ›li pojawi siÄ™ pytanie: Dodaj nowy krok ZamieĹ„ bieĹĽÄ…cy wybierz Dodaj nowy krok.â€ť TASK â€” analiza krokĂłw â€žSpĂłjrz na panel krokĂłw po prawej. Opisz, co zaobserwowaĹ‚eĹ›.â€ť - NO KURWA NIE !!! proĹ›ba o obserwacje i wniosniki NIGDY nie bÄ™dÄ… osobnym taskiem, tylko na koĹ„cu taska. Ma coĹ› robiÄ‡ a potem to oceniaÄ‡, logiczne, nie? 
+3935: Obserwacja nigdy nie moĹĽe byÄ‡ osobnym TASK-iem. To rozwala rytm szkolenia.
+3937: TASK = dziaĹ‚anie + na koĹ„cu polecenie opisania obserwacji
+3942: TASK â€” zmiana typu z dodaniem nowego kroku
+3952: OBSERVATION (oczekiwane)
+3962: TASK â€” poprawne ustawienie typu
+3974: Od tego momentu trzymamy tÄ™ zasadÄ™ konsekwentnie w caĹ‚ym blueprintcie.
+3977: đź”ą Merge
+3979: đź”ą Append i refaktoryzacja
+3982: Dobrze. Kolejna paczka: Kolumna z przykĹ‚adu â†’ Merge â†’ Reuse M â†’ Append + refaktoryzacja.
+3983: Trzymam zasadÄ™: obserwacja zawsze na koĹ„cu TASK, nigdy jako osobny TASK.
+3985: [ETAP PQ4] KOLUMNA Z PRZYKĹADU: CENA * ILOĹšÄ† â†’ WARTOĹšÄ†
+3992: W Power Query zrobimy to jako krok transformacji danych â€” powtarzalny i bezpieczny.â€ť
+3994: TASK â€” Kolumna z przykĹ‚adu
+4002: Opisz, co zaobserwowaĹ‚eĹ›: co zrobiĹ‚ Power Query i jaki krok pojawiĹ‚ siÄ™ po prawej stronie.â€ť
+4004: OBSERVATION (oczekiwane)
+4005: â€˘	Power Query dopasowaĹ‚ reguĹ‚Ä™ i utworzyĹ‚ nowÄ… kolumnÄ™.
+4010: FILL
+4014: [ETAP PQ5] MERGE: SPRZEDAĹ»PL + PRODUKTY PO ID PRODUKTU
+4022: TASK â€” Scalanie (Merge)
+4033: OBSERVATION (oczekiwane)
+4034: â€˘	PowstaĹ‚o nowe zapytanie (merge jako nowe).
+4038: TASK â€” RozwiniÄ™cie zmergowanej tabeli
+4045: OBSERVATION (oczekiwane)
+4050: [ETAP PQ6] REUSE KODU M: SPRZEDAĹ»PL â†’ SPRZEDAĹ»CZ
+4057: I wĹ‚aĹ›nie tu Power Query bĹ‚yszczy: nie robimy tego od nowa â€” kopiujemy pipeline.â€ť
+4059: TASK â€” kopiowanie kodu M
+4064: TASK â€” wklejenie kodu do SprzedaĹĽCZ
+4072: OBSERVATION (oczekiwane)
+4077: [ETAP PQ7] APPEND + REFAKTORYZACJA PIPELINE (1 PIPELINE ZAMIAST 2X)
+4083: Da siÄ™ je poĹ‚Ä…czyÄ‡ przez Append, ale to wciÄ…ĹĽ oznacza, ĹĽe ten sam pipeline wykonaĹ‚ siÄ™ dwa razy.
+4086: TASK â€” Append jako nowe (pierwsza wersja)
+4093: OBSERVATION (oczekiwane)
+4103: TASK â€” refaktoryzacja: Append po Source, przed czyszczeniem
+4107: Teraz w tym miejscu dodaj doĹ‚Ä…czanie (Append), tak ĹĽeby poĹ‚Ä…czyÄ‡ SprzedaĹĽPL i SprzedaĹĽCZ zaraz po pobraniu danych, a dopiero potem wykonywaÄ‡ czyszczenie.
+4111: OBSERVATION (oczekiwane)
+4112: â€˘	Append znajduje siÄ™ wczeĹ›nie w krokach.
+4116: [ETAP END] ZAĹADUJ WYNIK I ZRĂ“B PIVOTA
+4120: TASK â€” Load To Pivot
+4133: ZatwierdĹş. po wpisaniu wartoĹ›ci. wywal obserwacje zmiany nazwy kolumny To jest PRZYDATNA funkcja .... ostatecznie najwygodniej zmieniaÄ‡ kod z Chatem ale dobrze wiedzieÄ‡ jak czasem samemu dodaÄ‡ kolumnÄ™." aaa przypomniaĹ‚o mi siÄ™ ĹĽe w segmencie z tabelami jeszcze miaĹ‚o byÄ‡ Ä‡wiczenie z Xlookupem, nazwa produktu. potem kasujemy 2 kolumny jak przechodzimy do PQ Upewnij siÄ™, ĹĽe typ zĹ‚Ä…czenia to Lewy zewnÄ™trzny (zachowaj wszystkie z SprzedaĹĽPL). - dodaj "powinno Ci siÄ™ wyĹ›wietliÄ‡ ile rekordĂłw zostaĹ‚o sparowanych. JeĹ›li nie wszystkie, moĹĽliwe ĹĽe jest jakiĹ› problem z ID" przed "W nowej..." dodaj - "pĂłki co doĹ‚Ä…czyliĹ›my tabelÄ™, ale jest ona nierozwiniÄ™ta. Jak klikniesz komĂłrkÄ™ nowo powstaĹ‚ej kolumny, w polu nadole zobaczysz co ta komĂłrka zawiera" "RozwiniÄ™cie = dodanie kolumn" ... kopiujemy kod/pipeline "... ale to wciÄ…ĹĽ oznacza" - no nie, to mĂłwimy w nastÄ™pnym tasku. Najpierw uĹĽytkownik ma zrobiÄ‡ zwykĹ‚y append, potem mu zwracamy uwagÄ™ ĹĽe w taki sposĂłb wrobimy czyszczenie dwa razy, dlatego przechodzimy do append przed czyszczeniem Ustaw dowolny prosty pivot, jakikolwiek zechcesz... ...wklej go do chatu i oceniÄ™ jak Ci poszĹ‚o." pamiÄ™tajmy ĹĽe kilka razy w PQ miaĹ‚ byÄ‡ checkpoint z wklejeniem kodu i sprawdzeniem czy wszystko gra. Daj po zrobieniu caĹ‚ego czyszczenia w PL i na sam koniec przed pivotem to caĹ‚y techniczny przebieg szkolenia. ZakoĹ„czenie szkolenia z proĹ›bÄ… o odpowiedzenie na kilka pytaĹ„ koĹ„cowych (ankieta) itp. chyba do gĹ‚Ăłwnego prompta nie nie, teraz musimy potwierdziÄ‡ bluprint. Daj go w caĹ‚oĹ›ci w boxie tak jakbym go juĹĽ miaĹ‚ kopiowaÄ‡ jak go zaakceptujÄ™, przejdziemy do stworzenia pliku ze standardem bluprintĂłw dla Master prompta 
+4135: PoniĹĽej masz caĹ‚y aktualny Blueprint szkolenia Power Query v1 â€” w formie gotowej do uĹĽycia w projekcie.
+4136: Zachowana narracja, peĹ‚ne kroki, XLOOKUP w segmencie tabel, checkpointy kodu M, poprawiona logika append, bez metakomentarzy.
+4139: BLUEPRINT SZKOLENIA: POWER QUERY â€“ PODSTAWY + PIPELINE
+4145: MECHANIKA: TASK (dziaĹ‚anie + obserwacja) / TEXT / FILL
+4148: ETAP 0 â€” CEL SZKOLENIA
+4153: Na tym szkoleniu nauczysz siÄ™ pracy z Tabelami oraz Power Query
+4171: ETAP 1 â€” TABELE (MINIMUM + OPCJONALNE Ä†WICZENIA)
+4174: TASK
+4184: FILL
+4206: TASK
+4215: TASK
+4227: FILL
+4236: TASK
+4252: TASK
+4266: Ä†WICZENIE â€” XLOOKUP
+4268: TASK
+4271: UĹĽyj funkcji XLOOKUP, aby pobraÄ‡ nazwÄ™ produktu z tabeli dimProdukty.
+4284: ETAP 2 â€” POWER QUERY
+4287: TASK â€” dodanie tabeli do PQ
+4297: Power Query to osobna warstwa Excela.
+4306: TASK â€” Advanced Editor
+4318: ETAP 3 â€” TYPY DANYCH
+4331: TASK
+4342: TASK
+4349: TASK
+4358: TASK
+4365: TASK
+4380: ETAP 4 â€” MERGE
+4383: TASK
+4405: TASK
+4411: ETAP 5 â€” REUSE PIPELINE (PL â†’ CZ)
+4414: TASK
+4423: ETAP 6 â€” APPEND
+4426: TASK
+4439: TASK
+4444: dodaj Append przed czyszczeniem,
+4456: ETAP 7 â€” LOAD + PIVOT
+4459: TASK
+4478: KONIEC BLUEPRINTU
+4485: Po akceptacji â†’ tworzymy plik â€žStandard BlueprintĂłwâ€ť dla Master Prompta.
+4488: To co wysĹ‚aĹ‚em byĹ‚o juĹĽ â€žszkieletem scenariuszaâ€ť, a nie blueprintem w Twoim modelu (TASK + OBSERVATION + FILL + TEXT).
+4492: â€˘	peĹ‚ny blueprint,
+4494: â€˘	z OBSERVATION po kaĹĽdym zadaniu wymagajÄ…cym percepcji,
+4495: â€˘	bez sztucznego mnoĹĽenia TASK-Ăłw,
+4502: Czy blueprint ma zawieraÄ‡:
+4503: A) wyĹ‚Ä…cznie warstwÄ™ merytoryczno-technicznÄ… (TEXT/TASK/OBSERVATION/FILL),
+4511: 1 â€” czysty blueprint merytoryczny
+4512: 2 â€” blueprint + mechanika prowadzenia szkolenia
+4514: To co wysĹ‚aĹ‚em byĹ‚o juĹĽ â€žszkieletem scenariuszaâ€ť, - co ty pierdolisz ? nic takiego nie mieliĹ›my robiÄ‡ ? co za gĹ‚upi wniosek ĹĽe to w ogĂłle ma byÄ‡ nam do czegoĹ› potrzebne stary co ty myĹ›lisz ĹĽe my robiliĹ›my przez ostatnie godziny? poniĹĽszy schemat to wĹ‚aĹ›nie jak ma wyglÄ…daÄ‡ bluprint : "TEXT â€žMamy SprzedaĹĽPL i SprzedaĹĽCZ przetworzone identycznie. Da siÄ™ je poĹ‚Ä…czyÄ‡ przez Append, ale to wciÄ…ĹĽ oznacza, ĹĽe ten sam pipeline wykonaĹ‚ siÄ™ dwa razy. Lepiej: najpierw poĹ‚Ä…czyÄ‡ dane, a potem czyĹ›ciÄ‡ je jednym wspĂłlnym pipeline.â€ť TASK â€” Append jako nowe (pierwsza wersja) â€žKliknij DoĹ‚Ä…cz zapytania â†’ DoĹ‚Ä…cz zapytania jako nowe. Wybierz SprzedaĹĽPL i SprzedaĹĽCZ. ZatwierdĹş. ZmieĹ„ nazwÄ™ nowego zapytania na SprzedaĹĽTOTAL. Opisz, co zaobserwowaĹ‚eĹ›: co powstaĹ‚o w tabeli i jakie kroki widaÄ‡ po prawej.â€ť OBSERVATION (oczekiwane) PowstaĹ‚o nowe zapytanie z poĹ‚Ä…czonymi wierszami. Jest krok doĹ‚Ä…czania. Dane zawierajÄ… rekordy PL i CZ." Jest opisane co ma mĂłwiÄ‡, jakie zadania zadawaÄ‡, jakie obserwacje wytykaÄ‡ jeĹ›li niezauwaĹĽone. to jest core szkolenia. to co wkleiĹ‚em to bazowy segment (ewentualnie FILL jako dopowiedzenie czegoĹ› co nie jest obserwacjÄ… ktĂłrej moglibyĹ›my siÄ™ spodziewaÄ‡ omg znĂłw uciÄ™ty TEXT przed TASK a na pewno go omawialiĹ›my :/ "Ä†WICZENIE â€” ODNIESIENIA STRUKTURALNE ---------------------------------------- TASK Wpisz w kolumnie J, jedno pod drugim:" stary skup siÄ™, mam wraĹĽenie ĹĽe po kilka razy poprawiam Twoje bĹ‚Ä™dy, ciÄ…gle coĹ› zapominasz, krÄ™cimy siÄ™ w kĂłĹ‚ko. PrzejdĹş porzÄ…dnie przez historiÄ™ dyskusji, przeanalizuj od poczÄ…tku Twoje propozycje bluprinta i moje poprawki. zbierz to porzÄ…dnie do kupy i przestaĹ„ wymyĹ›laÄ‡ nowe sposoby na rzeczy ktĂłre juĹĽ zostaĹ‚y ustalone. skoro ten BP to bÄ™dzie duĹĽo tekstu, jeĹ›li Ci wygodniej moĹĽesz mi to daÄ‡ w pliku a nie w boxie wydaje mi siÄ™ ĹĽe bluprint powinien mieÄ‡ tylko warstwÄ™ merytoryczno technicznÄ…. wiedzÄ™ eksperckÄ… na temat szkolenia. caĹ‚Ä… resztÄ™ odnoĹ›nie funkcjonowania szkolenia, zachowania chata szkoleniowca, w prompcie. oooo takie podejĹ›cie, jeĹ›li zachowanie szkoleniowca ma siÄ™ rĂłĹĽnicowaÄ‡ w zaleĹĽnoĹ›ci od zadania, to powinno byÄ‡ w BP, bo musimy specyficznie przypisaÄ‡ do konkretnych momentĂłw. Zachowania szkoleniowca uniwersalne (np pytanie o obserwacje i dopowiadanie tych ktĂłre nie zostaĹ‚y zaĹ‚oĹĽone i pĹ‚ynne przechodzenie w kolejny text lub task (w 1 wiadomoĹ›ci ma byÄ‡ ewentualne dopowiedzenie obserwacji [jako zakoĹ„czenie segmentu] i rozpoczÄ™cie nowego TEXT lub TASK) kiedy checkpoint raczej w BP, niech nie bÄ™dzie ich za duĹĽo. mniej wiÄ™cej po paczkach w takich jakich robiliĹ›my, ze 4-5. oto co mamy do zrobienia: 1. dla skzolenia PQ a. bluprint b. prompt szkoleniowy mechanika c. plik szkoleniowy 2. Training Master : a. GĹ‚Ăłwny prompt tworzenia promptĂłw szkoleniowych b. Standard BP (tworzymy na podstawie stworzonego wĹ‚aĹ›nie BP dla PQ, robimy po akceptacji tego BP) 

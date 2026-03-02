@@ -1,0 +1,250 @@
+﻿2) WyjaĹ›nienie: rĂłĹĽnica zakres vs tabela (structured references, auto-expand, nazwy kolumn).
+3) Zadanie: zamieĹ„ 4 zakresy na tabele: tblKlient, tblSprzedawca, tblProdukt, tblSprzedaz.
+Checkpoint E1 (SCREEN_DESCRIBE lub CONFIRMATION):
+- uĹĽytkownik podaje nazwy tabel (dokĹ‚adnie 4) i potwierdza, ĹĽe majÄ… nagĹ‚Ăłwki.
+
+4) Ä†wiczenie: structured references
+- W tblSprzedaz dodaj kolumnÄ™ â€śTestSelfRefâ€ť uĹĽywajÄ…c odwoĹ‚ania tabelarycznego do tej samej tabeli.
+- Dodaj kolumnÄ™ â€śTestLookupâ€ť uĹĽywajÄ…c odwoĹ‚ania do innej tabeli (np. tblProdukt) â€” tylko po to, by zobaczyÄ‡ rĂłĹĽnicÄ™ w ergonomii.
+Checkpoint E2 (SELF_TEST_QA):
+- 2 pytania: â€śpo co tabele?â€ť, â€śco jest niewygodne w odwoĹ‚aniach miÄ™dzy tabelami bez relacji?â€ť.
+
+FAZA 2 â€” WEJĹšCIE DO POWER QUERY (10 min)
+1) Data -> Get Data / From Table/Range: importuj tblSprzedaz jako query.
+2) OmĂłwienie UI: Queries pane, preview, Applied Steps, Query Settings.
+Checkpoint PQ1 (CONFIRMATION):
+- uĹĽytkownik potwierdza, ĹĽe widzi Applied Steps oraz nazwÄ™ query.
+
+FAZA 3 â€” HIGIENA: TYPY, NAZWY, KROKI (15 min)
+1) Ustal typy danych (Data Type) dla kluczowych kolumn (daty, liczby).
+2) ZmieĹ„ nazwÄ™ query na qSprzedaz.
+3) UsuĹ„ kroki â€śniepotrzebneâ€ť (jeĹ›li powstaĹ‚y automatycznie).
+Checkpoint PQ2 (PASTE_M â€“ opcjonalny wg ustawieĹ„):
+- uĹĽytkownik wkleja fragment M z Advanced Editor (pierwsze ~15â€“25 linii) LUB opisuje Applied Steps.
+Kryterium:
+- jest krok Changed Type albo Ĺ›wiadoma decyzja o typach,
+- query ma poprawnÄ… nazwÄ™.
+
+FAZA 4 â€” APPEND / MERGE NA KONKRETNYM CASE (25 min)
+1) ZaĹ‚aduj do PQ: tblKlient, tblSprzedawca, tblProdukt jako osobne query (qKlient, qSprzedawca, qProdukt).
+Checkpoint PQ3 (CONFIRMATION):
+- uĹĽytkownik potwierdza 4 query w panelu.
+
+2) Merge: qSprzedaz + qProdukt (po ProductID) -> expand: nazwa produktu / kategoria.
+Checkpoint PQ4 (SCREEN_DESCRIBE lub PASTE_M):
+- uĹĽytkownik opisuje wynik (kolumny po expand) albo wkleja M od merge.
+
+3) Merge: wynik + qKlient (po ClientID) -> expand: segment klienta / miasto.
+Checkpoint PQ5 analogicznie.
+
+4) (opcjonalnie, jeĹ›li czas) Merge: wynik + qSprzedawca.
+Checkpoint PQ6 analogicznie.
+
+FAZA 5 â€” LOAD I FINAL (10 min)
+1) Load to: tabela / model (wg instrukcji).
+2) KrĂłtko: rĂłĹĽnica â€śconnection onlyâ€ť vs â€śloadâ€ť.
+Checkpoint END1 (CONFIRMATION):
+- uĹĽytkownik potwierdza, gdzie trafiĹ‚ wynik.
+
+ZAMKNIÄCIE (5 min)
+1) 3 pytania wymuszone (ankieta UX + learning):
+   - Co byĹ‚o najbardziej zaskakujÄ…ce?
+   - Co realnie wdroĹĽysz jutro?
+   - Gdzie utknÄ…Ĺ‚eĹ› / co byĹ‚o niejasne?
+2) Next steps: 3 opcje kolejnego szkolenia (np. PQ performance, data model basics, DAX basics).
+
+INSTRUMENTACJA (wewnÄ™trzna dla agenta)
+- loguj: ktĂłre checkpointy failowaĹ‚y, ile prĂłb, ktĂłre pojÄ™cia byĹ‚y niejasne, czy wymagana byĹ‚a procedura ratunkowa.
+- jeĹ›li uĹĽytkownik wpisze ADMIN:
+   - agent przestaje szkoliÄ‡,
+   - generuje raport:
+     * Podsumowanie (10 linijek)
+     * Lista trudnoĹ›ci (punktowo)
+     * NajczÄ™stsze bĹ‚Ä™dy
+     * Ocena â€śgotowoĹ›ciâ€ť na nastÄ™pny moduĹ‚
+     * Rekomendacje: ktĂłre szkolenie A/B/C
+________________________________________
+Dwie dedukcje z tej rozpiski, ktĂłre wpĹ‚ywajÄ… na master prompt
+1.	Potrzebujesz jÄ™zyka opisu scenariusza, ktĂłry jest wygodny do pisania dla Ciebie, a potem deterministycznie przerabialny na prompt wykonawczy.
+Najlepiej: â€śBlueprint DSLâ€ť (prosty format: etap â†’ kroki â†’ checkpoint â†’ kryterium â†’ remediation). Bez tego bÄ™dziesz tonÄ…Ĺ‚ w prozie.
+2.	â€śTryby szkoleniowcaâ€ť to nie osobne prompty â€” to warianty tej samej maszyny z innÄ… konfiguracjÄ…:
+â€˘	poziom egzekucji,
+â€˘	gÄ™stoĹ›Ä‡ checkpointĂłw,
+â€˘	typy Ä‡wiczeĹ„,
+â€˘	styl odpowiedzi.
+________________________________________
+Co chcÄ™ od Ciebie teraz (1 rzecz, bez rozkmin)
+Skrytykuj tÄ™ przykĹ‚adowÄ… rozpiskÄ™ PQ w 5â€“10 punktach:
+â€˘	co jest zbÄ™dne,
+â€˘	co jest brakujÄ…ce,
+â€˘	gdzie weryfikacja ma zĹ‚y typ,
+â€˘	ktĂłre checkpointy byĹ‚yby dla zwykĹ‚ych ludzi frustrujÄ…ce,
+â€˘	co koniecznie ma wejĹ›Ä‡ do â€śdefaultowego szablonuâ€ť kaĹĽdego szkolenia.
+nie, sztywny scenariusz 1-2 h to bÄ™dzie jeden z typĂłw tworĂłw mastera 1) tak i produkcja tego bÄ™dzie polegaĹ‚a na dyskusji z masterem, tu bÄ™dize najwiÄ™cej roboty, master po zaplanowaniu bÄ™dzie teĹĽ miaĹ‚ zasymulowaÄ‡ jakieĹ› pytania jakie potencjalnie uĹĽytkownik moĹĽe zadaÄ‡, od razu odpowiem i zaimplementujemy to do promta szkoleniowego. TeĹĽ potem tego agenta bÄ™dziemy ulepszaÄ‡ o pytania zadawane przez innym ktĂłrym siÄ™ to udostÄ™pni kurczÄ™ teraz tak myĹ›lÄ™, skoro bÄ™dziemy mieli tak dobrÄ… wiedzÄ™ PQ zebranÄ… w jednym miejscu, moĹĽe dobrym pomysĹ‚em by byĹ‚o ĹĽeby ten sam projekt jednak miaĹ‚ tryb doradczy, w ogĂłle nie szkolenie, pomaga uĹĽytkownikowi jak zwykĹ‚y czat ale dodatkowo ma jakieĹ› asy w rÄ™kawie ode mnie. bÄ™dÄ™ mu ciÄ…gle do ĹşrĂłdeĹ‚ dorzucaĹ‚ jakieĹ› nowe wskazĂłwki. co sÄ…dzisz ? case based brzmi bardzo jak projektowe i wice wersa, poza tym spoko podziaĹ‚ 1. surowe szkolenie z funkcji (raczej nie bÄ™dziemy korzystaÄ‡ ale warto zamontowaÄ‡) 2. z Ä‡wiczeniem na wnioskowanie 3. case - z przeprowadzeniem przez wnioski co unikatowego by miaĹ‚ w sobie projektowy ktĂłrego caseowy by nie miaĹ‚? co by wyrĂłĹĽniaĹ‚o i wymagaĹ‚o jakiejĹ› innej metodologii?
+sorki enter mi siÄ™ nacisnÄ…Ĺ‚ w trakcie odpisywania, jeszcze raz nie, sztywny scenariusz 1-2 h to bÄ™dzie jeden z typĂłw tworĂłw mastera 1) tak i produkcja tego bÄ™dzie polegaĹ‚a na dyskusji z masterem, tu bÄ™dize najwiÄ™cej roboty, master po zaplanowaniu bÄ™dzie teĹĽ miaĹ‚ zasymulowaÄ‡ jakieĹ› pytania jakie potencjalnie uĹĽytkownik moĹĽe zadaÄ‡, od razu odpowiem i zaimplementujemy to do promta szkoleniowego. TeĹĽ potem tego agenta bÄ™dziemy ulepszaÄ‡ o pytania zadawane przez innym ktĂłrym siÄ™ to udostÄ™pni kurczÄ™ teraz tak myĹ›lÄ™, skoro bÄ™dziemy mieli tak dobrÄ… wiedzÄ™ PQ zebranÄ… w jednym miejscu, moĹĽe dobrym pomysĹ‚em by byĹ‚o ĹĽeby ten sam projekt jednak miaĹ‚ tryb doradczy, w ogĂłle nie szkolenie, pomaga uĹĽytkownikowi jak zwykĹ‚y czat ale dodatkowo ma jakieĹ› asy w rÄ™kawie ode mnie. bÄ™dÄ™ mu ciÄ…gle do ĹşrĂłdeĹ‚ dorzucaĹ‚ jakieĹ› nowe wskazĂłwki. co sÄ…dzisz ? case based brzmi bardzo jak projektowe i wice wersa, poza tym spoko podziaĹ‚ 1. surowe szkolenie z funkcji (raczej nie bÄ™dziemy korzystaÄ‡ ale warto zamontowaÄ‡) 2. z Ä‡wiczeniem na wnioskowanie 3. case - z przeprowadzeniem przez wnioski co unikatowego by miaĹ‚ w sobie projektowy ktĂłrego caseowy by nie miaĹ‚? co by wyrĂłĹĽniaĹ‚o i wymagaĹ‚o jakiejĹ› innej metodologii? fallback: wyszukiwarka w UI, menu kontekstowe, alternatywna Ĺ›cieĹĽka. - co to znaczy? jak to "pokaĹĽe" uĹĽytkownikowi gdzie kliknÄ…Ä‡? 3. ok jeĹ›li tak to bÄ™dziemy robiÄ‡ to po produkcji pliku treningowego bÄ™dzie krok produkowania screenĂłw. prompt ma mieÄ‡ caĹ‚Ä… procedurÄ™ zaplanowania screenĂłw, nazwania ich i wydrukowania nazw w wygodnych do skopiowania boxach, 1 nazwa per box, . chyba ĹĽe ta powyĹĽsza opcja to coĹ› legitnego 4 paste_table (niech zawiera wskazĂłwki ĹĽeby robiÄ‡ prawy przycisk myszy wklej jako zwykĹ‚y tekst (dostaniesz tabelÄ™ jako tekst, Ĺ‚atwiejsze) niech teĹĽ bÄ™dzie opcja wklejenia screena. Czasem bÄ™dzie potrzebna, bÄ™dziemy staraÄ‡ siÄ™ rzadko uĹĽywaÄ‡ 5 tu nie jestem do koĹ„ca pewny co powinno byÄ‡, chyba coĹ› indywidualnego dla kaĹĽdego tematu w zaleĹĽnoĹ›ci od tematu bo rĂłĹĽne bÄ™dÄ… mechanizmy "ratowania" lub cofania siÄ™. nie wiem co master mĂłgĹ‚by tu mieÄ‡ poza faktem ĹĽe ma to prĂłbowaÄ‡ montowaÄ‡ w promtach. masz jakieĹ› pomysĹ‚y co dokĹ‚adnie u niego? dĹ‚ugoĹ›Ä‡ poleceĹ„ brzmi coĹ› co mogĹ‚o by byÄ‡ w sposobie narracji na poczÄ…tku do wyboru dla uĹĽytkownika. moĹĽe wĹ‚aĹ›nie coĹ› w stylu jak dokĹ‚adnie ma opisywaÄ‡ gdzie klikaÄ‡ (poziomy 1. sĹ‚abo znam excela 2. znam excela ale nie widziaĹ‚em nigdy PQ 3. mam jakieĹ› pojÄ™cie o PQ - taki o przykĹ‚ad) 6 jak to dokĹ‚adnie by dziaĹ‚aĹ‚o? gdzie by siÄ™ zapisywaĹ‚y info z przeprowadzanego szkolenia? generowaĹ‚y by siÄ™ jakieĹ› pliki? czy bÄ™dzie jakoĹ› storowane i jak ja wejdÄ™, napiszÄ™ ADMIN wydrukuj mi raport, to wtedy dostanÄ™? co master ma ode mnie wyciÄ…gaÄ‡, w takiej kolejnoĹ›ci 2 czas nie, tryb w domyĹ›le bÄ™dzie miaĹ‚ planowany czas 3. tak najpierw dyskusja, ustalamy 1 i koncept po wzglÄ™dnym zaplanowaniu caĹ‚oĹ›ci przechodzimy do szczegĂłĹ‚Ăłw bluprintu 5 przy planowaniu 5 okreĹ›lane sÄ… 6, oraz jakie bÄ™dÄ… potrzebne 4 prĂłbujemy ustaliÄ‡ jakieĹ› 7 ale nie koniecznie ustalamy 8 9 raczej kaĹĽdy z automatu ma mieÄ‡ info ĹĽe ma staraÄ‡ siÄ™ katalogowaÄ‡czy wszystko idzie ok a jeĹ›li jakieĹ› sÄ… pytania dodatkowe, wyzwania, problemy to co to byĹ‚o i jak zostaĹ‚o rozwiÄ…zane (lub nie rozwiÄ…zane). ogĂłĹ‚em wszelkie informacje ktĂłre mogÄ… mieÄ‡ wartoĹ›Ä‡ w rozwijaniu tego projektu szkoleniowego. ale master moĹĽe pytaÄ‡ czy dodatkowo sÄ… jakieĹ› wskazĂłwki na czym np siÄ™ skupiÄ‡ 10. moĹĽe przy przywitaniu niech bÄ™dzie standardowy krĂłtki disclaimer w stylu "nie wklejaj ĹĽadnych danych poufnych, tylko dane treningowe". chyba czasem bÄ™dziemy prosiÄ‡ o preview danych szkoleniowych moĹĽe dodatkowo w zwiÄ…zku z pomysĹ‚em trybu doradcy, jeĹ›li uĹĽytkownik siÄ™ na niego przeĹ‚Ä…czy, dostaje od razu monit mocniejszy niĹĽ tamten "pod ĹĽadnym pozorem nie wklejaj danych o ktĂłrych bÄ™dziemy rozmawiaÄ‡, mĂłw tylko o nazwach tabel i kolumn, wklejaj tylko kod transformacji danych" ale zgrabniej przykĹ‚ad prompta [STANDARD] to bÄ™dzie zwykĹ‚y (czasem kilka komend na raz)? / [KOMENDY-1-KROK] - tu bÄ™dziesz staraĹ‚ siÄ™ rozdrabniaÄ‡ na jak najmniejsze zadania i czekaÄ‡ na potwierdzenie ĹĽe moĹĽna dalej? / [WYJAĹšNIJ-DLACZEGO] - tu bÄ™dziesz tĹ‚umaczyĹ‚ trochÄ™ wiÄ™cej i dawaĹ‚ wiÄ™cej backgroundu? krytycyzm - dajmy dla beki jeszcze tryb [SZALONY!] i zaprogramujemy ĹĽeby byĹ‚ wrÄ™cz komicznie okrutny wzglÄ™dem uĹĽytkownika... ale skuteczny :P weryfikacja - brzmi spoko ale zobaczymy na ile to uda nam siÄ™ defragmentowaÄ‡ pewnie teĹĽ bÄ™dzie zaleĹĽeÄ‡ od szkolenia 1 - jakie by wyĹ›wietliĹ‚ zasady? 3 aaa o to Ci chodziĹ‚o z diagnozÄ… - w sumie ok niech master ode mnie wyciÄ…ga jakie zadaÄ‡ uĹĽytkownikowi pytania na poczÄ…tku faza 1 4 2 pytania - nie, to nie tutaj. Master prompt przy produkcji agenta bÄ™dzie mi zadawaĹ‚ pytania ktĂłre pomogÄ… ulepszyÄ‡ prompt. moĹĽliwe ĹĽe w kaĹĽdym prompcie/projekcie teĹĽ zamontujemy standardowy plik QA gdzie bÄ™dziemy zbieraÄ‡ casey. tak zrĂłbmy admin - na pewno chcÄ™ ĹĽeby w masteru duĹĽo lepiej byĹ‚ defaultowy adminowy tryb opisany do wstawiania do promptĂłw dedukcje 1. dlatego wlasnie zaczynamy od bluprintu. wymyĹ›lenie jego nada ksztaĹ‚tu caĹ‚ej reszcie 2. tryb szkoleniowca - chyba coĹ› siÄ™ Ĺşle zrozumieliĹ›my. Ten koncept pojawiĹ‚ siÄ™ dopiero teraz z koniecznoĹ›ci przy wprowadzeniu trybu doradczego. wczeĹ›niej jeden niepotrzebny jeszcze odnoĹ›nie trybu doradczego. wiem ĹĽe pewnie lepszym pomysĹ‚em byĹ‚o by zrobiÄ‡ osobny prompt, ale sÄ…dzÄ™ ĹĽe i tak ciÄ™ĹĽko bÄ™dzie mi przekonaÄ‡ ludzi do uĹĽywania ich wiÄ™c juĹĽ niech majÄ… to w jednym miejscu. pĂłĹşniej pomyĹ›limy nad porzÄ…dnym duĹĽym doradczym. teraz niech bÄ™dzie tu maĹ‚Ä… wtyczkÄ… (jeĹ›li zajmie to ze 2-3 linijki w prompcie) 
+Dobrze. Teraz to zaczyna mieÄ‡ realnÄ… architekturÄ™.
+PrzechodzÄ™ punktowo, bez lania wody.
+________________________________________
+1ď¸ŹâŁ Tryb doradczy w tym samym projekcie â€“ czy to dobry pomysĹ‚?
+Tak, ale tylko jako osobny tryb operacyjny, nie jako mieszanka.
+JeĹ›li szkoleniowiec i doradca bÄ™dÄ… dziaĹ‚aÄ‡ jednoczeĹ›nie, rozwalisz:
+â€˘	strukturÄ™ dialogu
+â€˘	logowanie
+â€˘	checkpointy
+â€˘	oczekiwania uĹĽytkownika
+RozwiÄ…zanie czyste:
+TRYB = [SZKOLENIE] / [DORADCA]
+PrzeĹ‚Ä…czenie:
+â€˘	resetuje stan
+â€˘	zmienia politykÄ™ weryfikacji
+â€˘	zmienia politykÄ™ logowania
+Tryb doradczy powinien mieÄ‡:
+â€˘	dostÄ™p do Twoich wskazĂłwek
+â€˘	krĂłtszÄ… strukturÄ™ odpowiedzi
+â€˘	brak checkpointĂłw
+â€˘	ostrzejszy disclaimer o danych
+To nie jest 2â€“3 linijki.
+To jest mini-moduĹ‚ z innÄ… logikÄ….
+Ale moĹĽe byÄ‡ lekki.
+________________________________________
+2ď¸ŹâŁ Case vs Projektowe â€” rĂłĹĽnica fundamentalna
+To nie sÄ… synonimy.
+CASE-BASED
+â€˘	masz zamkniÄ™ty scenariusz
+â€˘	dane sÄ… ustalone
+â€˘	cel jest znany
+â€˘	Ĺ›cieĹĽka jest przewidziana
+â€˘	agent wie, gdzie uĹĽytkownik ma dojĹ›Ä‡
+To jest kontrolowane Ĺ›rodowisko.
+________________________________________
+PROJEKTOWE
+â€˘	uĹĽytkownik przynosi wĹ‚asny problem
+â€˘	cel moĹĽe byÄ‡ nieprecyzyjny
+â€˘	zakres moĹĽe siÄ™ zmieniaÄ‡
+â€˘	decyzje architektoniczne sÄ… czÄ™Ĺ›ciÄ… nauki
+W projektowym uczysz:
+â€˘	jak podejmowaÄ‡ decyzje
+â€˘	jak rozbijaÄ‡ problem
+â€˘	jak oceniaÄ‡ kompromisy
+W case-based uczysz:
+â€˘	jak wykonaÄ‡ konkretnÄ… sekwencjÄ™ dziaĹ‚aĹ„
+________________________________________
+Co unikatowego ma projektowe?
+1.	Faza definicji celu (user musi sam go okreĹ›liÄ‡)
+2.	Faza projektowania rozwiÄ…zania
+3.	Dyskusja alternatyw
+4.	Ocena jakoĹ›ci rozwiÄ…zania
+5.	IteracyjnoĹ›Ä‡
+Metodologicznie:
+â€˘	potrzebuje fazy PLAN â†’ EXECUTE â†’ REVIEW
+â€˘	potrzebuje dyskusji trade-offĂłw
+â€˘	potrzebuje kryteriĂłw jakoĹ›ci
+Case-based tego nie ma.
+Case-based to kontrolowany trening.
+________________________________________
+3ď¸ŹâŁ Fallback w UI â€“ co to znaczy praktycznie?
+Nie pokazujesz.
+Ty opisujesz alternatywne drogi.
+PrzykĹ‚ad:
+Zamiast:
+Kliknij ikonÄ™ Merge
+MĂłwisz:
+WejdĹş w zakĹ‚adkÄ™ Home â†’ Combine â†’ Merge Queries.
+JeĹ›li nie widzisz tej opcji:
+â€˘	kliknij prawym przyciskiem na nazwie zapytania â†’ Merge
+â€˘	albo uĹĽyj pola wyszukiwania w gĂłrnej czÄ™Ĺ›ci okna i wpisz â€žMergeâ€ť.
+To jest fallback.
+Agent nie pokazuje.
+On daje alternatywne Ĺ›cieĹĽki.
+To dziaĹ‚a w 90% przypadkĂłw bez screenĂłw.
+________________________________________
+4ď¸ŹâŁ Screeny â€“ dobry pomysĹ‚, aleâ€¦
+Tak, moĹĽesz zrobiÄ‡:
+â€˘	krok: produkcja screenĂłw
+â€˘	generowanie nazw
+â€˘	1 nazwa = 1 box do kopiowania
+To jest dobre.
+Ale screeny sÄ… kosztowne utrzymaniowo.
+UI siÄ™ zmienia.
+Wersje siÄ™ rĂłĹĽniÄ….
+ZrĂłb je tylko dla:
+â€˘	kluczowych elementĂłw
+â€˘	miejsc gdzie ludzie najczÄ™Ĺ›ciej siÄ™ gubiÄ…
+________________________________________
+5ď¸ŹâŁ Mechanizmy ratunkowe â€“ co master moĹĽe generowaÄ‡?
+Tu jest bardzo waĹĽna rzecz.
+Master nie zna szczegĂłĹ‚Ăłw tematu,
+ale moĹĽe generowaÄ‡ strukturÄ™ ratunkowÄ…:
+KaĹĽdy krok moĹĽe mieÄ‡:
+IF FAIL:
+  - uproĹ›Ä‡ polecenie
+  - podziel na mniejsze kroki
+  - daj przykĹ‚ad
+  - zaproponuj reset do poprzedniego kroku
+  - przejdĹş w tryb KOMENDY-1-KROK
+To jest uniwersalne.
+Specyficzne ratowanie (np. w PQ usuwanie bĹ‚Ä™dnego kroku w Applied Steps)
+bÄ™dzie definiowane przez Ciebie przy blueprintowaniu.
+Master powinien tylko wymuszaÄ‡:
+â€žOpisz procedurÄ™ ratunkowÄ… dla tego etapuâ€ť.
+________________________________________
+6ď¸ŹâŁ Poziomy szczegĂłĹ‚owoĹ›ci instrukcji
+To bardzo dobry kierunek.
+MoĹĽesz mieÄ‡:
+POZIOM 1 â€“ Bardzo dokĹ‚adny (nawigacja UI + opis ikon)
+POZIOM 2 â€“ Standard (nazwy zakĹ‚adek i komend)
+POZIOM 3 â€“ SkrĂłtowy (zakĹ‚adam znajomoĹ›Ä‡ UI)
+To nie jest styl.
+To jest warstwa operacyjna.
+Bardzo dobre.
+________________________________________
+7ď¸ŹâŁ ADMIN â€“ jak to technicznie dziaĹ‚a?
+Nie ma trwaĹ‚ej pamiÄ™ci miÄ™dzy sesjami.
+WiÄ™c masz dwie opcje:
+Opcja A â€“ Raport generowany na ĹĽÄ…danie
+Agent przez caĹ‚Ä… sesjÄ™ trzyma log w kontekĹ›cie.
+Po wpisaniu ADMIN:
+â€˘	generuje raport tekstowy
+â€˘	Ty go kopiujesz i zapisujesz
+Najprostsze.
+________________________________________
+Opcja B â€“ Agent generuje plik tekstowy do skopiowania
+W formacie:
+â€˘	Markdown
+â€˘	JSON
+â€˘	CSV
+Do zapisania w repozytorium QA.
+________________________________________
+Opcja C â€“ Wersja zaawansowana
+Projektujesz plik treningowy tak,
+aby zawieraĹ‚ arkusz LOG,
+a uĹĽytkownik na koniec wkleja dane z tego arkusza.
+To jest ambitne.
+MoĹĽliwe.
+Ale to juĹĽ pĂłĹ‚-systemu telemetrycznego.
+Na teraz: opcja A + B.
+________________________________________
+8ď¸ŹâŁ Tryb SZALONY
+MoĹĽe byÄ‡.
+Ale musi byÄ‡ odseparowany stylistycznie,
+nie metodologicznie.
+Nie moĹĽe:
+â€˘	Ĺ‚amaÄ‡ struktury
+â€˘	zmieniaÄ‡ zasad
+â€˘	skracaÄ‡ weryfikacji
+To tylko ton.
+________________________________________
+9ď¸ŹâŁ Co master powinien robiÄ‡ przy produkcji?
+Twoja proponowana kolejnoĹ›Ä‡ jest logiczna:
+1.	Tryb szkolenia
+2.	Cel i zakres
+3.	Blueprint ogĂłlny
+4.	UszczegĂłĹ‚owienie checkpointĂłw
+5.	Procedury ratunkowe
+6.	Instrumentacja
+7.	Ustawienia stylu
+8.	ADMIN
+9.	QA zbieranie caseâ€™Ăłw
+To jest dobra sekwencja.
+________________________________________
+10ď¸ŹâŁ Tryb doradczy â€“ minimalna implementacja

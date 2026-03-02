@@ -1,0 +1,250 @@
+﻿Na koniec zmieĹ„ nazwÄ™ nowej kolumny na WartoĹ›Ä‡.
+Opisz, co zaobserwowaĹ‚eĹ›: co zrobiĹ‚ Power Query i jaki krok pojawiĹ‚ siÄ™ po prawej stronie.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Power Query dopasowaĹ‚ reguĹ‚Ä™ i utworzyĹ‚ nowÄ… kolumnÄ™.
+â€˘	PowstaĹ‚ nowy krok w panelu krokĂłw.
+â€˘	WidaÄ‡, ĹĽe PQ â€žzgadujeâ€ť logikÄ™ na podstawie przykĹ‚adĂłw.
+â€˘	Nazwa kolumny zostaĹ‚a zmieniona na WartoĹ›Ä‡.
+________________________________________
+FILL
+â€žTo jest bardzo waĹĽna funkcja: nie musisz znaÄ‡ skĹ‚adni M, ĹĽeby tworzyÄ‡ czÄ™Ĺ›Ä‡ transformacji.
+Ale zawsze warto spojrzeÄ‡, jaki kod powstaĹ‚ w kroku.â€ť
+________________________________________
+[ETAP PQ5] MERGE: SPRZEDAĹ»PL + PRODUKTY PO ID PRODUKTU
+CEL:
+UĹĽytkownik potrafi scaliÄ‡ tabelÄ™ faktĂłw z tabelÄ… wymiaru i rozwinÄ…Ä‡ wynik.
+________________________________________
+TEXT
+â€žW tabeli sprzedaĹĽy mamy ID produktu, ale chcielibyĹ›my mieÄ‡ teĹĽ jego nazwÄ™.
+Zrobimy to tak jak w bazach danych: Ĺ‚Ä…czÄ…c fakty z wymiarem.â€ť
+________________________________________
+TASK â€” Scalanie (Merge)
+â€žW zakĹ‚adce NarzÄ™dzia gĹ‚Ăłwne kliknij Scal zapytania â†’ Scal zapytania jako nowe.
+W oknie scalania:
+1.	Na gĂłrze wybierz tabelÄ™ SprzedaĹĽPL (powinna byÄ‡ domyĹ›lnie).
+2.	Na dole wybierz tabelÄ™ Produkty.
+3.	Kliknij kolumnÄ™ ID produktu w SprzedaĹĽPL.
+4.	Kliknij kolumnÄ™ ID produktu w Produkty.
+5.	Upewnij siÄ™, ĹĽe typ zĹ‚Ä…czenia to Lewy zewnÄ™trzny (zachowaj wszystkie z SprzedaĹĽPL).
+6.	ZatwierdĹş.
+Opisz, co zaobserwowaĹ‚eĹ›: co powstaĹ‚o w tabeli oraz jaki nowy krok pojawiĹ‚ siÄ™ po prawej.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚o nowe zapytanie (merge jako nowe).
+â€˘	W tabeli pojawiĹ‚a siÄ™ nowa kolumna z wartoĹ›ciami typu â€žTabelaâ€ť (zwykle z ikonkÄ…).
+â€˘	W panelu krokĂłw powstaĹ‚ krok scalania.
+________________________________________
+TASK â€” RozwiniÄ™cie zmergowanej tabeli
+â€žW nowej kolumnie po scaleniu kliknij ikonÄ™ rozwijania (dwie strzaĹ‚ki).
+Wybierz do rozwiniÄ™cia tylko kolumnÄ™ z nazwÄ… produktu (nie musisz rozwijaÄ‡ wszystkiego).
+JeĹ›li jest opcja dodania prefiksu â€” zdecyduj, czy chcesz prefiks (zwykle warto zostawiÄ‡, ĹĽeby byĹ‚o jasne skÄ…d pole pochodzi).
+ZatwierdĹş.
+Opisz, co zaobserwowaĹ‚eĹ›: jakie kolumny pojawiĹ‚y siÄ™ w tabeli i jakie kroki doszĹ‚y po prawej.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PojawiĹ‚a siÄ™ kolumna z nazwÄ… produktu.
+â€˘	PowstaĹ‚ krok rozwiniÄ™cia.
+â€˘	Nazwy mogÄ… mieÄ‡ prefiks zaleĹĽnie od ustawieĹ„.
+________________________________________
+[ETAP PQ6] REUSE KODU M: SPRZEDAĹ»PL â†’ SPRZEDAĹ»CZ
+CEL:
+UĹĽytkownik potrafi skopiowaÄ‡ caĹ‚y kod M i uĹĽyÄ‡ go do drugiego ĹşrĂłdĹ‚a.
+________________________________________
+TEXT
+â€žTeraz wyobraĹş sobie, ĹĽe po tych wszystkich krokach okazuje siÄ™, ĹĽe masz jeszcze sprzedaĹĽ z Czech.
+Ma byÄ‡ oczyszczona i przetworzona dokĹ‚adnie tak samo.
+I wĹ‚aĹ›nie tu Power Query bĹ‚yszczy: nie robimy tego od nowa â€” kopiujemy pipeline.â€ť
+________________________________________
+TASK â€” kopiowanie kodu M
+â€žWejdĹş do zapytania SprzedaĹĽPL.
+OtwĂłrz Edytor zaawansowany.
+Zaznacz caĹ‚y kod i skopiuj go.â€ť
+________________________________________
+TASK â€” wklejenie kodu do SprzedaĹĽCZ
+â€žWejdĹş do zapytania SprzedaĹĽCZ.
+OtwĂłrz Edytor zaawansowany.
+Wklej caĹ‚y kod z SprzedaĹĽPL.
+W kodzie znajdĹş miejsce, gdzie wskazywane jest ĹşrĂłdĹ‚o (Source) i zmieĹ„ nazwÄ™ tabeli wejĹ›ciowej z SprzedaĹĽPL na SprzedaĹĽCZ.
+ZatwierdĹş.
+Opisz, co zaobserwowaĹ‚eĹ›: czy SprzedaĹĽCZ ma teraz te same kroki i czy dziaĹ‚a poprawnie.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	SprzedaĹĽCZ ma podobny zestaw krokĂłw.
+â€˘	Dane zostaĹ‚y przetworzone podobnie jak PL.
+â€˘	JeĹ›li coĹ› nie dziaĹ‚a, problem jest zwykle w nazwie ĹşrĂłdĹ‚a lub kolumn.
+________________________________________
+[ETAP PQ7] APPEND + REFAKTORYZACJA PIPELINE (1 PIPELINE ZAMIAST 2X)
+CEL:
+UĹĽytkownik rozumie, ĹĽe najpierw moĹĽna zĹ‚Ä…czyÄ‡ ĹşrĂłdĹ‚a, a potem czyĹ›ciÄ‡ raz.
+________________________________________
+TEXT
+â€žMamy SprzedaĹĽPL i SprzedaĹĽCZ przetworzone identycznie.
+Da siÄ™ je poĹ‚Ä…czyÄ‡ przez Append, ale to wciÄ…ĹĽ oznacza, ĹĽe ten sam pipeline wykonaĹ‚ siÄ™ dwa razy.
+Lepiej: najpierw poĹ‚Ä…czyÄ‡ dane, a potem czyĹ›ciÄ‡ je jednym wspĂłlnym pipeline.â€ť
+________________________________________
+TASK â€” Append jako nowe (pierwsza wersja)
+â€žKliknij DoĹ‚Ä…cz zapytania â†’ DoĹ‚Ä…cz zapytania jako nowe.
+Wybierz SprzedaĹĽPL i SprzedaĹĽCZ.
+ZatwierdĹş.
+ZmieĹ„ nazwÄ™ nowego zapytania na SprzedaĹĽTOTAL.
+Opisz, co zaobserwowaĹ‚eĹ›: co powstaĹ‚o w tabeli i jakie kroki widaÄ‡ po prawej.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚o nowe zapytanie z poĹ‚Ä…czonymi wierszami.
+â€˘	Jest krok doĹ‚Ä…czania.
+â€˘	Dane zawierajÄ… rekordy PL i CZ.
+________________________________________
+TEXT â€” refaktor
+â€žTo dziaĹ‚a.
+Ale jest nieefektywne: czyszczenie wykonaliĹ›my osobno na PL i CZ.
+Zrobimy to lepiej.â€ť
+________________________________________
+TASK â€” refaktoryzacja: Append po Source, przed czyszczeniem
+â€žUsuĹ„ zapytanie SprzedaĹĽTOTAL (na liĹ›cie zapytaĹ„ â†’ usuĹ„).
+WrĂłÄ‡ do zapytania SprzedaĹĽPL.
+Kliknij krok ĹąrĂłdĹ‚o.
+Teraz w tym miejscu dodaj doĹ‚Ä…czanie (Append), tak ĹĽeby poĹ‚Ä…czyÄ‡ SprzedaĹĽPL i SprzedaĹĽCZ zaraz po pobraniu danych, a dopiero potem wykonywaÄ‡ czyszczenie.
+Po wykonaniu sprawdĹş panel krokĂłw i podglÄ…d danych.
+Opisz, co zaobserwowaĹ‚eĹ›: czy oba kraje przechodzÄ… teraz jeden wspĂłlny pipeline.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Append znajduje siÄ™ wczeĹ›nie w krokach.
+â€˘	Kolejne kroki czyszczenia dziaĹ‚ajÄ… na danych z PL i CZ razem.
+â€˘	Jest jeden pipeline.
+________________________________________
+[ETAP END] ZAĹADUJ WYNIK I ZRĂ“B PIVOTA
+TEXT
+â€žTeraz, gdy mamy gotowÄ… transformacjÄ™, wracamy do Excela i robimy wynik.â€ť
+________________________________________
+TASK â€” Load To Pivot
+â€žWybierz zapytanie koĹ„cowe.
+Kliknij ZaĹ‚aduj doâ€¦
+Wybierz Tabela przestawna.
+Ustaw dowolny prosty pivot, ktĂłry pokazuje sprzedaĹĽ (np. suma WartoĹ›Ä‡ po produkcie).
+JeĹ›li chcesz, zrĂłb screen i wklej go do czatu jako luĹşne zakoĹ„czenie.
+Opisz, co zaobserwowaĹ‚eĹ›: czy pivot dziaĹ‚a i czy dane wyglÄ…dajÄ… sensownie.â€ť
+________________________________________
+To zamyka caĹ‚y gĹ‚Ăłwny przebieg PQ.
+JeĹ›li chcesz, kolejnÄ… paczkÄ… dopinam:
+â€˘	â€žadmin/raportâ€ť (co zbieramy, jak raportujemy po komendzie ADMIN)
+â€˘	pytania koĹ„cowe (co zaskoczyĹ‚o, co wdroĹĽysz)
+â€˘	propozycje nastÄ™pnych szkoleĹ„ (A/B/C)
+ZatwierdĹş. po wpisaniu wartoĹ›ci. wywal obserwacje zmiany nazwy kolumny To jest PRZYDATNA funkcja .... ostatecznie najwygodniej zmieniaÄ‡ kod z Chatem ale dobrze wiedzieÄ‡ jak czasem samemu dodaÄ‡ kolumnÄ™." aaa przypomniaĹ‚o mi siÄ™ ĹĽe w segmencie z tabelami jeszcze miaĹ‚o byÄ‡ Ä‡wiczenie z Xlookupem, nazwa produktu. potem kasujemy 2 kolumny jak przechodzimy do PQ Upewnij siÄ™, ĹĽe typ zĹ‚Ä…czenia to Lewy zewnÄ™trzny (zachowaj wszystkie z SprzedaĹĽPL). - dodaj "powinno Ci siÄ™ wyĹ›wietliÄ‡ ile rekordĂłw zostaĹ‚o sparowanych. JeĹ›li nie wszystkie, moĹĽliwe ĹĽe jest jakiĹ› problem z ID" przed "W nowej..." dodaj - "pĂłki co doĹ‚Ä…czyliĹ›my tabelÄ™, ale jest ona nierozwiniÄ™ta. Jak klikniesz komĂłrkÄ™ nowo powstaĹ‚ej kolumny, w polu nadole zobaczysz co ta komĂłrka zawiera" "RozwiniÄ™cie = dodanie kolumn" ... kopiujemy kod/pipeline "... ale to wciÄ…ĹĽ oznacza" - no nie, to mĂłwimy w nastÄ™pnym tasku. Najpierw uĹĽytkownik ma zrobiÄ‡ zwykĹ‚y append, potem mu zwracamy uwagÄ™ ĹĽe w taki sposĂłb wrobimy czyszczenie dwa razy, dlatego przechodzimy do append przed czyszczeniem Ustaw dowolny prosty pivot, jakikolwiek zechcesz... ...wklej go do chatu i oceniÄ™ jak Ci poszĹ‚o." pamiÄ™tajmy ĹĽe kilka razy w PQ miaĹ‚ byÄ‡ checkpoint z wklejeniem kodu i sprawdzeniem czy wszystko gra. Daj po zrobieniu caĹ‚ego czyszczenia w PL i na sam koniec przed pivotem to caĹ‚y techniczny przebieg szkolenia. ZakoĹ„czenie szkolenia z proĹ›bÄ… o odpowiedzenie na kilka pytaĹ„ koĹ„cowych (ankieta) itp. chyba do gĹ‚Ăłwnego prompta nie nie, teraz musimy potwierdziÄ‡ bluprint. Daj go w caĹ‚oĹ›ci w boxie tak jakbym go juĹĽ miaĹ‚ kopiowaÄ‡ jak go zaakceptujÄ™, przejdziemy do stworzenia pliku ze standardem bluprintĂłw dla Master prompta 
+Rozumiem.
+PoniĹĽej masz caĹ‚y aktualny Blueprint szkolenia Power Query v1 â€” w formie gotowej do uĹĽycia w projekcie.
+Zachowana narracja, peĹ‚ne kroki, XLOOKUP w segmencie tabel, checkpointy kodu M, poprawiona logika append, bez metakomentarzy.
+________________________________________
+========================================
+BLUEPRINT SZKOLENIA: POWER QUERY â€“ PODSTAWY + PIPELINE
+========================================
+
+TRYB: SZKOLENIE
+CZAS DOMYĹšLNY: ~1,5â€“2h
+STRUKTURA: liniowa
+MECHANIKA: TASK (dziaĹ‚anie + obserwacja) / TEXT / FILL
+
+----------------------------------------
+ETAP 0 â€” CEL SZKOLENIA
+----------------------------------------
+
+TEXT
+
+Na tym szkoleniu nauczysz siÄ™ pracy z Tabelami oraz Power Query
+jako alternatywnego trybu pracy z danymi.
+
+To podejĹ›cie:
+
+1) nie polega na klasycznych formuĹ‚ach przeciÄ…ganych po arkuszu,
+2) minimalizuje ryzyko bĹ‚Ä™dĂłw (przesuniÄ™te zakresy, brak przeciÄ…gniÄ™cia),
+3) uĹ‚atwia kontrolÄ™ poprawnoĹ›ci,
+4) szczegĂłlnie dobrze sprawdza siÄ™ w plikach cyklicznych â€”
+   raz dobrze zbudowany plik staje siÄ™ aplikacjÄ…:
+   - podmieniasz dane,
+   - odĹ›wieĹĽasz,
+   - masz gotowy wynik.
+
+To nie bÄ™dzie tylko szkolenie z narzÄ™dzia.
+To bÄ™dzie szkolenie z podejĹ›cia do danych.
+
+----------------------------------------
+ETAP 1 â€” TABELE (MINIMUM + OPCJONALNE Ä†WICZENIA)
+----------------------------------------
+
+TASK
+
+OtwĂłrz plik szkoleniowy.
+
+W arkuszu SprzedaĹĽ kliknij w dane i uĹĽyj Ctrl + T.
+Zaznacz, ĹĽe tabela ma nagĹ‚Ăłwki.
+ZatwierdĹş.
+
+Opisz, co siÄ™ zmieniĹ‚o w arkuszu.
+
+FILL
+Excel â€žzobaczyĹ‚â€ť tabelÄ™. Teraz moĹĽemy niÄ… zarzÄ…dzaÄ‡ jako obiektem.
+
+----------------------------------------
+TEXT â€” FACTS I DIMENSIONS
+
+W bazach danych mamy dwa gĹ‚Ăłwne typy tabel:
+
+Facts â€” zdarzenia (np. sprzedaĹĽ).
+Dimensions â€” sĹ‚owniki/opisy (np. produkty, klienci).
+
+Facts sÄ… dynamiczne, przybywa wierszy.
+Dimensions sÄ… wzglÄ™dnie staĹ‚e â€” opisujÄ… Ĺ›wiat.
+
+Dlatego przy nazywaniu tabel warto stosowaÄ‡ prefiksy:
+fctSprzedaĹĽPL
+dimProdukty
+
+MaĹ‚a litera w prefiksie, wielka w nazwie â€”
+czytelnoĹ›Ä‡ wizualna roĹ›nie.
+
+----------------------------------------
+TASK
+
+Nadaj nazwÄ™ tabeli SprzedaĹĽ zgodnie z tym podejĹ›ciem.
+NastÄ™pnie nazwij pozostaĹ‚e zakresy jako dim / fct wedĹ‚ug ich roli.
+
+----------------------------------------
+Ä†WICZENIE â€” ODNIESIENIA STRUKTURALNE
+----------------------------------------
+
+TASK
+
+Wpisz w kolumnie J, jedno pod drugim:
+
+=[nazwa_tabeli]
+=[nazwa_tabeli][#All]
+=[nazwa_tabeli][#Data]
+=[nazwa_tabeli][#Headers]
+=[nazwa_tabeli][#Totals]
+
+Po wpisaniu wszystkich formuĹ‚ opisz, co zaobserwowaĹ‚eĹ›.
+
+FILL
+JeĹ›li #Totals pokazuje bĹ‚Ä…d â€” tabela nie ma wĹ‚Ä…czonego wiersza sum.
+
+WĹ‚Ä…cz Total Row w NarzÄ™dziach tabeli.
+SprawdĹş ponownie.
+
+----------------------------------------
+Ä†WICZENIE â€” @ (ten sam wiersz)
+
+TASK
+
+W kolumnie obok tabeli wpisz w komĂłrce w tym samym wierszu:
+
+=
+kliknij kolumnÄ™ IloĹ›Ä‡
+wpisz *
+kliknij kolumnÄ™ Cena
+
+ZatwierdĹş.
+
+Opisz, co siÄ™ staĹ‚o.
+
+----------------------------------------
+Ä†WICZENIE â€” AUTOMATYCZNE ROZSZERZANIE

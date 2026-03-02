@@ -1,0 +1,250 @@
+﻿CHECKPOINT:
+TYPE: SCREEN_DESCRIBE lub PASTE_M
+CRITERIA: W wyniku sÄ… doĹ‚Ä…czone kolumny klienta i uĹĽytkownik rozumie, skÄ…d siÄ™ wziÄ™Ĺ‚y.
+FAIL_OPTIONS:
+1) Minimalna podpowiedĹş (jak w PQ4)
+2) Rozbicie
+3) PomiĹ„ etap (tylko przy STRICT)
+REMediation:
+- analogicznie do PQ4.
+LOG:
+- problemy i decyzje.
+
+[ETAP END]
+NAZWA: Load + zamkniÄ™cie + mini-ankieta
+CEL: UĹĽytkownik Ĺ‚aduje wynik i formuĹ‚uje 2â€“3 wnioski; agent zbiera feedback.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 5â€“10 min
+STEPS:
+1. Load wynik (do arkusza / tylko poĹ‚Ä…czenie) â€” wg instrukcji szkolenia.
+2. Podsumowanie: co zrobiliĹ›my (1â€“2 min).
+3. Pytania koĹ„cowe (obowiÄ…zkowe):
+   - Co byĹ‚o najtrudniejsze?
+   - Co byĹ‚o nowe/zaskakujÄ…ce?
+   - Co realnie wdroĹĽysz w pracy?
+4. Zaproponuj 3 kolejne Ĺ›cieĹĽki (A/B/C).
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: UĹĽytkownik potwierdziĹ‚ load + odpowiedziaĹ‚ na pytania koĹ„cowe.
+FAIL_OPTIONS:
+1) SkrĂłÄ‡ podsumowanie do 3 punktĂłw
+2) Zadaj pytania w wersji â€śkrĂłtkiejâ€ť (1 zdanie)
+3) PomiĹ„ propozycje next steps (jeĹ›li czasu brak)
+REMediation:
+- jeĹ›li user nie chce ankiety: poproĹ› o minimum 1 zdanie â€śnajwiÄ™kszy problemâ€ť.
+LOG:
+- odpowiedzi koĹ„cowe, rekomendacje.
+Twoje zadanie (ĹĽebyĹ›my nie bĹ‚Ä…dzili):
+Skrytykuj ten blueprint v0 w 10â€“20 punktach, ale tylko w kategoriach:
+1.	co wyrzuciÄ‡,
+2.	co brakuje (kroki/etapy),
+3.	gdzie checkpoint jest zĹ‚y,
+4.	gdzie priorytet/czas sÄ… bĹ‚Ä™dne,
+5.	jakie FAIL_OPTIONS majÄ… byÄ‡ defaultem zawsze.
+Po tym wprowadzÄ™ poprawki i zrobimy v0.2.
+chodzi mi co dokĹ‚adnie DSL znaczy? DuĹĽaSuchaLista? xD haha trzeba sprecyzowaÄ‡ co to znaczy ta narracja 1 2 3 - to tu uĹĽytkownik ma wybieraÄ‡ poziom znajomoĹ›ci excela? (1. sĹ‚abo zna excel, 2. zna excel ale nie zna PQ 3. ma jakieĹ› pojÄ™cie o PQ) jeĹ›li nie to ten element gdzieĹ› siÄ™ zagubiĹ‚ SZALONY! ten ! jest waĹĽny w nazwie w doradcy teĹĽ wskazĂłwka o wklejaniu jako tekst etap 0 1. chcÄ™ ĹĽeby o celu byĹ‚o mniej wiecej coĹ› takiego "Na tym szkoleniu nauczysz siÄ™ o tabelach i Poqer Query oraz alternatywnego trybu pracy ktĂłry 1. nie polega na formuĹ‚ach (koniec z bĹ‚Ä™dami bo coĹ› siÄ™ w formule przesunÄ™Ĺ‚o, albo bo formuĹ‚a byĹ‚a nieprzeciÄ…gniÄ™ta itp.) 2. uĹ‚atwia kontrolÄ™ i poprawnoĹ›Ä‡ wykonywanych zadaĹ„ 3. SzczegĂłlnie korzystne do stosowania w plikach cyklicznych (raz dobrze zbudowany plik, zamienia siÄ™ w aplikacjÄ™ gdzie a. odĹ›wieĹĽasz dane wejĹ›ciowe, b. odĹ›wieĹĽasz PQ c. masz twĂłr gotowy do druku/wysĹ‚ania/analizowania). Nie bÄ™dzie to szkolenie tylko z funkcjonalnoĹ›ci narzÄ™dzia, ale takĹĽe z podejĹ›cia do danych i baz" - proponujesz coĹ› dodaÄ‡? etap E1 wyobraĹĽam sobie takÄ… narracje mniej wiÄ™cej "otwĂłrz plik, w nim znajdziesz 4 arkusze z danymi. Problem z tym, ĹĽe PQ nie bardzo "wie" gdzie te dane sÄ…. Operowanie adresami typu A1:H80 jest problematyczne. MogÄ… dojĹ›Ä‡ nowe kolumny, nowe wiersze. KtoĹ› moĹĽe przesunÄ…Ä‡ tabelÄ™. Masa okazji do rozwalenia mechanizmu i bĹ‚Ä™dĂłw. Dlatego wĹ‚aĹ›nie aby zachowaÄ‡ poprawnoĹ›Ä‡ danych, NIEZBÄDNE jest pracowanie na zakresach zdefiniowanych jako tabele. Co to oznacza? Teraz w pliku excelowym ty "widzisz" tabelÄ™, ale excel nie. Naprawmy to. WejdĹş w arkusz SprzedaĹĽ Kliknij gdziekolwiek na dane, ctrl +t.... (instrukcja zamiany zakresu na tabelÄ™ z wytĹ‚umaczeniem checkboxa nagĹ‚ĂłwkĂłw tabeli). [tu miejsce gdzie pyta czy siÄ™ udaĹ‚o? pyta czy jak uĹĽytkownik na niÄ… klika pojawia siÄ™ dodatkowa zielona zakĹ‚adka Table Design (ooo trzeba dodaÄ‡ do ustawieĹ„ uĹĽytkownika na poczÄ…tku zapytanie w jakim jÄ™zyku prowadziÄ‡ szkolenie oraz w jakim jÄ™zyku uĹĽytkownik ma excela)]. Jak uĹĽytkownik potwierdzi mĂłwimy : Ĺšwietnie! Zatem teraz excel teĹĽ to widzi i pozwala Ci na operacje na tabeli. OtwĂłrz zakĹ‚adkÄ™ Table Design. Znajdziesz tam sporo opcji, gĹ‚ownie zmieniajÄ…cych styl i format Tabeli. Po lewej masz najwaĹĽniejsze pole, nazwÄ™ tabeli. Widzisz jÄ…? jaka jest nazwa tabeli? [czekanie na odpowiedĹş, upewnia nas to ĹĽe uĹĽytkownik znalazĹ‚ zakĹ‚adkÄ™ i nazwÄ™] Ĺšwietnie! To automatyczna nazwa nadawana przez excela na poczÄ…tku. Zmienimy jÄ… ĹĽeby lepiej rozumieÄ‡ nasze dane. Zanim do tego przejdziemy, muszÄ™ Ci wspomnieÄ‡ o istotnej mechanice baz danych ktĂłra moĹĽe Ci siÄ™ wydaÄ‡ teraz nie istotna, ale jest bardzo waĹĽna przy wiÄ™kszych caseach. Patrzenie tak na tabele bardzo Ci pomoĹĽe. Mamy dwa gĹ‚Ăłwne typy tabel. Tabele faktĂłw i wymiarĂłw (facts i dimensions) [jeĹ›li po polsku szkolenie to pokaĹĽemy i tak angielskie nazwy dodatkowo]. (tu krĂłtkie wyjaĹ›nienie rĂłĹĽnicy miÄ™dzy fact i dim oraz w jakich sytuacjach sÄ… wykorzystywane. gĹ‚Ăłwnie zaznaczyÄ‡ ĹĽe dim sÄ… tak jakby "staĹ‚e" a fakty to "zdarzenia". Od tego wyjaĹ›nienia przechodzimy do) : dlatego przy nazywaniu tabel, dobrze zrobiÄ‡ prefix np. fct lub dim lub jak Tobie wygodniej, ĹĽeby zawsze jasno widzieÄ‡ jakiego typu jest to tabela. Jak sÄ…dzisz, jakiego typu tabelÄ… jest tabela SprzedaĹĽy? jak byĹ› jÄ… nazwaĹ‚? (oczekujemy ĹĽe uĹĽytkownik zasugeruje coĹ› w stylu fctSprzedaĹĽ, dopasujemy siÄ™ do jego wyboru, ewentualnie jeĹ›li da fctsprzedaĹĽ to sugerujemy ĹĽeby prefix byĹ‚ z maĹ‚ej a pierwsza litera nazwy z duĹĽej. Jak nazwa zostanie ustalona, przechodzimy do) : Ĺ›wietnie! Zatem teraz wpisz tÄ… nazwÄ™ do pola TableName co zmieni nazwÄ™ tabeli. [potwierdzenie, przechodzimy do] : Ĺšweitnie! teraz zasugeruj nazwy pozostaĹ‚ych tabel, sÄ…dzisz ĹĽe to tabele wymiarĂłw czy faktĂłw? [uĹĽytkownik potwierdz wybrane nazwy, ewentualnie korygujemy, przechodzimy do] : to teraz zamieĹ„ pozostaĹ‚e 3 zakresy na tabele i nazwij je ustalonymi nazwami. [ czekamy na potwierdzenie ĹĽe nazwane, przechodzimy do] : skoro tabele juĹĽ nazwane, wrĂłÄ‡my do tabeli sprzedaĹĽy, excel jÄ… widzi i pierwszÄ… zabĂłjczÄ… funkcjonalnoĹ›ciÄ… tego jest to ĹĽe Ĺ‚atwo moĹĽemy siÄ™ odwoĹ‚aÄ‡ do kaĹĽdego elementu tabeli, bez koniecznoĹ›ci dawania adrtesu typu A1:H100. PrzeÄ‡wiczymy to teraz, przejdziemy przez seriÄ™ odniesieĹ„, to tylko treningowe akcje wiÄ™c wpisuj gdziekolwiek z prawej gdzie masz miejsce, najlepiej jedno odwoĹ‚anie pod drugim. 1. wpisz =[nazwa tabeli]. wyĹ›wietliĹ‚a Ci siÄ™ tabela? [check i potwierdzenie] ZauwaĹĽysz ĹĽe w trakcie wpisywania excel juĹĽ Ci sugeruje tÄ… nazwÄ™, dodatkowo ikona obok nazwy pokazuje Ci ĹĽe ta nazwa dotyczy tabeli, funkcje majÄ… inne ikonki. po wpisaniu enter. funkcja wyĹ›wietli Ci wszystkie dane w tabeli. zauwaĹĽ ĹĽe funkcjÄ™ moĹĽesz zmieniÄ‡ tylko pierwszej komĂłrce [gĂłrny lewy rĂłg]. Takie wyĹ›wietlanie tabeli nie ma wielkiej funkcjonalnoĹ›ci, robimy tu to dla treningu i wyczucia co siÄ™ dzieje z nazwami. Teraz przejdĹşmy do odwoĹ‚ywania siÄ™ do elementĂłw tabeli. Wpisz ponownie =[nazwa tabeli] ale na koĹ„cu dodaj "[". Zobaczysz ĹĽe wyĹ›wietli Ci siÄ™ lista elementĂłw do ktĂłrych moĹĽesz siÄ™ odnieĹ›Ä‡. Najpierw elementy z #. Napisz odniesienia do wszystkich 4 elementĂłw # [all, data, headers, totals]. PamiÄ™taj ĹĽe funkcje z [] dziaĹ‚ajÄ… trochÄ™ inaczej niĹĽ (). Excel czÄ™sto sam automatycznie zamyka nawiasy (), z [] juĹĽ tego nie robi wiÄ™c zawsze pamiÄ™taj o koĹ„cowym nawiasie ]. Jak zrobisz 4 daj znaÄ‡ jak poszĹ‚o i czy byĹ‚y jakieĹ› problemy. [uĹĽytkownik powinien odpisaÄ‡ ĹĽe dla totals zwrĂłciĹ‚o bĹ‚Ä…d REF, jeĹ›li nie to szkoleniowiec sam o to dopytuje i upewnia siÄ™ czy szkolony sam rozwiÄ…zaĹ‚ ten ref i jak to zrobiĹ‚. Jak uĹĽytkownik zgĹ‚osi REF, przechodzimy do]: Spokojnie, spodziewaliĹ›my siÄ™ tego. Funkcja nie moĹĽe wyĹ›wietliÄ‡ totali bo tabela ich nie ma. Zostaw funkcjÄ™ jak jest, niech siÄ™ wyĹ›wietla REF. Kliknij na tabelÄ™, potem na Design Table, zaznacz total row. Co siÄ™ staĹ‚o [czekamy na opis uĹĽytkownika, przechodzimy do] : Ĺšwietnie. REF siÄ™ zamieniĹ‚ na dane, pewnie zauwaĹĽyĹ‚eĹ› ĹĽe inne odniesienia teĹĽ zaczÄ™Ĺ‚y siÄ™ wyĹ›wietlaÄ‡ z totalem. To dlatego ĹĽe te odniesienia zawsze pokazujÄ… aktualny stan tabeli, cokolwiek siÄ™ w niej zmieni. Dobra robota! Teraz przejdĹşmy do kolejnych elementĂłw, czyli konkretnych kolumn. Dla przeÄ‡wiczenia wyĹ›wietl 2-3 odniesienia do konkretnych kolumn i daj znaÄ‡ kiedy zrobisz. [czekamy na potwierdzenie] Ĺšwietnie! Teraz przechodzimy do ostatniego, bardzo waĹĽnego elementu "@". "@" oznacza dokĹ‚adnie "w tym samym wierszu" zatem formuĹ‚a bÄ™dzie siÄ™ odnosiÄ‡ do wiersza w ktĂłrym aktualnie jest formuĹ‚a. Wpisz obok tabeli w kolumnie X [tu podamy kolumnÄ™ co najmniej 2 kolumny od tabeli, ĹĽeby tabela siÄ™ nei rozszerzyĹ‚a o to pole] formuĹ‚Ä™ =[nazwa tabeli][@nazwa kolumn] a potem przeciÄ…gnij formuĹ‚Ä™ w dĂłĹ‚ do wierszy w ktĂłrych tabeli nie ma. Co siÄ™ staĹ‚o ? [uĹĽytkownik opisuje ĹĽe poza tabelÄ… funkcja zwraca bĹ‚Ä…d] DokĹ‚adnie! KaĹĽda formuĹ‚a teraz zwraca pojedynczy element, nie tabelÄ™. a bĹ‚Ä…d zwraca bo tabela nie ma takiego wiersza. Gratulacje! przeszliĹ›my przez odniesienia do tabel i elementĂłw! Kolejna funkcjonalnoĹ›Ä‡ tabeli to jak siÄ™ automatycznie rozszerza. W tabeli sprzedaĹĽy mamy cenÄ™ jednostkowÄ… i iloĹ›Ä‡ produktĂłw, nie mamy caĹ‚kowitej wartoĹ›ci sprzedaĹĽy. DorĂłbmy takÄ… kolumnÄ™. Najpierw wpisz "WartoĹ›Ä‡" w nagĹ‚Ăłwku obok tabeli. Co siÄ™ staĹ‚o [uĹĽytkownik powinien opisaÄ‡ jak tabela siÄ™ rozszerza, przechodzimy do] Swietnie, tabela siÄ™ dostosowaĹ‚a, teraz moĹĽemy wpisaÄ‡ funkcjÄ™. zacznij od =, potem przesuwajÄ…c strzaĹ‚kami wybĂłr kolumn, albo klikajÄ…c, zrĂłb =[@iloĹ›Ä‡]*[@cena]. Co siÄ™ staĹ‚o? [uĹĽytkownik opisuje ĹĽe funkcja wszÄ™dzie sama siÄ™ skopiowaĹ‚a, jeĹ›li nie mĂłwi to my wspominamy oraz wzmianka ĹĽe w razie potrzeby moĹĽna to wyĹ‚Ä…czyÄ‡, przechodzimy do]: Tabela teĹĽ dostosowuje siÄ™ w wierszach. Dopisz pod tabelÄ… jakikolwiek numer sprzedaĹĽy, co siÄ™staĹ‚o [uĹĽytkownik opisuje ĹĽe tabela siÄ™ wydĹ‚uĹĽyĹ‚a i ĹĽe formuĹ‚y siÄ™ przeciÄ…gnÄ™Ĺ‚y, jeĹ›li nie to my to zaznaczamy ĹĽe tak dziaĹ‚a, potem przechodzimy do]: Ale poza automatycznym rozszerzaniem tabeli, moĹĽemy to zrobiÄ‡ rÄ™cznie. W prawym dolnym rogu tabeli zobaczysz trĂłjkÄ…t ktĂłry moĹĽesz "zĹ‚apaÄ‡" i przeciÄ…gaÄ‡, dodajÄ…c lub odejmujÄ…c jaki zakres obejmuje tabela. SprĂłbuj to zrobiÄ‡ teraz, potem wrĂłÄ‡ do stanu oryginalnego ctrl + z. JeĹ›li podczas tego wydĹ‚uĹĽania, ktĂłraĹ› formuĹ‚a odniesieĹ„ zamieniĹ‚a siÄ™ na SPIL, oznacza to ĹĽe formuĹ‚a nie ma miejsca na wyĹ›wietlenia danych, coĹ› jej zawadza. W tabeli mamy tylko numer produktu, a chcielibyĹ›my takĹĽe nazwÄ™. Obok wartoĹ›ci dodaj kolumnÄ™ Nazwa Produktu. Potem przypiszemy nazwÄ™ po numerze, tylko nie funkcjÄ… vlookup, funkcja xlookup jest duĹĽo lepsza, szczegĂłlnie gdy korzystamy z funkcji tabelarycznych. SprĂłbuj to zrobiÄ‡ sam i daj znaÄ‡ jak poszĹ‚o. JeĹ›li nie wiesz jak to powiedz, przeprowadzÄ™ CiÄ™ przez to krok po kroku. [czekamy na potwierdzenie ĹĽe zrobione lub przeprowadzamy przez napisanie funkcji tabelarycznej z xlookupem, potem przechodzimy do] : zauwaĹĽ ĹĽe gdy odnosimy siÄ™ do tabeli w ktĂłrej jesteĹ›my, nie piszemy jej nazwy, tylko kolumnÄ™. Jak siÄ™ odnosimy do innej tabeli, musimy pisaÄ‡ jej nazwÄ™] Oto najistotniejsze podstawowe informacje o Tabelach. teraz moĹĽemy przejĹ›Ä‡ do PQ. UsuĹ„ z tabeli sprzedaĹĽy 2 stworzone kolumny i przechodzimy do dziaĹ‚ania. (zamontujmy teĹĽ na poczÄ…tku pytanie o znajomoĹ›Ä‡ tabel i dajmy uĹĽytkownikowi moĹĽliwoĹ›Ä‡ skrĂłcenia tego do tylko stworzenia tabel i nazwania, to co potrzebne do PQ) IdĹş do arkusza sprzedaĹĽ. Kliknij tabelÄ™. potem zakĹ‚adka Data i klikamy "z tabeli/zakresu" LUB PPM na tabelÄ™ i "get data from table". Co siÄ™ staĹ‚o? [uĹĽytkownik opisuje ĹĽe otworzyĹ‚ siÄ™ panel, przechodzimy do] : otworzyĹ‚a Ci siÄ™ nowa "warstwa" excela. [opisujemy uĹĽytkownikowi podstawowe elementy i po co sÄ… czyli : lista query po lewej, widzimy query ktĂłre wĹ‚aĹ›nie dodaliĹ›my, jest wybrane. Po prawej mamy kroki transformacji danych, pĂłki co mamy 2 kroki, pobranie danych i zmiana formatu. na Ĺ›rodku z kolei mamy WIDOK efektu danego kroku, oraz pasek kodu danego kroku. Kliknij teraz na rĂłĹĽne kroki i zobacz jak zmienia siÄ™ widok i kod, czekamy na potwierdzenie, przechodzimy do] : teraz kliknij w tabeli jakÄ…kolwiek komĂłrkÄ™, zauwaĹĽ ĹĽe pojawi siÄ™ jeszcze pole na dole [nei pamiÄ™tam nazwy] ktĂłre pokazuje szczegĂłĹ‚y danej komĂłrki, jej wartoĹ›Ä‡, powĂłd bĹ‚Ä™du itp.) A na samej gĂłrze mamy pasek z opcjami. Na teraz dwie najwaĹĽniejsze to : znajdĹş w Home / Advanced Editorc. Kliknij. WyĹ›wietli Ci siÄ™ kod caĹ‚ego zapytania. I wĹ‚aĹ›nie z tego miejsca bÄ™dziesz kopiowaĹ‚ i wklejaĹ‚ kod mi do weryfikacji Twoich krokĂłw. Tam teĹĽ bÄ™dziesz wklejaĹ‚ kod z poprawkami ktĂłre zasugerujÄ™. Teraz Close and Load. Ĺ»eby wyjĹ›Ä‡ z PQ zawsze musimy ZAPISAÄ† i zdecydowaÄ‡ co zrobiÄ‡ z Query, jak je zaĹ‚adowaÄ‡. ZwykĹ‚e klikniÄ™cie zapisze i zaĹ‚aduje query jako tabelÄ™, sprĂłbuj to teraz i powiedz co siÄ™ staĹ‚o [po potwierdzeniu przechodzimy do]: wyĹ›wietlana tabela to wynik ĹĽrĂłdĹ‚owej tabeli przetworzonej przez query. SprĂłbuj skasowaÄ‡ dane, PPM na tabelÄ™ i odĹ›wieĹĽ. Co siÄ™staĹ‚o? [uĹĽytkownik opisuje, przechodzimy do]: tabela znĂłw siÄ™ wypeĹ‚nia danymi. KaĹĽde odĹ›wieĹĽenie tokolejne przeliczenie zaprogramowane w query i wyĹ›wietlenie go. Teraz kliknij na tÄ… wynikowÄ… tabelÄ™, pokaĹĽe Ci siÄ™ dodatkowa zielona zkaĹ‚adka Query, kliknij na niÄ…. Edit otwiera panel PQ, Load to pozwala Ci zmieniÄ‡ w jaki sposĂłb Ĺ‚adowane jest query, moĹĽe byÄ‡ tylko jeden sposĂłb na raz, kliknij load to i przeĹ‚Ä…cz na pivota. [czekamy na potweirdzenie] Ĺ›wietnie! teraz moĹĽesz dowolnie ustawiÄ‡ jak wyĹ›wietliÄ‡ dane, zamiast caĹ‚ej tabeli. My pĂłki co nie potrzebujemy wyĹ›wietlaÄ‡ tych query. Daj load to i only connection. wykasuj niepotrzebny arkusz. Teraz wykonaj takie samo dodanie pozostaĹ‚ych 3 tabel do PQ, tylko zamiast klikaÄ‡ duĹĽe zamknij i zaĹ‚aduj, kliknij na strzaĹ‚kÄ™ poniĹĽej, wybierz load to a tam wybierz tylko poĹ‚Ä…czenia dla wszystkich tabel. Daj znaÄ‡ jak dodasz wszystkie tabele [czekamy na potwierdzenie] przechodzimy do : wejdĹş w zakĹ‚adkÄ™ Data, tam znajdziesz Queries & Connections. To wĹ‚Ä…cza/wyĹ‚Ä…cza panel po prawej z listÄ… Twoich query, klikajÄ…c na nie PPM i edutuj, tak rĂłwnieĹĽ moĹĽesz wejĹ›Ä‡ do edytora Query. ZrĂłb to. W PQ moĹĽesz zauwaĹĽyÄ‡ ĹĽe kaĹĽde tak dodawane query automatycznie ma 2 kroki 1. pobieranie danych ze ĹşrĂłdĹ‚a 2. automatyczne wykrywanie i zmiana typu danych. Jest to idealny poczÄ…tek do pracy z AI. JeĹ›li wkleisz mi kod z advanced editor, bÄ™dÄ™ widziaĹ‚ jak siÄ™ nazywa tabela i jak siÄ™ nazywajÄ… nazwy kolumn. To pozwala mi dobrze pisaÄ‡ kod do jakichkolwiek czynnoĹ›ci na tabeli jakie mi opiszesz. Ale najpierw ty przeÄ‡wiczysz robienie tych czynnoĹ›ci, ĹĽeby zobaczyÄ‡ jak one dziaĹ‚ajÄ…. 1 Ä‡wiczenie PQ : wejdĹş na query sprzedaĹĽ, kliknij krok Source, potem w tabeli kliknij ktĂłrÄ…kolwiek nazwÄ™ kolumny, zmieĹ„ nazwÄ™ (np. dodaj 1), wyskoczy box z zapytaniem, kliknij insert. Co siÄ™ staĹ‚o? sprawdĹş krok Changed Type [uĹĽytkownik opisuje, jak pominie coĹ› to dopowiadamy] : moĹĽesz swobodnie dodawaÄ‡ kroki w Ĺ›rodku, pod warunkiem ĹĽe nie wpĹ‚ywajÄ… one na kolejne kroki. Change type ma teraz error. Kod oczekiwaĹ‚ kolumny o pewnej nazwie, nie moĹĽe jej znaleĹşÄ‡ bo teraz jest inna nazwa. Kliknij na krok Change type, w pasku kodu na Ĺ›rodku jest strzaĹ‚ka, kliknij rozwinie siÄ™ pasek kodu. Zobaczysz ĹĽe w kodzie jest stara nazwa. ZmieĹ„ jÄ… na nowÄ…. Teraz dziaĹ‚a. Staramy siÄ™ tak nie robiÄ‡ i dobrze planowaÄ‡ zmiany w PQ ĹĽeby nie robiÄ‡ takich manualnych zmian jak teraz, ale dobrze ĹĽebyĹ› wiedziaĹ‚ ĹĽe masz takÄ… awaryjnÄ… opcjÄ™. 2 cw PQ : kliknij na change type, w tabeli po lewej od nazwy kolumn masz ikony pokazujÄ…ce jaki format danych jest w tych kolumnach. Format danych to szalenie waĹĽne ustawienie ktĂłre czÄ™sto jest pomijane w pracy w Excelu co potem generuje bardzo duĹĽo bĹ‚Ä™dĂłw. Program ĹĽeby wykonywaÄ‡ obliczenia, musi wiedzieÄ‡ ĹĽe ma do czynienia z liczbÄ…. JeĹ›li ma ukĹ‚adaÄ‡ hronologie, musi wiedzieÄ‡ ĹĽe ma do czynienia z datÄ…. PorĂłwnywanie dwĂłch tabel moĹĽe nie zadziaĹ‚aÄ‡ jeĹ›li mamy w nich te same wartoĹ›ci ale jedna ma format liczbowy a druga tekstowy. KaĹĽda nasza praca powinna siÄ™ opieraÄ‡ na Ĺ›wiadomoĹ›ci tego jakie typy danych system widzi. Jak widzisz ikonkÄ™ ABC123, oznacza to ĹĽe PQ automatycznie nie wykryĹ‚ jednego typu danych i przypisaĹ‚ typ ANY czyli jakikolwiek. Kliknij na ikonkÄ™ formatu w kolumnie Cena. Zmien format na Currency. Wyskoczy komunikat ĹĽe to pole juĹĽ zostaĹ‚o na coĹ› zmienione. Kliknij Add new step. Co siÄ™ staĹ‚o? [czekamy na odpowiedĹş, przechodzimy do ] : zostaĹ‚ dodany osobny krok, zatem to pole jest zmieniane 2 razy, nie tego chcemy, kliknik X koĹ‚o wĹ‚aĹ›nie powstaĹ‚ego kroku, to skasuje krok. PowtĂłrz zmianÄ™ formatu, tylko tym razem kliknij opcjÄ™ replace current. co siÄ™ staĹ‚o? [czekamy na odpowiedĹş, krok zostaĹ‚ zastÄ…piony zamianÄ… na walutÄ™, zamiana nastÄ™puje tylko raz, nie mamy dodatkowego kroku, tego chcemy. przechodzimy do]: 3 cw pq : bÄ™dÄ…c na Change Type, przechodzimy do kolumny iloĹ›Ä‡. ma w wartoĹ›ci liczby i tekst wiÄ™c przypisaĹ‚o mu ANY. Kliknij i zmien na liczbÄ™ caĹ‚kowitÄ™. co siÄ™ staĹ‚o? [zmieniĹ‚ siÄ™ typ, ale takĹĽe nie wyskoczyĹ‚ monit. ANY traktowane jest trochÄ™ jak NIC wiÄ™c nie ma konfliktu przy zamianie jego. dodatkowo, wyskoczyĹ‚ ERROR. To poniewaĹĽ system nie potrafi rozpoznaÄ‡ tekstu ktĂłry tam jest, jako liczbÄ™, przechodzimy do] : kliknij na komĂłrkÄ™ z ERRORem, na dole pokaĹĽe Ci siÄ™ panel z raportem bĹ‚Ä™du. JeĹ›li klikniemy ĹAPKÄ„ dokĹ‚adnie na napis Error, doda nam siÄ™ krok prowadzÄ…cy tylko do tego errora. JeĹ›li przypadkiem to zrobiĹ‚eĹ›, po prostu usuĹ„ ten krok. 4 cw pq : [na kolumnie IloĹ›Ä‡, zamiana ErrorĂłw na 0. Nie mam tu szczegĂłlnych wskazĂłwek narracji, zweryfikuj tylko potwierdzeniem] 5 cw pq : [na kolumnie IloĹ›Ä‡, odfiltrowanie 0 i null, zweryfikuj potwierdzeniem] 6 cw pq : [klikamy zakĹ‚adkÄ™ add column, w tabeli zaznaczamy z CTRL kolumnÄ™ CENA i ILOSC, klikamy strzaĹ‚kÄ™ pod Column From Example, opisujemy uĹĽytkownikowi ĹĽe otwiera siÄ™ panel gdzie wpisujemy przykĹ‚ady i PQ sam wykryje jaka funkcjÄ™ chcemy. niech uĹĽytkownik wpisze przykĹ‚ady, PQ wykryje, potem niech zmieni nazwÄ™ pola na WARTOĹšÄ† i kliknie OK kontrolna proĹ›ba o wklejenie caĹ‚ego kody z widoku ADVENCED i sprawdzenie czy Ä‡wiczenia wykonano poprawnie 7 cw pq : [merge tabeli SprzedaĹĽ z tabelÄ… Produkty, po ID produktu. PrzeprowadĹş uĹĽytkownika przez merge, potem krok rozwijanie, opcje w rozwijaniu (prefix nazwy, wybĂłr pĂłl)] cofam poczÄ…tkowe zaĹ‚oĹĽenia. JEdnak bÄ™dziemy mieÄ‡ 3 tabele SprzedaĹĽPL SprzedaĹĽCZ Produkty. CaĹ‚e dotychczasowe Ä‡wiczenie na SprzedaĹĽPL 8 cw pq : narracja trochÄ™ jak opowieĹ›Ä‡, ĹĽe po tych zadaniach OKAZUJE siÄ™ ĹĽe mamy jeszcze dane sprzedaĹĽowe z Czech ktĂłre wymagajÄ… takiej samej obrĂłbki. Wchodzimy w Query SprzedaĹĽPL, klikamy advanced, kopiujemy kod, wchodzimy na query SprzedaĹĽCZ, wklejamy kod, poprawiamy w kodzie nazwÄ™ tabeli wejĹ›ciowej (PL na CZ). TADA! mamy zrobione to samo czyszczenie dla CZ 9 cw pq : [appendowanie query PL i CZ poprzez klikanie APPEND AS NEW QUERY, kaĹĽ uĹĽytkownikowi zmieniÄ‡ nazwe na SprzedaĹĽTOTAL. opowiedz - ale jest to trochÄ™ nieefektywne. Dwa razy, w 2 query robimy to samo. Jednak lepiej najpierw zĹ‚Ä…czyÄ‡, a potem wykonywaÄ‡ czyszczenie 10 cw PQ : [ kasujemy query TOTAL, wchodzimy w SprzedaĹĽPL, klikamy krok source, po tym kroku dodajemy append przed juĹĽ zrobionym czyszczeniem] teraz daj load to pivot table, ustaw jakkolwiek chcesz pivota tak ĹĽeby pokazywaĹ‚ dane sprzedaĹĽowe. potem zrĂłb screena i pochwal mi siÄ™ wynikiem. to koniec szkolenia. tu miejsce na upewnienie siÄ™ czy uĹĽytkownik ma jakieĹ› pytania odnoĹ›nie przedstawionego materiaĹ‚u. Potem pytania kontrolne czego siÄ™ nauczyĹ‚, co sÄ…dzi ĹĽe bÄ™dzie uĹĽywaĹ‚ itp. Jak widzisz rozpisaĹ‚em Ci bardzo szeroko wizjÄ™ szkolenia jak ja bym je przeprowadziĹ‚. W wielu miejscach dokĹ‚adnie Ci rozpisaĹ‚em co ma byÄ‡ mĂłwione (no nie sĹ‚owo w sĹ‚owo, oczekujÄ™ ĹĽe to wygĹ‚adzisz, ale wszelkie wnioski, waĹĽne punkty, uwagi itp. muszÄ… byÄ‡ zachowane. TworzÄ… siÄ™ z tego takie bloki wskazĂłwek narracji na wybrane momenty dodatkowo w trakcie doszedĹ‚em do wniosku ĹĽe spoko moĹĽe byÄ‡ mechanizm pytania uĹĽytkownika co siÄ™ staĹ‚o? rozpisywaĹ‚em Ci co powinno zostaÄ‡ zauwaĹĽone. JeĹ›li uĹĽytkownik to zauwaĹĽy co rozpisaĹ‚em, ewentualnie dopowiadasz wytĹ‚umaczenei dodatkowe jeĹ›li takie rozpisaĹ‚em (np. czemu siÄ™ zadziaĹ‚o coĹ› co uĹĽytkownik zaobserwowaĹ‚). niektĂłre bÄ™dÄ… tylko sprawdzeniem czy zostaĹ‚o zauwaĹĽone, bez dodatkowego tĹ‚umaczenia przyczyny. JeĹ›li coĹ› nie zostaĹ‚o zauwaĹĽone a powinno, to ty o tym mĂłwisz/uczysz. BÄ™dzie to teĹĽ dobre dla admina i logĂłw, trackowanie ile % tego co byÄ‡ powinno zauwaĹĽone, zostaĹ‚o zauwaĹĽone. przeczytaĹ‚em tylko poczÄ…tek etapu 0 twojej propozycji, potem siÄ™ rozpisaĹ‚em i uznaĹ‚em ĹĽe duĹĽo nowoĹ›ci weszĹ‚o, sporo masz do poprawy wiÄ™c nie czytaĹ‚em reszty bluprintu. teraz masz szczegĂłĹ‚owy opis wiÄ™c moĹĽesz wykonaÄ‡ bluprint duĹĽo lepiej. odnoĹ›nie zakresu, moĹĽesz zaproponowaÄ‡ jeszcze jakieĹ› Ä‡wiczenia. ale moĹĽliwe ĹĽe odĹ‚oĹĽymy je na pĂłĹşniej i dodamy do innego szkolenia bo to wydaje siÄ™ juĹĽ i tak duĹĽe. moĹĽe do szkolenia PQ czÄ™Ĺ›Ä‡ druga albo coĹ›. zobaczymy. moĹĽliwe ĹĽe te szczegĂłĹ‚owe wskazĂłwki narracji trzeba bÄ™dzie rozdzieliÄ‡ na osobny plik, nie w gĹ‚Ăłwnym prompcie bo braknie miejsca, no ale zobaczymy. pomyĹ›l nad tym solidnie, daj sobie czas, rozwaĹĽ rĂłĹĽne opcje, rĂłĹĽne za przeciw, nie spiesz siÄ™, sprĂłbuj wymyĹ›leÄ‡ z czym uĹĽytkownik moĹĽe tu mieÄ‡ problem. BÄ…dĹş krytyczny odnoĹ›nie zrozumiaĹ‚oĹ›ci tego co piszÄ™. Wytknij jeĹ›li zbyt ogĂłlnie, chaotycznie lub niejasno. 
+MyĹ›laĹ‚ przez 18s
+1) DSL â€” co to dokĹ‚adnie znaczy tutaj
+DSL = Domain-Specific Language (jÄ™zyk dziedzinowy).
+W naszym kontekĹ›cie to mini-format zapisu blueprintu, ktĂłry ma staĹ‚e pola i reguĹ‚y (ETAP/CEL/STEPS/CHECKPOINT/CRITERIA/FAIL_OPTIONS/LOG), ĹĽeby agent mĂłgĹ‚ to deterministycznie â€žprzetĹ‚umaczyÄ‡â€ť na dialog szkoleniowy.
+Nie â€žDuĹĽaSuchaListaâ€ť, tylko sformalizowana specyfikacja scenariusza.
+________________________________________
+2) Twoje uwagi â€“ co doprecyzowujemy w systemie ustawieĹ„
+Masz racjÄ™: â€žNarracja 1/2/3â€ť bez definicji siÄ™ rozmyje.
+ProponujÄ™ rozdzieliÄ‡ 2 rzeczy (to usuwa chaos):
+1.	POZIOM NAWIGACJI UI (to co opisaĹ‚eĹ›: Excel/PQ familiarity)
+â€˘	UI1: sĹ‚abo zna Excel
+â€˘	UI2: zna Excel, nie zna PQ
+â€˘	UI3: ma pojÄ™cie o PQ
+2.	NARRACJA (to jest styl tĹ‚umaczenia, niezaleĹĽny od UI)
+â€˘	N1: zwiÄ™Ĺşle, bez backgroundu (komendy + minimum kontekstu)
+â€˘	N2: standard (krĂłtkie â€ždlaczegoâ€ť przy kluczowych miejscach)
+â€˘	N3: rozszerzona (wiÄ™cej kontekstu, analogie do â€žaplikacji/cyklicznoĹ›ciâ€ť, dobre praktyki)
+Dodatkowo:
+â€˘	JÄZYK SZKOLENIA: PL/EN
+â€˘	JÄZYK EXCELA/UI: PL/EN (bo â€žTable Designâ€ť vs â€žProjektowanie tabeliâ€ť itd.)
+â€˘	KRYTYCYZM: zawsze wybiera user, nazwa SZALONY! (z wykrzyknikiem) â€” odnotowane.
+W trybie DORADCA: teĹĽ ma byÄ‡ wskazĂłwka â€žwklej jako zwykĹ‚y tekstâ€ť â€” odnotowane.
+________________________________________
+3) Krytyka Twojej wizji (konkretne ryzyka i gdzie jest chaos)
+A) NajwiÄ™ksze ryzyko: przeciÄ…ĹĽenie (1â€“2h)
+Twoja czÄ™Ĺ›Ä‡ o tabelach w Excelu to w praktyce mini-szkolenie z tabel + structured references + XLOOKUP + auto-expand + totals + spill.
+To jest Ĺ›wietneâ€¦ ale to zjada czas i uwagÄ™ zanim user dotknie PQ.
+Wniosek: to musi byÄ‡ moduĹ‚ opcjonalny / skracalny:
+â€˘	wariant â€žMINâ€ť: tylko Ctrl+T + nazwy tabel + 1 szybki dowĂłd (zielona zakĹ‚adka + nazwa tabeli)
+â€˘	wariant â€žFULLâ€ť: caĹ‚y trening odniesieĹ„, totals, @, auto-expand, XLOOKUP
+I to powinno byÄ‡ sterowane ustawieniem Weryfikacja + Czas (STRICT) oraz decyzjÄ… usera (â€žznam tabele / nie znamâ€ť).
+B) Miejsca niejednoznaczne / mogÄ…ce zablokowaÄ‡ usera
+â€˘	â€žpole na dole (nie pamiÄ™tam nazwy)â€ť â€” agent nie moĹĽe bazowaÄ‡ na niepewnej nazwie elementu UI. Trzeba opisywaÄ‡ funkcjÄ™, nie nazwÄ™.
+â€˘	â€žkliknij Ĺ‚apkÄ… na Errorâ€ť â€” nieprecyzyjne. Trzeba mĂłwiÄ‡: â€žkliknij w komĂłrkÄ™ z Error, w panelu szczegĂłĹ‚Ăłw kliknij link â€Errorâ€™, jeĹ›li widziszâ€ť.
+â€˘	â€žwklej screen i pochwal mi siÄ™ wynikiemâ€ť â€” OK jako opcja, ale nie jako requirement. Daj to jako FAIL_OPTION / opcjonalny dowĂłd przy DOKĹADNEJ weryfikacji.
+C) Mechanizm â€žCo siÄ™ staĹ‚o?â€ť jest dobry, ale trzeba go sformatowaÄ‡
+To powinno byÄ‡ jako OBSERVATION PROMPTS w STEPS, a do logu trafia:
+â€˘	â€žczy user zauwaĹĽyĹ‚ X (tak/nie)â€ť
+â€˘	â€žco dopowiedzieliĹ›myâ€ť
+â€˘	â€žile razy brak obserwacjiâ€ť
+To jest super dla ADMIN.
+________________________________________
+4) Blueprint PQ â€” wersja v0.1 (juĹĽ na Twojej wizji)
+PoniĹĽej masz blueprint w DSL z 1 checkpointem na etap. Jest dĹ‚ugi, ale jest â€žszkieletowo-kompletnyâ€ť. Zrobimy z niego v0.2 po Twoich korektach.
+BLUEPRINT: Power Query (Excel) â€” Case: SprzedaĹĽPL/SprzedaĹĽCZ + Produkty â€” v0.1
+
+PLIKI / DANE
+- Arkusze i zakresy startowe (NIE tabele): SprzedaĹĽPL, SprzedaĹĽCZ, Produkty
+- (opcjonalnie pĂłĹşniej) screeny; teraz: bez screenĂłw jako standard
+
+USTAWIENIA (wybiera USER na starcie; moĹĽe zmieniÄ‡ w trakcie)
+- JÄZYK SZKOLENIA: PL / EN
+- JÄZYK EXCELA/UI: PL / EN
+- POZIOM NAWIGACJI UI: UI1 / UI2 / UI3
+- NARRACJA: N1 / N2 / N3
+- KRYTYCYZM: NISKI / NORMALNY / WYSOKI / SZALONY!
+- CZAS: OFF / SOFT / STRICT (default OFF; STRICT odradzany)
+- WERYFIKACJA: MIN / BALANS / DOKĹADNA
+- ZNAJOMOĹšÄ† TABEL EXCELA: TAK / NIE (jeĹ›li TAK â†’ skracamy moduĹ‚ tabel do minimum)
+
+DISCLAIMERY
+- Szkolenie: Pracujemy na danych treningowych. Nie wklejaj danych poufnych ani operacyjnych. JeĹ›li masz wkleiÄ‡ tabelÄ™, uĹĽyj â€žWklej jako zwykĹ‚y tekstâ€ť, aby przesĹ‚aÄ‡ dane w formie tekstowej. (Opcjonalnie: wklej zrzut ekranu tylko, gdy o to poproszÄ™.)
+- Doradca: Podawaj wyĹ‚Ä…cznie nazwy tabel, kolumn oraz fragmenty kodu transformacji. JeĹ›li wklejasz tabelÄ™ treningowÄ…, wklej jÄ… jako zwykĹ‚y tekst. Nie udostÄ™pniaj danych operacyjnych, finansowych ani osobowych.
+
+LOG (global)
+- ustawienia startowe
+- per etap: PASS/FAIL, liczba prĂłb, uĹĽyte FAIL_OPTIONS
+- OBSERVATIONS: co user zauwaĹĽyĹ‚ vs co trzeba byĹ‚o dopowiedzieÄ‡
+- pytania usera + odpowiedzi (do pĂłĹşniejszego QA/ulepszania)
+- koĹ„cowe wnioski usera
+
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+
+[ETAP S0]
+NAZWA: Start, cel, ustawienia
+CEL: UĹĽytkownik rozumie â€śpo coâ€ť (tabele + PQ jako stabilny tryb pracy) i ma ustawienia.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 4â€“6 min
+STEPS:
+1) Powitanie + proĹ›ba o imiÄ™.
+2) Cel (Twoja narracja):
+   - uczymy siÄ™ tabel + Power Query + podejĹ›cia â€śpipelineâ€ť zamiast formuĹ‚,
+   - stabilnoĹ›Ä‡ (koniec z przesuniÄ™ciami, niedociÄ…gniÄ™ciami),
+   - kontrola poprawnoĹ›ci,
+   - idealne dla plikĂłw cyklicznych: podmieĹ„ dane â†’ odĹ›wieĹĽ PQ â†’ gotowe do druku/analizy,
+   - to nie tylko narzÄ™dzie, ale podejĹ›cie do danych (facts/dimensions, jakoĹ›Ä‡, typy).
+3) PokaĹĽ ustawienia i poproĹ› o wybĂłr.
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: user podaĹ‚ imiÄ™ + wybraĹ‚ ustawienia (lub potwierdziĹ‚ domyĹ›lne).
+FAIL_OPTIONS:
+1) Podaj rekomendowane defaulty (UI2, N2, NORMALNY, CZAS OFF, WERYFIKACJA BALANS)
+2) PrzejdĹş na KOMENDY-1-KROK
+REMediation:
+- jeĹ›li user nie wybiera: agent ustawia default i prosi o â€śOKâ€ť.
+LOG:
+- imiÄ™ + ustawienia startowe
+
+[ETAP E1]
+NAZWA: Excel â€” zamiana zakresĂłw na tabele + nazewnictwo (facts/dim)
+CEL: User zamienia 3 zakresy na tabele i nadaje sensowne nazwy; rozumie fact vs dimension w minimalnym zakresie.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 12â€“20 min (STRICT: skrĂłciÄ‡ do 8â€“10)
+STEPS:
+1) OtwĂłrz plik: 3 arkusze z danymi treningowymi.
+2) Narracja: PQ â€śmusi wiedzieÄ‡ gdzie sÄ… daneâ€ť; adresy A1:H80 sÄ… kruche â†’ tabele sÄ… niezbÄ™dne.
+3) Instrukcja: Ctrl+T, checkbox â€śMy table has headersâ€ť.
+4) Sprawdzenie UI: po klikniÄ™ciu tabeli pojawia siÄ™ zakĹ‚adka Table Design / Projektowanie tabeli.
+5) Mini-teoria: facts vs dimensions (krĂłtko, z angielskimi nazwami).
+6) Ustalenie nazw:
+   - SprzedaĹĽPL i SprzedaĹĽCZ = fact (fctSalesPL / fctSalesCZ lub wg preferencji usera)
+   - Produkty = dimension (dimProducts)
+7) User wykonuje to dla wszystkich 3 zakresĂłw.
+CHECKPOINT:
+TYPE: CONFIRMATION (DOKĹADNA: SCREEN_DESCRIBE)
+CRITERIA:
+- istniejÄ… 3 tabele o uzgodnionych nazwach
+- user potrafi wskazaÄ‡ gdzie w UI jest nazwa tabeli
+FAIL_OPTIONS:
+1) Rozbij na 1 tabelÄ™ naraz + â€śnapisz OKâ€ť
+2) Podaj alternatywnÄ… Ĺ›cieĹĽkÄ™ do Table Design (klik w tabelÄ™ â†’ zakĹ‚adka kontekstowa)
+3) JeĹ›li user â€śzna tabeleâ€ť â†’ przejdĹş na wariant MIN (tylko Ctrl+T + nazwy)
+REMediation:
+- jeĹ›li nazwy niekonsekwentne: agent prowadzi do wspĂłlnej konwencji (case + prefix).
+LOG:
+- czy user znalazĹ‚ Table Design, jakie nazwy wybraĹ‚, ile prĂłb
+
+[ETAP E2]
+NAZWA: Excel â€” (opcjonalne) zachowania tabel: auto-expand + kolumny obliczeniowe
+CEL: User widzi 2 â€śzabĂłjczeâ€ť mechaniki tabel: automatyczne rozszerzanie i automatyczne kopiowanie formuĹ‚.
+PRIORYTET: NISKI (do pominiÄ™cia przy STRICT)
+CZAS_PLANOWANY: 6â€“12 min
+STEPS:
+1) W fctSalesPL dodaj kolumnÄ™ â€śWartoĹ›Ä‡â€ť i formuĹ‚Ä™ =[@IloĹ›Ä‡]*[@Cena].
+2) OBSERVATION: formuĹ‚a sama siÄ™ skopiuje w dĂłĹ‚.
+3) Dopisz nowy wiersz pod tabelÄ….
+4) OBSERVATION: tabela i formuĹ‚y siÄ™ rozszerzÄ….
+CHECKPOINT:
+TYPE: OBSERVATION_SUMMARY (realizowane jako CONFIRMATION)
+CRITERIA: user opisze min. 2 obserwacje: auto-copy formuĹ‚ i auto-expand tabeli.
+FAIL_OPTIONS:
+1) Agent dopowiada obserwacje i prosi o potwierdzenie
+2) PomiĹ„ etap
+REMediation:
+- jeĹ›li user nie widzi zachowania: agent sugeruje gdzie wpisaÄ‡, ĹĽeby tabela siÄ™ rozszerzyĹ‚a.
+LOG:
+- czy user zauwaĹĽyĹ‚ kluczowe efekty
+
+[ETAP PQ1]
+NAZWA: WejĹ›cie do PQ + orientacja + Advanced Editor
+CEL: User potrafi wejĹ›Ä‡ do PQ z tabeli i znaleĹşÄ‡: Queries, Applied Steps, Advanced Editor.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 10â€“15 min
+STEPS:
+1) Z fctSalesPL: Data â†’ From Table/Range.
+2) OmĂłw UI: lista zapytaĹ„, podglÄ…d, Applied Steps, pasek formuĹ‚y.
+3) Advanced Editor: gdzie jest (podaj 2 Ĺ›cieĹĽki zaleĹĽnie od UI language).
+4) Zasada weryfikacji: gdy proszÄ™ o kod, wklejasz kod M z Advanced Editor (bez danych).
+CHECKPOINT:
+TYPE: CONFIRMATION (DOKĹADNA: PASTE_M krĂłtkie)
+CRITERIA: user potwierdzi, ĹĽe:
+- widzi Applied Steps
+- potrafi otworzyÄ‡ Advanced Editor
+- wie skÄ…d kopiowaÄ‡ M
+FAIL_OPTIONS:
+1) Tryb 1-krok: â€śotwĂłrz AE â†’ napisz OKâ€ť
+2) Alternatywne Ĺ›cieĹĽki (Home/View/PPM na query)
+REMediation:
+- jeĹ›li UI siÄ™ rĂłĹĽni: agent przechodzi na instrukcje opisowe (â€śzakĹ‚adka u gĂłryâ€¦ ikona â€¦â€ť).
+LOG:
+- czy znalazĹ‚ AE, ile prĂłb
+
+[ETAP PQ2]
+NAZWA: Close & Load + pojÄ™cie â€śodĹ›wieĹĽaniaâ€ť
+CEL: User rozumie, ĹĽe query to procedura; odĹ›wieĹĽenie odtwarza wynik; zna â€śOnly connectionâ€ť.
+PRIORYTET: WYSOKI
+CZAS_PLANOWANY: 8â€“12 min
+STEPS:
+1) Close & Load â†’ zaĹ‚aduj wynik (na chwilÄ™) jako tabela.
+2) OBSERVATION: wynik to efekt query, nie â€śrÄ™czna tabelaâ€ť.
+3) Skasuj dane w wynikowej tabeli â†’ Refresh.
+4) Ustaw Load To â†’ Only Connection (i usuĹ„ zbÄ™dny arkusz z wynikiem).
+CHECKPOINT:
+TYPE: CONFIRMATION
+CRITERIA: user potwierdza, ĹĽe:
+- odĹ›wieĹĽenie przywrĂłciĹ‚o wynik
+- query ustawione na Only Connection
+FAIL_OPTIONS:
+1) Podaj dokĹ‚adne kroki â€śLoad Toâ€ť
+2) JeĹ›li user siÄ™ gubi: prowadĹş po UI po jednym klikniÄ™ciu
+REMediation:
+- jeĹ›li user nie widzi opcji: agent kaĹĽe wejĹ›Ä‡ przez Queries & Connections pane.
+LOG:
+- czy zrozumiaĹ‚ â€śprocedura vs wynikâ€ť, problemy z Load To
+
+[ETAP PQ3]
+NAZWA: ZaĹ‚aduj Produkty i SprzedaĹĽCZ jako query (Only connection)
+CEL: User ma 3 query: SalesPL, SalesCZ, Products.
+PRIORYTET: KRYTYCZNY
+CZAS_PLANOWANY: 8â€“15 min
+STEPS:
+1) Dodaj dimProducts do PQ â†’ ustaw Only Connection.
+2) Dodaj fctSalesCZ do PQ â†’ ustaw Only Connection.
+3) PokaĹĽ wejĹ›cie przez Queries & Connections.
+CHECKPOINT:

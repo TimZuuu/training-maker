@@ -1,0 +1,250 @@
+﻿
+TASK
+
+W nagĹ‚Ăłwku nowej kolumny wpisz WartoĹ›Ä‡.
+Opisz, co siÄ™ staĹ‚o.
+
+NastÄ™pnie w pierwszym wierszu wpisz:
+=
+kliknij IloĹ›Ä‡
+*
+kliknij Cena
+
+Opisz, co siÄ™ staĹ‚o.
+
+----------------------------------------
+Ä†WICZENIE â€” XLOOKUP
+
+TASK
+
+Dodaj kolumnÄ™ NazwaProduktu.
+UĹĽyj funkcji XLOOKUP, aby pobraÄ‡ nazwÄ™ produktu z tabeli dimProdukty.
+
+Po wykonaniu opisz, czy dziaĹ‚a poprawnie.
+
+----------------------------------------
+CZYSZCZENIE PRZED PQ
+
+TEXT
+
+UsuĹ„ kolumny WartoĹ›Ä‡ i NazwaProduktu.
+ByĹ‚y potrzebne tylko do Ä‡wiczeĹ„.
+
+----------------------------------------
+ETAP 2 â€” POWER QUERY
+----------------------------------------
+
+TASK â€” dodanie tabeli do PQ
+
+Kliknij w tabelÄ™ SprzedaĹĽPL.
+ZakĹ‚adka Dane â†’ Z tabeli/zakresu.
+ZatwierdĹş.
+
+Opisz, co siÄ™ otworzyĹ‚o.
+
+TEXT
+
+Power Query to osobna warstwa Excela.
+MoĹĽemy wykonywaÄ‡ tam transformacje danych w sposĂłb powtarzalny i bezpieczny.
+
+Po lewej â€” lista zapytaĹ„ (queries).
+Na Ĺ›rodku â€” podglÄ…d danych.
+Po prawej â€” pojedyncze kroki transformacji.
+Nad tabelÄ… â€” pasek kodu kroku.
+
+----------------------------------------
+TASK â€” Advanced Editor
+
+PrzejdĹş do NarzÄ™dzia gĹ‚Ăłwne â†’ Edytor zaawansowany.
+
+Zobaczysz kod w jÄ™zyku M
+(uĹĽywany takĹĽe w Power BI).
+
+To kolejne kroki zapisane jako instrukcje.
+
+Skopiuj caĹ‚y kod i wklej do czatu jako checkpoint.
+
+----------------------------------------
+ETAP 3 â€” TYPY DANYCH
+----------------------------------------
+
+TEXT
+
+Typ danych to wymĂłg, nie opcja.
+
+Program musi wiedzieÄ‡, czy coĹ› jest liczbÄ… (ĹĽeby liczyÄ‡),
+datÄ… (ĹĽeby budowaÄ‡ chronologiÄ™),
+tekstem (ĹĽeby nie prĂłbowaÄ‡ liczyÄ‡),
+walutÄ… (ĹĽeby uniknÄ…Ä‡ bĹ‚Ä™dĂłw).
+
+----------------------------------------
+TASK
+
+ZmieĹ„ typ kolumny Cena na Waluta
+wybierajÄ…c najpierw â€žDodaj nowy krokâ€ť.
+
+Opisz, co siÄ™ staĹ‚o w panelu krokĂłw.
+
+TEXT
+Nie chcemy dwĂłch krokĂłw typu.
+
+----------------------------------------
+TASK
+
+UsuĹ„ dodatkowy krok.
+ZmieĹ„ typ ponownie, tym razem wybierz â€žZamieĹ„ bieĹĽÄ…cyâ€ť.
+Opisz, co siÄ™ zmieniĹ‚o.
+
+----------------------------------------
+TASK
+
+W kolumnie IloĹ›Ä‡ ustaw typ Liczba caĹ‚kowita.
+Opisz, co siÄ™ staĹ‚o.
+
+Kliknij komĂłrkÄ™ z bĹ‚Ä™dem.
+W dolnej czÄ™Ĺ›ci okna sprawdĹş raport bĹ‚Ä™du i opisz jego treĹ›Ä‡.
+
+----------------------------------------
+TASK
+
+PPM na nagĹ‚Ăłwku kolumny IloĹ›Ä‡ â†’ ZamieĹ„ bĹ‚Ä™dy â†’ wpisz 0.
+
+Opisz, co siÄ™ zmieniĹ‚o.
+
+----------------------------------------
+TASK
+
+Kliknij strzaĹ‚kÄ™ filtra w kolumnie IloĹ›Ä‡.
+Odznacz 0 i null.
+ZatwierdĹş.
+
+Opisz, co zaobserwowaĹ‚eĹ› w danych i w panelu krokĂłw.
+
+----------------------------------------
+CHECKPOINT
+
+Skopiuj caĹ‚y kod z Edytora zaawansowanego
+i wklej do czatu do weryfikacji.
+
+----------------------------------------
+ETAP 4 â€” MERGE
+----------------------------------------
+
+TASK
+
+Scal zapytania jako nowe:
+SprzedaĹĽPL + Produkty
+po ID produktu
+typ: Lewy zewnÄ™trzny.
+
+Powinno wyĹ›wietliÄ‡ siÄ™ ile rekordĂłw zostaĹ‚o sparowanych.
+JeĹ›li nie wszystkie â€” moĹĽliwy problem z ID.
+
+Opisz, co powstaĹ‚o.
+
+----------------------------------------
+TEXT
+
+Tabela zostaĹ‚a doĹ‚Ä…czona, ale jest nierozwiniÄ™ta.
+KlikajÄ…c komĂłrkÄ™ w nowej kolumnie,
+w dolnej czÄ™Ĺ›ci zobaczysz jej zawartoĹ›Ä‡.
+
+RozwiniÄ™cie = dodanie kolumn.
+
+----------------------------------------
+TASK
+
+RozwiĹ„ kolumnÄ™ i wybierz nazwÄ™ produktu.
+Opisz, co siÄ™ zmieniĹ‚o.
+
+----------------------------------------
+ETAP 5 â€” REUSE PIPELINE (PL â†’ CZ)
+----------------------------------------
+
+TASK
+
+Skopiuj caĹ‚y kod M ze SprzedaĹĽPL.
+Wklej go do SprzedaĹĽCZ.
+ZmieĹ„ nazwÄ™ ĹşrĂłdĹ‚a.
+
+Opisz, czy dziaĹ‚a poprawnie.
+
+----------------------------------------
+ETAP 6 â€” APPEND
+----------------------------------------
+
+TASK
+
+DoĹ‚Ä…cz zapytania jako nowe:
+SprzedaĹĽPL + SprzedaĹĽCZ.
+Nazwij wynik SprzedaĹĽTOTAL.
+
+Opisz, co siÄ™ staĹ‚o.
+
+TEXT
+
+W tej wersji czyszczenie wykonaĹ‚o siÄ™ osobno dla PL i CZ.
+
+----------------------------------------
+TASK
+
+UsuĹ„ SprzedaĹĽTOTAL.
+
+W SprzedaĹĽPL po kroku ĹąrĂłdĹ‚o
+dodaj Append przed czyszczeniem,
+tak aby oba kraje przechodziĹ‚y jeden wspĂłlny pipeline.
+
+Opisz, co siÄ™ zmieniĹ‚o w panelu krokĂłw.
+
+----------------------------------------
+CHECKPOINT
+
+Skopiuj caĹ‚y kod M koĹ„cowego zapytania
+i wklej do czatu do weryfikacji.
+
+----------------------------------------
+ETAP 7 â€” LOAD + PIVOT
+----------------------------------------
+
+TASK
+
+ZaĹ‚aduj wynik do Tabeli przestawnej.
+Ustaw dowolny prosty pivot pokazujÄ…cy sprzedaĹĽ.
+
+ZrĂłb screen i wklej do czatu.
+OceniÄ™, czy wszystko wyglÄ…da poprawnie.
+
+----------------------------------------
+KONIEC TECHNICZNY
+----------------------------------------
+
+Po szkoleniu:
+
+- Co byĹ‚o dla Ciebie najbardziej zaskakujÄ…ce?
+- Co wdroĹĽysz w swojej pracy?
+- Co byĹ‚o niejasne?
+
+========================================
+KONIEC BLUEPRINTU
+========================================
+________________________________________
+PotwierdĹş:
+1.	Czy zakres techniczny jest kompletny?
+2.	Czy narracja jest wystarczajÄ…co Twoja?
+3.	Czy coĹ› jest zbyt uproszczone / zbyt suche?
+Po akceptacji â†’ tworzymy plik â€žStandard BlueprintĂłwâ€ť dla Master Prompta.
+wtf ? caĹ‚kowicie pominÄ…Ĺ‚eĹ› sekcje obserwacji wszÄ™dzie!
+Masz racjÄ™.
+To co wysĹ‚aĹ‚em byĹ‚o juĹĽ â€žszkieletem scenariuszaâ€ť, a nie blueprintem w Twoim modelu (TASK + OBSERVATION + FILL + TEXT).
+To byĹ‚ regres strukturalny.
+Wracamy do wĹ‚aĹ›ciwego formatu.
+ZrobiÄ™ teraz:
+â€˘	peĹ‚ny blueprint,
+â€˘	z zachowaniem Twojej narracji,
+â€˘	z OBSERVATION po kaĹĽdym zadaniu wymagajÄ…cym percepcji,
+â€˘	bez sztucznego mnoĹĽenia TASK-Ăłw,
+â€˘	bez redukowania semantyki,
+â€˘	z checkpointami,
+â€˘	z logicznym flow,
+â€˘	bez wycinania treĹ›ci, ktĂłre wczeĹ›niej dopracowaliĹ›my.
+Nie bÄ™dÄ™ juĹĽ kompresowaĹ‚ treĹ›ci.

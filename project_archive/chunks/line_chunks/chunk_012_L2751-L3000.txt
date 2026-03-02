@@ -1,0 +1,250 @@
+﻿â€˘	FormuĹ‚y w kolumnach reagujÄ… na zmianÄ™ zakresu.
+________________________________________
+FILL
+â€žAutorozszerzanie dziaĹ‚a dobrze, ale nie zawsze perfekcyjnie.
+JeĹ›li dane sÄ… wklejane nietypowo, z pustymi wierszami, albo ktoĹ› przypadkowo usunie fragment zakresu â€” tabela moĹĽe nie objÄ…Ä‡ wszystkiego.
+Dlatego przy pracy z danymi zawsze warto mieÄ‡ Ĺ›wiadomoĹ›Ä‡, gdzie koĹ„czy siÄ™ tabela.â€ť
+________________________________________
+WYRAĹąNE PRZEJĹšCIE DO POWER QUERY
+________________________________________
+[ETAP PQ1] WEJĹšCIE DO POWER QUERY
+TEXT â€” INTRO DO PQ
+â€žDo tej pory pracowaliĹ›my w warstwie arkusza.
+Teraz przejdziemy do czegoĹ›, co dziaĹ‚a trochÄ™ inaczej.
+Power Query to osobna warstwa pracy z danymi.
+MoĹĽesz w nim zrobiÄ‡ prawie wszystko to, co w Excelu â€” filtrowaÄ‡, zmieniaÄ‡ kolumny, Ĺ‚Ä…czyÄ‡ tabele, liczyÄ‡ wartoĹ›ci â€” ale w sposĂłb:
+â€˘	bezpieczniejszy,
+â€˘	bardziej powtarzalny,
+â€˘	szybszy przy wiÄ™kszych danych,
+â€˘	i znacznie bardziej skalowalny.
+To nie jest kolejny arkusz.
+To silnik przetwarzania danych.â€ť
+________________________________________
+TASK â€” Dodanie tabeli do Power Query
+â€žDodajmy pierwszÄ… tabelÄ™ do Power Query.
+PrzejdĹş do arkusza SprzedaĹĽPL.
+Kliknij w obrÄ™bie tabeli.
+PrzejdĹş do zakĹ‚adki Data.
+Kliknij â€žFrom Table/Rangeâ€ť
+(albo kliknij prawym przyciskiem myszy i wybierz odpowiedniÄ… opcjÄ™).â€ť
+Opisz, co siÄ™ otworzyĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	OtworzyĹ‚o siÄ™ nowe okno / nowy panel.
+________________________________________
+TEXT â€” OPIS INTERFEJSU
+â€žTo jest edytor Power Query.
+Po lewej widzisz listÄ™ zapytaĹ„.
+Po prawej widzisz pojedyncze kroki transformacji danych.
+Na Ĺ›rodku widzisz efekt aktualnie wybranego kroku.
+Nad podglÄ…dem znajduje siÄ™ pasek kodu, pokazujÄ…cy kod wybranego kroku.
+Na dole znajduje siÄ™ pole pokazujÄ…ce szczegĂłĹ‚y zaznaczonej komĂłrki â€” ale pojawia siÄ™ dopiero po klikniÄ™ciu w dowolnÄ… komĂłrkÄ™ w tabeli.â€ť
+________________________________________
+TASK â€” Aktywacja dolnego pola
+â€žKliknij dowolnÄ… komĂłrkÄ™ w podglÄ…dzie danych.
+Zobacz, co pojawiĹ‚o siÄ™ na dole okna.â€ť
+Opisz, co widzisz.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PojawiĹ‚o siÄ™ pole z informacjÄ… o wartoĹ›ci.
+â€˘	W przypadku bĹ‚Ä™du widoczne sÄ… szczegĂłĹ‚y bĹ‚Ä™du.
+________________________________________
+TASK â€” Zrozumienie krokĂłw
+â€žTeraz kliknij rĂłĹĽne kroki po prawej stronie.
+Za kaĹĽdym razem obserwuj, jak zmienia siÄ™ podglÄ…d danych oraz pasek kodu nad tabelÄ….â€ť
+Opisz, co siÄ™ zmienia.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Zmienia siÄ™ widok danych.
+â€˘	KaĹĽdy krok reprezentuje jednÄ… operacjÄ™.
+â€˘	Pasek kodu pokazuje kod wybranego kroku.
+________________________________________
+TASK â€” Advanced Editor
+â€žPrzejdĹş do zakĹ‚adki Home i kliknij Advanced Editor.â€ť
+Opisz, co widzisz.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Widzisz caĹ‚y kod zapytania.
+â€˘	Kod zaczyna siÄ™ od Source.
+â€˘	Kolejne linie odpowiadajÄ… kolejnym krokom transformacji.
+________________________________________
+FILL
+â€žKod moĹĽesz modyfikowaÄ‡ na dwa sposoby:
+â€˘	W pasku kodu nad tabelÄ… â€” tam wykonujesz drobne poprawki w pojedynczym kroku.
+â€˘	W Advanced Editor â€” tam moĹĽesz wykonywaÄ‡ wiÄ™ksze operacje, przeklejaÄ‡ caĹ‚e fragmenty kodu, zmieniaÄ‡ strukturÄ™ zapytania.
+To tutaj bÄ™dziesz kopiowaĹ‚ kod do weryfikacji i tutaj bÄ™dziemy wprowadzaÄ‡ wiÄ™ksze modyfikacje.â€ť
+________________________________________
+JeĹĽeli wszystko OK, przechodzimy do:
+â€˘	Close & Load
+â€˘	Refresh
+â€˘	Only Connection
+â€˘	Queries & Connections
+â€˘	Ä‡wiczeĹ„ z typami danych (Replace Current vs Add Step, Error link, Replace Errors)
+I dalej w tym samym stylu.
+Lecimy?
+ZĹ‚ap w prawym dolnym rogu tabeli maĹ‚y znacznik rozszerzania - dodaj ĹĽe to trĂłjkÄ…t Po lewej widzisz listÄ™ zapytaĹ„. - zapytaĹ„/query, niech uĹĽytkownik wie ĹĽe query to zapytanie Na Ĺ›rodku widzisz tabele/efekt aktualnie TASKI aktywacja dolnego pola i zrozumienie krokĂłw to jeden task, nie rozdzielaj PrzejdĹş do zakĹ‚adki Home i kliknij Advanced Editor po lewej stronie. lecimy dajesz mi materiaĹ‚ dobrymi paczkami, tak trzymaÄ‡, nie przeciÄ…ĹĽa mnie to
+Dobrze.
+Wprowadzam poprawki i lecimy dalej â€” w paczkach, czytelnie.
+________________________________________
+[ETAP E2 â€” doprecyzowanie kontroli zakresu]
+TASK â€” rÄ™czna kontrola zakresu tabeli
+â€žSprawdĹşmy Ĺ›wiadomie zakres tabeli.
+W prawym dolnym rogu tabeli zobaczysz maĹ‚y trĂłjkÄ…t â€” to znacznik rozszerzania zakresu.
+ZĹ‚ap go myszkÄ… i przeciÄ…gnij w dĂłĹ‚, a potem w gĂłrÄ™.
+Obserwuj, jak zmienia siÄ™ zakres tabeli.
+NastÄ™pnie wrĂłÄ‡ do poprzedniego stanu skrĂłtem Ctrl + Z.â€ť
+Opisz, co zauwaĹĽyĹ‚eĹ›.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Zakres tabeli moĹĽna rÄ™cznie zmieniaÄ‡.
+â€˘	Dane wchodzÄ… i wychodzÄ… z obszaru tabeli.
+â€˘	FormuĹ‚y reagujÄ… na zmianÄ™ zakresu.
+________________________________________
+FILL
+â€žAutorozszerzanie dziaĹ‚a dobrze, ale nie jest nieomylne.
+JeĹ›li dane sÄ… wklejane nietypowo, z pustymi wierszami albo ktoĹ› rÄ™cznie zmieni zakres â€” tabela moĹĽe nie objÄ…Ä‡ wszystkiego.
+Dlatego zawsze warto Ĺ›wiadomie kontrolowaÄ‡ zakres.â€ť
+________________________________________
+[ETAP PQ1] WEJĹšCIE DO POWER QUERY
+________________________________________
+TEXT â€” INTRO DO PQ
+â€žDo tej pory pracowaliĹ›my w warstwie arkusza.
+Teraz przejdziemy do innej warstwy â€” Power Query.
+Power Query to silnik przetwarzania danych.
+MoĹĽesz tam zrobiÄ‡ prawie wszystko to, co w Excelu â€” filtrowaÄ‡, zmieniaÄ‡ kolumny, Ĺ‚Ä…czyÄ‡ tabele, liczyÄ‡ wartoĹ›ci â€” ale:
+â€˘	bezpieczniej,
+â€˘	szybciej przy wiÄ™kszych danych,
+â€˘	w sposĂłb powtarzalny,
+â€˘	bez ryzyka przypadkowego zepsucia formuĹ‚y.
+To nie jest kolejny arkusz.
+To warstwa transformacji danych.â€ť
+________________________________________
+TASK â€” Dodanie tabeli do Power Query
+â€žDodajmy pierwszÄ… tabelÄ™ do Power Query.
+PrzejdĹş do arkusza SprzedaĹĽPL.
+Kliknij w obrÄ™bie tabeli.
+PrzejdĹş do zakĹ‚adki Data.
+Kliknij â€žFrom Table/Rangeâ€ť
+(albo prawym przyciskiem myszy â†’ odpowiednia opcja).â€ť
+Opisz, co siÄ™ otworzyĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	OtworzyĹ‚o siÄ™ nowe okno / nowy panel.
+________________________________________
+TEXT â€” OPIS INTERFEJSU
+â€žTo jest edytor Power Query.
+Po lewej widzisz listÄ™ zapytaĹ„ (query).
+Zapytanie = query.
+Po prawej widzisz pojedyncze kroki transformacji danych.
+Na Ĺ›rodku widzisz tabelÄ™ â€” czyli efekt aktualnie wybranego kroku.
+Nad podglÄ…dem znajduje siÄ™ pasek kodu, pokazujÄ…cy kod wybranego kroku.â€ť
+________________________________________
+TASK â€” aktywacja dolnego pola + zrozumienie krokĂłw
+â€žKliknij dowolnÄ… komĂłrkÄ™ w podglÄ…dzie danych.
+Na dole pojawi siÄ™ pole pokazujÄ…ce szczegĂłĹ‚y zaznaczonej komĂłrki (wartoĹ›Ä‡ albo informacjÄ™ o bĹ‚Ä™dzie).
+Teraz kliknij rĂłĹĽne kroki po prawej stronie.
+Za kaĹĽdym razem obserwuj:
+â€˘	jak zmienia siÄ™ tabela na Ĺ›rodku,
+â€˘	jak zmienia siÄ™ pasek kodu nad tabelÄ….â€ť
+Opisz, co zauwaĹĽasz.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Dolne pole pojawia siÄ™ dopiero po klikniÄ™ciu komĂłrki.
+â€˘	KaĹĽdy krok zmienia efekt transformacji.
+â€˘	Pasek kodu pokazuje kod wybranego kroku.
+________________________________________
+TASK â€” Advanced Editor
+â€žPrzejdĹş do zakĹ‚adki Home i kliknij Advanced Editor po lewej stronie.â€ť
+Opisz, co widzisz.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Widzisz caĹ‚y kod zapytania.
+â€˘	Kod zaczyna siÄ™ od Source.
+â€˘	KaĹĽdy krok transformacji ma swĂłj zapis w jÄ™zyku M.
+________________________________________
+FILL
+â€žKod moĹĽesz modyfikowaÄ‡ na dwa sposoby:
+â€˘	w pasku kodu nad tabelÄ… â€” drobne poprawki w jednym kroku,
+â€˘	w Advanced Editor â€” wiÄ™ksze zmiany, przeklejanie fragmentĂłw, zmiana struktury zapytania.
+To tutaj bÄ™dziemy kopiowaÄ‡ kod do weryfikacji.â€ť
+________________________________________
+Kolejna paczka: Close & Load + odĹ›wieĹĽanie + Only Connection
+Lecimy.
+ZĹ‚ap go myszkÄ… i przeciÄ…gnij w dĂłĹ‚, a potem w gĂłrÄ™. - teĹĽ na boki Po prawej widzisz pojedyncze kroki transformacji danych danego query (np. usuĹ„ duplikaty, odfiltruj 0 itp.). TASK â€” Advanced Editor â€žPrzejdĹş do zakĹ‚adki Home i kliknij Advanced Editor po lewej stronie.â€ť Opisz, co widzisz. - tu nie pytamy o obserwacje, maĹ‚o kto to zauwaĹĽy, tu mamy opowiedzieÄ‡ te obserwacje 
+Dobrze.
+Poprawiam i lecimy dalej bez rozwlekania.
+________________________________________
+[ETAP E2 â€” korekta rÄ™cznej kontroli zakresu]
+TASK â€” rÄ™czna kontrola zakresu tabeli
+â€žSprawdĹşmy Ĺ›wiadomie zakres tabeli.
+W prawym dolnym rogu tabeli zobaczysz maĹ‚y trĂłjkÄ…t â€” to znacznik rozszerzania zakresu.
+ZĹ‚ap go myszkÄ… i przeciÄ…gnij:
+â€˘	w dĂłĹ‚,
+â€˘	w gĂłrÄ™,
+â€˘	a takĹĽe na boki.
+Obserwuj, jak zmienia siÄ™ zakres tabeli.
+NastÄ™pnie wrĂłÄ‡ do poprzedniego stanu skrĂłtem Ctrl + Z.â€ť
+Opisz, co zauwaĹĽyĹ‚eĹ›.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Zakres tabeli moĹĽna zmieniaÄ‡ w pionie i poziomie.
+â€˘	Dane wchodzÄ… i wychodzÄ… z obszaru tabeli.
+â€˘	FormuĹ‚y reagujÄ… na zmianÄ™ zakresu.
+________________________________________
+FILL
+â€žAutorozszerzanie dziaĹ‚a dobrze, ale nie jest nieomylne.
+JeĹ›li dane sÄ… wklejane nietypowo, z pustymi wierszami albo ktoĹ› rÄ™cznie zmieni zakres â€” tabela moĹĽe nie objÄ…Ä‡ wszystkiego.
+Dlatego zawsze warto Ĺ›wiadomie kontrolowaÄ‡ zakres.â€ť
+________________________________________
+[ETAP PQ1 â€” korekty interfejsu]
+________________________________________
+TEXT â€” OPIS INTERFEJSU (doprecyzowany)
+â€žTo jest edytor Power Query.
+Po lewej widzisz listÄ™ zapytaĹ„ (query).
+Zapytanie = query.
+Po prawej widzisz pojedyncze kroki transformacji danych danego query
+(np. zmiana typu, usuniÄ™cie kolumny, filtr, usuniÄ™cie duplikatĂłw itd.).
+Na Ĺ›rodku widzisz tabelÄ™ â€” czyli efekt aktualnie wybranego kroku.
+Nad podglÄ…dem znajduje siÄ™ pasek kodu, pokazujÄ…cy kod wybranego kroku.â€ť
+________________________________________
+TASK â€” aktywacja dolnego pola + zrozumienie krokĂłw
+â€žKliknij dowolnÄ… komĂłrkÄ™ w podglÄ…dzie danych.
+Na dole pojawi siÄ™ pole pokazujÄ…ce szczegĂłĹ‚y zaznaczonej komĂłrki (wartoĹ›Ä‡ albo informacjÄ™ o bĹ‚Ä™dzie).
+Teraz kliknij rĂłĹĽne kroki po prawej stronie.
+Za kaĹĽdym razem obserwuj:
+â€˘	jak zmienia siÄ™ tabela na Ĺ›rodku,
+â€˘	jak zmienia siÄ™ pasek kodu nad tabelÄ….â€ť
+Opisz, co zauwaĹĽasz.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Dolne pole pojawia siÄ™ dopiero po klikniÄ™ciu komĂłrki.
+â€˘	KaĹĽdy krok reprezentuje jednÄ… operacjÄ™.
+â€˘	Pasek kodu pokazuje kod wybranego kroku.
+________________________________________
+TASK â€” Advanced Editor
+â€žPrzejdĹş do zakĹ‚adki Home i kliknij Advanced Editor po lewej stronie.â€ť
+________________________________________
+TEXT â€” opis tego, co widzi (bez pytania)
+â€žOtworzyĹ‚o siÄ™ okno z caĹ‚ym kodem zapytania.
+Widzisz:
+â€˘	sekcjÄ™ Source â€” czyli ĹşrĂłdĹ‚o danych,
+â€˘	kolejne kroki zapisane jako instrukcje jÄ™zyka M,
+â€˘	strukturÄ™ zaczynajÄ…cÄ… siÄ™ od let i koĹ„czÄ…cÄ… na in.
+To jest peĹ‚na definicja Twojego pipelineâ€™u.
+MoĹĽesz tu wykonywaÄ‡ wiÄ™ksze operacje:
+zmieniaÄ‡ kolejnoĹ›Ä‡ krokĂłw, przeklejaÄ‡ fragmenty kodu, tworzyÄ‡ bardziej zaawansowane transformacje.
+Drobne poprawki wykonuje siÄ™ w pasku kodu nad tabelÄ….
+WiÄ™ksze modyfikacje â€” wĹ‚aĹ›nie tutaj.â€ť
+________________________________________
+Kolejna paczka
+Teraz przechodzimy do:
+â€˘	Close & Load
+â€˘	Refresh
+â€˘	Only Connection
+â€˘	Queries & Connections
+â€˘	pierwsze Ä‡wiczenia z typami danych (Replace current vs Add new step, Error link, Replace Errors)
+LecÄ™ dalej.
+kolejne kroki zapisane jako instrukcje jÄ™zyka M (ten jÄ™zyk teĹĽ jest wykorzystywany w Power BI) MoĹĽesz tu wykonywaÄ‡ wiÄ™ksze operacje: zmieniaÄ‡ kolejnoĹ›Ä‡ krokĂłw, przeklejaÄ‡ fragmenty kodu, tworzyÄ‡ bardziej zaawansowane transformacje. - caĹ‚e to wywal, za duĹĽo gadania i niepoprawne. zmiana kolejnoĹ›ci krokĂłw jest meeega ciÄ™ĹĽka w kodzie m bo kaĹĽdy krok siÄ™ odnosi do poprzedniego. Raczej bÄ™dziemy zalecaÄ‡ kopiowanie caĹ‚ego kodu i dyskusja nad nim z czatem 
+Dobrze. Usuwam zbÄ™dne rozwlekanie i korygujÄ™ merytorycznie.
+________________________________________
+TASK â€” Advanced Editor

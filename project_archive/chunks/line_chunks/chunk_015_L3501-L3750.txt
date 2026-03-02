@@ -1,0 +1,250 @@
+﻿đź‘‰ Merge z tabelÄ… Produkty
+đź‘‰ Reuse kodu M (PL â†’ CZ)
+đź‘‰ Append + refaktoryzacja pipeline
+Lecimy dalej?
+Opisz, co staĹ‚o siÄ™ z krokami po prawej stronie. - moĹĽe ogĂłĹ‚em, wszÄ™dzie formuĹ‚ujmy to raczej w sposĂłb "Opisz co zaobserwowaĹ‚eĹ› w panelu krokĂłw" czyli nie co siÄ™ staĹ‚o ale co zaobserwowaĹ‚eĹ›. waĹĽna rĂłĹĽnica semantyczna aaa nie czekaj, tu jeszcze innaczej. ma byÄ‡ "Kliknij wszystkie kroki i opisz..." uĹĽytkownik musi w nie kliknÄ…Ä‡ ĹĽeby zauwaĹĽyÄ‡ bĹ‚Ä…d typ danych TEXT - bardzo krĂłtko opisaĹ‚eĹ›, ja na poczÄ…tku chyba duĹĽo wiÄ™cej napisaĹ‚em. Tu musi byÄ‡ troszkÄ™ mocniejszy wykĹ‚ad o tym jak bardzo jest to istotne i jak wiele problemĂłw sprawia jeĹ›li jest pomijane/zaniedbane. Powinno byÄ‡ traktowane jak wymĂłg a nie opcja TASK â€” usuniÄ™cie zbÄ™dnego kroku - nie opisujesz czemu go usuwamy. ale w sumie to raczej wina powyĹĽszej obserwacji. dodaj w obserwacji ĹĽe kolumna jest NIEPOTRZEBNIE przeksztaĹ‚cona drugi raz potem w task "ĹĽeby przeksztaĹ‚ciÄ‡ tylko raz, zrobimy to inaczej" Dlatego najczÄ™Ĺ›ciej wybieramy ZamieĹ„ bieĹĽÄ…cy.â€ť - wywal ANY oznacza: system nie jest pewien typu, moĹĽe tu byÄ‡ wszystko. wywalmy Ä‡wiczenie z klikaniem w error tak ĹĽeby powstaĹ‚ nowy krok. to bÄ™dzie mieszanie szkolonemu. Niech tylko kliknie na pole erroru i zobaczy tekst erroru w polu poniĹĽej BÄ™dÄ…c na kolumnie IloĹ›Ä‡, zamieĹ„ bĹ‚Ä™dy na wartoĹ›Ä‡ 0 - zamieĹ„ na "Kliknij PPM na etykietÄ™ kolumny IloĹ›Ä‡". PamiÄ™taj ĹĽe szkolimy, jeĹ›li ja wczeĹ›niej pisaĹ‚em szczegĂłĹ‚owo typu "kliknij tu, przeciÄ…gnij tu" to byĹ‚o bardzo waĹĽne. nie zamieniaj tego na "zamieĹ„" bo szkolony nie wie co to znaczy. teoretycznie przeprowadzamy go przez to po raz pierwszy. czÄ™Ĺ›Ä‡ 5 W kolumnie IloĹ›Ä‡, kliknij strzaĹ‚kÄ™ po prawej stronie... po tym FILL Uwaga! Twoje klikanie jest interpretowane przez PQ i zamieniane na kod. Teraz powinien powstaÄ‡ kod filtrujÄ…cy wartoĹ›ci rĂłĹĽne od (czyli <>) 0 albo null. JeĹ›li w kolumnie mielibyĹ›my tylko 1, 0 i null, ta sama akcja wygenerowaĹ‚a by kod filtruj wartoĹ›ci = 1. Trzeba na to zwracaÄ‡ uwagÄ™ 
+Jasne. Wprowadzam te korekty wprost do bieĹĽÄ…cej paczki PQ3 (bez metakommentarzy w BP), zachowujÄ…c TwĂłj styl szkoleniowy i precyzjÄ™ klikania.
+PoniĹĽej podajÄ™ poprawionÄ… wersjÄ™ ETAPU PQ3.
+________________________________________
+[ETAP PQ3] TYPY DANYCH, BĹÄDY I KONTROLA KROKĂ“W (poprawione)
+CEL:
+UĹĽytkownik rozumie:
+â€˘	ĹĽe kroki zaleĹĽÄ… od siebie,
+â€˘	jak dziaĹ‚a krok Zmieniono typ,
+â€˘	rĂłĹĽnicÄ™ miÄ™dzy Dodaj nowy krok i ZamieĹ„ bieĹĽÄ…cy,
+â€˘	czym jest typ Dowolny (Any),
+â€˘	jak diagnozowaÄ‡ i naprawiaÄ‡ bĹ‚Ä™dy,
+â€˘	jak filtrowanie klikiem przekĹ‚ada siÄ™ na kod.
+________________________________________
+CZÄĹšÄ† 1 â€” ZMIANA NAZWY KOLUMNY I KONFLIKT Z â€žZMIENIONO TYPâ€ť
+TASK â€” zmiana nazwy kolumny
+â€žOtwĂłrz zapytanie SprzedaĹĽPL (PPM â†’ Edytuj).
+Kliknij krok ĹąrĂłdĹ‚o.
+W podglÄ…dzie danych kliknij nazwÄ™ jednej z kolumn i zmieĹ„ jÄ…
+(np. dodaj na koĹ„cu cyfrÄ™ 1).
+ZatwierdĹş zmianÄ™.â€ť
+________________________________________
+TASK â€” sprawdzenie skutku w krokach
+â€žTeraz kliknij po kolei wszystkie kroki w panelu po prawej stronie.
+Obserwuj, czy na ktĂłrymĹ› kroku pojawia siÄ™ bĹ‚Ä…d w podglÄ…dzie danych.
+Opisz, co zaobserwowaĹ‚eĹ› w panelu krokĂłw i w podglÄ…dzie.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PojawiĹ‚ siÄ™ nowy krok zmiany nazwy.
+â€˘	Na kroku Zmieniono typ pojawia siÄ™ bĹ‚Ä…d (bo oczekuje starej nazwy kolumny).
+â€˘	WidaÄ‡, ĹĽe dalsze kroki mogÄ… zaleĹĽeÄ‡ od wczeĹ›niejszych nazw.
+________________________________________
+TEXT
+â€žDlaczego tak siÄ™ staĹ‚o?
+Krok Zmieniono typ powstaĹ‚ wczeĹ›niej i ma w kodzie wpisanÄ… starÄ… nazwÄ™ kolumny.
+ZmieniĹ‚eĹ› nazwÄ™, wiÄ™c kolejny krok nie moĹĽe jej znaleĹşÄ‡.â€ť
+________________________________________
+TASK â€” rÄ™czna poprawka w pasku kodu
+â€žKliknij krok Zmieniono typ.
+Nad tabelÄ… rozwiĹ„ pasek kodu.
+ZnajdĹş starÄ… nazwÄ™ kolumny i popraw jÄ… rÄ™cznie na nowÄ….
+ZatwierdĹş.â€ť
+NastÄ™pnie kliknij jeszcze raz kolejne kroki po prawej i sprawdĹş, czy bĹ‚Ä…d zniknÄ…Ĺ‚. Opisz, co widzisz.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	BĹ‚Ä…d zniknÄ…Ĺ‚.
+â€˘	Zapytanie znĂłw jest spĂłjne.
+â€˘	WidaÄ‡, ĹĽe drobna zmiana w nazwie potrafi rozbiÄ‡ kolejne kroki.
+________________________________________
+CZÄĹšÄ† 2 â€” TYPY DANYCH: â€žTO NIE OPCJA, TO WYMĂ“Gâ€ť
+TEXT (mocniejszy wykĹ‚ad)
+â€žTeraz najwaĹĽniejszy temat w Power Query: typy danych.
+To nie jest opcja â€dla porzÄ…dkuâ€™.
+To jest wymĂłg, jeĹ›li chcesz mieÄ‡ poprawne wyniki.
+Program musi wiedzieÄ‡, czy wartoĹ›Ä‡ jest:
+â€˘	liczbÄ… (ĹĽeby liczyÄ‡),
+â€˘	datÄ… (ĹĽeby ukĹ‚adaÄ‡ chronologiÄ™),
+â€˘	tekstem (ĹĽeby nie prĂłbowaÄ‡ liczyÄ‡),
+â€˘	walutÄ… / liczbÄ… dziesiÄ™tnÄ… (ĹĽeby nie psuÄ‡ wynikĂłw).
+JeĹ›li typy danych sÄ… zaniedbane:
+â€˘	filtry potrafiÄ… dziaĹ‚aÄ‡ inaczej niĹĽ oczekujesz,
+â€˘	Ĺ‚Ä…czenie tabel (merge) potrafi nie zadziaĹ‚aÄ‡ mimo â€tych samych wartoĹ›ciâ€™,
+â€˘	sortowanie dat potrafi byÄ‡ bĹ‚Ä™dne,
+â€˘	a czÄ™Ĺ›Ä‡ bĹ‚Ä™dĂłw wychodzi dopiero na koĹ„cu, gdy juĹĽ nie pamiÄ™tasz, gdzie siÄ™ zaczÄ™Ĺ‚y.
+W praktyce: kontrola typĂłw danych to jeden z fundamentĂłw poprawnej pracy z Power Query.â€ť
+________________________________________
+TASK â€” pierwsza prĂłba (Dodaj nowy krok)
+â€žKliknij krok Zmieniono typ.
+ZnajdĹş kolumnÄ™ Cena.
+Kliknij ikonÄ™ typu danych przy nazwie kolumny i zmieĹ„ typ na Waluta.
+JeĹ›li pojawi siÄ™ pytanie, czy:
+â€˘	Dodaj nowy krok
+â€˘	ZamieĹ„ bieĹĽÄ…cy
+najpierw wybierz Dodaj nowy krok.â€ť
+Kliknij nowe i stare kroki typu w panelu po prawej i opisz, co zaobserwowaĹ‚eĹ›.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚ dodatkowy krok zmiany typu.
+â€˘	Kolumna jest niepotrzebnie przeksztaĹ‚cana drugi raz.
+â€˘	Lista krokĂłw zrobiĹ‚a siÄ™ dĹ‚uĹĽsza bez wartoĹ›ci dodanej.
+________________________________________
+TASK â€” ĹĽeby przeksztaĹ‚ciÄ‡ tylko raz
+â€žUsuĹ„ nowo powstaĹ‚y krok (kliknij X przy jego nazwie).
+PowtĂłrz zmianÄ™ typu dla kolumny Cena,
+ale tym razem wybierz ZamieĹ„ bieĹĽÄ…cy.â€ť
+Kliknij kroki po prawej i opisz, co zaobserwowaĹ‚eĹ› tym razem.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Nie powstaĹ‚ dodatkowy krok.
+â€˘	Zmieniony zostaĹ‚ istniejÄ…cy krok.
+â€˘	Typ danych jest ustawiony raz.
+________________________________________
+CZÄĹšÄ† 3 â€” TYP ANY I WYWOĹANIE BĹÄDU
+TEXT
+â€žSpĂłjrz teraz na kolumnÄ™ IloĹ›Ä‡.
+JeĹ›li w kolumnie sÄ… liczby i tekst, Power Query czÄ™sto nadaje typ Dowolny (Any).
+Any oznacza: system nie jest pewien typu, moĹĽe tu byÄ‡ wszystko.â€ť
+________________________________________
+TASK â€” wymuszenie typu liczbowego
+â€žKliknij ikonÄ™ typu danych przy kolumnie IloĹ›Ä‡ i ustaw typ Liczba caĹ‚kowita.
+ZatwierdĹş.â€ť
+Kliknij krok, na ktĂłrym zmieniĹ‚eĹ› typ, i opisz co zaobserwowaĹ‚eĹ› w tabeli.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PojawiajÄ… siÄ™ bĹ‚Ä™dy w wierszach, gdzie byĹ‚y wartoĹ›ci tekstowe.
+â€˘	Power Query nie potrafi zamieniÄ‡ tekstu na liczbÄ™.
+________________________________________
+TASK â€” diagnoza bĹ‚Ä™du bez dodawania krokĂłw
+â€žKliknij jednÄ… komĂłrkÄ™ z bĹ‚Ä™dem w kolumnie IloĹ›Ä‡.
+Na dole w â€polu na doleâ€™ przeczytaj opis bĹ‚Ä™du.
+Opisz, co tam jest napisane.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Opis bĹ‚Ä™du mĂłwi, ĹĽe nie da siÄ™ przekonwertowaÄ‡ wartoĹ›ci tekstowej na liczbÄ™.
+________________________________________
+CZÄĹšÄ† 4 â€” ZAMIANA BĹÄDĂ“W NA 0
+TASK
+â€žKliknij PPM na etykietÄ™ kolumny IloĹ›Ä‡ (na jej nagĹ‚Ăłwek).
+W menu wybierz opcjÄ™ ZamieĹ„ bĹ‚Ä™dy
+i ustaw wartoĹ›Ä‡ zamiany na 0.â€ť
+Kliknij krok, ktĂłry powstaĹ‚ po tej operacji, i opisz co zaobserwowaĹ‚eĹ› w danych.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	BĹ‚Ä™dy zostaĹ‚y zastÄ…pione zerami.
+â€˘	PowstaĹ‚ nowy krok w panelu krokĂłw.
+â€˘	Kolumna nie pokazuje juĹĽ bĹ‚Ä™dĂłw.
+________________________________________
+CZÄĹšÄ† 5 â€” FILTROWANIE 0 I NULL + WAĹ»NA UWAGA O KODZIE
+TASK â€” filtr 0 i null
+â€žW kolumnie IloĹ›Ä‡ kliknij strzaĹ‚kÄ™ filtra po prawej stronie nagĹ‚Ăłwka.
+UsuĹ„ zaznaczenie wartoĹ›ci:
+â€˘	0
+â€˘	(null) / puste
+ZatwierdĹş filtr.â€ť
+Kliknij nowo powstaĹ‚y krok filtrowania i opisz, co zaobserwowaĹ‚eĹ› w danych.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Z tabeli zniknÄ™Ĺ‚y wiersze z 0 i null.
+â€˘	PowstaĹ‚ krok filtrowania.
+________________________________________
+FILL â€” bardzo waĹĽna uwaga
+â€žUwaga: Twoje klikanie jest interpretowane przez Power Query i zamieniane na kod.
+To, co wygeneruje siÄ™ w kroku filtrowania, zaleĹĽy od rozkĹ‚adu wartoĹ›ci.
+PrzykĹ‚ad:
+â€˘	jeĹ›li w kolumnie sÄ… rĂłĹĽne liczby, 0 i null â€” kod zwykle filtruje wartoĹ›ci rĂłĹĽne od 0 i rĂłĹĽne od null (czyli <> 0 oraz <> null)
+â€˘	ale jeĹ›li w kolumnie byĹ‚yby tylko 1, 0 i null â€” ta sama operacja moĹĽe wygenerowaÄ‡ kod â€zostaw tylko 1â€™, bo tak Power Query zinterpretuje Twoje klikniÄ™cia.
+Dlatego zawsze warto patrzeÄ‡, jaki kod powstaĹ‚ w kroku filtrowania.â€ť
+________________________________________
+To zamyka blok typĂłw danych, bĹ‚Ä™dĂłw i filtrowania.
+________________________________________
+NastÄ™pna paczka
+Teraz przechodzimy do:
+1.	Kolumna z przykĹ‚adu (Dodaj kolumnÄ™ â†’ Kolumna z przykĹ‚adu) na Cena + IloĹ›Ä‡ â†’ WartoĹ›Ä‡
+2.	Scalanie (Merge) SprzedaĹĽPL z Produkty po ID produktu
+3.	przygotowanie pod reuse kodu M (PL â†’ CZ)
+4.	Append + refaktoryzacja pipeline
+Lecimy dalej.
+ZatwierdĹş zmianÄ™. (Enter) czy na ktĂłrymĹ› kroku pojawia siÄ™ bĹ‚Ä…d w podglÄ…dzie danych - nie dawaj tej podpowiedzi, tylko ĹĽeby uĹĽytkownik klikaĹ‚ i sprzawdziĹ‚ kroki, niech sam zauwaĹĽy ĹĽe jest bĹ‚Ä…d a jeĹ›li tego nie zrobi to mu powiemy Teraz najwaĹĽniejszy temat w Power Query: typy danych. To nie jest opcja â€dla porzÄ…dkuâ€™. To jest wymĂłg, jeĹ›li chcesz mieÄ‡ poprawne wyniki. - trzeba caĹ‚e poprawiÄ‡ "Teraz bardzo istotny temat w pracy na danych: typ danych. Warto nie traktowaÄ‡ tego jako opcjÄ™, tylko wymĂłg. Nawyk zwracania uwagi na typ danych pozwala pĂłĹşniej uniknÄ…Ä‡ wielu bĹ‚Ä™dĂłw. Program musi..." ZnajdĹş w tabeli kolumnÄ™ Cena Zbadaj kroki w panelu po prawej, co siÄ™ zadziaĹ‚o? JeĹ›li w kolumnie sÄ… rĂłĹĽne typy danych, PQ nadaje typ Dowolny (Any) jeĹ›li jakieĹ› zadanie polega na dodaniu nowego kroku, nie dawajmy w instrukcji "Kliknij krok" bo dodanie kroku automatycznie ustawia na niego, nie trzeba klikaÄ‡ Kliknij komĂłrkÄ™ z bĹ‚Ä™dem... Na dole w â€polu na doleâ€™ przeczytaj opis bĹ‚Ä™du. - bez sensu masĹ‚o maĹ›lane nie uĹĽywaj "pola na dole" jak oficjalnej nazwy. zwyczajnie opisuj "W polu na dole moĹĽesz sprawdziÄ‡ raport bĹ‚Ä™du" aaa wĹ‚aĹ›nie. Trzeba dodaÄ‡ do instrukcji, przed przejĹ›ciem do PQ, po tabelach, trzeba usunÄ…Ä‡ dodanÄ… kolumnÄ™ WartoĹ›Ä‡ 
+Dobrze.
+Poprawiam zgodnie z Twoimi uwagami i dodajÄ™ brakujÄ…cy element (usuniÄ™cie kolumny â€žWartoĹ›Ä‡â€ť przed wejĹ›ciem do PQ).
+Lecimy czysto, bez podpowiadania uĹĽytkownikowi â€žĹĽe tam bÄ™dzie bĹ‚Ä…dâ€ť.
+________________________________________
+đź” DODATEK PRZED WEJĹšCIEM DO POWER QUERY
+[KONIEC BLOKU TABEL â€“ CZYSZCZENIE]
+TEXT
+â€žZanim przejdziemy do Power Query, uporzÄ…dkujmy tabelÄ™.
+Kolumna WartoĹ›Ä‡, ktĂłrÄ… dodaliĹ›my, byĹ‚a tylko Ä‡wiczeniem.
+Nie bÄ™dzie nam teraz potrzebna.â€ť
+________________________________________
+TASK
+â€žW tabeli SprzedaĹĽPL usuĹ„ kolumnÄ™ WartoĹ›Ä‡.â€ť
+Opisz, co siÄ™ staĹ‚o z tabelÄ….
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Kolumna zostaĹ‚a usuniÄ™ta.
+â€˘	Tabela wrĂłciĹ‚a do pierwotnej struktury.
+________________________________________
+Teraz przejĹ›cie do PQ.
+________________________________________
+[ETAP PQ3 â€” poprawiona wersja]
+________________________________________
+CZÄĹšÄ† 1 â€” ZMIANA NAZWY KOLUMNY I ZALEĹ»NOĹšÄ† KROKĂ“W
+TASK
+â€žOtwĂłrz zapytanie SprzedaĹĽPL (PPM â†’ Edytuj).
+Kliknij krok ĹąrĂłdĹ‚o.
+W podglÄ…dzie danych zmieĹ„ nazwÄ™ jednej z kolumn
+(np. dodaj na koĹ„cu cyfrÄ™ 1).
+ZatwierdĹş zmianÄ™ (Enter).â€ť
+________________________________________
+TASK
+â€žKliknij po kolei wszystkie kroki w panelu po prawej stronie.
+SprawdĹş, jak zmienia siÄ™ podglÄ…d danych przy kaĹĽdym z nich.
+Opisz, co zaobserwowaĹ‚eĹ›.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PojawiĹ‚ siÄ™ nowy krok zmiany nazwy.
+â€˘	Jeden z kolejnych krokĂłw przestaje dziaĹ‚aÄ‡ poprawnie.
+â€˘	W podglÄ…dzie danych widaÄ‡ problem.
+________________________________________
+TEXT
+â€žKroki w Power Query zaleĹĽÄ… od siebie.
+JeĹ›li zmienisz coĹ› w strukturze danych, kolejne kroki mogÄ… przestaÄ‡ dziaĹ‚aÄ‡.â€ť
+________________________________________
+TASK
+â€žKliknij krok Zmieniono typ.
+RozwiĹ„ pasek kodu nad tabelÄ….
+ZnajdĹş starÄ… nazwÄ™ kolumny i popraw jÄ… rÄ™cznie.
+ZatwierdĹş zmianÄ™.â€ť
+Kliknij ponownie wszystkie kroki i opisz, co teraz widzisz.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	BĹ‚Ä…d zniknÄ…Ĺ‚.
+â€˘	Wszystkie kroki dziaĹ‚ajÄ… poprawnie.
+________________________________________
+CZÄĹšÄ† 2 â€” TYPY DANYCH (WERSJA POPRAWIONA)
+________________________________________
+TEXT
+â€žTeraz bardzo istotny temat w pracy na danych: typ danych.
+Warto nie traktowaÄ‡ tego jako opcjÄ™, tylko jako wymĂłg.
+Nawyk zwracania uwagi na typ danych pozwala pĂłĹşniej uniknÄ…Ä‡ wielu bĹ‚Ä™dĂłw.
+Program musi wiedzieÄ‡, czy wartoĹ›Ä‡ jest:
+â€˘	liczbÄ…,
+â€˘	tekstem,
+â€˘	datÄ…,
+â€˘	walutÄ….
+JeĹĽeli typ danych jest zaniedbany:
+â€˘	obliczenia mogÄ… dawaÄ‡ bĹ‚Ä™dne wyniki,
+â€˘	Ĺ‚Ä…czenie tabel moĹĽe nie dziaĹ‚aÄ‡ mimo takich samych wartoĹ›ci,
+â€˘	sortowanie dat moĹĽe byÄ‡ niepoprawne,
+â€˘	czÄ™Ĺ›Ä‡ bĹ‚Ä™dĂłw wyjdzie dopiero na koĹ„cu procesu.â€ť
+________________________________________
+TASK
+â€žZnajdĹş w tabeli kolumnÄ™ Cena.
+Kliknij ikonÄ™ typu danych przy jej nazwie
+i zmieĹ„ typ na Waluta.
+JeĹĽeli pojawi siÄ™ pytanie:
+â€˘	Dodaj nowy krok
+â€˘	ZamieĹ„ bieĹĽÄ…cy
+najpierw wybierz Dodaj nowy krok.â€ť
+________________________________________
+TASK
+â€žZbadaj kroki w panelu po prawej.
+Co siÄ™ zadziaĹ‚o?â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚ dodatkowy krok zmiany typu.

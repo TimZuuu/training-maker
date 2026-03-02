@@ -1,0 +1,250 @@
+﻿________________________________________
+TASK â€” zmiana na â€žTylko poĹ‚Ä…czenieâ€ť
+â€žTeraz znowu kliknij element powiÄ…zany z zapytaniem i wejdĹş w ZaĹ‚aduj doâ€¦.
+Wybierz opcjÄ™ Tylko poĹ‚Ä…czenie i zatwierdĹş.â€ť
+Opisz, co zostaĹ‚o w pliku.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Nie ma juĹĽ tabeli wynikowej.
+â€˘	Nie ma juĹĽ tabeli przestawnej (bo nie Ĺ‚adujemy wyniku).
+â€˘	PozostaĹ‚ arkusz, w ktĂłrym wczeĹ›niej byĹ‚y wyniki (teraz jest pusty/zbÄ™dny).
+________________________________________
+TASK â€” sprzÄ…tanie arkusza
+â€žUsuĹ„ arkusz, ktĂłry zostaĹ‚ po wczeĹ›niejszym Ĺ‚adowaniu wynikĂłw (ten, ktĂłry jest teraz pusty i niepotrzebny).â€ť
+________________________________________
+FILL
+â€žTeraz nie potrzebujemy wyĹ›wietlaÄ‡ tych zapytaĹ„.
+Za chwilÄ™ bÄ™dziemy budowaÄ‡ i Ä‡wiczyÄ‡ transformacje danych.
+Wynik zaĹ‚adujemy dopiero wtedy, gdy transformacja bÄ™dzie gotowa.â€ť
+________________________________________
+NastÄ™pna paczka: konflikt nazw kolumn z krokiem â€žZmieniono typâ€ť + Replace current vs Add new step + bĹ‚Ä™dy i link â€žBĹ‚Ä…dâ€ť.
+Lecimy dalej.
+nazwy - ok skoro to mamy jasne to jestem spokojny. zatem tu w przygotowaniu BP moĹĽesz pisaÄ‡ jak chcesz, ale w sumie dla testu pisz jakby to byĹ‚o PL test odĹ›wieĹĽania - daj oba taski jeden pod drugim i potem na koĹ„cu jedno opisz co siÄ™ staĹ‚o Poprzednia tabela wynikowa zostaĹ‚a usuniÄ™ta. - wywal z obserwacji, mĂłwimy o tym wczeĹ›niej
+Dobrze.
+Lecimy dalej w wersji PL UI i porzÄ…dkujÄ™ test odĹ›wieĹĽania w jeden blok.
+________________________________________
+[ETAP PQ2] CLOSE & LOAD + REFRESH + LOAD TO (PL)
+________________________________________
+TASK â€” zapisanie zapytania
+â€žWyjdĹş z edytora klikajÄ…c Zamknij i zaĹ‚aduj.
+Staramy siÄ™ nie uĹĽywaÄ‡ klasycznego X w prawym gĂłrnym rogu,
+bo Zamknij i zaĹ‚aduj daje nam kontrolÄ™ nad sposobem zaĹ‚adowania wyniku do Excela.â€ť
+Opisz, co pojawiĹ‚o siÄ™ w Excelu.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚a tabela wynikowa.
+â€˘	UtworzyĹ‚ siÄ™ nowy arkusz z wynikami.
+________________________________________
+TEXT
+â€žTo nie jest kopia danych.
+To wynik dziaĹ‚ania zapytania.
+SprawdĹşmy teraz, jak dziaĹ‚a odĹ›wieĹĽanie.â€ť
+________________________________________
+TASK â€” test odĹ›wieĹĽania (2 dziaĹ‚ania, 1 podsumowanie)
+1.	W tabeli wynikowej usuĹ„ kilka wartoĹ›ci.
+NastÄ™pnie kliknij prawym przyciskiem myszy na tabelÄ™ wynikowÄ… i wybierz OdĹ›wieĹĽ.
+2.	WrĂłÄ‡ do tabeli ĹşrĂłdĹ‚owej.
+ZmieĹ„ jednÄ… z wartoĹ›ci.
+WrĂłÄ‡ do tabeli wynikowej i ponownie kliknij OdĹ›wieĹĽ.
+Na koniec opisz, co siÄ™ staĹ‚o w obu przypadkach.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Skasowane dane w tabeli wynikowej wrĂłciĹ‚y po odĹ›wieĹĽeniu.
+â€˘	Po zmianie danych w ĹşrĂłdle i odĹ›wieĹĽeniu â€” wynik rĂłwnieĹĽ siÄ™ zmieniĹ‚.
+________________________________________
+FILL
+â€žOdĹ›wieĹĽenie zawsze wykonuje zapytanie od nowa.
+Wynik nie jest przechowywany na staĹ‚e â€” jest przeliczany na podstawie ĹşrĂłdĹ‚a i krokĂłw transformacji.â€ť
+________________________________________
+ZMIANA SPOSOBU ĹADOWANIA
+________________________________________
+TASK â€” przejĹ›cie do opcji â€žZaĹ‚aduj doâ€¦â€ť
+â€žKliknij tabelÄ™ wynikowÄ….
+U gĂłry pojawi siÄ™ dodatkowa zakĹ‚adka Zapytanie.
+Kliknij ZaĹ‚aduj doâ€¦â€ť
+________________________________________
+TASK â€” zaĹ‚aduj do tabeli przestawnej
+â€žW oknie ZaĹ‚aduj do wybierz Tabela przestawna i zatwierdĹş.
+MoĹĽemy Ĺ‚adowaÄ‡ wynik tylko do jednego miejsca naraz,
+wiÄ™c Excel poinformuje CiÄ™, ĹĽe poprzednia tabela wynikowa zostanie usuniÄ™ta.
+Kliknij OK.â€ť
+Opisz, co pojawiĹ‚o siÄ™ w Excelu.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	UtworzyĹ‚a siÄ™ tabela przestawna oparta na zapytaniu.
+________________________________________
+TASK â€” zmiana na â€žTylko poĹ‚Ä…czenieâ€ť
+â€žPonownie kliknij element powiÄ…zany z zapytaniem i wejdĹş w ZaĹ‚aduj doâ€¦.
+Wybierz opcjÄ™ Tylko poĹ‚Ä…czenie i zatwierdĹş.â€ť
+Opisz, co zostaĹ‚o w pliku.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Nie ma juĹĽ tabeli przestawnej.
+â€˘	PozostaĹ‚ arkusz, ktĂłry powstaĹ‚ wczeĹ›niej i jest teraz zbÄ™dny.
+________________________________________
+TASK â€” sprzÄ…tanie
+â€žUsuĹ„ arkusz, ktĂłry pozostaĹ‚ po wczeĹ›niejszych operacjach Ĺ‚adowania.â€ť
+________________________________________
+FILL
+â€žTeraz nie potrzebujemy wyĹ›wietlaÄ‡ wynikĂłw.
+Najpierw skupimy siÄ™ na transformacjach danych.
+Wynik zaĹ‚adujemy ponownie, gdy transformacja bÄ™dzie gotowa.â€ť
+________________________________________
+NastÄ™pna paczka:
+đź‘‰ zmiana nazwy kolumny i konflikt z krokiem â€žZmieniono typâ€ť
+đź‘‰ Add new step vs ZamieĹ„ bieĹĽÄ…cy
+đź‘‰ typ ANY
+đź‘‰ bĹ‚Ä…d i link â€žBĹ‚Ä…dâ€ť
+đź‘‰ zamiana bĹ‚Ä™dĂłw
+đź‘‰ filtrowanie 0 i null
+LecÄ™ dalej.
+go
+Dobrze. Lecimy dalej.
+________________________________________
+[ETAP PQ3] TYPY DANYCH, BĹÄDY I KONTROLA KROKĂ“W
+CEL:
+UĹĽytkownik rozumie:
+â€˘	ĹĽe kroki zaleĹĽÄ… od siebie,
+â€˘	czym jest â€žZmieniono typâ€ť,
+â€˘	rĂłĹĽnicÄ™ miÄ™dzy â€žDodaj nowy krokâ€ť a â€žZamieĹ„ bieĹĽÄ…cyâ€ť,
+â€˘	czym jest typ ANY,
+â€˘	jak pracowaÄ‡ z bĹ‚Ä™dami.
+________________________________________
+CZÄĹšÄ† 1 â€” ZMIANA NAZWY KOLUMNY I KONFLIKT
+________________________________________
+TASK â€” zmiana nazwy kolumny
+â€žOtwĂłrz zapytanie SprzedaĹĽPL (PPM â†’ Edytuj).
+Kliknij krok ĹąrĂłdĹ‚o.
+W podglÄ…dzie danych kliknij nazwÄ™ jednej z kolumn i zmieĹ„ jÄ…
+(np. dodaj na koĹ„cu cyfrÄ™ 1).
+ZatwierdĹş zmianÄ™.â€ť
+Opisz, co staĹ‚o siÄ™ z krokami po prawej stronie.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PojawiĹ‚ siÄ™ nowy krok zmiany nazwy.
+â€˘	Krok Zmieniono typ pokazuje bĹ‚Ä…d.
+â€˘	W jednym z krokĂłw widoczny jest komunikat o bĹ‚Ä™dzie.
+________________________________________
+TEXT
+â€žDlaczego tak siÄ™ staĹ‚o?
+Krok Zmieniono typ powstaĹ‚ wczeĹ›niej i oczekuje kolumny o starej nazwie.
+ZmieniĹ‚eĹ› nazwÄ™, wiÄ™c kolejny krok nie moĹĽe jej znaleĹşÄ‡.â€ť
+________________________________________
+TASK â€” rÄ™czna poprawka w pasku kodu
+â€žKliknij krok Zmieniono typ.
+Nad tabelÄ… rozwiĹ„ pasek kodu.
+ZnajdĹş starÄ… nazwÄ™ kolumny i popraw jÄ… rÄ™cznie na nowÄ….
+ZatwierdĹş.â€ť
+Opisz, co siÄ™ staĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	BĹ‚Ä…d zniknÄ…Ĺ‚.
+â€˘	Krok dziaĹ‚a poprawnie.
+â€˘	Zapytanie znowu jest spĂłjne.
+________________________________________
+FILL
+â€žKaĹĽdy krok odnosi siÄ™ do poprzedniego.
+JeĹ›li zmieniasz coĹ› w Ĺ›rodku, kolejne kroki mogÄ… przestaÄ‡ dziaĹ‚aÄ‡.
+Dlatego warto planowaÄ‡ zmiany Ĺ›wiadomie.â€ť
+________________________________________
+CZÄĹšÄ† 2 â€” TYPY DANYCH I â€žZAMIEĹ BIEĹ»Ä„CYâ€ť
+________________________________________
+TEXT
+â€žTyp danych to jedna z najwaĹĽniejszych rzeczy w Power Query.
+Program musi wiedzieÄ‡, czy ma do czynienia z:
+â€˘	liczbÄ…,
+â€˘	tekstem,
+â€˘	datÄ…,
+â€˘	walutÄ….
+Brak kontroli nad typami to ĹşrĂłdĹ‚o wielu bĹ‚Ä™dĂłw.â€ť
+________________________________________
+TASK â€” zmiana typu z uĹĽyciem â€žDodaj nowy krokâ€ť
+â€žKliknij krok Zmieniono typ.
+ZnajdĹş kolumnÄ™ Cena.
+Kliknij ikonÄ™ typu danych przy nazwie kolumny i zmieĹ„ typ na Waluta.
+JeĹ›li pojawi siÄ™ komunikat z wyborem:
+â€˘	Dodaj nowy krok
+â€˘	ZamieĹ„ bieĹĽÄ…cy
+Najpierw wybierz Dodaj nowy krok.â€ť
+Opisz, co pojawiĹ‚o siÄ™ po prawej stronie.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚ dodatkowy krok zmiany typu.
+â€˘	Kolumna zostaĹ‚a przeksztaĹ‚cona drugi raz.
+â€˘	WidaÄ‡ dwa kolejne kroki zwiÄ…zane z typem.
+________________________________________
+TASK â€” usuniÄ™cie zbÄ™dnego kroku
+â€žUsuĹ„ nowo powstaĹ‚y krok (kliknij X przy jego nazwie).
+PowtĂłrz zmianÄ™ typu dla kolumny Cena,
+ale tym razem wybierz ZamieĹ„ bieĹĽÄ…cy.â€ť
+Opisz, co siÄ™ zmieniĹ‚o w liĹ›cie krokĂłw.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Nie powstaĹ‚ dodatkowy krok.
+â€˘	IstniejÄ…cy krok zostaĹ‚ zmodyfikowany.
+â€˘	Lista krokĂłw jest krĂłtsza i czytelniejsza.
+________________________________________
+FILL
+â€žZwykle chcemy, aby typ danych byĹ‚ ustawiony raz,
+a nie wielokrotnie.
+Dlatego najczÄ™Ĺ›ciej wybieramy ZamieĹ„ bieĹĽÄ…cy.â€ť
+________________________________________
+CZÄĹšÄ† 3 â€” TYP ANY I BĹÄDY
+________________________________________
+TEXT
+â€žZobacz teraz kolumnÄ™ IloĹ›Ä‡.
+JeĹ›li zawiera liczby i tekst, Power Query moĹĽe przypisaÄ‡ jej typ Dowolny (Any).
+ANY oznacza: system nie jest pewien typu.â€ť
+________________________________________
+TASK â€” wymuszenie typu liczbowego
+â€žKliknij ikonÄ™ typu przy kolumnie IloĹ›Ä‡ i ustaw typ Liczba caĹ‚kowita.
+ZatwierdĹş.â€ť
+Opisz, co staĹ‚o siÄ™ w tabeli.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	W kolumnie pojawiĹ‚y siÄ™ bĹ‚Ä™dy.
+â€˘	Wiersze z tekstem nie mogÄ… zostaÄ‡ przeksztaĹ‚cone w liczbÄ™.
+________________________________________
+TASK â€” analiza bĹ‚Ä™du
+â€žKliknij komĂłrkÄ™ z bĹ‚Ä™dem.
+Na dole zobaczysz szczegĂłĹ‚y bĹ‚Ä™du.
+Kliknij link BĹ‚Ä…d (tekstowy link, nie filtr ani nagĹ‚Ăłwek kolumny).â€ť
+Opisz, co siÄ™ staĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Dodany zostaĹ‚ nowy krok pokazujÄ…cy tylko wiersze z bĹ‚Ä™dem.
+â€˘	Zapytanie przeszĹ‚o w tryb filtrowania bĹ‚Ä™dĂłw.
+________________________________________
+TASK â€” powrĂłt do poprzedniego stanu
+â€žUsuĹ„ ten krok (X przy jego nazwie),
+aby wrĂłciÄ‡ do peĹ‚nych danych.â€ť
+________________________________________
+CZÄĹšÄ† 4 â€” ZAMIANA BĹÄDĂ“W
+________________________________________
+TASK
+â€žBÄ™dÄ…c na kolumnie IloĹ›Ä‡, zamieĹ„ bĹ‚Ä™dy na wartoĹ›Ä‡ 0.
+UĹĽyj opcji ZamieĹ„ bĹ‚Ä™dy.â€ť
+Opisz, co zmieniĹ‚o siÄ™ w danych i w liĹ›cie krokĂłw.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	BĹ‚Ä™dy zostaĹ‚y zastÄ…pione zerami.
+â€˘	PowstaĹ‚ nowy krok transformacji.
+â€˘	Kolumna ma juĹĽ poprawny typ liczbowy.
+________________________________________
+CZÄĹšÄ† 5 â€” FILTROWANIE 0 I NULL
+________________________________________
+TASK
+â€žW kolumnie IloĹ›Ä‡ odfiltruj:
+â€˘	wartoĹ›Ä‡ 0,
+â€˘	wartoĹ›ci puste (null).â€ť
+Opisz, co staĹ‚o siÄ™ z tabelÄ… i listÄ… krokĂłw.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Tabela zawiera tylko poprawne wartoĹ›ci.
+â€˘	PowstaĹ‚ krok filtrowania.
+â€˘	Widzisz, ĹĽe kaĹĽdy filtr jest zapisywany jako krok.
+________________________________________
+To zamyka blok kontroli typĂłw i bĹ‚Ä™dĂłw.
+________________________________________
+NastÄ™pna paczka:
+đź‘‰ Kolumna z przykĹ‚adu (Kolumna z przykĹ‚adu / Add Column â†’ Kolumna z przykĹ‚adu)

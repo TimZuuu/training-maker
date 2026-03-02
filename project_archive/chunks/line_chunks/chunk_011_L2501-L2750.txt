@@ -1,0 +1,250 @@
+﻿TASK 4
+W prawym dolnym rogu tabeli zĹ‚ap znacznik rozszerzania i przeciÄ…gnij zakres rÄ™cznie.
+NastÄ™pnie wrĂłÄ‡ do poprzedniego stanu skrĂłtem Ctrl+Z.
+JeĹ›li podczas rozszerzania zobaczysz #SPILL â€” oznacza to, ĹĽe formuĹ‚a nie ma miejsca na wyĹ›wietlenie danych.
+________________________________________
+To koĹ„czy rozszerzony blok tabel.
+________________________________________
+JeĹ›li uĹĽytkownik wybraĹ‚ pominiÄ™cie bonusu â€” przechodzimy bezpoĹ›rednio do PQ.
+________________________________________
+NastÄ™pny krok: ETAP PQ1
+W kolejnym bloku przejdÄ™ do:
+â€˘	wejĹ›cia do Power Query,
+â€˘	Applied Steps,
+â€˘	â€žpole na doleâ€ť,
+â€˘	Advanced Editor,
+â€˘	Close & Load,
+â€˘	odĹ›wieĹĽanie,
+â€˘	Only Connection,
+â€˘	Queries & Connections.
+W tym samym stylu â€” z pytaniami â€žco siÄ™ staĹ‚o?â€ť przed kaĹĽdÄ… kluczowÄ… obserwacjÄ….
+JeĹ›li obecna precyzja jest OK, lecÄ™ dalej bez skracania.
+TASK 2 â€” NAWIAS KWADRATOWY - to nie bÄ™dize task, to dalej bÄ™dzie tekst odnoĹ›nie task3 elementy # bez sensu bÄ™dzie zadanie ĹĽeby tylko wpisaĹ‚ i spojrzaĹ‚ na elementy. zatem musimy o tym opowiedzieÄ‡, o nazwie i ikonach, ma to zauwaĹĽyÄ‡ podczas task3 Po wpisaniu czterech formuĹ‚ napisz: Co siÄ™ staĹ‚o? - na pewno nie tak po prostu Po wpisaniu ... napisz co siÄ™ staĹ‚o (albo jaki efekt, tu zamiennie zaleĹĽy jak pasuje w danym kontekĹ›cie) co siÄ™ staĹ‚o to tylko moja metoda oznaczania ĹĽebyĹ› wiedziaĹ‚ gdzie ma byÄ‡ zadane pĹ‚ynne pytanie odniesienia dostosujÄ… siÄ™ automatycznie. - dodaj "MoĹĽesz to teĹĽ przetestowaÄ‡ zmieniajÄ…c wartoĹ›ci w tabeli" Wynika to z tego, ĹĽe tabela tam nie istnieje. W nagĹ‚Ăłwku w kolumnie X[jak stworzymy plik Ä‡wiczeniowy to podamy sztywno kolumnÄ™ i zmienimy ten X] wpisz sĹ‚owo wybierz kolumnÄ™ IloĹ›Ä‡ OBSERVATION (oczekiwane) FormuĹ‚a automatycznie skopiowaĹ‚a siÄ™ do wszystkich wierszy tabeli. Nie trzeba byĹ‚o przeciÄ…gaÄ‡. Excel uĹĽyĹ‚ strukturalnych odniesieĹ„. JeĹ›li user tego nie zauwaĹĽy â€” dopowiedz. - widzÄ™ ĹĽe tu to sprecyzowaĹ‚eĹ›. Raczej powinien byÄ‡ gdzieĹ› ogĂłlny opis ĹĽe ma opowiadaÄ‡ o obserwacjach jak nie bÄ™dÄ… zauwaĹĽone co "obserwacje" ktĂłre raczej nie bÄ™dÄ… zaĹ‚oĹĽone, uznajemy za TEACH i bÄ™dziemy o nich mĂłwiÄ‡ TASK 4 W prawym dolnym rogu tabeli zĹ‚ap znacznik rozszerzania i przeciÄ…gnij zakres rÄ™cznie. - nie byĹ‚o czasem przed tym jakiejĹ› narracji o tym ĹĽe to istotny punkt kontroli danych? szczegĂłlnie jak dochodzÄ… rekordy w dĂłĹ‚, trzeba byÄ‡ pewnym ĹĽe dane na pewno sa w tabeli, autorozszerzanie nie jest idealne. raczej maĹ‚o bĹ‚Ä™dĂłw z zbytnim skracaniem, ewentualnie jakieĹ› drobne semantyczne poprawki. dobrze Ci teraz idzie. lecimy dalej
+Dobrze.
+Wprowadzam Twoje poprawki i kontynuujÄ™ â€” bez skracania, z pĹ‚ynnymi pytaniami zamiast suchego â€žnapisz co siÄ™ staĹ‚oâ€ť, z rozrĂłĹĽnieniem:
+â€˘	OBSERVATION â†’ pytamy uĹĽytkownika
+â€˘	TEACH â†’ dopowiadamy rzeczy, ktĂłrych raczej nie zauwaĹĽy
+â€˘	ogĂłlna zasada reagowania na obserwacje bÄ™dzie opisana pĂłĹşniej w silniku
+________________________________________
+[ETAP E2 â€” poprawiona czÄ™Ĺ›Ä‡ + zakoĹ„czenie tabel]
+ELEMENTY Z # (bez sztucznego tasku z samym nawiasem)
+________________________________________
+TEXT
+â€žGdy wpiszesz nazwÄ™ tabeli i otworzysz nawias kwadratowy, Excel pokaĹĽe Ci listÄ™ elementĂłw, do ktĂłrych moĹĽesz siÄ™ odnieĹ›Ä‡.
+Na tej liĹ›cie zobaczysz:
+â€˘	specjalne elementy zaczynajÄ…ce siÄ™ od znaku #
+â€˘	oraz nazwy poszczegĂłlnych kolumn tabeli.
+Za chwilÄ™ je przeÄ‡wiczymy.
+ZwrĂłÄ‡ uwagÄ™, ĹĽe pracujemy na obiekcie â€” nie na adresach komĂłrek.â€ť
+________________________________________
+TASK â€” ELEMENTY Z
+W kolumnie J wpisz kolejno cztery formuĹ‚y, kaĹĽdÄ… w osobnej komĂłrce:
+=[nazwa_tabeli][#All]
+=[nazwa_tabeli][#Data]
+=[nazwa_tabeli][#Headers]
+=[nazwa_tabeli][#Totals]
+Wpisuj rÄ™cznie, korzystaj z podpowiedzi Excela.
+Po wykonaniu wszystkich czterech â€” opisz, jaki efekt widzisz przy kaĹĽdej z nich.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	#All pokazuje caĹ‚Ä… tabelÄ™.
+â€˘	#Data pokazuje same dane.
+â€˘	#Headers pokazuje nagĹ‚Ăłwki.
+â€˘	#Totals zwraca #REF (jeĹ›li nie wĹ‚Ä…czono wiersza sum).
+________________________________________
+TEXT â€” wyjaĹ›nienie
+â€žJeĹĽeli przy #Totals pojawiĹ‚ siÄ™ bĹ‚Ä…d â€” to dokĹ‚adnie tego siÄ™ spodziewaliĹ›my.
+OdwoĹ‚ujesz siÄ™ do elementu, ktĂłry nie istnieje w ĹşrĂłdle.
+Twoja tabela nie ma jeszcze wĹ‚Ä…czonego wiersza sum.
+Excel nie moĹĽe wyĹ›wietliÄ‡ czegoĹ›, czego fizycznie nie ma.â€ť
+________________________________________
+TASK â€” WĹÄ„CZENIE TOTAL ROW
+Kliknij tabelÄ™ â†’ Table Design / Projektowanie tabeli â†’ zaznacz opcjÄ™ Total Row.
+Opisz, co zmieniĹ‚o siÄ™ w tabeli i w komĂłrce z #Totals.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	W tabeli pojawiĹ‚ siÄ™ wiersz sum.
+â€˘	#REF zniknÄ…Ĺ‚.
+â€˘	PozostaĹ‚e odniesienia automatycznie dostosowaĹ‚y siÄ™ do nowego stanu tabeli.
+________________________________________
+TEACH (uzupeĹ‚nienie)
+â€žOdniesienia do tabeli zawsze pokazujÄ… jej aktualny stan.
+MoĹĽesz to przetestowaÄ‡, zmieniajÄ…c wartoĹ›ci w tabeli â€” zobaczysz, ĹĽe formuĹ‚y aktualizujÄ… siÄ™ automatycznie.â€ť
+Teraz przejdĹşmy dalej.
+________________________________________
+SYMBOL @ â€” PRECYZYJNIE
+________________________________________
+TEXT
+â€žTeraz bardzo waĹĽny element â€” symbol @.
+@ oznacza: w tym samym wierszu.
+To zupeĹ‚nie inne zachowanie niĹĽ wyĹ›wietlanie caĹ‚ej kolumny czy tabeli.â€ť
+________________________________________
+TASK
+W kolumnie H (koniecznie obok tabeli, w tym samym wierszu co dane), wpisz:
+=
+nastÄ™pnie nazwÄ™ tabeli
+po otwarciu nawiasu wpisz @
+wybierz kolumnÄ™ IloĹ›Ä‡
+zamknij nawias
+zatwierdĹş.
+Opisz, jaki efekt otrzymaĹ‚eĹ›.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	ZwrĂłcona zostaĹ‚a pojedyncza wartoĹ›Ä‡.
+â€˘	Nie wyĹ›wietliĹ‚ siÄ™ zakres.
+â€˘	Wynik dotyczy konkretnego wiersza.
+________________________________________
+TASK
+PrzeciÄ…gnij tÄ™ formuĹ‚Ä™ w dĂłĹ‚, takĹĽe poniĹĽej zakresu tabeli.
+Opisz, co dzieje siÄ™ w wierszach naleĹĽÄ…cych do tabeli oraz w tych poniĹĽej.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	W obrÄ™bie tabeli dziaĹ‚a poprawnie.
+â€˘	Poza tabelÄ… pojawia siÄ™ bĹ‚Ä…d.
+â€˘	Wynika to z tego, ĹĽe tabela tam nie istnieje.
+________________________________________
+AUTO-EXPAND â€” ROZSZERZANIE KOLUMN
+________________________________________
+TASK 1
+W nagĹ‚Ăłwku w kolumnie X wpisz sĹ‚owo:
+WartoĹ›Ä‡
+(Na etapie produkcji pliku Ä‡wiczeniowego kolumna zostanie ustalona sztywno.)
+Opisz, co staĹ‚o siÄ™ z tabelÄ….
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Tabela rozszerzyĹ‚a siÄ™ o nowÄ… kolumnÄ™.
+â€˘	Nowa kolumna staĹ‚a siÄ™ jej integralnÄ… czÄ™Ĺ›ciÄ….
+________________________________________
+TASK 2
+Kliknij pierwszÄ… komĂłrkÄ™ w nowej kolumnie.
+Wpisz znak =
+wybierz kolumnÄ™ IloĹ›Ä‡
+wpisz *
+wybierz kolumnÄ™ Cena
+zatwierdĹş.
+Opisz, jaki efekt pojawiĹ‚ siÄ™ w kolumnie.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	FormuĹ‚a automatycznie skopiowaĹ‚a siÄ™ do wszystkich wierszy tabeli.
+â€˘	Nie trzeba byĹ‚o przeciÄ…gaÄ‡.
+â€˘	Excel uĹĽyĹ‚ strukturalnych odniesieĹ„.
+JeĹĽeli uĹĽytkownik nie zauwaĹĽy ktĂłregoĹ› z tych elementĂłw â€” dopowiedz.
+Elementy, ktĂłrych raczej nie zauwaĹĽy (np. strukturalne odniesienia jako mechanizm), traktujemy jako TEACH i dopowiadamy.
+________________________________________
+TASK 3
+Dopisz pod tabelÄ… nowy numer ID w pierwszej kolumnie tabeli.
+Opisz, co staĹ‚o siÄ™ z tabelÄ… i kolumnÄ… WartoĹ›Ä‡.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Tabela automatycznie siÄ™ wydĹ‚uĹĽyĹ‚a.
+â€˘	FormuĹ‚a zostaĹ‚a zastosowana do nowego wiersza.
+________________________________________
+TEXT â€” ISTOTNY PUNKT KONTROLI
+â€žTo bardzo waĹĽny mechanizm kontroli danych.
+SzczegĂłlnie gdy dochodzÄ… nowe rekordy w dĂłĹ‚ â€” musisz mieÄ‡ pewnoĹ›Ä‡, ĹĽe znajdujÄ… siÄ™ w obrÄ™bie tabeli.
+Autorozszerzanie jest wygodne, ale nie jest idealne.
+Dlatego zawsze warto Ĺ›wiadomie sprawdzaÄ‡, czy zakres tabeli obejmuje wszystkie dane.â€ť
+________________________________________
+TASK 4
+W prawym dolnym rogu tabeli zĹ‚ap znacznik rozszerzania i przeciÄ…gnij zakres rÄ™cznie w dĂłĹ‚ i w gĂłrÄ™.
+NastÄ™pnie wrĂłÄ‡ do poprzedniego stanu skrĂłtem Ctrl+Z.
+JeĹ›li podczas rozszerzania pojawi siÄ™ #SPILL â€” oznacza to, ĹĽe formuĹ‚a nie ma miejsca na wyĹ›wietlenie danych.
+________________________________________
+To zamyka blok tabel.
+________________________________________
+Teraz przechodzimy do Power Query
+ZachowujÄ™ tÄ™ samÄ… szczegĂłĹ‚owoĹ›Ä‡ i mechanikÄ™ obserwacji.
+________________________________________
+[ETAP PQ1] WEJĹšCIE DO POWER QUERY
+CEL:
+UĹĽytkownik rozumie, ĹĽe PQ to warstwa transformacji, a nie kolejny arkusz.
+________________________________________
+TASK
+PrzejdĹş do arkusza SprzedaĹĽPL.
+Kliknij w obrÄ™bie tabeli.
+PrzejdĹş do zakĹ‚adki Data.
+Kliknij â€žFrom Table/Rangeâ€ť
+(albo kliknij prawym przyciskiem myszy na tabelÄ™ i wybierz â€žGet Data From Table/Rangeâ€ť).
+Opisz, co siÄ™ otworzyĹ‚o.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	OtworzyĹ‚ siÄ™ nowy panel / nowe okno.
+â€˘	PojawiĹ‚ siÄ™ interfejs z listÄ… zapytaĹ„ po lewej.
+â€˘	Widoczny jest podglÄ…d danych.
+â€˘	Po prawej stronie widoczne sÄ… kroki (Applied Steps).
+________________________________________
+TEXT â€” opis warstwy
+â€žTo nowa warstwa Excela.
+Po lewej masz listÄ™ zapytaĹ„ (queries).
+Po prawej historiÄ™ transformacji â€” Applied Steps.
+Na Ĺ›rodku widok efektu wybranego kroku.
+Na dole znajduje siÄ™ pole pokazujÄ…ce szczegĂłĹ‚y zaznaczonej komĂłrki â€” jej wartoĹ›Ä‡ albo informacje o bĹ‚Ä™dzie.â€ť
+________________________________________
+TASK
+Kliknij rĂłĹĽne kroki w Applied Steps.
+Za kaĹĽdym razem obserwuj, jak zmienia siÄ™ podglÄ…d danych i pasek kodu.
+Opisz, co zauwaĹĽasz.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Zmienia siÄ™ widok danych.
+â€˘	KaĹĽdy krok modyfikuje dane.
+â€˘	Widoczny jest kod danego kroku.
+________________________________________
+TASK
+Kliknij Home â†’ Advanced Editor.
+Opisz, co widzisz.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Widzisz caĹ‚y kod zapytania.
+â€˘	Kod zaczyna siÄ™ od sekcji Source.
+â€˘	KaĹĽdy krok transformacji jest zapisany jako element jÄ™zyka M.
+________________________________________
+TEXT
+â€žTo wĹ‚aĹ›nie stÄ…d bÄ™dziesz kopiowaÄ‡ kod do weryfikacji.
+To tutaj bÄ™dziemy wprowadzaÄ‡ poprawki, jeĹ›li zajdzie taka potrzeba.â€ť
+________________________________________
+NastÄ™pnie przejdziemy do:
+â€˘	Close & Load
+â€˘	Refresh
+â€˘	Only Connection
+â€˘	Queries & Connections
+â€˘	Ä‡wiczeĹ„ z typami danych
+â€˘	Replace Current vs Add Step
+â€˘	Error â†’ link Error (Ĺ‚apka)
+â€˘	Replace Errors
+â€˘	Merge
+â€˘	Reuse kodu M
+â€˘	Append + refactor pipeline
+Z tÄ… samÄ… dokĹ‚adnoĹ›ciÄ….
+JeĹ›li obecna struktura jest OK, wchodzÄ™ w PQ2 (Close & Load + odĹ›wieĹĽanie) bez skracania.
+TEACH (uzupeĹ‚nienie) - w takim ukĹ‚adzie oznaczajmy to FILL, nie TEACH chcÄ™ ĹĽeby TASKI ktĂłre nie majÄ… narracji przed sobÄ…, miaĹ‚y automatyczne Ĺ‚adne wejĹ›cie, krĂłtko opisujÄ…ce co bÄ™dziemy robiÄ‡ np "PrzejdĹşmy do dodawania kolumny. W nagĹ‚Ăłwku w kolumnie X..." ogĂłĹ‚em ĹĽeby byĹ‚o to ludzko a nie mechaniczne wyznaczanie taskĂłw. CzÄ™Ĺ›Ä‡ roboty robi moja narracja ale ty musisz wypeĹ‚niÄ‡ luki niby ustalone ĹĽe bÄ™dzie ogĂłlna zasada observation a jednak znĂłw w jedno wstawiĹ‚eĹ› : "JeĹĽeli uĹĽytkownik nie zauwaĹĽy ktĂłregoĹ› z tych elementĂłw â€” dopowiedz. Elementy, ktĂłrych raczej nie zauwaĹĽy (np. strukturalne odniesienia jako mechanizm), traktujemy jako TEACH i dopowiadamy." to siÄ™ nie powinno pojawiaÄ‡ w BP - bluprint - tka bÄ™dÄ™ teraz skracaĹ‚ â€žPrzechodzimy do bardzo waĹĽny mechanizm kontroli danych.... " musimy uwaĹĽaÄ‡, narracja musi tworzyÄ‡ wyraĹşne breakpointy ĹĽeby uĹĽytkownik nie myliĹ‚ co mĂłwi o czym. Nie chciaĹ‚bym ĹĽeby tu jak zacznie czytaÄ‡, po pierwszych zdaniach pomyĹ›laĹ‚ ĹĽe waĹĽnym mechanizmem kontroli jest automatyczne rozszerzanie omawiane wczeĹ›niej PQ przydaĹ‚o by siÄ™ jakiĹ› tekst intro do PQ. nie pisaĹ‚em coĹ› o tym? wĹ‚aĹ›nie ĹĽe to inna "warstwa", ĹĽe moĹĽemy tam zrobiÄ‡ prawie wszystko co w excelu tylko bezpieczniej. DziaĹ‚a szybciej i moĹĽe obrabiaÄ‡ wiÄ™cej danych TASK - nie dawajmy goĹ‚ych taskĂłw, niech zawsze majÄ… dopisek co to za zadanie - dodanie tabeli do PQ OBSERVATION (oczekiwane) OtworzyĹ‚ siÄ™ nowy panel / nowe okno. PojawiĹ‚ siÄ™ interfejs z listÄ… zapytaĹ„ po lewej. Widoczny jest podglÄ…d danych. Po prawej stronie widoczne sÄ… kroki (Applied Steps). tu obserwacja to tylko ĹĽe otworzyĹ‚ siÄ™ nowy panel, nowe okno. resztÄ™ opisujemy w tekĹ›cie poniĹĽej Po prawej historiÄ™ transformacji â€” Applied Steps. - Po prawej pojedyncze kroki transformacji danych Na Ĺ›rodku... A nad nim pasek kodu gdzie widzimy kod wybranego kroku jej wartoĹ›Ä‡ albo informacje o bĹ‚Ä™dzie. dodaj "pojawia siÄ™ dopiero po klikniÄ™ciu na dowolnÄ… komĂłrkÄ™ w tabeli. ZrĂłb to teraz " i pĹ‚ynne przejĹ›cie do nastÄ™pnego taska. ten task to bÄ™dzie klikniÄ™cie na tabelÄ™, zobaczenie dolnego pola, potem klikniÄ™cie na kroki po prawej â€žTo wĹ‚aĹ›nie stÄ…d bÄ™dziesz kopiowaÄ‡ kod do weryfikacji. To tutaj bÄ™dziemy wprowadzaÄ‡ poprawki, jeĹ›li zajdzie taka potrzeba.â€ť - dodaj ĹĽe kod moĹĽe zmieniaÄ‡ zarĂłwno tu jak i w pasku kodu. W pasku drobne poprawki, tutaj duĹĽe machinacje i przeklejania"
+Ĺšwietnie.
+Poprawiam zgodnie z Twoimi uwagami:
+â€˘	TEACH zmieniamy na FILL
+â€˘	TASK zawsze ma krĂłtkie, ludzkie wejĹ›cie
+â€˘	nie wkĹ‚adamy do blueprintu meta-instrukcji typu â€žjeĹ›li user nie zauwaĹĽyâ€¦â€ť
+â€˘	wyraĹşne breakpointy narracyjne
+â€˘	lepsze intro do PQ
+â€˘	obserwacje oddzielone od tekstu opisowego
+â€˘	dolne pole aktywowane klikniÄ™ciem
+â€˘	doprecyzowanie o pasku kodu vs Advanced Editor
+Lecimy dalej â€” czysto, pĹ‚ynnie, bez mechanicznoĹ›ci.
+________________________________________
+[ETAP E2 â€” domkniÄ™cie bloku tabel z wyraĹşnym breakpointem]
+TEXT â€” WYRAĹąNY BREAKPOINT
+â€žZatrzymajmy siÄ™ na chwilÄ™.
+To, co przed chwilÄ… zobaczyĹ‚eĹ› â€” automatyczne rozszerzanie tabeli â€” jest wygodne.
+Ale wygoda to nie to samo co kontrola.
+Teraz pokaĹĽÄ™ Ci coĹ›, co jest istotnym punktem kontroli danych, szczegĂłlnie gdy w tabeli regularnie pojawiajÄ… siÄ™ nowe rekordy.â€ť
+________________________________________
+TASK â€” rÄ™czna kontrola zakresu tabeli
+â€žSprawdĹşmy Ĺ›wiadomie zakres tabeli.
+ZĹ‚ap w prawym dolnym rogu tabeli maĹ‚y znacznik rozszerzania.
+PrzeciÄ…gnij go w dĂłĹ‚, a potem w gĂłrÄ™.
+Obserwuj, jak zmienia siÄ™ zakres tabeli.
+NastÄ™pnie wrĂłÄ‡ do poprzedniego stanu skrĂłtem Ctrl + Z.â€ť
+Opisz, co zauwaĹĽyĹ‚eĹ›.
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Zakres tabeli moĹĽna rÄ™cznie zmieniaÄ‡.
+â€˘	Dane wchodzÄ… i wychodzÄ… z obszaru tabeli.

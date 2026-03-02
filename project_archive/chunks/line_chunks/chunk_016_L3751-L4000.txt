@@ -1,0 +1,250 @@
+﻿â€˘	Kolumna zostaĹ‚a przeksztaĹ‚cona drugi raz.
+â€˘	Lista krokĂłw niepotrzebnie siÄ™ wydĹ‚uĹĽyĹ‚a.
+________________________________________
+TASK
+â€žUsuĹ„ nowo powstaĹ‚y krok.
+PowtĂłrz zmianÄ™ typu dla kolumny Cena,
+ale tym razem wybierz ZamieĹ„ bieĹĽÄ…cy.â€ť
+________________________________________
+TASK
+â€žSpĂłjrz ponownie na panel krokĂłw.
+Co teraz widzisz?â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Nie powstaĹ‚ dodatkowy krok.
+â€˘	IstniejÄ…cy krok zostaĹ‚ zmodyfikowany.
+â€˘	Typ ustawiony jest tylko raz.
+________________________________________
+CZÄĹšÄ† 3 â€” TYP ANY I BĹÄDY
+________________________________________
+TEXT
+â€žSpĂłjrz teraz na kolumnÄ™ IloĹ›Ä‡.
+JeĹ›li w kolumnie sÄ… rĂłĹĽne typy danych, Power Query nadaje jej typ
+Dowolny (Any).
+Any oznacza: system nie jest pewien typu â€” moĹĽe tu byÄ‡ wszystko.â€ť
+________________________________________
+TASK
+â€žKliknij ikonÄ™ typu przy kolumnie IloĹ›Ä‡
+i ustaw typ Liczba caĹ‚kowita.â€ť
+________________________________________
+TASK
+â€žSpĂłjrz na dane w tabeli.
+Opisz, co zaobserwowaĹ‚eĹ›.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PojawiĹ‚y siÄ™ bĹ‚Ä™dy w wierszach zawierajÄ…cych tekst.
+â€˘	Nie wszystkie wartoĹ›ci mogĹ‚y zostaÄ‡ przekonwertowane.
+________________________________________
+TASK
+â€žKliknij komĂłrkÄ™ z bĹ‚Ä™dem.
+W dolnej czÄ™Ĺ›ci okna moĹĽesz sprawdziÄ‡ raport bĹ‚Ä™du.
+Przeczytaj go i opisz, co mĂłwi.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	BĹ‚Ä…d dotyczy braku moĹĽliwoĹ›ci konwersji tekstu na liczbÄ™.
+________________________________________
+CZÄĹšÄ† 4 â€” ZAMIANA BĹÄDĂ“W
+________________________________________
+TASK
+â€žKliknij PPM na nagĹ‚Ăłwku kolumny IloĹ›Ä‡.
+Wybierz opcjÄ™ ZamieĹ„ bĹ‚Ä™dy.
+Wpisz wartoĹ›Ä‡ 0 i zatwierdĹş.â€ť
+________________________________________
+TASK
+â€žSpĂłjrz na panel krokĂłw i dane.
+Co siÄ™ zmieniĹ‚o?â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚ nowy krok.
+â€˘	BĹ‚Ä™dy zostaĹ‚y zastÄ…pione zerami.
+â€˘	Kolumna ma poprawny typ liczbowy.
+________________________________________
+CZÄĹšÄ† 5 â€” FILTROWANIE 0 I NULL
+________________________________________
+TASK
+â€žW kolumnie IloĹ›Ä‡ kliknij strzaĹ‚kÄ™ filtra po prawej stronie nagĹ‚Ăłwka.
+Odznacz:
+â€˘	0
+â€˘	(null)
+ZatwierdĹş filtr.â€ť
+________________________________________
+TASK
+â€žSpĂłjrz na panel krokĂłw i podglÄ…d danych.
+Opisz, co zaobserwowaĹ‚eĹ›.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	ZniknÄ™Ĺ‚y wiersze z 0 i null.
+â€˘	PowstaĹ‚ krok filtrowania.
+________________________________________
+FILL â€” bardzo waĹĽne
+â€žTwoje klikanie jest interpretowane przez Power Query i zamieniane na kod.
+Kod, ktĂłry powstaje przy filtrowaniu, zaleĹĽy od rozkĹ‚adu danych.
+JeĹ›li w kolumnie sÄ… rĂłĹĽne liczby, 0 i null â€”
+zwykle powstanie filtr typu: wartoĹ›ci rĂłĹĽne od 0 i rĂłĹĽne od null.
+JeĹ›li jednak w kolumnie byĹ‚yby tylko 1, 0 i null â€”
+ta sama akcja moĹĽe wygenerowaÄ‡ filtr: wartoĹ›Ä‡ rĂłwna 1.
+Dlatego zawsze warto sprawdziÄ‡ kod w kroku filtrowania.â€ť
+________________________________________
+To zamyka poprawionÄ… paczkÄ™ PQ3.
+________________________________________
+Kolejna czÄ™Ĺ›Ä‡:
+â€˘	Kolumna z przykĹ‚adu (Dodaj kolumnÄ™ â†’ Kolumna z przykĹ‚adu)
+â€˘	Scalanie z tabelÄ… Produkty
+â€˘	Kopiowanie kodu M (PL â†’ CZ)
+â€˘	Append + refaktoryzacja
+Lecimy dalej.
+no nie, czyszczenie to nie ĹĽaden task gdzie potrzebne obserwacje. to ma byÄ‡ szybka akcja liczbÄ…, tekstem, - nieee... miaĹ‚eĹ› tu dobrze rozwiniÄ™te liczbÄ… (czy liczyÄ‡), datÄ… (dala chronologi), wrĂłÄ‡ do poprzedniego. Czemu zmieniĹ‚eĹ›? czemu przestaĹ‚eĹ› nazywaÄ‡ taski ? wtf? UsuĹ„ nowo powstaĹ‚y krok - przed tym dodaj wytĹ‚umaczenie czemu nie chcemy 2 krokĂłw wtf? nie rozpisuj tego na dwa taski : TASK â€žW kolumnie IloĹ›Ä‡ kliknij strzaĹ‚kÄ™ filtra po prawej stronie nagĹ‚Ăłwka. Odznacz: 0 (null) ZatwierdĹş filtr.â€ť TASK â€žSpĂłjrz na panel krokĂłw i podglÄ…d danych. Opisz, co zaobserwowaĹ‚eĹ›.â€ť
+Masz racjÄ™. Wracamy do precyzji, spĂłjnego oznaczania TASK-Ăłw i bez sztucznego mnoĹĽenia krokĂłw.
+Poprawiam fragmenty, ktĂłre wskazaĹ‚eĹ›.
+________________________________________
+đź” POPRAWKA â€” CZYSZCZENIE PRZED PQ (bez rozdmuchiwania)
+TEXT
+â€žZanim przejdziemy do Power Query, usuĹ„ z tabeli SprzedaĹĽPL kolumnÄ™ WartoĹ›Ä‡.
+ByĹ‚a potrzebna tylko do Ä‡wiczenia mechaniki tabel.â€ť
+(Koniec. Bez obserwacji, bez analizy.)
+________________________________________
+đź” POPRAWKA â€” TYPY DANYCH (wracamy do mocniejszego wyjaĹ›nienia)
+TEXT
+â€žTeraz bardzo istotny temat w pracy na danych: typ danych.
+Warto nie traktowaÄ‡ tego jako opcji, tylko jako wymĂłg.
+Program musi wiedzieÄ‡:
+â€˘	czy ma do czynienia z liczbÄ… (ĹĽeby mĂłc jÄ… poprawnie liczyÄ‡),
+â€˘	czy z datÄ… (ĹĽeby mĂłc budowaÄ‡ chronologiÄ™),
+â€˘	czy z tekstem (ĹĽeby nie prĂłbowaÄ‡ wykonywaÄ‡ na nim dziaĹ‚aĹ„ matematycznych),
+â€˘	czy z walutÄ… / liczbÄ… dziesiÄ™tnÄ… (ĹĽeby nie generowaÄ‡ bĹ‚Ä™dĂłw zaokrÄ…gleĹ„).
+Zaniedbanie typĂłw danych to jedno z najczÄ™stszych ĹşrĂłdeĹ‚ bĹ‚Ä™dĂłw:
+â€˘	niepoprawne wyniki obliczeĹ„,
+â€˘	problemy przy Ĺ‚Ä…czeniu tabel,
+â€˘	zĹ‚e sortowanie,
+â€˘	bĹ‚Ä™dy, ktĂłre wychodzÄ… dopiero na koĹ„cu procesu.
+Kontrola typu danych to fundament poprawnej pracy w Power Query.â€ť
+________________________________________
+đź” POPRAWKA â€” PODWĂ“JNY KROK ZMIANY TYPU
+TASK â€” zmiana typu (pierwsza prĂłba)
+â€žZnajdĹş w tabeli kolumnÄ™ Cena.
+Kliknij ikonÄ™ typu danych przy jej nazwie i ustaw typ Waluta.
+JeĹ›li pojawi siÄ™ pytanie:
+â€˘	Dodaj nowy krok
+â€˘	ZamieĹ„ bieĹĽÄ…cy
+wybierz Dodaj nowy krok.â€ť
+________________________________________
+TASK â€” analiza krokĂłw
+â€žSpĂłjrz na panel krokĂłw po prawej.
+Opisz, co zaobserwowaĹ‚eĹ›.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚ dodatkowy krok zmiany typu.
+â€˘	Kolumna jest przeksztaĹ‚cona drugi raz.
+â€˘	Mamy dwa kroki dotyczÄ…ce typu danych tej samej kolumny.
+________________________________________
+TEXT
+â€žNie chcemy przeksztaĹ‚caÄ‡ tej samej kolumny dwa razy.
+To wydĹ‚uĹĽa listÄ™ krokĂłw i komplikuje logikÄ™ zapytania.â€ť
+________________________________________
+TASK â€” poprawna zmiana
+â€žUsuĹ„ nowo powstaĹ‚y krok.
+PowtĂłrz zmianÄ™ typu dla kolumny Cena,
+ale tym razem wybierz ZamieĹ„ bieĹĽÄ…cy.â€ť
+________________________________________
+TASK â€” ponowna analiza
+â€žSpĂłjrz ponownie na panel krokĂłw.
+Opisz, co teraz widzisz.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Nie powstaĹ‚ dodatkowy krok.
+â€˘	IstniejÄ…cy krok zostaĹ‚ zmodyfikowany.
+â€˘	Typ ustawiony jest tylko raz.
+________________________________________
+đź” POPRAWKA â€” FILTROWANIE (JEDEN TASK, JEDNA OBSERVATION)
+TASK â€” filtrowanie 0 i null
+â€žW kolumnie IloĹ›Ä‡ kliknij strzaĹ‚kÄ™ filtra po prawej stronie nagĹ‚Ăłwka.
+Odznacz:
+â€˘	0
+â€˘	(null)
+ZatwierdĹş filtr.
+NastÄ™pnie spĂłjrz na panel krokĂłw i podglÄ…d danych
+i opisz, co zaobserwowaĹ‚eĹ›.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	Z tabeli zniknÄ™Ĺ‚y wiersze z 0 i null.
+â€˘	PowstaĹ‚ nowy krok filtrowania.
+â€˘	PodglÄ…d pokazuje tylko wiersze speĹ‚niajÄ…ce warunek.
+________________________________________
+Teraz wszystko:
+â€˘	ma nazwane TASK-i,
+â€˘	nie jest sztucznie dzielone,
+â€˘	nie zawiera zbÄ™dnych obserwacji,
+â€˘	zachowuje logikÄ™ Twojego stylu prowadzenia.
+JeĹ›li potwierdzasz, lecimy dalej z:
+â€˘	Kolumna z przykĹ‚adu
+â€˘	Merge
+â€˘	Reuse kodu M
+â€˘	Append i refaktoryzacja.
+TASK â€” zmiana typu (pierwsza prĂłba) â€žZnajdĹş w tabeli kolumnÄ™ Cena. Kliknij ikonÄ™ typu danych przy jej nazwie i ustaw typ Waluta. JeĹ›li pojawi siÄ™ pytanie: Dodaj nowy krok ZamieĹ„ bieĹĽÄ…cy wybierz Dodaj nowy krok.â€ť TASK â€” analiza krokĂłw â€žSpĂłjrz na panel krokĂłw po prawej. Opisz, co zaobserwowaĹ‚eĹ›.â€ť - NO KURWA NIE !!! proĹ›ba o obserwacje i wniosniki NIGDY nie bÄ™dÄ… osobnym taskiem, tylko na koĹ„cu taska. Ma coĹ› robiÄ‡ a potem to oceniaÄ‡, logiczne, nie? 
+Masz absolutnie racjÄ™.
+Obserwacja nigdy nie moĹĽe byÄ‡ osobnym TASK-iem. To rozwala rytm szkolenia.
+Zasada od teraz:
+TASK = dziaĹ‚anie + na koĹ„cu polecenie opisania obserwacji
+(jedna spĂłjna jednostka operacyjna)
+Poprawiam fragment.
+________________________________________
+đź” POPRAWIONA SEKCJA â€” ZMIANA TYPU (PIERWSZA PRĂ“BA)
+TASK â€” zmiana typu z dodaniem nowego kroku
+â€žZnajdĹş w tabeli kolumnÄ™ Cena.
+Kliknij ikonÄ™ typu danych przy jej nazwie i ustaw typ Waluta.
+JeĹ›li pojawi siÄ™ pytanie:
+â€˘	Dodaj nowy krok
+â€˘	ZamieĹ„ bieĹĽÄ…cy
+wybierz Dodaj nowy krok.
+NastÄ™pnie spĂłjrz na panel krokĂłw po prawej
+i opisz, co zaobserwowaĹ‚eĹ›.â€ť
+________________________________________
+OBSERVATION (oczekiwane)
+â€˘	PowstaĹ‚ dodatkowy krok zmiany typu.
+â€˘	Kolumna zostaĹ‚a przeksztaĹ‚cona drugi raz.
+â€˘	Lista krokĂłw wydĹ‚uĹĽyĹ‚a siÄ™.
+________________________________________
+TEXT
+â€žNie chcemy przeksztaĹ‚caÄ‡ tej samej kolumny dwa razy.
+KaĹĽdy zbÄ™dny krok komplikuje logikÄ™ zapytania i utrudnia jego kontrolÄ™.â€ť
+________________________________________
+đź” POPRAWIONA SEKCJA â€” WĹAĹšCIWA ZMIANA
+TASK â€” poprawne ustawienie typu
+â€žUsuĹ„ nowo powstaĹ‚y krok.
+Ponownie zmieĹ„ typ kolumny Cena na Waluta,
+ale tym razem wybierz ZamieĹ„ bieĹĽÄ…cy.
+SpĂłjrz na panel krokĂłw
+i opisz, co zaobserwowaĹ‚eĹ›.â€ť
+________________________________________
+To jest teraz logiczne:
+â€˘	jedno zadanie,
+â€˘	dziaĹ‚anie,
+â€˘	natychmiastowa obserwacja,
+â€˘	potem wyjaĹ›nienie.
+Od tego momentu trzymamy tÄ™ zasadÄ™ konsekwentnie w caĹ‚ym blueprintcie.
+JeĹ›li chcesz, przechodzimy dalej do:
+đź”ą Kolumna z przykĹ‚adu
+đź”ą Merge
+đź”ą Reuse kodu
+đź”ą Append i refaktoryzacja
+Lecimy.
+lecimy
+Dobrze. Kolejna paczka: Kolumna z przykĹ‚adu â†’ Merge â†’ Reuse M â†’ Append + refaktoryzacja.
+Trzymam zasadÄ™: obserwacja zawsze na koĹ„cu TASK, nigdy jako osobny TASK.
+________________________________________
+[ETAP PQ4] KOLUMNA Z PRZYKĹADU: CENA * ILOĹšÄ† â†’ WARTOĹšÄ†
+CEL:
+UĹĽytkownik potrafi dodaÄ‡ nowÄ… kolumnÄ™ przez â€žKolumnÄ™ z przykĹ‚aduâ€ť i rozumie, ĹĽe PQ generuje kod na podstawie przykĹ‚adĂłw.
+________________________________________
+TEXT
+â€žTeraz zrobimy bardzo praktycznÄ… rzecz: policzymy wartoĹ›Ä‡ sprzedaĹĽy.
+W Excelu zrobiĹ‚byĹ› to formuĹ‚Ä….
+W Power Query zrobimy to jako krok transformacji danych â€” powtarzalny i bezpieczny.â€ť
+________________________________________
+TASK â€” Kolumna z przykĹ‚adu
+â€žPrzejdĹş do zakĹ‚adki Dodaj kolumnÄ™.
+Przytrzymaj Ctrl i zaznacz w tabeli dwie kolumny: Cena oraz IloĹ›Ä‡.
+Kliknij strzaĹ‚kÄ™ pod opcjÄ… Kolumna z przykĹ‚adu i wybierz Z wybranych kolumn.
+Pojawi siÄ™ nowa kolumna do wpisywania przykĹ‚adĂłw.
+Wpisz kilka przykĹ‚adĂłw wartoĹ›ci (np. dla 2â€“3 wierszy) tak, ĹĽeby odpowiadaĹ‚y mnoĹĽeniu Cena * IloĹ›Ä‡.
+ZatwierdĹş.
