@@ -16,16 +16,13 @@ Po Enter opisz, co zaobserwowałeś.
 ### OBSERVATION (oczekiwane)
 - Excel podpowiada nazwę tabeli.
 - Po Enter wyświetla się wynik odniesienia do tabeli.
+- Wyświetlana inna ikona dla Tabel niż dla Formuł
 
 ### TEXT — Co zaraz zrobimy
 Teraz przechodzimy do elementów tabeli: kolumn i elementów specjalnych z `#`.
-
-### TASK — ODNIESIENIE 2 (nawias kwadratowy)
 Wpisz ręcznie:
 `=[nazwa_tabeli][`
-Po wpisaniu opisz, co zaobserwowałeś.
-
-### OBSERVATION (oczekiwane)
+Po wpisaniu sprawdź, co pokazuje lista elementów.
 - Pojawia się lista elementów tabeli.
 - Widzisz elementy specjalne z prefiksem `#` oraz kolumny.
 
@@ -50,7 +47,7 @@ Odwołujesz się do `#Totals`, a tabela nie ma jeszcze wiersza sum.
 ### TASK — Włączenie `Total Row`
 Kliknij tabelę.
 Przejdź do `Table Design / Projektowanie tabeli`.
-Włącz `Total Row / Wiersz sum`.
+Włącz `Total Row / Wiersz sum`. (kliknij checkbox)
 Opisz, co zaobserwowałeś.
 
 ### OBSERVATION (oczekiwane)
@@ -68,36 +65,51 @@ Opisz, co zaobserwowałeś.
 - W obszarze tabeli zwracana jest pojedyncza wartość z bieżącego wiersza.
 - Poza tabelą pojawia się błąd, bo nie ma wiersza kontekstu tabeli.
 
-### TASK — Auto-expand (rozbite kroki)
-1. Wpisz nowy nagłówek kolumny: `Wartość`.
-2. Opisz, co zaobserwowałeś.
-3. W pierwszej komórce tej kolumny wpisz: `=`.
-4. Kliknij kolumnę `Ilość` (lub wybierz strzałkami).
-5. Wpisz `*`.
-6. Kliknij kolumnę `Cena` (lub wybierz strzałkami).
-7. Zatwierdź i opisz, co zaobserwowałeś.
-8. Dopisz nowy numer ID pod tabelą i opisz, co zaobserwowałeś.
+### TASK — Auto-expand 1/3 (nagłówek kolumny)
+Wpisz nowy nagłówek kolumny: `Wartość`.
+Opisz, co zaobserwowałeś.
 
 ### OBSERVATION (oczekiwane)
 - Po wpisaniu nagłówka tabela rozszerza się o nową kolumnę.
+
+### TASK — Auto-expand 2/3 (formuła)
+W pierwszej komórce tej nowej kolumny wpisz: `=`.
+Kliknij kolumnę `Ilość` (lub wybierz strzałkami).
+Wpisz `*`.
+Kliknij kolumnę `Cena` (lub wybierz strzałkami).
+Zatwierdź i opisz, co zaobserwowałeś.
+
+### OBSERVATION (oczekiwane)
 - Formuła automatycznie kopiuje się w dół tabeli.
-- Po dopisaniu nowego wiersza tabela i formuły rozszerzają się.
+
+### TASK — Auto-expand 3/3 (nowy wiersz)
+Dopisz nowy numer ID pod tabelą i opisz, co zaobserwowałeś.
+
+### OBSERVATION (oczekiwane)
+- Tabela i formuły rozszerzają się na nowy wiersz.
+
+### TEXT — Dlaczego XLOOKUP w tym ćwiczeniu
+W tabeli sprzedaży mamy ID produktu, ale chcemy mieć też nazwę produktu.
+Do tego ćwiczenia użyjemy `XLOOKUP`, bo jest wygodniejszy od `VLOOKUP` przy pracy na tabelach.
+Łatwiej nim czytelnie wskazać kolumnę wyszukiwania i kolumnę wyniku.
 
 ### TASK — XLOOKUP (nazwa produktu)
 Dodaj kolumnę `NazwaProduktu`.
-Wpisz `XLOOKUP`, aby po ID produktu pobrać nazwę z tabeli produktów.
+Użyj funkcji `XLOOKUP`, aby po ID produktu pobrać nazwę z tabeli produktów.
 Opisz, czy działa poprawnie.
 
 ### OBSERVATION (oczekiwane)
 - Pojawiają się nazwy produktów.
 - Formuła działa dla całej tabeli.
+- Gdy odwołujesz się do kolumny w tej samej tabeli, nie musisz podawać nazwy tabeli.
+- Gdy odwołujesz się do innej tabeli, podajesz jej nazwę.
 
 ### TASK — Sprzątanie przed PQ
 Usuń kolumny ćwiczeniowe: `Wartość` i `NazwaProduktu`.
-Opisz, co zaobserwowałeś.
 
-### OBSERVATION (oczekiwane)
-- Tabela wraca do układu wyjściowego pod Power Query.
+### TEXT — Płynne przejście do PQ
+Świetnie! Dobra robota z tabelami.
+Masz już mocny fundament, więc teraz przechodzimy do Power Query i budowy pipeline.
 
 ## Log decyzji i poprawek (per blok)
 
@@ -115,6 +127,7 @@ Opisz, co zaobserwowałeś.
   - Rozdzielić na: najpierw sama nazwa tabeli, potem `[` i dopiero `#...`.
 - Poprawki:
   - Rozbicie na osobne taski.
+  - Część z `[` przeniesiona do `TEXT` (bez osobnego taska i observation).
 - Źródła: `2247`, `2260`, `2270`, `2372`.
 
 ### BLOK E1A.TASK.TotalRow
@@ -133,3 +146,20 @@ Opisz, co zaobserwowałeś.
 - Poprawki:
   - Skorygowano formułę i dodano przeciąganie.
 - Źródła: `2295`, `2297`, `2298`, bezpośrednia uwaga użytkownika #4.
+
+### BLOK E1A.AutoExpand
+- Typ: `TASK` + `OBSERVATION`
+- Decyzje:
+  - Auto-expand ma być podzielony na 3 osobne taski z oddzielnymi obserwacjami.
+- Poprawki:
+  - Rozbicie: nagłówek / formuła / nowy wiersz.
+- Źródła: `2308-2321`, bezpośrednia uwaga użytkownika #2.
+
+### BLOK E1A.XLOOKUP
+- Typ: `TEXT` + `TASK` + `OBSERVATION`
+- Decyzje:
+  - Dodać wyjaśnienie, dlaczego tu `XLOOKUP` jest lepszy od `VLOOKUP`.
+  - Dodać obserwację o różnicy odwołań: ta sama tabela vs inna tabela.
+- Poprawki:
+  - Dodano `TEXT` i rozszerzono `OBSERVATION`.
+- Źródła: `145-156`, `4133`, bezpośrednia uwaga użytkownika #3.
